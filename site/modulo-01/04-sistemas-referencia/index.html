@@ -1,0 +1,4944 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Qué es un CRS, sistemas geográficos y proyectados, datum horizontal y vertical, sistemas locales y globales, WGS 84, SIRGAS, códigos EPSG e identificación de un CRS.">
+      
+      
+        <meta name="author" content="Chpass">
+      
+      
+        <link rel="canonical" href="https://chpass369.github.io/106_curso_qgis_introductorio/modulo-01/04-sistemas-referencia/">
+      
+      
+        <link rel="prev" href="../03-fundamentos-geodesia/">
+      
+      
+        <link rel="next" href="../05-proyecciones-cartograficas/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>1.4 Sistemas de Referencia de Coordenadas - 106 - Curso Introductorio QGIS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+      <link rel="stylesheet" href="../../assets/css/latlon.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#14-sistemas-de-referencia-de-coordenadas" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="106 - Curso Introductorio QGIS" class="md-header__button md-logo" aria-label="106 - Curso Introductorio QGIS" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            106 - Curso Introductorio QGIS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1.4 Sistemas de Referencia de Coordenadas
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="teal"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="teal"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartir" aria-label="Compartir" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://chpass369.github.io/106_curso_qgis_introductorio/" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chpass369/curso-qgis
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../instructor/" class="md-tabs__link">
+          
+  
+  
+  Acerca
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../programa/" class="md-tabs__link">
+          
+  
+  
+  Curso
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Mod1 · Fundamentos SIG
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../modulo-02/" class="md-tabs__link">
+          
+  
+  
+  Mod2 · Introducción a QGIS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../modulo-03/index.md" class="md-tabs__link">
+          
+  
+  
+  Mod3 · Sistemas de referencia en QGIS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../practicas/index.md" class="md-tabs__link">
+          
+  
+  
+  Prácticas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../evaluaciones/index.md" class="md-tabs__link">
+          
+  
+  
+  Evaluaciones
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../descargas/index.md" class="md-tabs__link">
+          
+  
+  
+  Descargas
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="106 - Curso Introductorio QGIS" class="md-nav__button md-logo" aria-label="106 - Curso Introductorio QGIS" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    106 - Curso Introductorio QGIS
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://chpass369.github.io/106_curso_qgis_introductorio/" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chpass369/curso-qgis
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acerca
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Acerca
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../instructor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instructor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syllabus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../videos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Videos Tutoriales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../material/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Material de apoyo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agradecimientos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agradecimientos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../acerca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acerca del curso
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Curso
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Curso
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mod1 · Fundamentos SIG
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mod1 · Fundamentos SIG
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SIG y territorio
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SIG y territorio
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-sistemas-informacion-geografica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1 Sistemas de Información Geográfica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-espacio-geografico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2 Espacio geográfico y territorio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geodesia y sistemas de referencia
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Geodesia y sistemas de referencia
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-fundamentos-geodesia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3 Fundamentos de Geodesia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.4 Sistemas de Referencia de Coordenadas
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.4 Sistemas de Referencia de Coordenadas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#un-numero-no-es-una-ubicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Un número no es una ubicación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-un-sistema-de-referencia-de-coordenadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Qué es un Sistema de Referencia de Coordenadas?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="¿Qué es un Sistema de Referencia de Coordenadas?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#componentes-de-un-crs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Componentes de un CRS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crs-geograficos-y-crs-proyectados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CRS geográficos y CRS proyectados
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CRS geográficos y CRS proyectados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crs-geograficos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CRS geográficos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crs-proyectados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CRS proyectados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coordenadas-angulares-y-coordenadas-metricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coordenadas angulares y coordenadas métricas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#otros-tipos-de-crs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Otros tipos de CRS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datum-horizontal-y-datum-vertical" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datum horizontal y datum vertical
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Datum horizontal y datum vertical">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-datum-vertical" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de datum vertical
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sistemas-locales-regionales-y-globales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sistemas locales, regionales y globales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sistemas locales, regionales y globales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coordenadas-locales-o-de-obra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coordenadas locales o de obra
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sistema-de-referencia-y-marco-de-referencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sistema de referencia y marco de referencia
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wgs-84" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WGS 84
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="WGS 84">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Características
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#por-que-es-tan-usado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Por qué es tan usado?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codigos-epsg-mas-usados-de-wgs-84" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Códigos EPSG más usados de WGS 84
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sirgas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SIRGAS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SIRGAS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#origen-y-evolucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Origen y evolución
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#realizaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Realizaciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sirgas-y-wgs-84" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SIRGAS y WGS 84
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#el-marco-geodesico-de-bolivia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        El marco geodésico de Bolivia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codigos-epsg-de-sirgas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Códigos EPSG de SIRGAS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codigo-epsg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Código EPSG
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Código EPSG">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#los-codigos-epsg-no-son-solo-crs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Los códigos EPSG no son solo CRS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#otras-formas-de-describir-un-crs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Otras formas de describir un CRS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identificacion-de-un-crs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identificación de un CRS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Identificación de un CRS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#donde-se-guarda-el-crs-segun-el-formato" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dónde se guarda el CRS según el formato
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pistas-a-partir-de-los-valores-de-las-coordenadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pistas a partir de los valores de las coordenadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#procedimiento-para-identificar-un-crs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Procedimiento para identificar un CRS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sintomas-de-un-crs-mal-definido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Síntomas de un CRS mal definido
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ideas-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ideas clave
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autoevaluación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-propuesta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actividad propuesta
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referencias
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-proyecciones-cartograficas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.5 Proyecciones cartográficas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-sistema-utm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.6 Sistema UTM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cartografía y escala
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cartografía y escala
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-fundamentos-cartografia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.7 Fundamentos de Cartografía
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-escala-cartografica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.8 Escala cartográfica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-escala-resolucion-precision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.9 Escala, resolución y precisión
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-generalizacion-cartografica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.10 Generalización cartográfica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Datos geoespaciales
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Datos geoespaciales
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-modelos-representacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.11 Modelos de representación espacial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-dato-geoespacial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.12 El dato geoespacial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-calidad-informacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.13 Calidad de la información geográfica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panorama geotecnológico
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Panorama geotecnológico
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-sig-otras-geotecnologias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.14 SIG y otras geotecnologías
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-ecosistema-geotecnologias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.15 Ecosistema de geotecnologías
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Práctica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mod2 · Introducción a QGIS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mod2 · Introducción a QGIS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entorno y proyectos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Entorno y proyectos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/01-entorno-trabajo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.1 Preparar un entorno de trabajo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/02-orientarse-interfaz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.2 Orientarse y trabajar con fluidez
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/03-gestionar-proyectos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.3 Comprender y gestionar proyectos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Datos y coordenadas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Datos y coordenadas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/04-incorporar-datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.4 Incorporar datos y reconocer sus diferencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/05-tablas-coordenadas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.5 Convertir una tabla en información geográfica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/06-problemas-coordenadas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.6 Resolver problemas de coordenadas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Explorar y consultar
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Explorar y consultar
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/07-leer-datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.7 Leer los datos antes de utilizarlos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/08-seleccionar-filtrar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.8 Seleccionar, filtrar y extraer información
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Representar y conectar
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Representar y conectar
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/09-simbologia-etiquetas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.9 Representar y etiquetar datos vectoriales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/10-explorar-raster/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.10 Explorar imágenes y superficies ráster
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/11-servicios-web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.11 Conectar información disponible en internet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Taller
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Taller
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/12-taller-proyecto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.12 Construir y entregar un proyecto funcional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mod3 · Sistemas de referencia en QGIS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mod3 · Sistemas de referencia en QGIS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/01-crs-proyecto-capa.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CRS del proyecto y CRS de la capa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/02-identificar-asignar-crs.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Identificar y asignar un CRS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/03-reproyectar-capas.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproyectar capas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/04-transformaciones-datum.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transformaciones de datum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/practica.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Práctica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prácticas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prácticas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practicas/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Índice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluaciones
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Evaluaciones
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../evaluaciones/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Índice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Descargas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Descargas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../descargas/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Material del curso
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#un-numero-no-es-una-ubicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Un número no es una ubicación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-un-sistema-de-referencia-de-coordenadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Qué es un Sistema de Referencia de Coordenadas?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="¿Qué es un Sistema de Referencia de Coordenadas?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#componentes-de-un-crs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Componentes de un CRS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crs-geograficos-y-crs-proyectados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CRS geográficos y CRS proyectados
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CRS geográficos y CRS proyectados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crs-geograficos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CRS geográficos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crs-proyectados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CRS proyectados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coordenadas-angulares-y-coordenadas-metricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coordenadas angulares y coordenadas métricas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#otros-tipos-de-crs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Otros tipos de CRS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datum-horizontal-y-datum-vertical" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datum horizontal y datum vertical
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Datum horizontal y datum vertical">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-datum-vertical" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de datum vertical
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sistemas-locales-regionales-y-globales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sistemas locales, regionales y globales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sistemas locales, regionales y globales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coordenadas-locales-o-de-obra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coordenadas locales o de obra
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sistema-de-referencia-y-marco-de-referencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sistema de referencia y marco de referencia
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wgs-84" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WGS 84
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="WGS 84">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Características
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#por-que-es-tan-usado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Por qué es tan usado?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codigos-epsg-mas-usados-de-wgs-84" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Códigos EPSG más usados de WGS 84
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sirgas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SIRGAS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SIRGAS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#origen-y-evolucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Origen y evolución
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#realizaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Realizaciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sirgas-y-wgs-84" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SIRGAS y WGS 84
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#el-marco-geodesico-de-bolivia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        El marco geodésico de Bolivia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codigos-epsg-de-sirgas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Códigos EPSG de SIRGAS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codigo-epsg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Código EPSG
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Código EPSG">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#los-codigos-epsg-no-son-solo-crs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Los códigos EPSG no son solo CRS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#otras-formas-de-describir-un-crs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Otras formas de describir un CRS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identificacion-de-un-crs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identificación de un CRS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Identificación de un CRS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#donde-se-guarda-el-crs-segun-el-formato" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dónde se guarda el CRS según el formato
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pistas-a-partir-de-los-valores-de-las-coordenadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pistas a partir de los valores de las coordenadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#procedimiento-para-identificar-un-crs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Procedimiento para identificar un CRS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sintomas-de-un-crs-mal-definido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Síntomas de un CRS mal definido
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ideas-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ideas clave
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autoevaluación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-propuesta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actividad propuesta
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referencias
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="Navegación" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Mod1 · Fundamentos SIG
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../03-fundamentos-geodesia/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Geodesia y sistemas de referencia
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://chpass369.github.io/106_curso_qgis_introductorio/edit/main/docs/modulo-01/04-sistemas-referencia.md" title="Editar esta página" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://chpass369.github.io/106_curso_qgis_introductorio/raw/main/docs/modulo-01/04-sistemas-referencia.md" title="Ver código fuente de esta página" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="14-sistemas-de-referencia-de-coordenadas">1.4 Sistemas de Referencia de Coordenadas<a class="headerlink" href="#14-sistemas-de-referencia-de-coordenadas" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Objetivos de aprendizaje</p>
+<p>Al finalizar este tema, el estudiante será capaz de:</p>
+<ul>
+<li>Explicar qué es un Sistema de Referencia de Coordenadas (CRS) y cuáles son sus componentes.</li>
+<li>Diferenciar un CRS geográfico de uno proyectado, y las coordenadas angulares de las métricas.</li>
+<li>Distinguir entre datum horizontal y datum vertical.</li>
+<li>Diferenciar sistemas de referencia locales, regionales y globales.</li>
+<li>Describir WGS 84 y SIRGAS, y su relación con el marco geodésico de Bolivia.</li>
+<li>Interpretar un código EPSG e identificar el CRS de un conjunto de datos.</li>
+</ul>
+</div>
+<hr />
+<h2 id="un-numero-no-es-una-ubicacion">Un número no es una ubicación<a class="headerlink" href="#un-numero-no-es-una-ubicacion" title="Permanent link">&para;</a></h2>
+<p>En el tema anterior vimos que un <strong>datum</strong> fija un elipsoide a la Tierra. Ahora completamos la idea: para que un par de números represente un lugar, hay que saber <strong>exactamente cómo interpretarlos</strong>.</p>
+<p>Observa el mismo punto, la Plaza Murillo de La Paz, expresado en cinco sistemas distintos:</p>
+<table>
+<thead>
+<tr>
+<th>Sistema de referencia</th>
+<th>Código EPSG</th>
+<th>X</th>
+<th>Y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WGS 84 (geográfico)</td>
+<td>4326</td>
+<td>−68.1336</td>
+<td>−16.4958</td>
+</tr>
+<tr>
+<td>SIRGAS 2000 (geográfico)</td>
+<td>4674</td>
+<td>−68.1336</td>
+<td>−16.4958</td>
+</tr>
+<tr>
+<td>WGS 84 / UTM zona 19S</td>
+<td>32719</td>
+<td>592 468</td>
+<td>8 176 022</td>
+</tr>
+<tr>
+<td>WGS 84 / Pseudo-Mercator</td>
+<td>3857</td>
+<td>−7 584 598</td>
+<td>−1 862 211</td>
+</tr>
+<tr>
+<td>PSAD56 / UTM zona 19S</td>
+<td>24879</td>
+<td>≈ 592 654</td>
+<td>≈ 8 176 400</td>
+</tr>
+</tbody>
+</table>
+<p>Cinco pares de números para <strong>un solo lugar</strong>. Y hay dos detalles que conviene notar:</p>
+<ul>
+<li>WGS 84 y SIRGAS 2000 dan <strong>los mismos números</strong> a esta precisión, aunque son sistemas distintos.</li>
+<li>Las coordenadas en PSAD56 / UTM <strong>se parecen mucho</strong> a las de WGS 84 / UTM, pero corresponden a puntos separados por <strong>unos 400 metros</strong> sobre el terreno.</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">La regla fundamental</p>
+<p><strong>Una coordenada sin su sistema de referencia no es una ubicación: es solo un par de números.</strong></p>
+</div>
+<hr />
+<h2 id="que-es-un-sistema-de-referencia-de-coordenadas">¿Qué es un Sistema de Referencia de Coordenadas?<a class="headerlink" href="#que-es-un-sistema-de-referencia-de-coordenadas" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Definición</p>
+<p>Un <strong>Sistema de Referencia de Coordenadas</strong> (<em>Coordinate Reference System</em>, <strong>CRS</strong>) es un sistema de coordenadas vinculado a la Tierra mediante un <strong>datum</strong>. Define de forma completa y sin ambigüedad cómo interpretar los valores de una coordenada para ubicar un punto sobre el territorio.</p>
+</div>
+<p>En español también se le llama <strong>Sistema de Referencia Espacial</strong> (SRS) o, de forma abreviada, <strong>sistema de referencia</strong>. En QGIS verás casi siempre la sigla <strong>SRC</strong> (Sistema de Referencia de Coordenadas) o <strong>CRS</strong>.</p>
+<h3 id="componentes-de-un-crs">Componentes de un CRS<a class="headerlink" href="#componentes-de-un-crs" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TB
+    CRS["&lt;b&gt;Sistema de Referencia de Coordenadas&lt;/b&gt;"]
+    DAT["&lt;b&gt;Datum&lt;/b&gt;&lt;br/&gt;¿Respecto a qué modelo de la Tierra?"]
+    CS["&lt;b&gt;Sistema de coordenadas&lt;/b&gt;&lt;br/&gt;¿Cómo se expresan los valores?"]
+    PRO["&lt;b&gt;Proyección&lt;/b&gt;&lt;br/&gt;Solo en CRS proyectados"]
+    ELI["Elipsoide"]
+    MER["Meridiano de origen"]
+    POS["Posición y orientación"]
+    EJE["Ejes y su orden"]
+    UNI["Unidad de medida"]
+    CRS --&gt; DAT
+    CRS --&gt; CS
+    CRS -.-&gt; PRO
+    DAT --&gt; ELI
+    DAT --&gt; MER
+    DAT --&gt; POS
+    CS --&gt; EJE
+    CS --&gt; UNI</code></pre>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Qué define</th>
+<th>Ejemplo en WGS 84 / UTM zona 19S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Datum</strong></td>
+<td>El modelo de la Tierra y su ubicación</td>
+<td>WGS 84</td>
+</tr>
+<tr>
+<td><strong>Elipsoide</strong></td>
+<td>Tamaño y forma de la figura de referencia</td>
+<td>WGS 84 (<em>a</em> = 6 378 137 m)</td>
+</tr>
+<tr>
+<td><strong>Meridiano de origen</strong></td>
+<td>Dónde está la longitud 0°</td>
+<td>Greenwich</td>
+</tr>
+<tr>
+<td><strong>Sistema de coordenadas</strong></td>
+<td>Número de ejes, su dirección y su orden</td>
+<td>Este (E), Norte (N)</td>
+</tr>
+<tr>
+<td><strong>Unidad de medida</strong></td>
+<td>En qué se expresan los valores</td>
+<td>Metros</td>
+</tr>
+<tr>
+<td><strong>Proyección</strong></td>
+<td>Cómo se pasa del elipsoide al plano</td>
+<td>Transversa de Mercator, meridiano central −69°</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Sistema de coordenadas no es lo mismo que sistema de referencia</p>
+<ul>
+<li>Un <strong>sistema de coordenadas</strong> es solo una regla matemática: ejes, orden y unidades. "Dos ejes perpendiculares en metros" es un sistema de coordenadas, pero no dice nada sobre la Tierra.</li>
+<li>Un <strong>sistema de referencia de coordenadas</strong> vincula ese sistema a la Tierra mediante un datum.</li>
+</ul>
+<p>En el lenguaje cotidiano se usan como sinónimos, pero la diferencia es importante: sin datum, las coordenadas no tienen un lugar al cual referirse.</p>
+</div>
+<hr />
+<h2 id="crs-geograficos-y-crs-proyectados">CRS geográficos y CRS proyectados<a class="headerlink" href="#crs-geograficos-y-crs-proyectados" title="Permanent link">&para;</a></h2>
+<p>Los CRS que usaremos casi siempre en un SIG pertenecen a una de estas dos familias.</p>
+<figure class="figura">
+<svg viewBox="0 0 720 370" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparación entre un CRS geográfico sobre el globo y un CRS proyectado sobre un plano">
+<circle cx="170" cy="170" r="120" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="2"/>
+<ellipse cx="170" cy="170" rx="60" ry="120" fill="none" stroke="#3f6fd8" stroke-width="1.2"/>
+<ellipse cx="170" cy="170" rx="103.9" ry="120" fill="none" stroke="#3f6fd8" stroke-width="1.2"/>
+<line x1="170" y1="50" x2="170" y2="290" stroke="#3f6fd8" stroke-width="1.2"/>
+<line x1="50" y1="170" x2="290" y2="170" stroke="#2e9e5b" stroke-width="1.2"/>
+<line x1="66.1" y1="110" x2="273.9" y2="110" stroke="#2e9e5b" stroke-width="1.2"/>
+<line x1="66.1" y1="230" x2="273.9" y2="230" stroke="#2e9e5b" stroke-width="1.2"/>
+<line x1="110" y1="66.1" x2="230" y2="66.1" stroke="#2e9e5b" stroke-width="1.2"/>
+<line x1="110" y1="273.9" x2="230" y2="273.9" stroke="#2e9e5b" stroke-width="1.2"/>
+<circle cx="118" cy="230" r="6" fill="#e0823d"/>
+<text x="118" y="258" text-anchor="middle" font-size="13" font-weight="bold" fill="#e0823d">(λ, φ)</text>
+<line x1="318" y1="170" x2="392" y2="170" stroke="currentColor" stroke-width="2.5"/>
+<polygon points="404,170 390,162 390,178" fill="currentColor"/>
+<text x="361" y="158" text-anchor="middle" font-size="13" fill="currentColor">Proyección</text>
+<rect x="430" y="50" width="260" height="240" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="2"/>
+<line x1="482" y1="50" x2="482" y2="290" stroke="#3f6fd8" stroke-width="1.2"/>
+<line x1="534" y1="50" x2="534" y2="290" stroke="#3f6fd8" stroke-width="1.2"/>
+<line x1="586" y1="50" x2="586" y2="290" stroke="#3f6fd8" stroke-width="1.2"/>
+<line x1="638" y1="50" x2="638" y2="290" stroke="#3f6fd8" stroke-width="1.2"/>
+<line x1="430" y1="98" x2="690" y2="98" stroke="#2e9e5b" stroke-width="1.2"/>
+<line x1="430" y1="146" x2="690" y2="146" stroke="#2e9e5b" stroke-width="1.2"/>
+<line x1="430" y1="194" x2="690" y2="194" stroke="#2e9e5b" stroke-width="1.2"/>
+<line x1="430" y1="242" x2="690" y2="242" stroke="#2e9e5b" stroke-width="1.2"/>
+<circle cx="508" cy="218" r="6" fill="#e0823d"/>
+<text x="508" y="208" text-anchor="middle" font-size="13" font-weight="bold" fill="#e0823d">(E, N)</text>
+<text x="560" y="310" text-anchor="middle" font-size="12" fill="currentColor">Este (m) →</text>
+<text x="418" y="170" text-anchor="middle" font-size="12" fill="currentColor" transform="rotate(-90 418 170)">Norte (m) →</text>
+<text x="170" y="335" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">CRS geográfico</text>
+<text x="170" y="356" text-anchor="middle" font-size="13" fill="currentColor">Coordenadas angulares (grados)</text>
+<text x="560" y="335" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">CRS proyectado</text>
+<text x="560" y="356" text-anchor="middle" font-size="13" fill="currentColor">Coordenadas métricas (metros)</text>
+</svg>
+<figcaption>Un CRS geográfico ubica puntos con ángulos sobre el elipsoide; un CRS proyectado los ubica con distancias sobre un plano.</figcaption>
+</figure>
+
+<h3 id="crs-geograficos">CRS geográficos<a class="headerlink" href="#crs-geograficos" title="Permanent link">&para;</a></h3>
+<p>Un <strong>CRS geográfico</strong> expresa la posición mediante <strong>latitud y longitud</strong> sobre el elipsoide del datum, tal como vimos en el tema 1.3.</p>
+<ul>
+<li>Sus coordenadas son <strong>angulares</strong>: se expresan en <strong>grados</strong>.</li>
+<li>La superficie de referencia es <strong>curva</strong> (el elipsoide).</li>
+<li>La grilla de meridianos y paralelos <strong>no forma cuadrados iguales</strong>: los meridianos convergen hacia los polos.</li>
+<li>Son ideales para <strong>almacenar e intercambiar</strong> datos, porque no introducen deformaciones.</li>
+</ul>
+<p><strong>Ejemplos:</strong> WGS 84 (EPSG:4326), SIRGAS 2000 (EPSG:4674), PSAD56 (EPSG:4248).</p>
+<h3 id="crs-proyectados">CRS proyectados<a class="headerlink" href="#crs-proyectados" title="Permanent link">&para;</a></h3>
+<p>Un <strong>CRS proyectado</strong> toma un CRS geográfico y le aplica una <strong>proyección cartográfica</strong> para representar la superficie curva en un plano.</p>
+<ul>
+<li>Sus coordenadas son <strong>métricas</strong>: se expresan normalmente en <strong>metros</strong>.</li>
+<li>La superficie de referencia es <strong>plana</strong>.</li>
+<li>La grilla forma <strong>cuadrados iguales</strong>, lo que permite medir con geometría plana.</li>
+<li>Son ideales para <strong>medir, analizar y hacer cartografía</strong> a escala local o regional.</li>
+<li>Siempre introducen <strong>alguna deformación</strong>, que estudiaremos en el tema 1.5.</li>
+</ul>
+<p><strong>Ejemplos:</strong> WGS 84 / UTM zona 19S (EPSG:32719), SIRGAS 2000 / UTM zona 20S (EPSG:31980).</p>
+<div class="admonition tip">
+<p class="admonition-title">Todo CRS proyectado se apoya en uno geográfico</p>
+<p>Un CRS proyectado <strong>no reemplaza</strong> al geográfico: lo <strong>contiene</strong>. WGS 84 / UTM zona 19S es el CRS geográfico WGS 84 más una proyección UTM. Por eso decimos que tiene un <strong>CRS geográfico base</strong>.</p>
+</div>
+<h3 id="coordenadas-angulares-y-coordenadas-metricas">Coordenadas angulares y coordenadas métricas<a class="headerlink" href="#coordenadas-angulares-y-coordenadas-metricas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>Coordenadas angulares</th>
+<th>Coordenadas métricas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tipo de CRS</td>
+<td>Geográfico</td>
+<td>Proyectado</td>
+</tr>
+<tr>
+<td>Unidades</td>
+<td>Grados</td>
+<td>Metros (o pies)</td>
+</tr>
+<tr>
+<td>Ejes</td>
+<td>Longitud (λ), latitud (φ)</td>
+<td>Este (E o X), Norte (N o Y)</td>
+</tr>
+<tr>
+<td>Superficie</td>
+<td>Elipsoide (curva)</td>
+<td>Plano</td>
+</tr>
+<tr>
+<td>Distancia de 1 unidad</td>
+<td>Variable según la latitud</td>
+<td>Constante</td>
+</tr>
+<tr>
+<td>Medir distancias y áreas</td>
+<td>Requiere cálculos sobre el elipsoide</td>
+<td>Directo con geometría plana</td>
+</tr>
+<tr>
+<td>Deformaciones</td>
+<td>Ninguna por proyección</td>
+<td>Siempre existen, en mayor o menor grado</td>
+</tr>
+<tr>
+<td>Uso típico</td>
+<td>Almacenar, intercambiar, GNSS, mapas globales</td>
+<td>Medición, análisis, catastro, cartografía detallada</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition danger">
+<p class="admonition-title">No midas en grados</p>
+<p>Si calculas el área de un predio en un CRS geográfico usando geometría plana, el resultado estará en <strong>grados cuadrados</strong>, una unidad sin sentido práctico. Como vimos en el tema 1.3, un grado de longitud mide unos 106 km en el centro de Bolivia y 111 km en el ecuador.</p>
+<p>Para medir, usa un <strong>CRS proyectado adecuado</strong> o herramientas que calculen sobre el <strong>elipsoide</strong>. Veremos cómo hacerlo en QGIS en el <strong>Módulo 3</strong>.</p>
+</div>
+<h3 id="otros-tipos-de-crs">Otros tipos de CRS<a class="headerlink" href="#otros-tipos-de-crs" title="Permanent link">&para;</a></h3>
+<p>Además de los geográficos y los proyectados, existen otros tipos que conviene reconocer:</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Coordenadas</th>
+<th>Ejemplo</th>
+<th>Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Geocéntrico</strong></td>
+<td>X, Y, Z en metros desde el centro de la Tierra</td>
+<td>WGS 84 (EPSG:4978)</td>
+<td>GNSS, transformaciones entre datums</td>
+</tr>
+<tr>
+<td><strong>Geográfico 3D</strong></td>
+<td>Latitud, longitud y altura elipsoidal</td>
+<td>WGS 84 (EPSG:4979)</td>
+<td>Posicionamiento GNSS con altura</td>
+</tr>
+<tr>
+<td><strong>Vertical</strong></td>
+<td>Solo altura</td>
+<td>EGM96 height (EPSG:5773)</td>
+<td>Alturas sobre el geoide</td>
+</tr>
+<tr>
+<td><strong>Compuesto</strong></td>
+<td>Horizontal + vertical</td>
+<td>WGS 84 + EGM96 height (EPSG:9707)</td>
+<td>Datos 3D con alturas ortométricas</td>
+</tr>
+<tr>
+<td><strong>Local o de ingeniería</strong></td>
+<td>Sistema arbitrario sin vínculo a la Tierra</td>
+<td>Coordenadas de obra</td>
+<td>Planos de construcción</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="datum-horizontal-y-datum-vertical">Datum horizontal y datum vertical<a class="headerlink" href="#datum-horizontal-y-datum-vertical" title="Permanent link">&para;</a></h2>
+<p>En el tema 1.3 vimos que la posición horizontal y la altura tienen <strong>superficies de referencia distintas</strong>: el elipsoide y el geoide. Por eso existen dos tipos de datum.</p>
+<div class="grid cards">
+<ul>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 11h6V8l4 4-4 4v-3H9v3l-4-4 4-4zm-7 9V4h2v16zm18 0V4h2v16z"/></svg></span> <strong>Datum horizontal</strong></p>
+<hr />
+<p>Define la referencia para la <strong>posición horizontal</strong> (latitud y longitud, o Este y Norte). Se basa en un <strong>elipsoide</strong> posicionado y orientado respecto a la Tierra.</p>
+<p><em>Ejemplos: WGS 84, SIRGAS 2000, PSAD56.</em></p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9v6h3l-4 4-4-4h3V9H8l4-4 4 4zM4 2h16v2H4zm0 18h16v2H4z"/></svg></span> <strong>Datum vertical</strong></p>
+<hr />
+<p>Define la referencia para las <strong>alturas</strong>. Puede basarse en el nivel medio del mar registrado por mareógrafos, en un modelo geoidal o en el elipsoide.</p>
+<p><em>Ejemplos: EGM96, EGM2008, datums nacionales de nivelación.</em></p>
+</li>
+</ul>
+</div>
+<h3 id="tipos-de-datum-vertical">Tipos de datum vertical<a class="headerlink" href="#tipos-de-datum-vertical" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Superficie de referencia</th>
+<th>Cómo se materializa</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Basado en mareógrafos</strong></td>
+<td>Nivel medio del mar en uno o varios puertos</td>
+<td>Red de nivelación referida a ese nivel</td>
+<td>Datums verticales nacionales tradicionales</td>
+</tr>
+<tr>
+<td><strong>Basado en modelo geoidal</strong></td>
+<td>Geoide calculado con datos de gravedad</td>
+<td>Modelo global o nacional</td>
+<td>EGM96 height, EGM2008 height</td>
+</tr>
+<tr>
+<td><strong>Elipsoidal</strong></td>
+<td>Elipsoide del datum horizontal</td>
+<td>Directamente con GNSS</td>
+<td>Alturas de WGS 84 (EPSG:4979)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">El componente vertical en Bolivia</p>
+<p>El sistema de referencia oficial de Bolivia tiene un <strong>componente vertical</strong> propio, el <strong>Marco Vertical de Referencia Nacional (MARVEREN)</strong>, materializado mediante la <strong>red de nivelación de primer orden</strong> del Instituto Geográfico Militar.</p>
+<p>Las alturas de las cartas topográficas y de los hitos de nivelación del IGM están referidas a esa red, no al elipsoide.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Un dato 3D necesita dos referencias</p>
+<p>Un modelo digital de elevación, una nube de puntos de dron o un levantamiento GNSS con alturas requieren conocer <strong>ambos datums</strong>. Es frecuente que un archivo declare correctamente su CRS horizontal pero no indique si sus alturas son <strong>elipsoidales u ortométricas</strong>, lo que puede generar diferencias de decenas de metros.</p>
+</div>
+<hr />
+<h2 id="sistemas-locales-regionales-y-globales">Sistemas locales, regionales y globales<a class="headerlink" href="#sistemas-locales-regionales-y-globales" title="Permanent link">&para;</a></h2>
+<p>Los sistemas de referencia pueden clasificarse según <strong>el área para la que fueron diseñados</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Alcance</th>
+<th>Características</th>
+<th>Ejemplos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Local</strong></td>
+<td>Válido para un área pequeña: una obra, una ciudad, un proyecto. Puede no estar vinculado a la Tierra.</td>
+<td>Coordenadas de obra, planos topográficos con origen arbitrario</td>
+</tr>
+<tr>
+<td><strong>Regional o nacional</strong></td>
+<td>Ajustado a un continente o país. Puede ser un datum clásico o una densificación de un sistema global.</td>
+<td>PSAD56, SIRGAS, MARGEN-SIRGAS, NAD83, ETRS89</td>
+</tr>
+<tr>
+<td><strong>Global</strong></td>
+<td>Válido para todo el planeta, geocéntrico y compatible con GNSS.</td>
+<td>WGS 84, ITRF</td>
+</tr>
+</tbody>
+</table>
+<h3 id="coordenadas-locales-o-de-obra">Coordenadas locales o de obra<a class="headerlink" href="#coordenadas-locales-o-de-obra" title="Permanent link">&para;</a></h3>
+<p>Es muy común en proyectos de ingeniería y en planos elaborados en CAD trabajar con <strong>coordenadas arbitrarias</strong>, por ejemplo con origen en un punto al que se le asignan los valores <code>(1000, 1000)</code>.</p>
+<ul>
+<li>Son <strong>cómodas</strong> para el trabajo en campo y el diseño.</li>
+<li>Permiten medir <strong>distancias y ángulos</strong> dentro del proyecto.</li>
+<li>Pero <strong>no están vinculadas a la Tierra</strong>: no se pueden superponer con otras capas ni ubicar en un mapa sin un proceso de <strong>georreferenciación</strong>.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Un problema frecuente en gestión municipal</p>
+<p>Muchos planos de urbanizaciones, loteamientos u obras públicas llegan en formato CAD con coordenadas locales. Cuando se intenta cargarlos en un SIG, <strong>aparecen en cualquier lugar</strong> o no aparecen. Antes de usarlos, hay que identificar puntos de control con coordenadas conocidas y georreferenciarlos.</p>
+</div>
+<h3 id="sistema-de-referencia-y-marco-de-referencia">Sistema de referencia y marco de referencia<a class="headerlink" href="#sistema-de-referencia-y-marco-de-referencia" title="Permanent link">&para;</a></h3>
+<p>En geodesia se distinguen dos conceptos que en el uso cotidiano suelen mezclarse:</p>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>Qué es</th>
+<th>Analogía</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sistema de referencia</strong></td>
+<td>La <strong>definición teórica</strong>: origen, orientación de los ejes, escala, elipsoide.</td>
+<td>El reglamento de un campeonato</td>
+</tr>
+<tr>
+<td><strong>Marco de referencia</strong></td>
+<td>La <strong>materialización física</strong>: un conjunto de estaciones y vértices con coordenadas calculadas.</td>
+<td>Las canchas construidas según ese reglamento</td>
+</tr>
+</tbody>
+</table>
+<p>Un mismo sistema puede tener <strong>varias realizaciones</strong> a lo largo del tiempo, a medida que mejoran las mediciones. Por ejemplo, SIRGAS tiene las realizaciones SIRGAS95 y SIRGAS2000, y WGS 84 ha tenido varias versiones.</p>
+<details class="info">
+<summary>Para saber más: la Tierra se mueve, y las coordenadas también</summary>
+<p>Las placas tectónicas se desplazan de forma continua. En Sudamérica, ese movimiento es del orden de <strong>uno o dos centímetros por año</strong>, y los terremotos pueden causar desplazamientos bruscos.</p>
+<p>Por eso los marcos de referencia modernos asocian las coordenadas a una <strong>época de referencia</strong>: la fecha a la que corresponden. SIRGAS2000, por ejemplo, tiene su época de referencia en el año 2000.4.</p>
+<p>Para la mayoría de las aplicaciones SIG, este movimiento es despreciable. Pero en <strong>geodesia, catastro de precisión o monitoreo de deformaciones</strong>, décadas de desplazamiento acumulan diferencias de varios decímetros que sí importan.</p>
+</details>
+<hr />
+<h2 id="wgs-84">WGS 84<a class="headerlink" href="#wgs-84" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Definición</p>
+<p><strong>WGS 84</strong> (<em>World Geodetic System 1984</em>) es un sistema de referencia <strong>global y geocéntrico</strong> desarrollado por el Departamento de Defensa de los Estados Unidos. Es el sistema de referencia del <strong>GPS</strong>.</p>
+</div>
+<h3 id="caracteristicas">Características<a class="headerlink" href="#caracteristicas" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Geocéntrico:</strong> su origen está en el centro de masas de la Tierra.</li>
+<li><strong>Elipsoide:</strong> WGS 84 (<em>a</em> = 6 378 137 m; 1/<em>f</em> = 298,257223563).</li>
+<li><strong>Meridiano de origen:</strong> Greenwich.</li>
+<li><strong>Cobertura:</strong> todo el planeta.</li>
+<li><strong>Realizaciones:</strong> se ha actualizado varias veces (G730, G873, G1150, G1674, G1762, G2139, G2296). Las versiones recientes coinciden con el Marco Internacional de Referencia Terrestre (ITRF) al nivel de pocos centímetros.</li>
+</ul>
+<h3 id="por-que-es-tan-usado">¿Por qué es tan usado?<a class="headerlink" href="#por-que-es-tan-usado" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Es el sistema que entregan <strong>directamente los receptores GPS</strong> y los celulares.</li>
+<li>Es el sistema por defecto de <strong>Google Earth, KML y GeoJSON</strong>.</li>
+<li>Es el CRS más reconocido por cualquier software.</li>
+<li>Su código EPSG:4326 es, probablemente, <strong>el más usado del mundo</strong>.</li>
+</ul>
+<h3 id="codigos-epsg-mas-usados-de-wgs-84">Códigos EPSG más usados de WGS 84<a class="headerlink" href="#codigos-epsg-mas-usados-de-wgs-84" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>Nombre</th>
+<th>Tipo</th>
+<th>Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>4326</strong></td>
+<td>WGS 84</td>
+<td>Geográfico 2D</td>
+<td>Almacenamiento e intercambio</td>
+</tr>
+<tr>
+<td><strong>4979</strong></td>
+<td>WGS 84</td>
+<td>Geográfico 3D</td>
+<td>GNSS con altura elipsoidal</td>
+</tr>
+<tr>
+<td><strong>4978</strong></td>
+<td>WGS 84</td>
+<td>Geocéntrico</td>
+<td>Cálculos geodésicos</td>
+</tr>
+<tr>
+<td><strong>32719</strong></td>
+<td>WGS 84 / UTM zona 19S</td>
+<td>Proyectado</td>
+<td>Occidente de Bolivia</td>
+</tr>
+<tr>
+<td><strong>32720</strong></td>
+<td>WGS 84 / UTM zona 20S</td>
+<td>Proyectado</td>
+<td>Centro de Bolivia</td>
+</tr>
+<tr>
+<td><strong>32721</strong></td>
+<td>WGS 84 / UTM zona 21S</td>
+<td>Proyectado</td>
+<td>Extremo oriental de Bolivia</td>
+</tr>
+<tr>
+<td><strong>3857</strong></td>
+<td>WGS 84 / Pseudo-Mercator</td>
+<td>Proyectado</td>
+<td>Mapas web (OpenStreetMap, Google Maps)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">EPSG:3857 no sirve para medir</p>
+<p><strong>Pseudo-Mercator</strong> (o <em>Web Mercator</em>) es la proyección de los mapas base web. Es excelente para <strong>visualizar</strong>, pero <strong>deforma enormemente las áreas y distancias</strong> a medida que nos alejamos del ecuador. Nunca la uses para calcular superficies o longitudes.</p>
+</div>
+<details class="info">
+<summary>Para saber más: EPSG:4326 es un conjunto de versiones</summary>
+<p>En la base de datos EPSG actual, el código 4326 no corresponde a una realización específica de WGS 84, sino a un <strong>conjunto (<em>ensemble</em>)</strong> que agrupa todas sus versiones, con una exactitud declarada de <strong>2 metros</strong>.</p>
+<p>En la práctica, esto significa que decir "WGS 84" a secas <strong>no garantiza precisión mejor que unos 2 m</strong>. Para trabajos geodésicos de alta precisión se debe usar una realización específica o un marco como ITRF o SIRGAS con su época. Para la gran mayoría de trabajos SIG, EPSG:4326 es perfectamente adecuado.</p>
+</details>
+<hr />
+<h2 id="sirgas">SIRGAS<a class="headerlink" href="#sirgas" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Definición</p>
+<p><strong>SIRGAS</strong> (<em>Sistema de Referencia Geocéntrico para las Américas</em>) es el sistema de referencia <strong>geocéntrico regional</strong> para el continente americano. Es una <strong>densificación del ITRF</strong> en la región y es la base de los sistemas de referencia oficiales de la mayoría de los países de América Latina.</p>
+</div>
+<h3 id="origen-y-evolucion">Origen y evolución<a class="headerlink" href="#origen-y-evolucion" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Surgió en <strong>1993</strong>, en una conferencia internacional celebrada en <strong>Asunción, Paraguay</strong>, con el objetivo de definir un sistema de referencia geocéntrico común para América del Sur. Posteriormente amplió su alcance a todo el continente.</li>
+<li>Su propósito fue <strong>reemplazar los datums locales</strong> (como PSAD56 y SAD69) por un sistema geocéntrico, homogéneo y compatible con GNSS.</li>
+<li>También es una <strong>organización</strong> que reúne a agencias geográficas nacionales, universidades y centros de investigación de las Américas.</li>
+</ul>
+<h3 id="realizaciones">Realizaciones<a class="headerlink" href="#realizaciones" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Realización</th>
+<th>Época de referencia</th>
+<th>Características</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SIRGAS95</strong></td>
+<td>1995.4</td>
+<td>Primera red continental, en América del Sur</td>
+</tr>
+<tr>
+<td><strong>SIRGAS2000</strong></td>
+<td>2000.4</td>
+<td>Red ampliada a todo el continente</td>
+</tr>
+<tr>
+<td><strong>SIRGAS-CON</strong></td>
+<td>Actualizada continuamente</td>
+<td>Red de estaciones GNSS de operación continua en todo el continente</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sirgas-y-wgs-84">SIRGAS y WGS 84<a class="headerlink" href="#sirgas-y-wgs-84" title="Permanent link">&para;</a></h3>
+<p>SIRGAS usa el elipsoide <strong>GRS80</strong>, prácticamente idéntico al de WGS 84 (tema 1.3), y ambos están alineados con el ITRF. Por eso:</p>
+<ul>
+<li>Para la <strong>mayoría de los trabajos SIG</strong>, las coordenadas en SIRGAS y en WGS 84 pueden considerarse <strong>equivalentes</strong>: sus diferencias son del orden de decímetros.</li>
+<li>Para <strong>geodesia, catastro de precisión o redes de control</strong>, esas diferencias sí importan y deben tratarse con los parámetros oficiales.</li>
+</ul>
+<h3 id="el-marco-geodesico-de-bolivia">El marco geodésico de Bolivia<a class="headerlink" href="#el-marco-geodesico-de-bolivia" title="Permanent link">&para;</a></h3>
+<p>Bolivia materializa SIRGAS a través del <strong>Marco de Referencia Geodésico Nacional (MARGEN-SIRGAS)</strong>, a cargo del <strong>Instituto Geográfico Militar (IGM)</strong>.</p>
+<ul>
+<li>Es la <strong>referencia oficial</strong> para los proyectos geodésicos, de posicionamiento y cartográficos del país.</li>
+<li>Está compuesto por una red de <strong>vértices pasivos</strong> y una red de <strong>estaciones GNSS de operación continua (MARGEN-ROC)</strong>.</li>
+<li>Fue la base para <strong>migrar la información antigua</strong> referida a <strong>PSAD56</strong> mediante parámetros oficiales de transformación.</li>
+<li>Forma parte del <strong>Sistema de Referencia Geodésico del Estado Plurinacional de Bolivia</strong>, que incluye además el componente vertical (MARVEREN) y la red gravimétrica.</li>
+</ul>
+<h3 id="codigos-epsg-de-sirgas">Códigos EPSG de SIRGAS<a class="headerlink" href="#codigos-epsg-de-sirgas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>Nombre</th>
+<th>Tipo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>4674</strong></td>
+<td>SIRGAS 2000</td>
+<td>Geográfico 2D</td>
+</tr>
+<tr>
+<td><strong>4989</strong></td>
+<td>SIRGAS 2000</td>
+<td>Geográfico 3D</td>
+</tr>
+<tr>
+<td><strong>4988</strong></td>
+<td>SIRGAS 2000</td>
+<td>Geocéntrico</td>
+</tr>
+<tr>
+<td><strong>31979</strong></td>
+<td>SIRGAS 2000 / UTM zona 19S</td>
+<td>Proyectado</td>
+</tr>
+<tr>
+<td><strong>31980</strong></td>
+<td>SIRGAS 2000 / UTM zona 20S</td>
+<td>Proyectado</td>
+</tr>
+<tr>
+<td><strong>31981</strong></td>
+<td>SIRGAS 2000 / UTM zona 21S</td>
+<td>Proyectado</td>
+</tr>
+<tr>
+<td><strong>4170</strong></td>
+<td>SIRGAS 1995</td>
+<td>Geográfico 2D</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">¿Qué CRS usar en un proyecto en Bolivia?</p>
+<ol>
+<li><strong>Revisa primero la normativa o el estándar de la institución</strong> para la que trabajas o de la que recibes los datos.</li>
+<li>En la práctica, gran parte de la información geográfica en Bolivia se intercambia en <strong>WGS 84</strong>, en coordenadas geográficas (EPSG:4326) o en <strong>UTM zonas 19S, 20S o 21S</strong> (EPSG:32719, 32720 y 32721).</li>
+<li>Para trabajos de <strong>precisión geodésica o catastral</strong>, utiliza el marco oficial <strong>MARGEN-SIRGAS</strong> y los parámetros publicados por el IGM.</li>
+<li>Sea cual sea el CRS elegido, <strong>documéntalo</strong> en los metadatos del proyecto.</li>
+</ol>
+</div>
+<hr />
+<h2 id="codigo-epsg">Código EPSG<a class="headerlink" href="#codigo-epsg" title="Permanent link">&para;</a></h2>
+<p>Escribir todos los parámetros de un CRS cada vez que se usa sería impráctico y propenso a errores. Por eso existen <strong>registros</strong> que asignan un <strong>código único</strong> a cada CRS.</p>
+<div class="admonition info">
+<p class="admonition-title">Definición</p>
+<p>Un <strong>código EPSG</strong> es un identificador numérico de la <strong>base de datos de parámetros geodésicos EPSG</strong>, que describe sistemas de referencia, datums, elipsoides, proyecciones y transformaciones. Fue creada por el <em>European Petroleum Survey Group</em> y actualmente es mantenida por la <strong>IOGP</strong> (Asociación Internacional de Productores de Petróleo y Gas).</p>
+</div>
+<p>Con un solo número, el software sabe <strong>todo</strong> lo que necesita:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>EPSG:32719
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── Nombre:          WGS 84 / UTM zona 19S
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── Tipo:            CRS proyectado
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>├── CRS base:        WGS 84 (EPSG:4326)
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>├── Elipsoide:       WGS 84
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>├── Proyección:      Transversa de Mercator
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│   ├── Meridiano central:  −69°
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│   ├── Factor de escala:   0,9996
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│   ├── Falso Este:         500 000 m
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│   └── Falso Norte:        10 000 000 m
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>├── Ejes:            Este (E), Norte (N)
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>└── Unidad:          metro
+</code></pre></div>
+<p>No te preocupes todavía por el meridiano central, el factor de escala o los falsos Este y Norte: los veremos en detalle en el tema <strong>1.6</strong>.</p>
+<h3 id="los-codigos-epsg-no-son-solo-crs">Los códigos EPSG no son solo CRS<a class="headerlink" href="#los-codigos-epsg-no-son-solo-crs" title="Permanent link">&para;</a></h3>
+<p>La base de datos EPSG también identifica los componentes de un CRS:</p>
+<table>
+<thead>
+<tr>
+<th>Tipo de objeto</th>
+<th>Ejemplo</th>
+<th>Código</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CRS geográfico</td>
+<td>WGS 84</td>
+<td>EPSG:4326</td>
+</tr>
+<tr>
+<td>CRS proyectado</td>
+<td>WGS 84 / UTM zona 19S</td>
+<td>EPSG:32719</td>
+</tr>
+<tr>
+<td>CRS vertical</td>
+<td>EGM2008 height</td>
+<td>EPSG:3855</td>
+</tr>
+<tr>
+<td>CRS compuesto</td>
+<td>WGS 84 + EGM2008 height</td>
+<td>EPSG:9518</td>
+</tr>
+<tr>
+<td>Elipsoide</td>
+<td>WGS 84</td>
+<td>EPSG:7030</td>
+</tr>
+<tr>
+<td>Datum</td>
+<td>World Geodetic System 1984</td>
+<td>EPSG:6326</td>
+</tr>
+</tbody>
+</table>
+<p>Cuando en QGIS o en cualquier software elegimos un CRS, casi siempre lo haremos por su <strong>código de CRS</strong>. Los demás códigos se usan internamente.</p>
+<h3 id="otras-formas-de-describir-un-crs">Otras formas de describir un CRS<a class="headerlink" href="#otras-formas-de-describir-un-crs" title="Permanent link">&para;</a></h3>
+<p>El código EPSG es la forma más cómoda, pero no la única:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">WKT</label><label for="__tabbed_1_2">PROJ</label><label for="__tabbed_1_3">Otras autoridades</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><strong>WKT</strong> (<em>Well-Known Text</em>) es un formato de texto estandarizado (ISO 19162) que describe el CRS de forma completa. Es el formato que se guarda, por ejemplo, en los archivos <code>.prj</code> y en las bases de datos espaciales.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>PROJCRS["WGS 84 / UTM zone 19S",
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    BASEGEOGCRS["WGS 84",
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        ...
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        ELLIPSOID["WGS 84",6378137,298.257223563,
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>            LENGTHUNIT["metre",1]]],
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    CONVERSION["UTM zone 19S",
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        METHOD["Transverse Mercator"],
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        PARAMETER["Longitude of natural origin",-69],
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        PARAMETER["Scale factor at natural origin",0.9996],
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        PARAMETER["False easting",500000],
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        PARAMETER["False northing",10000000]],
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    CS[Cartesian,2],
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        AXIS["(E)",east],
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>        AXIS["(N)",north],
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    ID["EPSG",32719]]
+</code></pre></div>
+<p><em>Versión simplificada: el WKT completo incluye más parámetros.</em></p>
+</div>
+<div class="tabbed-block">
+<p><strong>PROJ</strong> es la biblioteca que usan QGIS, GDAL y PostGIS para transformar coordenadas. Históricamente, los CRS se describían con una cadena de parámetros:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>+proj=utm +zone=19 +south +datum=WGS84 +units=m +no_defs
+</code></pre></div>
+<p>Es compacta y fácil de leer, pero <strong>puede perder información</strong> importante. Hoy se recomienda usar códigos EPSG o WKT.</p>
+</div>
+<div class="tabbed-block">
+<p>Además de EPSG, existen otros registros:</p>
+<ul>
+<li><strong>ESRI:</strong> códigos propios del software ArcGIS para CRS que no están en EPSG.</li>
+<li><strong>IGNF:</strong> registro del Instituto Geográfico Nacional de Francia.</li>
+<li><strong>Personalizados:</strong> QGIS permite crear CRS propios, que aparecen con el prefijo <code>USER:</code>.</li>
+</ul>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="identificacion-de-un-crs">Identificación de un CRS<a class="headerlink" href="#identificacion-de-un-crs" title="Permanent link">&para;</a></h2>
+<p>En el trabajo real, es muy común recibir datos <strong>sin saber en qué CRS están</strong>. Identificarlo correctamente es una habilidad fundamental.</p>
+<h3 id="donde-se-guarda-el-crs-segun-el-formato">Dónde se guarda el CRS según el formato<a class="headerlink" href="#donde-se-guarda-el-crs-segun-el-formato" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Formato</th>
+<th>¿Guarda el CRS?</th>
+<th>Dónde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GeoPackage</strong> (<code>.gpkg</code>)</td>
+<td>Sí, obligatorio</td>
+<td>En una tabla interna del archivo</td>
+</tr>
+<tr>
+<td><strong>Shapefile</strong> (<code>.shp</code>)</td>
+<td>Opcional</td>
+<td>En el archivo <code>.prj</code> que lo acompaña</td>
+</tr>
+<tr>
+<td><strong>GeoTIFF</strong> (<code>.tif</code>)</td>
+<td>Sí, normalmente</td>
+<td>En etiquetas internas del archivo</td>
+</tr>
+<tr>
+<td><strong>GeoJSON</strong> (<code>.geojson</code>)</td>
+<td>Asumido</td>
+<td>El estándar actual establece WGS 84 con orden longitud, latitud</td>
+</tr>
+<tr>
+<td><strong>KML / KMZ</strong></td>
+<td>Asumido</td>
+<td>Siempre WGS 84</td>
+</tr>
+<tr>
+<td><strong>CSV / Excel</strong></td>
+<td>No</td>
+<td>Hay que conocerlo por otra vía</td>
+</tr>
+<tr>
+<td><strong>DXF / DWG</strong> (CAD)</td>
+<td>Normalmente no</td>
+<td>Hay que conocerlo por otra vía</td>
+</tr>
+<tr>
+<td><strong>PostGIS</strong></td>
+<td>Sí</td>
+<td>Mediante un identificador de sistema de referencia (SRID)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition danger">
+<p class="admonition-title">El caso más común: un Shapefile sin <code>.prj</code></p>
+<p>Un Shapefile está formado por varios archivos. Si alguien comparte solo <code>.shp</code>, <code>.shx</code> y <code>.dbf</code>, <strong>el CRS se pierde</strong>. El software no puede saber cómo interpretar las coordenadas. Por eso se recomienda preferir <strong>GeoPackage</strong>, que guarda todo en un solo archivo.</p>
+</div>
+<h3 id="pistas-a-partir-de-los-valores-de-las-coordenadas">Pistas a partir de los valores de las coordenadas<a class="headerlink" href="#pistas-a-partir-de-los-valores-de-las-coordenadas" title="Permanent link">&para;</a></h3>
+<p>Si el CRS no está declarado, los <strong>rangos de los valores</strong> dan pistas muy útiles. Para datos ubicados en Bolivia:</p>
+<table>
+<thead>
+<tr>
+<th>Si las coordenadas se parecen a...</th>
+<th>Probablemente es</th>
+<th>Rango aproximado en Bolivia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-66.1570, -17.3935</code></td>
+<td>CRS <strong>geográfico</strong> (grados)</td>
+<td>X: −69,7 a −57,4 · Y: −9,6 a −22,9</td>
+</tr>
+<tr>
+<td><code>592468, 8176022</code></td>
+<td>CRS <strong>UTM sur</strong> (metros)</td>
+<td>E: 6 dígitos (≈ 170 000 a 830 000) · N: 7 dígitos (≈ 7 460 000 a 8 930 000)</td>
+</tr>
+<tr>
+<td><code>-7584598, -1862211</code></td>
+<td><strong>Pseudo-Mercator</strong> (EPSG:3857)</td>
+<td>X: ≈ −7 750 000 a −6 400 000 · Y: ≈ −1 080 000 a −2 620 000</td>
+</tr>
+<tr>
+<td><code>1000.00, 1523.45</code></td>
+<td><strong>Coordenadas locales</strong> o de obra</td>
+<td>Valores pequeños y arbitrarios</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Lo que los rangos no pueden decirte</p>
+<p>Los valores permiten identificar el <strong>tipo</strong> de CRS, pero <strong>no el datum</strong>. Unas coordenadas en PSAD56 / UTM 19S y en WGS 84 / UTM 19S tienen el mismo aspecto y difieren en apenas unos cientos de metros. Tampoco permiten saber con certeza la <strong>zona UTM</strong>.</p>
+<p>Para resolverlo, hay que revisar <strong>metadatos</strong> o <strong>superponer</strong> los datos con una capa de referencia confiable.</p>
+</div>
+<h3 id="procedimiento-para-identificar-un-crs">Procedimiento para identificar un CRS<a class="headerlink" href="#procedimiento-para-identificar-un-crs" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TB
+    A{"¿El archivo declara&lt;br/&gt;su CRS?"}
+    B["Revisar metadatos, documentación&lt;br/&gt;o consultar al productor"]
+    C["Analizar el rango&lt;br/&gt;de las coordenadas"]
+    D["Proponer un CRS candidato"]
+    E["Superponer con una capa&lt;br/&gt;de referencia confiable"]
+    F{"¿Coincide?"}
+    G["Asignar el CRS&lt;br/&gt;y documentarlo"]
+    A -- "Sí" --&gt; E
+    A -- "No" --&gt; B
+    B --&gt; C
+    C --&gt; D
+    D --&gt; E
+    E --&gt; F
+    F -- "Sí" --&gt; G
+    F -- "No" --&gt; D</code></pre>
+<div class="admonition tip">
+<p class="admonition-title">Verificar incluso cuando el CRS está declarado</p>
+<p>Que un archivo declare un CRS <strong>no garantiza que sea el correcto</strong>. Es frecuente encontrar capas con un CRS mal asignado por error. Superponer siempre con una referencia confiable (imágenes satelitales, límites oficiales, puntos de control) es una buena práctica.</p>
+</div>
+<h3 id="sintomas-de-un-crs-mal-definido">Síntomas de un CRS mal definido<a class="headerlink" href="#sintomas-de-un-crs-mal-definido" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Síntoma</th>
+<th>Causa probable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>La capa aparece en medio del océano, cerca del ecuador y de Greenwich</td>
+<td>Coordenadas en <strong>grados</strong> interpretadas como <strong>metros</strong></td>
+</tr>
+<tr>
+<td>La capa no aparece o el software indica coordenadas inválidas</td>
+<td>Coordenadas en <strong>metros</strong> (por ejemplo, UTM) interpretadas como <strong>grados</strong></td>
+</tr>
+<tr>
+<td>La capa aparece desplazada unos cientos de metros</td>
+<td><strong>Datum</strong> incorrecto (por ejemplo, PSAD56 tratado como WGS 84)</td>
+</tr>
+<tr>
+<td>La capa aparece desplazada cientos de kilómetros al este u oeste</td>
+<td><strong>Zona UTM</strong> incorrecta</td>
+</tr>
+<tr>
+<td>La capa aparece en el hemisferio norte</td>
+<td>Se usó una zona UTM <strong>norte</strong> en lugar de <strong>sur</strong></td>
+</tr>
+<tr>
+<td>La capa aparece en la Antártida o en otro continente</td>
+<td><strong>Latitud y longitud invertidas</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Asignar un CRS no es lo mismo que transformarlo</p>
+<p>Hay dos operaciones que suelen confundirse:</p>
+<ul>
+<li><strong>Asignar (definir) un CRS:</strong> le dice al software cómo <strong>interpretar</strong> las coordenadas existentes. Los números <strong>no cambian</strong>. Se usa cuando el CRS falta o está mal declarado.</li>
+<li><strong>Reproyectar (transformar):</strong> <strong>calcula nuevas coordenadas</strong> en otro CRS. Los números <strong>sí cambian</strong>, pero el lugar representado es el mismo.</li>
+</ul>
+<p>Confundirlas es uno de los errores más frecuentes en SIG. Practicaremos ambas operaciones en QGIS en el <strong>Módulo 3</strong>.</p>
+</div>
+<hr />
+<h2 id="ideas-clave">Ideas clave<a class="headerlink" href="#ideas-clave" title="Permanent link">&para;</a></h2>
+<div class="admonition success">
+<p class="admonition-title">Para recordar</p>
+<ul>
+<li>Un <strong>CRS</strong> define completamente cómo interpretar una coordenada: <strong>datum</strong>, <strong>sistema de coordenadas</strong>, <strong>unidades</strong> y, si corresponde, <strong>proyección</strong>.</li>
+<li>Un <strong>CRS geográfico</strong> usa coordenadas <strong>angulares</strong> (grados); un <strong>CRS proyectado</strong> usa coordenadas <strong>métricas</strong> (metros). Todo CRS proyectado se basa en uno geográfico.</li>
+<li>El <strong>datum horizontal</strong> es la referencia de la posición; el <strong>datum vertical</strong>, de las alturas.</li>
+<li>Los sistemas pueden ser <strong>locales</strong>, <strong>regionales</strong> o <strong>globales</strong>. Las coordenadas de obra no están vinculadas a la Tierra.</li>
+<li><strong>WGS 84</strong> es el sistema global del GPS; <strong>SIRGAS</strong> es su equivalente regional para las Américas, y en Bolivia se materializa mediante <strong>MARGEN-SIRGAS</strong>.</li>
+<li>Un <strong>código EPSG</strong> resume todos los parámetros de un CRS en un número.</li>
+<li>Identificar un CRS requiere revisar metadatos, analizar rangos de coordenadas y <strong>verificar superponiendo con una referencia confiable</strong>.</li>
+</ul>
+</div>
+<hr />
+<h2 id="autoevaluacion">Autoevaluación<a class="headerlink" href="#autoevaluacion" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>1. ¿Por qué el par de valores <code>592468, 8176022</code> no es suficiente para ubicar un punto?</summary>
+<p>Porque no indica <strong>en qué sistema de referencia</strong> están expresados. Por su rango parecen coordenadas UTM del hemisferio sur, pero no sabemos la <strong>zona</strong> ni el <strong>datum</strong>. Con PSAD56 o con WGS 84, por ejemplo, esos mismos números corresponden a lugares separados por cientos de metros.</p>
+</details>
+<details class="question">
+<summary>2. ¿Cuál es la diferencia entre EPSG:4326 y EPSG:32719?</summary>
+<ul>
+<li><strong>EPSG:4326</strong> es el CRS <strong>geográfico</strong> WGS 84: coordenadas angulares (latitud y longitud) en grados.</li>
+<li><strong>EPSG:32719</strong> es el CRS <strong>proyectado</strong> WGS 84 / UTM zona 19S: coordenadas métricas (Este y Norte) en metros.</li>
+</ul>
+<p>Ambos comparten el mismo datum (WGS 84). El segundo se construye a partir del primero aplicando la proyección UTM.</p>
+</details>
+<details class="question">
+<summary>3. Un compañero calcula el área de un terreno en EPSG:4326 y obtiene 0,000085. ¿Qué error cometió?</summary>
+<p>Calculó el área con geometría plana en un <strong>CRS geográfico</strong>, por lo que el resultado está en <strong>grados cuadrados</strong>, una unidad sin significado práctico. Debía usar un <strong>CRS proyectado</strong> adecuado (por ejemplo, UTM de la zona correspondiente) o un cálculo sobre el elipsoide.</p>
+</details>
+<details class="question">
+<summary>4. ¿Por qué SIRGAS y WGS 84 pueden considerarse equivalentes en un SIG, pero no en un trabajo geodésico?</summary>
+<p>Porque ambos son geocéntricos, usan elipsoides prácticamente idénticos y están alineados con el ITRF, de modo que sus diferencias son del orden de <strong>decímetros</strong>. Esa diferencia es despreciable para la mayoría de los análisis SIG, pero <strong>no para geodesia o catastro de precisión</strong>, donde se trabaja con precisiones centimétricas.</p>
+</details>
+<details class="question">
+<summary>5. Recibes una capa de predios en formato DXF con coordenadas como <code>1250.35, 980.12</code>. ¿Qué puedes concluir?</summary>
+<p>Que probablemente está en <strong>coordenadas locales o de obra</strong>, sin vínculo con un sistema de referencia terrestre. No basta con asignarle un CRS: es necesario <strong>georreferenciarla</strong> usando puntos de control con coordenadas conocidas.</p>
+</details>
+<details class="question">
+<summary>6. Una capa que debería estar en Cochabamba aparece unos 400 m desplazada respecto a una imagen satelital. ¿Cuál es la causa más probable?</summary>
+<p>Un problema de <strong>datum</strong>: por ejemplo, datos en <strong>PSAD56</strong> interpretados como si estuvieran en <strong>WGS 84</strong>. Los desplazamientos de cientos de metros son característicos de ese error. Un error de zona UTM produciría desplazamientos de cientos de <strong>kilómetros</strong>.</p>
+</details>
+<details class="question">
+<summary>7. ¿Qué diferencia hay entre asignar un CRS y reproyectar una capa?</summary>
+<p><strong>Asignar</strong> un CRS solo cambia la forma en que el software <strong>interpreta</strong> las coordenadas; los valores no cambian. <strong>Reproyectar</strong> calcula <strong>nuevas coordenadas</strong> en otro CRS; los valores cambian, pero el lugar representado es el mismo.</p>
+</details>
+<hr />
+<h2 id="actividad-propuesta">Actividad propuesta<a class="headerlink" href="#actividad-propuesta" title="Permanent link">&para;</a></h2>
+<div class="admonition example">
+<p class="admonition-title">Actividad 1.4 — Inventario de sistemas de referencia del proyecto integrador (sin software)</p>
+<p>Retoma los datos que identificaste en las actividades anteriores y elabora una tabla con las siguientes columnas:</p>
+<table>
+<thead>
+<tr>
+<th>Dato</th>
+<th>Fuente</th>
+<th>Formato</th>
+<th>CRS declarado</th>
+<th>Código EPSG</th>
+<th>¿Geográfico o proyectado?</th>
+<th>Datum vertical (si tiene alturas)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Luego responde:</p>
+<ol>
+<li>¿Todos tus datos están en el <strong>mismo CRS</strong>? Si no, ¿cuáles habría que transformar?</li>
+<li>¿Algún dato <strong>no declara su CRS</strong>? Propón un CRS candidato a partir del rango de sus coordenadas.</li>
+<li>¿Hay datos antiguos que podrían estar en <strong>PSAD56</strong>?</li>
+<li>¿Hay planos con <strong>coordenadas locales</strong>?</li>
+<li>Propón el <strong>CRS de trabajo</strong> para tu proyecto y justifica tu elección.</li>
+</ol>
+</div>
+<hr />
+<h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Butler, H., Daly, M., Doyle, A., Gillies, S., Hagen, S., &amp; Schaub, T. (2016). <em>The GeoJSON Format</em> (RFC 7946). Internet Engineering Task Force.</li>
+<li>Echalar, A., et al. (2014). <em>Estado actual del sistema geodésico nacional del Estado Plurinacional de Bolivia</em>. Boletín SIRGAS, 19.</li>
+<li>Instituto Geográfico Militar de Bolivia. <em>Marco de Referencia Geodésico Nacional (MARGEN-SIRGAS)</em>. <a href="http://margen-igmbolivia.geo.gob.bo/">http://margen-igmbolivia.geo.gob.bo/</a></li>
+<li>International Association of Oil &amp; Gas Producers (IOGP). <em>EPSG Geodetic Parameter Dataset</em>. <a href="https://epsg.org">https://epsg.org</a></li>
+<li>ISO 19111:2019. <em>Geographic information — Referencing by coordinates</em>. International Organization for Standardization.</li>
+<li>National Geospatial-Intelligence Agency (2014). <em>World Geodetic System 1984: Its Definition and Relationships with Local Geodetic Systems</em> (NGA.STND.0036_1.0.0_WGS84).</li>
+<li>Olaya, V. (2020). <em>Sistemas de Información Geográfica</em>. Libro libre disponible en línea.</li>
+<li>SIRGAS. <em>Sistema de Referencia Geocéntrico para las Américas</em>. <a href="https://sirgas.org">https://sirgas.org</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../03-fundamentos-geodesia/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 1.3 Fundamentos de Geodesia">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                1.3 Fundamentos de Geodesia
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../05-proyecciones-cartograficas/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: 1.5 Proyecciones cartográficas">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                1.5 Proyecciones cartográficas
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.footer", "navigation.path", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../assets/vendor/d3.v7.min.js"></script>
+      
+        <script src="../../assets/js/latlon.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,9 +1,9 @@
 site_name: 106 - Curso Introductorio QGIS
 site_description: Documentación y material del curso de QGIS
 site_author: Chpass
-site_url: https://chpass369.github.io/curso-qgis/
+site_url: https://chpass369.github.io/106_curso_qgis_introductorio/
 
-repo_url: https://github.com/chpass369/curso-qgis
+repo_url: https://chpass369.github.io/106_curso_qgis_introductorio/
 repo_name: chpass369/curso-qgis
 edit_uri: edit/main/docs/
 
