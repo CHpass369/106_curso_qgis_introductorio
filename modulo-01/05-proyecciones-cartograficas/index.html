@@ -1,0 +1,4392 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Por qué proyectar, superficies desarrollables, propiedades de las proyecciones, deformaciones y criterios para elegir la proyección adecuada.">
+      
+      
+        <meta name="author" content="Chpass">
+      
+      
+        <link rel="canonical" href="https://chpass369.github.io/curso-qgis/modulo-01/05-proyecciones-cartograficas/">
+      
+      
+        <link rel="prev" href="../04-sistemas-referencia/">
+      
+      
+        <link rel="next" href="../06-sistema-utm/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>1.5 Proyecciones cartográficas - 106 - Curso Introductorio QGIS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+      <link rel="stylesheet" href="../../assets/css/latlon.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#15-proyecciones-cartograficas" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="106 - Curso Introductorio QGIS" class="md-header__button md-logo" aria-label="106 - Curso Introductorio QGIS" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            106 - Curso Introductorio QGIS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1.5 Proyecciones cartográficas
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="teal"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="teal"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartir" aria-label="Compartir" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/chpass369/curso-qgis" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chpass369/curso-qgis
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../instructor/" class="md-tabs__link">
+          
+  
+  
+  Acerca
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../programa/" class="md-tabs__link">
+          
+  
+  
+  Curso
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Mod1 · Fundamentos SIG
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../modulo-02/" class="md-tabs__link">
+          
+  
+  
+  Mod2 · Introducción a QGIS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../modulo-03/index.md" class="md-tabs__link">
+          
+  
+  
+  Mod3 · Sistemas de referencia en QGIS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../practicas/index.md" class="md-tabs__link">
+          
+  
+  
+  Prácticas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../evaluaciones/index.md" class="md-tabs__link">
+          
+  
+  
+  Evaluaciones
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../descargas/index.md" class="md-tabs__link">
+          
+  
+  
+  Descargas
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="106 - Curso Introductorio QGIS" class="md-nav__button md-logo" aria-label="106 - Curso Introductorio QGIS" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    106 - Curso Introductorio QGIS
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/chpass369/curso-qgis" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chpass369/curso-qgis
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acerca
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Acerca
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../instructor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instructor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syllabus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../videos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Videos Tutoriales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../material/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Material de apoyo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agradecimientos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agradecimientos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../acerca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acerca del curso
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Curso
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Curso
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mod1 · Fundamentos SIG
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mod1 · Fundamentos SIG
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SIG y territorio
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SIG y territorio
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-sistemas-informacion-geografica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1 Sistemas de Información Geográfica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-espacio-geografico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2 Espacio geográfico y territorio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geodesia y sistemas de referencia
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Geodesia y sistemas de referencia
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-fundamentos-geodesia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3 Fundamentos de Geodesia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-sistemas-referencia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.4 Sistemas de Referencia de Coordenadas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.5 Proyecciones cartográficas
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.5 Proyecciones cartográficas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#por-que-necesitamos-proyectar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Por qué necesitamos proyectar?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="¿Por qué necesitamos proyectar?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-imposibilidad-de-aplanar-una-esfera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La imposibilidad de aplanar una esfera
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#superficies-desarrollables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Superficies desarrollables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Superficies desarrollables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipo-de-contacto-tangente-o-secante" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipo de contacto: tangente o secante
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#el-factor-de-escala" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        El factor de escala
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aspecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aspecto
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deformaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deformaciones
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deformaciones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-indicatriz-de-tissot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La indicatriz de Tissot
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#propiedades-de-las-proyecciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Propiedades de las proyecciones
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Propiedades de las proyecciones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resumen-de-propiedades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumen de propiedades
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proyecciones-mas-utilizadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proyecciones más utilizadas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-elegir-una-proyeccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Cómo elegir una proyección?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="¿Cómo elegir una proyección?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-que-propiedad-necesito-conservar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. ¿Qué propiedad necesito conservar?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-que-tan-grande-es-el-area" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. ¿Qué tan grande es el área?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-donde-esta-y-que-forma-tiene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. ¿Dónde está y qué forma tiene?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ideas-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ideas clave
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autoevaluación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-propuesta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actividad propuesta
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referencias
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-sistema-utm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.6 Sistema UTM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cartografía y escala
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cartografía y escala
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-fundamentos-cartografia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.7 Fundamentos de Cartografía
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-escala-cartografica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.8 Escala cartográfica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-escala-resolucion-precision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.9 Escala, resolución y precisión
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-generalizacion-cartografica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.10 Generalización cartográfica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Datos geoespaciales
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Datos geoespaciales
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-modelos-representacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.11 Modelos de representación espacial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-dato-geoespacial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.12 El dato geoespacial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-calidad-informacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.13 Calidad de la información geográfica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panorama geotecnológico
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Panorama geotecnológico
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-sig-otras-geotecnologias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.14 SIG y otras geotecnologías
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-ecosistema-geotecnologias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.15 Ecosistema de geotecnologías
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Práctica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mod2 · Introducción a QGIS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mod2 · Introducción a QGIS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entorno y proyectos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Entorno y proyectos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/01-entorno-trabajo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.1 Preparar un entorno de trabajo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/02-orientarse-interfaz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.2 Orientarse y trabajar con fluidez
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/03-gestionar-proyectos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.3 Comprender y gestionar proyectos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Datos y coordenadas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Datos y coordenadas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/04-incorporar-datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.4 Incorporar datos y reconocer sus diferencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/05-tablas-coordenadas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.5 Convertir una tabla en información geográfica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/06-problemas-coordenadas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.6 Resolver problemas de coordenadas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Explorar y consultar
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Explorar y consultar
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/07-leer-datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.7 Leer los datos antes de utilizarlos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/08-seleccionar-filtrar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.8 Seleccionar, filtrar y extraer información
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Representar y conectar
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Representar y conectar
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/09-simbologia-etiquetas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.9 Representar y etiquetar datos vectoriales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/10-explorar-raster/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.10 Explorar imágenes y superficies ráster
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/11-servicios-web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.11 Conectar información disponible en internet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Taller
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Taller
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/12-taller-proyecto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.12 Construir y entregar un proyecto funcional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mod3 · Sistemas de referencia en QGIS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mod3 · Sistemas de referencia en QGIS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/01-crs-proyecto-capa.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CRS del proyecto y CRS de la capa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/02-identificar-asignar-crs.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Identificar y asignar un CRS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/03-reproyectar-capas.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproyectar capas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/04-transformaciones-datum.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transformaciones de datum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/practica.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Práctica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prácticas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prácticas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practicas/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Índice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluaciones
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Evaluaciones
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../evaluaciones/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Índice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Descargas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Descargas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../descargas/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Material del curso
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#por-que-necesitamos-proyectar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Por qué necesitamos proyectar?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="¿Por qué necesitamos proyectar?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-imposibilidad-de-aplanar-una-esfera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La imposibilidad de aplanar una esfera
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#superficies-desarrollables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Superficies desarrollables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Superficies desarrollables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipo-de-contacto-tangente-o-secante" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipo de contacto: tangente o secante
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#el-factor-de-escala" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        El factor de escala
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aspecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aspecto
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deformaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deformaciones
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deformaciones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-indicatriz-de-tissot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La indicatriz de Tissot
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#propiedades-de-las-proyecciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Propiedades de las proyecciones
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Propiedades de las proyecciones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resumen-de-propiedades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumen de propiedades
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proyecciones-mas-utilizadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proyecciones más utilizadas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-elegir-una-proyeccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Cómo elegir una proyección?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="¿Cómo elegir una proyección?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-que-propiedad-necesito-conservar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. ¿Qué propiedad necesito conservar?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-que-tan-grande-es-el-area" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. ¿Qué tan grande es el área?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-donde-esta-y-que-forma-tiene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. ¿Dónde está y qué forma tiene?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ideas-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ideas clave
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autoevaluación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-propuesta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actividad propuesta
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referencias
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="Navegación" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Mod1 · Fundamentos SIG
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../03-fundamentos-geodesia/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Geodesia y sistemas de referencia
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/chpass369/curso-qgis/edit/main/docs/modulo-01/05-proyecciones-cartograficas.md" title="Editar esta página" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/chpass369/curso-qgis/raw/main/docs/modulo-01/05-proyecciones-cartograficas.md" title="Ver código fuente de esta página" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="15-proyecciones-cartograficas">1.5 Proyecciones cartográficas<a class="headerlink" href="#15-proyecciones-cartograficas" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Objetivos de aprendizaje</p>
+<p>Al finalizar este tema, el estudiante será capaz de:</p>
+<ul>
+<li>Explicar por qué es necesario proyectar y por qué toda proyección introduce deformaciones.</li>
+<li>Clasificar las proyecciones según su superficie desarrollable, su tipo de contacto y su aspecto.</li>
+<li>Diferenciar proyecciones conformes, equivalentes, equidistantes y de compromiso.</li>
+<li>Reconocer las deformaciones de área, distancia, forma y dirección, e interpretar el factor de escala.</li>
+<li>Elegir una proyección adecuada según el propósito y la extensión del área de trabajo.</li>
+</ul>
+</div>
+<hr />
+<h2 id="por-que-necesitamos-proyectar">¿Por qué necesitamos proyectar?<a class="headerlink" href="#por-que-necesitamos-proyectar" title="Permanent link">&para;</a></h2>
+<p>En el tema 1.4 vimos que los CRS geográficos ubican puntos con <strong>ángulos sobre un elipsoide</strong>. Es la forma más fiel de describir posiciones, pero tiene dos problemas prácticos:</p>
+<ul>
+<li><strong>Los mapas son planos.</strong> El papel, las pantallas y los planos de ingeniería no son curvos.</li>
+<li><strong>Medir sobre el elipsoide es complejo.</strong> Calcular distancias, áreas y ángulos con geometría plana es mucho más simple y es lo que usan la mayoría de las herramientas de análisis.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Definición</p>
+<p>Una <strong>proyección cartográfica</strong> es un procedimiento matemático que transforma las coordenadas geográficas (<strong>latitud y longitud</strong>) de la superficie curva del elipsoide en coordenadas planas (<strong>X e Y</strong>, o <strong>Este y Norte</strong>).</p>
+</div>
+<p>Por ejemplo, la proyección más simple posible, llamada <strong>equirectangular</strong>, se limita a usar los ángulos como si fueran distancias:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>x = R · λ
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>y = R · φ
+</code></pre></div>
+<p>Otras, como la de Mercator, usan fórmulas más elaboradas para conservar ciertas propiedades:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>x = R · λ
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>y = R · ln( tan(45° + φ/2) )
+</code></pre></div>
+<p>No necesitamos memorizar fórmulas. Lo importante es entender que <strong>cada fórmula decide qué se conserva y qué se deforma</strong>.</p>
+<h3 id="la-imposibilidad-de-aplanar-una-esfera">La imposibilidad de aplanar una esfera<a class="headerlink" href="#la-imposibilidad-de-aplanar-una-esfera" title="Permanent link">&para;</a></h3>
+<div class="admonition example">
+<p class="admonition-title">El experimento de la cáscara de naranja</p>
+<p>Pela una naranja intentando conservar la cáscara en una sola pieza y trata de aplanarla sobre la mesa. Solo lo lograrás de dos maneras: <strong>rompiéndola</strong> o <strong>estirándola</strong>.</p>
+<p>Con la superficie de la Tierra ocurre exactamente lo mismo.</p>
+</div>
+<p>Este problema no es una limitación técnica que algún día se resolverá: es una <strong>imposibilidad matemática</strong>. En 1827, Carl Friedrich Gauss demostró que una superficie curva como la esfera <strong>no puede representarse en un plano sin deformar</strong> sus distancias.</p>
+<div class="admonition danger">
+<p class="admonition-title">La idea central del tema</p>
+<p><strong>No existe una proyección cartográfica perfecta; existe una proyección adecuada para un determinado propósito.</strong></p>
+<p>Toda proyección deforma algo. Elegir una proyección es decidir <strong>qué deformación es aceptable</strong> para lo que necesitamos hacer.</p>
+</div>
+<hr />
+<h2 id="superficies-desarrollables">Superficies desarrollables<a class="headerlink" href="#superficies-desarrollables" title="Permanent link">&para;</a></h2>
+<p>Para entender las proyecciones de forma intuitiva, se usa la idea de una <strong>superficie desarrollable</strong>: una figura que puede envolver al globo y luego <strong>desenrollarse</strong> sobre un plano sin estirarse ni romperse.</p>
+<p>Existen tres superficies desarrollables básicas:</p>
+<figure class="figura">
+<svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Superficies desarrollables: cilindro tangente en el ecuador, cono tangente en un paralelo y plano tangente en el polo">
+<circle cx="120" cy="150" r="70" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="2"/>
+<line x1="50" y1="50" x2="50" y2="250" stroke="#3f6fd8" stroke-width="2"/>
+<line x1="190" y1="50" x2="190" y2="250" stroke="#3f6fd8" stroke-width="2"/>
+<ellipse cx="120" cy="50" rx="70" ry="14" fill="#3f6fd8" fill-opacity="0.08" stroke="#3f6fd8" stroke-width="2"/>
+<ellipse cx="120" cy="250" rx="70" ry="14" fill="none" stroke="#3f6fd8" stroke-width="2"/>
+<ellipse cx="120" cy="150" rx="70" ry="14" fill="none" stroke="#e0823d" stroke-width="3"/>
+<text x="120" y="288" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">Cilíndrica</text>
+<text x="120" y="307" text-anchor="middle" font-size="12" fill="currentColor">Tangente en el ecuador</text>
+<circle cx="360" cy="170" r="70" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="2"/>
+<line x1="360" y1="30" x2="238" y2="241" stroke="#3f6fd8" stroke-width="2"/>
+<line x1="360" y1="30" x2="482" y2="241" stroke="#3f6fd8" stroke-width="2"/>
+<ellipse cx="360" cy="241" rx="122" ry="18" fill="none" stroke="#3f6fd8" stroke-width="2"/>
+<ellipse cx="360" cy="135" rx="60.6" ry="10" fill="none" stroke="#e0823d" stroke-width="3"/>
+<text x="360" y="288" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">Cónica</text>
+<text x="360" y="307" text-anchor="middle" font-size="12" fill="currentColor">Tangente en un paralelo</text>
+<circle cx="600" cy="170" r="70" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="2"/>
+<polygon points="505,112 665,112 695,88 535,88" fill="#3f6fd8" fill-opacity="0.12" stroke="#3f6fd8" stroke-width="2"/>
+<circle cx="600" cy="100" r="5" fill="#e0823d"/>
+<text x="600" y="288" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">Azimutal (plana)</text>
+<text x="600" y="307" text-anchor="middle" font-size="12" fill="currentColor">Tangente en el polo</text>
+</svg>
+<figcaption>Las tres superficies desarrollables. En naranja, la línea o el punto de contacto con el globo.</figcaption>
+</figure>
+
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cilíndrica</label><label for="__tabbed_1_2">Cónica</label><label for="__tabbed_1_3">Azimutal</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>El globo se envuelve con un <strong>cilindro</strong>, que luego se corta y se desenrolla.</p>
+<ul>
+<li>En el aspecto normal, los <strong>meridianos</strong> son rectas verticales paralelas y los <strong>paralelos</strong>, rectas horizontales.</li>
+<li>La deformación es mínima cerca de la línea de contacto (normalmente el ecuador) y <strong>aumenta hacia los polos</strong>.</li>
+<li>Adecuada para zonas <strong>cercanas al ecuador</strong> o para franjas alargadas a lo largo de la línea de contacto.</li>
+</ul>
+<p><strong>Ejemplos:</strong> Mercator, Transversa de Mercator (base de UTM), equirectangular.</p>
+</div>
+<div class="tabbed-block">
+<p>El globo se cubre con un <strong>cono</strong>, que toca la Tierra a lo largo de un paralelo.</p>
+<ul>
+<li>Los <strong>meridianos</strong> son rectas que convergen hacia un punto y los <strong>paralelos</strong>, arcos de circunferencia.</li>
+<li>La deformación es mínima cerca del paralelo de contacto.</li>
+<li>Adecuada para zonas de <strong>latitudes medias</strong> extendidas de <strong>este a oeste</strong>.</li>
+</ul>
+<p><strong>Ejemplos:</strong> Lambert cónica conforme, Albers equivalente.</p>
+</div>
+<div class="tabbed-block">
+<p>Se proyecta sobre un <strong>plano</strong> que toca el globo en un solo punto.</p>
+<ul>
+<li>Las <strong>direcciones desde el punto central</strong> se conservan.</li>
+<li>La deformación aumenta en círculos concéntricos alrededor del punto de contacto.</li>
+<li>Adecuada para <strong>regiones polares</strong> o para áreas aproximadamente <strong>circulares</strong>.</li>
+</ul>
+<p><strong>Ejemplos:</strong> estereográfica polar, Lambert azimutal equivalente, azimutal equidistante.</p>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Una analogía, no un procedimiento</p>
+<p>En la práctica, las proyecciones se calculan con fórmulas matemáticas y no proyectando literalmente sobre un cilindro o un cono. Muchas proyecciones modernas, como Robinson o Mollweide, <strong>ni siquiera corresponden</strong> a una superficie desarrollable. Aun así, la analogía es muy útil para entender dónde está la zona de menor deformación.</p>
+</div>
+<h3 id="tipo-de-contacto-tangente-o-secante">Tipo de contacto: tangente o secante<a class="headerlink" href="#tipo-de-contacto-tangente-o-secante" title="Permanent link">&para;</a></h3>
+<p>La superficie desarrollable puede <strong>tocar</strong> el globo o <strong>atravesarlo</strong>.</p>
+<figure class="figura">
+<svg viewBox="0 0 720 345" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cilindro tangente con una línea estándar y cilindro secante con dos líneas estándar">
+<circle cx="180" cy="160" r="90" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="2"/>
+<rect x="90" y="40" width="180" height="240" fill="#3f6fd8" fill-opacity="0.06" stroke="#3f6fd8" stroke-width="2"/>
+<line x1="90" y1="160" x2="270" y2="160" stroke="#e0823d" stroke-width="2" stroke-dasharray="6 4"/>
+<circle cx="90" cy="160" r="5" fill="#e0823d"/>
+<circle cx="270" cy="160" r="5" fill="#e0823d"/>
+<text x="280" y="165" font-size="13" font-weight="bold" fill="#e0823d">k = 1</text>
+<text x="180" y="100" text-anchor="middle" font-size="13" fill="currentColor">k &gt; 1</text>
+<text x="180" y="230" text-anchor="middle" font-size="13" fill="currentColor">k &gt; 1</text>
+<text x="180" y="312" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">Tangente</text>
+<text x="180" y="331" text-anchor="middle" font-size="12" fill="currentColor">Una línea sin deformación</text>
+<circle cx="540" cy="160" r="90" fill="currentColor" fill-opacity="0.06" stroke="currentColor" stroke-width="2"/>
+<rect x="468" y="40" width="144" height="240" fill="#3f6fd8" fill-opacity="0.06" stroke="#3f6fd8" stroke-width="2"/>
+<line x1="468" y1="106" x2="612" y2="106" stroke="#e0823d" stroke-width="2" stroke-dasharray="6 4"/>
+<line x1="468" y1="214" x2="612" y2="214" stroke="#e0823d" stroke-width="2" stroke-dasharray="6 4"/>
+<circle cx="468" cy="106" r="5" fill="#e0823d"/>
+<circle cx="612" cy="106" r="5" fill="#e0823d"/>
+<circle cx="468" cy="214" r="5" fill="#e0823d"/>
+<circle cx="612" cy="214" r="5" fill="#e0823d"/>
+<text x="624" y="111" font-size="13" font-weight="bold" fill="#e0823d">k = 1</text>
+<text x="624" y="219" font-size="13" font-weight="bold" fill="#e0823d">k = 1</text>
+<text x="540" y="165" text-anchor="middle" font-size="13" fill="currentColor">k &lt; 1</text>
+<text x="540" y="88" text-anchor="middle" font-size="13" fill="currentColor">k &gt; 1</text>
+<text x="540" y="246" text-anchor="middle" font-size="13" fill="currentColor">k &gt; 1</text>
+<text x="540" y="312" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">Secante</text>
+<text x="540" y="331" text-anchor="middle" font-size="12" fill="currentColor">Dos líneas sin deformación</text>
+</svg>
+<figcaption>Factor de escala (k) en un cilindro tangente y en uno secante. Sobre las líneas estándar, k = 1.</figcaption>
+</figure>
+
+<ul>
+<li><strong>Tangente:</strong> toca el globo en <strong>una línea</strong> (o un punto). Sobre esa línea no hay deformación, y la deformación crece a medida que nos alejamos.</li>
+<li><strong>Secante:</strong> atraviesa el globo y lo corta en <strong>dos líneas</strong>. Sobre ambas no hay deformación; entre ellas la escala se reduce ligeramente y fuera de ellas aumenta. El resultado es una <strong>deformación mejor repartida</strong> en toda la zona.</li>
+</ul>
+<p>Las líneas donde la escala es exacta se llaman <strong>líneas estándar</strong> (paralelos estándar o meridianos estándar, según el caso).</p>
+<h3 id="el-factor-de-escala">El factor de escala<a class="headerlink" href="#el-factor-de-escala" title="Permanent link">&para;</a></h3>
+<p>Para medir la deformación se usa el <strong>factor de escala (k)</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>k = distancia en la proyección / distancia real sobre el elipsoide
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Valor de k</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>k = 1</strong></td>
+<td>Sin deformación: la distancia es exacta</td>
+</tr>
+<tr>
+<td><strong>k &gt; 1</strong></td>
+<td>La proyección <strong>amplía</strong> las distancias</td>
+</tr>
+<tr>
+<td><strong>k &lt; 1</strong></td>
+<td>La proyección <strong>reduce</strong> las distancias</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">Cuánto deforma Mercator</p>
+<p>En la proyección de Mercator, el factor de escala crece con la latitud, y el área se deforma con el cuadrado de ese factor:</p>
+<table>
+<thead>
+<tr>
+<th>Latitud</th>
+<th>Factor de escala (k)</th>
+<th>Factor de área (k²)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0° (ecuador)</td>
+<td>1,000</td>
+<td>1,00</td>
+</tr>
+<tr>
+<td>17° (centro de Bolivia)</td>
+<td>1,046</td>
+<td>1,09</td>
+</tr>
+<tr>
+<td>30°</td>
+<td>1,155</td>
+<td>1,33</td>
+</tr>
+<tr>
+<td>45°</td>
+<td>1,414</td>
+<td>2,00</td>
+</tr>
+<tr>
+<td>60°</td>
+<td>2,000</td>
+<td>4,00</td>
+</tr>
+<tr>
+<td>75°</td>
+<td>3,864</td>
+<td>14,93</td>
+</tr>
+</tbody>
+</table>
+<p>A 60° de latitud, las superficies aparecen <strong>cuatro veces más grandes</strong> de lo que son. A 75°, casi <strong>quince veces</strong>.</p>
+</div>
+<h3 id="aspecto">Aspecto<a class="headerlink" href="#aspecto" title="Permanent link">&para;</a></h3>
+<p>El <strong>aspecto</strong> es la orientación de la superficie desarrollable respecto al eje de rotación de la Tierra.</p>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Orientación</th>
+<th>Línea o punto de contacto</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Normal</strong></td>
+<td>Alineada con el eje de rotación</td>
+<td>Ecuador o un paralelo</td>
+<td>Mercator</td>
+</tr>
+<tr>
+<td><strong>Transversa</strong></td>
+<td>Perpendicular al eje de rotación</td>
+<td>Un meridiano</td>
+<td>Transversa de Mercator (UTM)</td>
+</tr>
+<tr>
+<td><strong>Oblicua</strong></td>
+<td>Con cualquier otra inclinación</td>
+<td>Una línea inclinada</td>
+<td>Mercator oblicua (usada en Suiza)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">UTM en una frase</p>
+<p>Con lo visto hasta aquí ya podemos describir la proyección UTM: es una proyección <strong>cilíndrica</strong>, <strong>transversa</strong> y <strong>secante</strong>. Es decir, un cilindro "acostado" que corta al globo a lo largo de dos líneas paralelas a un meridiano central. La estudiaremos en detalle en el tema <strong>1.6</strong>.</p>
+</div>
+<hr />
+<h2 id="deformaciones">Deformaciones<a class="headerlink" href="#deformaciones" title="Permanent link">&para;</a></h2>
+<p>Toda proyección deforma, en mayor o menor medida, cuatro propiedades geométricas.</p>
+<div class="grid cards">
+<ul>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v16a2 2 0 0 0 2 2h16c1.11 0 2-.89 2-2V4a2 2 0 0 0-2-2M4 6l2-2h4.9L4 10.9zm0 7.7L13.7 4h4.9L4 18.6zM20 18l-2 2h-4.9l6.9-6.9zm0-7.7L10.3 20H5.4L20 5.4z"/></svg></span> <strong>Área</strong></p>
+<hr />
+<p>Las superficies aparecen <strong>más grandes o más pequeñas</strong> de lo que son.</p>
+<p><em>En Mercator, Groenlandia parece tan grande como África, aunque África es unas 14 veces mayor.</em></p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m1.39 18.36 1.77-1.76L4.58 18l1.06-1.05-1.42-1.41 1.42-1.42 2.47 2.48 1.06-1.06-2.47-2.48 1.41-1.41 1.42 1.41L10.59 12l-1.42-1.41 1.42-1.42 2.47 2.48 1.06-1.06-2.47-2.48 1.41-1.41 1.41 1.41 1.07-1.06-1.42-1.41 1.42-1.42L18 6.7l1.07-1.06-2.47-2.48 1.76-1.77 4.25 4.25L5.64 22.61z"/></svg></span> <strong>Distancia</strong></p>
+<hr />
+<p>La <strong>escala no es constante</strong> en todo el mapa: la misma distancia en el mapa representa distancias reales distintas según el lugar.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 13.5v8H3v-8zm-2 2H5v4h4zM12 2l5.5 9h-11zm0 3.86L10.08 9h3.84zM17.5 13c2.5 0 4.5 2 4.5 4.5S20 22 17.5 22 13 20 13 17.5s2-4.5 4.5-4.5m0 2a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg></span> <strong>Forma</strong></p>
+<hr />
+<p>Los contornos se <strong>estiran o comprimen</strong>, y las figuras se distorsionan, sobre todo en áreas grandes.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m7 17 3.2-6.8L17 7l-3.2 6.8zm5-5.9a.9.9 0 0 0-.9.9.9.9 0 0 0 .9.9.9.9 0 0 0 .9-.9.9.9 0 0 0-.9-.9M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m0 2a8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8 8 8 0 0 0-8-8"/></svg></span> <strong>Dirección</strong></p>
+<hr />
+<p>Los <strong>ángulos y rumbos</strong> entre puntos no coinciden con los reales.</p>
+</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Groenlandia, África y Bolivia</p>
+<ul>
+<li><strong>África</strong> tiene unos 30 millones de km²; <strong>Groenlandia</strong>, unos 2,2 millones. África es <strong>unas 14 veces</strong> más grande.</li>
+<li>Groenlandia tiene aproximadamente el <strong>doble de superficie que Bolivia</strong>.</li>
+<li>Sin embargo, en un mapa Mercator, Groenlandia parece comparable a África y <strong>mucho más grande</strong> que Bolivia.</li>
+</ul>
+<p>Herramientas web como <em>The True Size Of</em> permiten arrastrar países sobre un mapa Mercator y ver cómo cambia su tamaño aparente con la latitud. Es una excelente actividad para la clase.</p>
+</div>
+<h3 id="la-indicatriz-de-tissot">La indicatriz de Tissot<a class="headerlink" href="#la-indicatriz-de-tissot" title="Permanent link">&para;</a></h3>
+<p>En 1859, el matemático francés Nicolas Auguste Tissot propuso una forma elegante de <strong>visualizar las deformaciones</strong>: dibujar sobre el globo pequeños <strong>círculos del mismo tamaño</strong> y observar en qué se convierten al proyectarlos.</p>
+<ul>
+<li>Si los círculos <strong>cambian de tamaño</strong>, la proyección deforma <strong>áreas</strong>.</li>
+<li>Si los círculos se convierten en <strong>elipses</strong>, la proyección deforma <strong>formas y ángulos</strong>.</li>
+</ul>
+<figure class="figura">
+<svg viewBox="0 0 720 255" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Indicatrices de Tissot en las proyecciones Mercator, Lambert cilíndrica equivalente y equirectangular">
+<rect x="15" y="52.2" width="210" height="135.5" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.5"/>
+<line x1="50.0" y1="52.2" x2="50.0" y2="187.8" stroke="#3f6fd8" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="85.0" y1="52.2" x2="85.0" y2="187.8" stroke="#3f6fd8" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="120.0" y1="52.2" x2="120.0" y2="187.8" stroke="#3f6fd8" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="155.0" y1="52.2" x2="155.0" y2="187.8" stroke="#3f6fd8" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="190.0" y1="52.2" x2="190.0" y2="187.8" stroke="#3f6fd8" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="15" y1="164.0" x2="225" y2="164.0" stroke="#2e9e5b" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="15" y1="138.4" x2="225" y2="138.4" stroke="#2e9e5b" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="15" y1="120.0" x2="225" y2="120.0" stroke="#2e9e5b" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="15" y1="101.6" x2="225" y2="101.6" stroke="#2e9e5b" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="15" y1="76.0" x2="225" y2="76.0" stroke="#2e9e5b" stroke-width="0.8" stroke-opacity="0.7"/>
+<ellipse cx="50.0" cy="164.0" rx="14.0" ry="14.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="85.0" cy="164.0" rx="14.0" ry="14.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="120.0" cy="164.0" rx="14.0" ry="14.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="155.0" cy="164.0" rx="14.0" ry="14.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="190.0" cy="164.0" rx="14.0" ry="14.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="50.0" cy="138.4" rx="8.1" ry="8.1" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="85.0" cy="138.4" rx="8.1" ry="8.1" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="120.0" cy="138.4" rx="8.1" ry="8.1" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="155.0" cy="138.4" rx="8.1" ry="8.1" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="190.0" cy="138.4" rx="8.1" ry="8.1" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="50.0" cy="120.0" rx="7.0" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="85.0" cy="120.0" rx="7.0" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="120.0" cy="120.0" rx="7.0" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="155.0" cy="120.0" rx="7.0" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="190.0" cy="120.0" rx="7.0" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="50.0" cy="101.6" rx="8.1" ry="8.1" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="85.0" cy="101.6" rx="8.1" ry="8.1" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="120.0" cy="101.6" rx="8.1" ry="8.1" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="155.0" cy="101.6" rx="8.1" ry="8.1" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="190.0" cy="101.6" rx="8.1" ry="8.1" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="50.0" cy="76.0" rx="14.0" ry="14.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="85.0" cy="76.0" rx="14.0" ry="14.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="120.0" cy="76.0" rx="14.0" ry="14.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="155.0" cy="76.0" rx="14.0" ry="14.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="190.0" cy="76.0" rx="14.0" ry="14.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<text x="120.0" y="222" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">Mercator</text>
+<text x="120.0" y="241" text-anchor="middle" font-size="12" fill="currentColor">Conforme: conserva formas</text>
+<rect x="255" y="86.6" width="210" height="66.8" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.5"/>
+<line x1="290.0" y1="86.6" x2="290.0" y2="153.4" stroke="#3f6fd8" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="325.0" y1="86.6" x2="325.0" y2="153.4" stroke="#3f6fd8" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="360.0" y1="86.6" x2="360.0" y2="153.4" stroke="#3f6fd8" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="395.0" y1="86.6" x2="395.0" y2="153.4" stroke="#3f6fd8" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="430.0" y1="86.6" x2="430.0" y2="153.4" stroke="#3f6fd8" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="255" y1="148.9" x2="465" y2="148.9" stroke="#2e9e5b" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="255" y1="136.7" x2="465" y2="136.7" stroke="#2e9e5b" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="255" y1="120.0" x2="465" y2="120.0" stroke="#2e9e5b" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="255" y1="103.3" x2="465" y2="103.3" stroke="#2e9e5b" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="255" y1="91.1" x2="465" y2="91.1" stroke="#2e9e5b" stroke-width="0.8" stroke-opacity="0.7"/>
+<ellipse cx="290.0" cy="148.9" rx="14.0" ry="3.5" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="325.0" cy="148.9" rx="14.0" ry="3.5" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="360.0" cy="148.9" rx="14.0" ry="3.5" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="395.0" cy="148.9" rx="14.0" ry="3.5" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="430.0" cy="148.9" rx="14.0" ry="3.5" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="290.0" cy="136.7" rx="8.1" ry="6.1" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="325.0" cy="136.7" rx="8.1" ry="6.1" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="360.0" cy="136.7" rx="8.1" ry="6.1" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="395.0" cy="136.7" rx="8.1" ry="6.1" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="430.0" cy="136.7" rx="8.1" ry="6.1" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="290.0" cy="120.0" rx="7.0" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="325.0" cy="120.0" rx="7.0" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="360.0" cy="120.0" rx="7.0" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="395.0" cy="120.0" rx="7.0" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="430.0" cy="120.0" rx="7.0" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="290.0" cy="103.3" rx="8.1" ry="6.1" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="325.0" cy="103.3" rx="8.1" ry="6.1" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="360.0" cy="103.3" rx="8.1" ry="6.1" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="395.0" cy="103.3" rx="8.1" ry="6.1" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="430.0" cy="103.3" rx="8.1" ry="6.1" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="290.0" cy="91.1" rx="14.0" ry="3.5" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="325.0" cy="91.1" rx="14.0" ry="3.5" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="360.0" cy="91.1" rx="14.0" ry="3.5" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="395.0" cy="91.1" rx="14.0" ry="3.5" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="430.0" cy="91.1" rx="14.0" ry="3.5" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<text x="360.0" y="222" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">Lambert cilíndrica</text>
+<text x="360.0" y="241" text-anchor="middle" font-size="12" fill="currentColor">Equivalente: conserva áreas</text>
+<rect x="495" y="67.5" width="210" height="105.0" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="1.5"/>
+<line x1="530.0" y1="67.5" x2="530.0" y2="172.5" stroke="#3f6fd8" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="565.0" y1="67.5" x2="565.0" y2="172.5" stroke="#3f6fd8" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="600.0" y1="67.5" x2="600.0" y2="172.5" stroke="#3f6fd8" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="635.0" y1="67.5" x2="635.0" y2="172.5" stroke="#3f6fd8" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="670.0" y1="67.5" x2="670.0" y2="172.5" stroke="#3f6fd8" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="495" y1="155.0" x2="705" y2="155.0" stroke="#2e9e5b" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="495" y1="137.5" x2="705" y2="137.5" stroke="#2e9e5b" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="495" y1="120.0" x2="705" y2="120.0" stroke="#2e9e5b" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="495" y1="102.5" x2="705" y2="102.5" stroke="#2e9e5b" stroke-width="0.8" stroke-opacity="0.7"/>
+<line x1="495" y1="85.0" x2="705" y2="85.0" stroke="#2e9e5b" stroke-width="0.8" stroke-opacity="0.7"/>
+<ellipse cx="530.0" cy="155.0" rx="14.0" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="565.0" cy="155.0" rx="14.0" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="600.0" cy="155.0" rx="14.0" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="635.0" cy="155.0" rx="14.0" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="670.0" cy="155.0" rx="14.0" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="530.0" cy="137.5" rx="8.1" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="565.0" cy="137.5" rx="8.1" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="600.0" cy="137.5" rx="8.1" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="635.0" cy="137.5" rx="8.1" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="670.0" cy="137.5" rx="8.1" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="530.0" cy="120.0" rx="7.0" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="565.0" cy="120.0" rx="7.0" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="600.0" cy="120.0" rx="7.0" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="635.0" cy="120.0" rx="7.0" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="670.0" cy="120.0" rx="7.0" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="530.0" cy="102.5" rx="8.1" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="565.0" cy="102.5" rx="8.1" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="600.0" cy="102.5" rx="8.1" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="635.0" cy="102.5" rx="8.1" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="670.0" cy="102.5" rx="8.1" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="530.0" cy="85.0" rx="14.0" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="565.0" cy="85.0" rx="14.0" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="600.0" cy="85.0" rx="14.0" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="635.0" cy="85.0" rx="14.0" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<ellipse cx="670.0" cy="85.0" rx="14.0" ry="7.0" fill="#e0823d" fill-opacity="0.45" stroke="#e0823d" stroke-width="1"/>
+<text x="600.0" y="222" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">Equirectangular</text>
+<text x="600.0" y="241" text-anchor="middle" font-size="12" fill="currentColor">Equidistante en meridianos</text>
+</svg><figcaption>Indicatrices de Tissot en tres proyecciones cilíndricas. Todos los círculos tienen el mismo tamaño sobre el globo.</figcaption>
+</figure>
+
+<table>
+<thead>
+<tr>
+<th>Proyección</th>
+<th>¿Qué les pasa a los círculos?</th>
+<th>Interpretación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mercator</strong></td>
+<td>Siguen siendo <strong>círculos</strong>, pero <strong>crecen</strong> hacia los polos</td>
+<td>Conserva las formas locales; deforma mucho las áreas</td>
+</tr>
+<tr>
+<td><strong>Lambert cilíndrica</strong></td>
+<td>Se convierten en <strong>elipses</strong> achatadas, pero con la <strong>misma área</strong></td>
+<td>Conserva las áreas; deforma las formas</td>
+</tr>
+<tr>
+<td><strong>Equirectangular</strong></td>
+<td>Se <strong>estiran</strong> horizontalmente; su altura no cambia</td>
+<td>Conserva las distancias a lo largo de los meridianos</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="propiedades-de-las-proyecciones">Propiedades de las proyecciones<a class="headerlink" href="#propiedades-de-las-proyecciones" title="Permanent link">&para;</a></h2>
+<p>Como ninguna proyección puede conservarlo todo, se diseñan para <strong>conservar una propiedad</strong> a costa de las demás.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Conformes</label><label for="__tabbed_2_2">Equivalentes</label><label for="__tabbed_2_3">Equidistantes</label><label for="__tabbed_2_4">De compromiso</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Conservan los <strong>ángulos</strong> y, por lo tanto, las <strong>formas locales</strong>.</p>
+<ul>
+<li>Un círculo pequeño sigue siendo un círculo.</li>
+<li>Las áreas <strong>sí se deforman</strong>, a veces de forma extrema.</li>
+<li>Útiles para <strong>navegación</strong>, <strong>cartografía topográfica</strong> y <strong>catastro</strong>, donde importan los ángulos y la forma de los objetos.</li>
+</ul>
+<p><strong>Ejemplos:</strong> Mercator, Transversa de Mercator (UTM), Lambert cónica conforme, estereográfica.</p>
+</div>
+<div class="tabbed-block">
+<p>Conservan las <strong>áreas</strong>: una superficie ocupa en el mapa un espacio proporcional a su tamaño real.</p>
+<ul>
+<li>Las formas <strong>sí se deforman</strong>, sobre todo lejos de las líneas estándar.</li>
+<li>Imprescindibles para <strong>comparar superficies</strong>, calcular densidades o representar datos estadísticos por área.</li>
+</ul>
+<p><strong>Ejemplos:</strong> Albers cónica equivalente, Lambert azimutal equivalente, Mollweide, Equal Earth.</p>
+</div>
+<div class="tabbed-block">
+<p>Conservan las <strong>distancias</strong>, pero <strong>solo</strong> a lo largo de ciertas líneas o desde un punto determinado. Ninguna proyección conserva todas las distancias.</p>
+<ul>
+<li>Útiles para medir distancias <strong>desde un punto central</strong> o a lo largo de determinadas direcciones.</li>
+</ul>
+<p><strong>Ejemplos:</strong> azimutal equidistante (distancias desde el centro), equirectangular (distancias a lo largo de los meridianos), cónica equidistante.</p>
+</div>
+<div class="tabbed-block">
+<p><strong>No conservan exactamente</strong> ninguna propiedad, pero <strong>reparten las deformaciones</strong> para que ninguna sea extrema.</p>
+<ul>
+<li>Producen mapas visualmente equilibrados.</li>
+<li>Útiles para <strong>mapas generales del mundo</strong> con fines educativos o de divulgación.</li>
+</ul>
+<p><strong>Ejemplos:</strong> Robinson, Winkel Tripel.</p>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">No se puede tener todo</p>
+<p>Una proyección <strong>no puede ser conforme y equivalente al mismo tiempo</strong>. Si conserva las formas, deforma las áreas, y viceversa. Esta es la decisión más importante al elegir una proyección.</p>
+</div>
+<h3 id="resumen-de-propiedades">Resumen de propiedades<a class="headerlink" href="#resumen-de-propiedades" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Propiedad</th>
+<th>Conserva</th>
+<th>Deforma</th>
+<th>Usar cuando se necesita...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Conforme</strong></td>
+<td>Ángulos y formas locales</td>
+<td>Áreas</td>
+<td>Medir ángulos, navegar, cartografía detallada</td>
+</tr>
+<tr>
+<td><strong>Equivalente</strong></td>
+<td>Áreas</td>
+<td>Formas y ángulos</td>
+<td>Comparar superficies, densidades, estadísticas</td>
+</tr>
+<tr>
+<td><strong>Equidistante</strong></td>
+<td>Distancias en ciertas líneas</td>
+<td>Áreas y formas</td>
+<td>Distancias desde un punto o a lo largo de una línea</td>
+</tr>
+<tr>
+<td><strong>Azimutal</strong></td>
+<td>Direcciones desde el centro</td>
+<td>Depende de la variante</td>
+<td>Rumbos desde un punto, regiones polares</td>
+</tr>
+<tr>
+<td><strong>Compromiso</strong></td>
+<td>Nada exactamente</td>
+<td>Todo, pero moderadamente</td>
+<td>Mapas generales y de divulgación</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="proyecciones-mas-utilizadas">Proyecciones más utilizadas<a class="headerlink" href="#proyecciones-mas-utilizadas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Proyección</th>
+<th>Superficie</th>
+<th>Propiedad</th>
+<th>Uso habitual</th>
+<th>Código</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mercator</strong></td>
+<td>Cilíndrica normal</td>
+<td>Conforme</td>
+<td>Navegación marítima</td>
+<td>EPSG:3395</td>
+</tr>
+<tr>
+<td><strong>Pseudo-Mercator</strong></td>
+<td>Cilíndrica normal</td>
+<td>Ninguna exacta</td>
+<td>Mapas web</td>
+<td>EPSG:3857</td>
+</tr>
+<tr>
+<td><strong>Transversa de Mercator (UTM)</strong></td>
+<td>Cilíndrica transversa secante</td>
+<td>Conforme</td>
+<td>Cartografía topográfica, catastro</td>
+<td>EPSG:32719 a 32721 (Bolivia)</td>
+</tr>
+<tr>
+<td><strong>Equirectangular</strong></td>
+<td>Cilíndrica normal</td>
+<td>Equidistante en meridianos</td>
+<td>Visualización rápida de datos globales</td>
+<td>EPSG:4087</td>
+</tr>
+<tr>
+<td><strong>Lambert cilíndrica equivalente</strong></td>
+<td>Cilíndrica normal</td>
+<td>Equivalente</td>
+<td>Mapas temáticos globales</td>
+<td>ESRI:54034</td>
+</tr>
+<tr>
+<td><strong>Lambert cónica conforme</strong></td>
+<td>Cónica secante</td>
+<td>Conforme</td>
+<td>Cartografía aeronáutica y de países extensos</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Albers cónica equivalente</strong></td>
+<td>Cónica secante</td>
+<td>Equivalente</td>
+<td>Mapas temáticos de continentes y países</td>
+<td>ESRI:102033 (Sudamérica)</td>
+</tr>
+<tr>
+<td><strong>Lambert azimutal equivalente</strong></td>
+<td>Azimutal</td>
+<td>Equivalente</td>
+<td>Estadísticas por área (por ejemplo, Europa)</td>
+<td>EPSG:3035</td>
+</tr>
+<tr>
+<td><strong>Estereográfica polar</strong></td>
+<td>Azimutal</td>
+<td>Conforme</td>
+<td>Regiones polares</td>
+<td>EPSG:3031 (Antártida)</td>
+</tr>
+<tr>
+<td><strong>Mollweide</strong></td>
+<td>Pseudocilíndrica</td>
+<td>Equivalente</td>
+<td>Mapas globales de distribución</td>
+<td>ESRI:54009</td>
+</tr>
+<tr>
+<td><strong>Equal Earth</strong></td>
+<td>Pseudocilíndrica</td>
+<td>Equivalente</td>
+<td>Mapas globales temáticos</td>
+<td>EPSG:8857</td>
+</tr>
+<tr>
+<td><strong>Robinson</strong></td>
+<td>Pseudocilíndrica</td>
+<td>Compromiso</td>
+<td>Mapas generales del mundo</td>
+<td>ESRI:54030</td>
+</tr>
+<tr>
+<td><strong>Winkel Tripel</strong></td>
+<td>Pseudoazimutal</td>
+<td>Compromiso</td>
+<td>Mapas generales del mundo</td>
+<td>ESRI:54042</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Proyecciones con y sin código</p>
+<p>Algunas proyecciones, como la Lambert cónica conforme, <strong>no tienen un código universal</strong> porque sus parámetros (paralelos estándar, meridiano central) se ajustan a cada región. Existen códigos para versiones concretas, o se pueden definir CRS personalizados en QGIS.</p>
+</div>
+<details class="info">
+<summary>Para saber más: breve historia de algunas proyecciones</summary>
+<table>
+<thead>
+<tr>
+<th>Año</th>
+<th>Proyección</th>
+<th>Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1569</td>
+<td>Mercator</td>
+<td>Gerardus Mercator</td>
+</tr>
+<tr>
+<td>1772</td>
+<td>Lambert cónica conforme y Lambert azimutal equivalente</td>
+<td>Johann Heinrich Lambert</td>
+</tr>
+<tr>
+<td>1805</td>
+<td>Albers cónica equivalente</td>
+<td>Heinrich C. Albers</td>
+</tr>
+<tr>
+<td>1805</td>
+<td>Mollweide</td>
+<td>Karl B. Mollweide</td>
+</tr>
+<tr>
+<td>1921</td>
+<td>Winkel Tripel</td>
+<td>Oswald Winkel</td>
+</tr>
+<tr>
+<td>1963</td>
+<td>Robinson</td>
+<td>Arthur H. Robinson</td>
+</tr>
+<tr>
+<td>2018</td>
+<td>Equal Earth</td>
+<td>Bojan Šavrič, Tom Patterson y Bernhard Jenny</td>
+</tr>
+</tbody>
+</table>
+<p>Mercator diseñó su proyección para la navegación: en ella, una línea de <strong>rumbo constante</strong> es una recta, lo que permitía trazar rutas con una regla y una brújula. Su uso en mapas escolares del mundo, sin embargo, contribuyó a una percepción distorsionada del tamaño de los continentes.</p>
+</details>
+<hr />
+<h2 id="como-elegir-una-proyeccion">¿Cómo elegir una proyección?<a class="headerlink" href="#como-elegir-una-proyeccion" title="Permanent link">&para;</a></h2>
+<p>No hay una respuesta única, pero sí <strong>criterios</strong> claros. Conviene responder tres preguntas.</p>
+<h3 id="1-que-propiedad-necesito-conservar">1. ¿Qué propiedad necesito conservar?<a class="headerlink" href="#1-que-propiedad-necesito-conservar" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TB
+    A{"¿Qué necesito&lt;br/&gt;hacer con el mapa?"}
+    B["&lt;b&gt;Equivalente&lt;/b&gt;&lt;br/&gt;Albers, Lambert azimutal&lt;br/&gt;equivalente, Equal Earth"]
+    C["&lt;b&gt;Conforme&lt;/b&gt;&lt;br/&gt;UTM, Lambert cónica&lt;br/&gt;conforme"]
+    D["&lt;b&gt;Equidistante&lt;/b&gt;&lt;br/&gt;Azimutal equidistante"]
+    E["&lt;b&gt;Compromiso&lt;/b&gt;&lt;br/&gt;Robinson, Winkel Tripel"]
+    A -- "Comparar o calcular áreas" --&gt; B
+    A -- "Medir ángulos o conservar formas" --&gt; C
+    A -- "Medir distancias desde un punto" --&gt; D
+    A -- "Mostrar el mundo en general" --&gt; E</code></pre>
+<h3 id="2-que-tan-grande-es-el-area">2. ¿Qué tan grande es el área?<a class="headerlink" href="#2-que-tan-grande-es-el-area" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Extensión</th>
+<th>Recomendación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Local</strong> (un municipio, una obra)</td>
+<td>Casi cualquier proyección conforme adecuada funciona bien; las deformaciones son mínimas. En Bolivia, lo habitual es <strong>UTM</strong> de la zona correspondiente.</td>
+</tr>
+<tr>
+<td><strong>Regional</strong> (un departamento, un país)</td>
+<td>La elección importa. Conviene una proyección ajustada a la región.</td>
+</tr>
+<tr>
+<td><strong>Continental o mundial</strong></td>
+<td>Las deformaciones son inevitables y grandes. La propiedad a conservar es la decisión principal.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-donde-esta-y-que-forma-tiene">3. ¿Dónde está y qué forma tiene?<a class="headerlink" href="#3-donde-esta-y-que-forma-tiene" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Ubicación y forma del área</th>
+<th>Superficie más adecuada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cerca del <strong>ecuador</strong></td>
+<td>Cilíndrica normal</td>
+</tr>
+<tr>
+<td>Alargada de <strong>norte a sur</strong></td>
+<td>Cilíndrica transversa</td>
+</tr>
+<tr>
+<td>En <strong>latitudes medias</strong>, alargada de <strong>este a oeste</strong></td>
+<td>Cónica</td>
+</tr>
+<tr>
+<td><strong>Polar</strong> o aproximadamente <strong>circular</strong></td>
+<td>Azimutal</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Recomendaciones prácticas para Bolivia</p>
+<ul>
+<li><strong>Proyectos municipales o locales:</strong> UTM de la zona correspondiente (19S, 20S o 21S). Es conforme y su deformación es muy pequeña a esa escala.</li>
+<li><strong>Cálculo de superficies a escala departamental o nacional:</strong> una proyección <strong>equivalente</strong> ajustada a la región, como <strong>Albers cónica equivalente para Sudamérica</strong> (ESRI:102033). UTM no es adecuada cuando el área abarca varias zonas.</li>
+<li><strong>Mapas temáticos nacionales de densidad o distribución:</strong> también una proyección <strong>equivalente</strong>.</li>
+<li><strong>Visores web:</strong> Pseudo-Mercator (EPSG:3857), <strong>solo para visualizar</strong>, nunca para medir.</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Almacenar en un CRS y trabajar en otro</p>
+<p>Es habitual <strong>almacenar e intercambiar</strong> los datos en un CRS geográfico (por ejemplo, EPSG:4326) y <strong>proyectarlos</strong> al CRS más adecuado para cada análisis o mapa. QGIS permite incluso mostrar capas en distintos CRS en un mismo proyecto, reproyectándolas al vuelo. Lo practicaremos en el <strong>Módulo 3</strong>.</p>
+</div>
+<hr />
+<h2 id="ideas-clave">Ideas clave<a class="headerlink" href="#ideas-clave" title="Permanent link">&para;</a></h2>
+<div class="admonition success">
+<p class="admonition-title">Para recordar</p>
+<ul>
+<li>Proyectar es transformar coordenadas del elipsoide en coordenadas planas. <strong>Es imposible hacerlo sin deformar.</strong></li>
+<li>Las proyecciones se clasifican según su <strong>superficie</strong> (cilíndrica, cónica, azimutal), su <strong>contacto</strong> (tangente o secante) y su <strong>aspecto</strong> (normal, transversa, oblicua).</li>
+<li>La deformación se mide con el <strong>factor de escala (k)</strong>: vale 1 sobre las líneas estándar.</li>
+<li>Las deformaciones afectan el <strong>área</strong>, la <strong>distancia</strong>, la <strong>forma</strong> y la <strong>dirección</strong>.</li>
+<li>Una proyección puede ser <strong>conforme</strong>, <strong>equivalente</strong>, <strong>equidistante</strong> o <strong>de compromiso</strong>, pero <strong>nunca conforme y equivalente a la vez</strong>.</li>
+<li><strong>No existe una proyección perfecta; existe una proyección adecuada para cada propósito.</strong></li>
+</ul>
+</div>
+<hr />
+<h2 id="autoevaluacion">Autoevaluación<a class="headerlink" href="#autoevaluacion" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>1. ¿Por qué no se puede crear una proyección sin deformaciones?</summary>
+<p>Porque la superficie de la Tierra es <strong>curva</strong> y un mapa es <strong>plano</strong>. Gauss demostró que una superficie con curvatura como la esfera no puede representarse en un plano conservando todas las distancias. Siempre habrá que estirar o comprimir alguna parte.</p>
+</details>
+<details class="question">
+<summary>2. Describe la proyección UTM usando la clasificación de este tema</summary>
+<p>Es una proyección <strong>cilíndrica</strong> (superficie desarrollable), <strong>transversa</strong> (aspecto: el cilindro es perpendicular al eje de rotación y se ajusta a un meridiano), <strong>secante</strong> (contacto: corta al globo en dos líneas) y <strong>conforme</strong> (propiedad: conserva ángulos y formas locales).</p>
+</details>
+<details class="question">
+<summary>3. ¿Qué indica un factor de escala k = 0,9996?</summary>
+<p>Que en ese lugar la proyección <strong>reduce</strong> ligeramente las distancias: 1 000 m reales se representan como 999,6 m. Es decir, una diferencia de 40 cm por kilómetro. Veremos en el tema 1.6 que es el factor de escala en el meridiano central de UTM.</p>
+</details>
+<details class="question">
+<summary>4. Necesitas comparar la superficie deforestada en los nueve departamentos de Bolivia. ¿Qué tipo de proyección usarías y por qué?</summary>
+<p>Una proyección <strong>equivalente</strong>, como Albers cónica equivalente ajustada a Sudamérica, porque el objetivo es <strong>comparar áreas</strong> y el territorio abarca varias zonas UTM. Una proyección conforme deformaría las superficies de manera distinta en cada región.</p>
+</details>
+<details class="question">
+<summary>5. En las indicatrices de Tissot de una proyección, los círculos se mantienen como círculos, pero su tamaño aumenta hacia los polos. ¿Qué tipo de proyección es?</summary>
+<p>Una proyección <strong>conforme</strong>, porque conserva la forma de los círculos (es decir, los ángulos), pero <strong>no equivalente</strong>, porque las áreas cambian. Es el caso de Mercator.</p>
+</details>
+<details class="question">
+<summary>6. ¿Por qué no se debe usar EPSG:3857 para calcular el área de un municipio?</summary>
+<p>Porque Pseudo-Mercator <strong>deforma las áreas</strong> en función de la latitud. A la latitud de Bolivia, las superficies aparecen entre un 3 % (en el norte) y un 18 % (en el sur) más grandes de lo que son, lo que produciría resultados incorrectos. Para medir se debe usar una proyección adecuada, como UTM a escala local o una equivalente a escala regional.</p>
+</details>
+<hr />
+<h2 id="actividad-propuesta">Actividad propuesta<a class="headerlink" href="#actividad-propuesta" title="Permanent link">&para;</a></h2>
+<div class="admonition example">
+<p class="admonition-title">Actividad 1.5 — Elegir la proyección del proyecto integrador (sin software)</p>
+<p>Retoma el problema territorial de las actividades anteriores y desarrolla lo siguiente:</p>
+<ol>
+<li>Describe la <strong>extensión</strong> de tu área de estudio: ¿es local, regional o nacional?</li>
+<li>Describe su <strong>forma</strong> y <strong>ubicación</strong>: ¿es compacta o alargada? ¿En qué dirección?</li>
+<li>Identifica qué <strong>análisis</strong> necesitarás realizar: ¿calcularás áreas, distancias, rumbos o solo harás mapas de ubicación?</li>
+<li>Con base en lo anterior, indica qué <strong>propiedad</strong> debe conservar la proyección.</li>
+<li>Propón una <strong>proyección</strong> (y, si es posible, su código) para:<ul>
+<li>El <strong>análisis</strong>.</li>
+<li>Los <strong>mapas finales</strong>.</li>
+<li>La <strong>publicación web</strong>, si la hubiera.</li>
+</ul>
+</li>
+<li>Compara tu elección con el CRS de trabajo que propusiste en la <strong>Actividad 1.4</strong>. ¿Se mantiene o cambia?</li>
+</ol>
+</div>
+<hr />
+<h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Olaya, V. (2020). <em>Sistemas de Información Geográfica</em>. Libro libre disponible en línea.</li>
+<li>PROJ contributors. <em>PROJ coordinate transformation software library: Projections</em>. <a href="https://proj.org/en/latest/operations/projections/">https://proj.org/en/latest/operations/projections/</a></li>
+<li>Šavrič, B., Patterson, T., &amp; Jenny, B. (2019). The Equal Earth map projection. <em>International Journal of Geographical Information Science</em>, 33(3), 454–465.</li>
+<li>Snyder, J. P. (1987). <em>Map Projections: A Working Manual</em> (U.S. Geological Survey Professional Paper 1395). U.S. Government Printing Office.</li>
+<li>Snyder, J. P. (1993). <em>Flattening the Earth: Two Thousand Years of Map Projections</em>. University of Chicago Press.</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../04-sistemas-referencia/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 1.4 Sistemas de Referencia de Coordenadas">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                1.4 Sistemas de Referencia de Coordenadas
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../06-sistema-utm/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: 1.6 Sistema UTM">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                1.6 Sistema UTM
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.footer", "navigation.path", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../assets/vendor/d3.v7.min.js"></script>
+      
+        <script src="../../assets/js/latlon.js"></script>
+      
+    
+  </body>
+</html>

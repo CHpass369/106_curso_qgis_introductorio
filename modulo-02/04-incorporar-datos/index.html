@@ -1,0 +1,4673 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Incorporación e inspección de datos vectoriales y ráster en QGIS; diferencias entre GeoPackage, Shapefile, GeoJSON y GeoTIFF; geometrías, extensión, campos, bandas y metadatos.">
+      
+      
+        <meta name="author" content="Chpass">
+      
+      
+        <link rel="canonical" href="https://chpass369.github.io/curso-qgis/modulo-02/04-incorporar-datos/">
+      
+      
+        <link rel="prev" href="../03-gestionar-proyectos/">
+      
+      
+        <link rel="next" href="../05-tablas-coordenadas/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>2.4 Incorporar datos y reconocer sus diferencias - 106 - Curso Introductorio QGIS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+      <link rel="stylesheet" href="../../assets/css/latlon.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#24-incorporar-datos-y-reconocer-sus-diferencias" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="106 - Curso Introductorio QGIS" class="md-header__button md-logo" aria-label="106 - Curso Introductorio QGIS" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            106 - Curso Introductorio QGIS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2.4 Incorporar datos y reconocer sus diferencias
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="teal"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="teal"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartir" aria-label="Compartir" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/chpass369/curso-qgis" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chpass369/curso-qgis
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../instructor/" class="md-tabs__link">
+          
+  
+  
+  Acerca
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../programa/" class="md-tabs__link">
+          
+  
+  
+  Curso
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../modulo-01/" class="md-tabs__link">
+          
+  
+  
+  Mod1 · Fundamentos SIG
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Mod2 · Introducción a QGIS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../modulo-03/index.md" class="md-tabs__link">
+          
+  
+  
+  Mod3 · Sistemas de referencia en QGIS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../practicas/index.md" class="md-tabs__link">
+          
+  
+  
+  Prácticas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../evaluaciones/index.md" class="md-tabs__link">
+          
+  
+  
+  Evaluaciones
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../descargas/index.md" class="md-tabs__link">
+          
+  
+  
+  Descargas
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="106 - Curso Introductorio QGIS" class="md-nav__button md-logo" aria-label="106 - Curso Introductorio QGIS" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    106 - Curso Introductorio QGIS
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/chpass369/curso-qgis" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chpass369/curso-qgis
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acerca
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Acerca
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../instructor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instructor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syllabus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../videos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Videos Tutoriales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../material/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Material de apoyo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agradecimientos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agradecimientos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../acerca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acerca del curso
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Curso
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Curso
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mod1 · Fundamentos SIG
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mod1 · Fundamentos SIG
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SIG y territorio
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SIG y territorio
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/01-sistemas-informacion-geografica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1 Sistemas de Información Geográfica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/02-espacio-geografico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2 Espacio geográfico y territorio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geodesia y sistemas de referencia
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Geodesia y sistemas de referencia
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/03-fundamentos-geodesia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3 Fundamentos de Geodesia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/04-sistemas-referencia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.4 Sistemas de Referencia de Coordenadas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/05-proyecciones-cartograficas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.5 Proyecciones cartográficas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/06-sistema-utm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.6 Sistema UTM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cartografía y escala
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cartografía y escala
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/07-fundamentos-cartografia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.7 Fundamentos de Cartografía
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/08-escala-cartografica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.8 Escala cartográfica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/09-escala-resolucion-precision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.9 Escala, resolución y precisión
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/10-generalizacion-cartografica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.10 Generalización cartográfica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Datos geoespaciales
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Datos geoespaciales
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/11-modelos-representacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.11 Modelos de representación espacial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/12-dato-geoespacial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.12 El dato geoespacial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/13-calidad-informacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.13 Calidad de la información geográfica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panorama geotecnológico
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Panorama geotecnológico
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/14-sig-otras-geotecnologias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.14 SIG y otras geotecnologías
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/15-ecosistema-geotecnologias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.15 Ecosistema de geotecnologías
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/practica.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Práctica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mod2 · Introducción a QGIS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mod2 · Introducción a QGIS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entorno y proyectos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Entorno y proyectos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-entorno-trabajo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.1 Preparar un entorno de trabajo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-orientarse-interfaz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.2 Orientarse y trabajar con fluidez
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-gestionar-proyectos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.3 Comprender y gestionar proyectos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Datos y coordenadas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Datos y coordenadas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.4 Incorporar datos y reconocer sus diferencias
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.4 Incorporar datos y reconocer sus diferencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#no-todo-archivo-geografico-contiene-lo-mismo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        No todo archivo geográfico contiene lo mismo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dos-modelos-fundamentales-vectorial-y-raster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dos modelos fundamentales: vectorial y ráster
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dos modelos fundamentales: vectorial y ráster">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#datos-vectoriales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datos vectoriales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datos-raster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datos ráster
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vector-y-raster-responden-preguntas-diferentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vector y ráster responden preguntas diferentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-formato-no-es-lo-mismo-que-el-modelo-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        El formato no es lo mismo que el modelo de datos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-tablas-coordenadas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.5 Convertir una tabla en información geográfica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-problemas-coordenadas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.6 Resolver problemas de coordenadas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Explorar y consultar
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Explorar y consultar
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-leer-datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.7 Leer los datos antes de utilizarlos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-seleccionar-filtrar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.8 Seleccionar, filtrar y extraer información
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Representar y conectar
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Representar y conectar
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-simbologia-etiquetas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.9 Representar y etiquetar datos vectoriales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-explorar-raster/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.10 Explorar imágenes y superficies ráster
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-servicios-web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.11 Conectar información disponible en internet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Taller
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Taller
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-taller-proyecto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.12 Construir y entregar un proyecto funcional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mod3 · Sistemas de referencia en QGIS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mod3 · Sistemas de referencia en QGIS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/01-crs-proyecto-capa.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CRS del proyecto y CRS de la capa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/02-identificar-asignar-crs.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Identificar y asignar un CRS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/03-reproyectar-capas.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproyectar capas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/04-transformaciones-datum.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transformaciones de datum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/practica.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Práctica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prácticas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prácticas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practicas/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Índice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluaciones
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Evaluaciones
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../evaluaciones/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Índice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Descargas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Descargas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../descargas/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Material del curso
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#no-todo-archivo-geografico-contiene-lo-mismo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        No todo archivo geográfico contiene lo mismo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dos-modelos-fundamentales-vectorial-y-raster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dos modelos fundamentales: vectorial y ráster
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dos modelos fundamentales: vectorial y ráster">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#datos-vectoriales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datos vectoriales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datos-raster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datos ráster
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vector-y-raster-responden-preguntas-diferentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vector y ráster responden preguntas diferentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-formato-no-es-lo-mismo-que-el-modelo-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        El formato no es lo mismo que el modelo de datos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="Navegación" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Mod2 · Introducción a QGIS
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Datos y coordenadas
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/chpass369/curso-qgis/edit/main/docs/modulo-02/04-incorporar-datos.md" title="Editar esta página" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/chpass369/curso-qgis/raw/main/docs/modulo-02/04-incorporar-datos.md" title="Ver código fuente de esta página" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="24-incorporar-datos-y-reconocer-sus-diferencias">2.4 Incorporar datos y reconocer sus diferencias<a class="headerlink" href="#24-incorporar-datos-y-reconocer-sus-diferencias" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Objetivos de aprendizaje</p>
+<p>Al finalizar esta lección, el estudiante será capaz de:</p>
+<ul>
+<li>Diferenciar datos <strong>vectoriales</strong> y <strong>ráster</strong> a partir de su estructura.</li>
+<li>Reconocer las características principales de <strong>GeoPackage, Shapefile, GeoJSON y GeoTIFF</strong>.</li>
+<li>Incorporar fuentes de datos al proyecto utilizando el <strong>panel Navegador</strong> y las herramientas para añadir capas.</li>
+<li>Identificar el <strong>tipo de geometría</strong>, número de entidades, extensión y campos de una capa vectorial.</li>
+<li>Identificar las <strong>dimensiones, resolución, bandas, tipo de dato y valores NoData</strong> de una capa ráster.</li>
+<li>Consultar información básica sobre el <strong>SRC</strong> y los metadatos de una fuente.</li>
+<li>Elaborar un <strong>inventario de datos</strong> antes de utilizarlos.</li>
+<li>Decidir si una fuente puede utilizarse directamente, requiere preparación o no resulta adecuada para el trabajo.</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Antes de empezar</p>
+<ul>
+<li><strong>Entorno:</strong> QGIS con el perfil <code>curso-qgis</code>. Los procedimientos toman como referencia <strong>QGIS 3.44</strong>; algunos nombres de botones pueden variar según la traducción utilizada.</li>
+<li><strong>Punto de partida:</strong> el proyecto organizado durante la <a href="../03-gestionar-proyectos/">lección 2.3</a>.</li>
+<li><strong>Datos:</strong> para aprovechar completamente la práctica conviene disponer de al menos una fuente en cada uno de estos formatos:<ul>
+<li>GeoPackage (<code>.gpkg</code>)</li>
+<li>Shapefile (<code>.shp</code> y archivos asociados)</li>
+<li>GeoJSON (<code>.geojson</code>)</li>
+<li>GeoTIFF (<code>.tif</code>)</li>
+</ul>
+</li>
+<li><strong>Edición:</strong> no modificaremos todavía las geometrías ni los valores originales. El objetivo es <strong>observar, describir y evaluar</strong>.</li>
+<li><strong>SRC:</strong> en esta lección solo reconoceremos qué sistema tiene cada fuente. Los sistemas de referencia se estudiarán con mayor profundidad en la lección <strong>2.6</strong>.</li>
+<li><strong>Tiempo orientativo:</strong> entre <strong>90 y 120 minutos</strong>, incluida la práctica.</li>
+</ul>
+</div>
+<hr />
+<h2 id="no-todo-archivo-geografico-contiene-lo-mismo">No todo archivo geográfico contiene lo mismo<a class="headerlink" href="#no-todo-archivo-geografico-contiene-lo-mismo" title="Permanent link">&para;</a></h2>
+<p>Imagina que recibes una carpeta denominada <code>datos_municipio/</code> con estos archivos:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>datos_municipio/
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── limites.gpkg
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── rios.shp
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── rios.dbf
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>├── rios.shx
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>├── rios.prj
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>├── equipamientos.geojson
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>└── elevacion.tif
+</code></pre></div>
+<p>Todos contienen información geográfica, pero <strong>no representan los datos de la misma manera</strong>.</p>
+<p><code>limites.gpkg</code>, <code>rios.shp</code> y <code>equipamientos.geojson</code> pueden almacenar <strong>entidades vectoriales</strong>. <code>elevacion.tif</code>, en cambio, puede representar una superficie mediante una matriz de <strong>píxeles</strong>.</p>
+<p>Antes de utilizar cualquiera de ellos necesitas responder preguntas como:</p>
+<ul>
+<li>¿Qué fenómeno representa?</li>
+<li>¿Es vectorial o ráster?</li>
+<li>¿Qué geometría contiene?</li>
+<li>¿Cuál es su extensión territorial?</li>
+<li>¿Qué atributos tiene?</li>
+<li>¿Cuál es su sistema de referencia?</li>
+<li>¿De dónde proviene?</li>
+<li>¿Está completo?</li>
+<li>¿Tiene la resolución o nivel de detalle necesario?</li>
+<li>¿Es adecuado para el análisis que realizaré?</li>
+</ul>
+<p>La tarea de esta lección consiste en pasar de <strong>“tengo varios archivos”</strong> a <strong>“sé qué datos tengo y para qué pueden utilizarse”</strong>.</p>
+<div class="admonition captura">
+<p class="admonition-title">Captura pendiente · 2.4-01</p>
+<ul>
+<li><strong>Tipo:</strong> Imagen (PNG) compuesta</li>
+<li><strong>Archivo:</strong> <code>assets/images/modulo-02/2-4/2-4-01-datos-recibidos.png</code></li>
+<li><strong>Qué mostrar:</strong> Una carpeta con archivos GPKG, Shapefile, GeoJSON y GeoTIFF junto a QGIS.</li>
+<li><strong>Sugerencia:</strong> Diferenciar visualmente los archivos de una fuente vectorial y el archivo ráster, sin presentar todavía demasiados conceptos.</li>
+</ul>
+</div>
+<hr />
+<h2 id="dos-modelos-fundamentales-vectorial-y-raster">Dos modelos fundamentales: vectorial y ráster<a class="headerlink" href="#dos-modelos-fundamentales-vectorial-y-raster" title="Permanent link">&para;</a></h2>
+<h3 id="datos-vectoriales">Datos vectoriales<a class="headerlink" href="#datos-vectoriales" title="Permanent link">&para;</a></h3>
+<p>El modelo vectorial representa objetos mediante <strong>geometrías</strong> asociadas a registros de una tabla.</p>
+<p>Sus tres formas básicas son:</p>
+<table>
+<thead>
+<tr>
+<th>Geometría</th>
+<th>Representa normalmente</th>
+<th>Ejemplos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Punto</strong></td>
+<td>Objetos cuya posición es lo importante</td>
+<td>Pozos, árboles, paradas, establecimientos</td>
+</tr>
+<tr>
+<td><strong>Línea</strong></td>
+<td>Elementos con recorrido o longitud</td>
+<td>Ríos, calles, tuberías</td>
+</tr>
+<tr>
+<td><strong>Polígono</strong></td>
+<td>Objetos con superficie delimitada</td>
+<td>Municipios, predios, lagunas</td>
+</tr>
+</tbody>
+</table>
+<p>Cada entidad puede tener información descriptiva almacenada en <strong>campos</strong>.</p>
+<p>Por ejemplo:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">id</th>
+<th>nombre</th>
+<th style="text-align: right;">poblacion</th>
+<th>geometría</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td>Distrito Norte</td>
+<td style="text-align: right;">28450</td>
+<td>Polígono</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>Distrito Centro</td>
+<td style="text-align: right;">41520</td>
+<td>Polígono</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>Distrito Sur</td>
+<td style="text-align: right;">33110</td>
+<td>Polígono</td>
+</tr>
+</tbody>
+</table>
+<p>La geometría responde principalmente a <strong>dónde está y qué forma tiene</strong> el objeto.</p>
+<p>Los atributos permiten responder <strong>qué sabemos sobre él</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Entidad no significa solamente geometría</p>
+<p>Una entidad vectorial combina normalmente una <strong>geometría</strong> con un registro de <strong>atributos</strong>. Dos polígonos pueden tener formas similares pero representar objetos diferentes por sus atributos, fecha o procedencia.</p>
+</div>
+<hr />
+<h3 id="datos-raster">Datos ráster<a class="headerlink" href="#datos-raster" title="Permanent link">&para;</a></h3>
+<p>Un ráster organiza el espacio mediante una matriz regular de <strong>celdas o píxeles</strong>.</p>
+<p>Cada píxel almacena uno o varios valores.</p>
+<p>Ejemplos frecuentes:</p>
+<ul>
+<li>imágenes satelitales;</li>
+<li>fotografías aéreas;</li>
+<li>modelos digitales de elevación;</li>
+<li>temperatura;</li>
+<li>precipitación;</li>
+<li>cobertura del suelo;</li>
+<li>pendientes;</li>
+<li>índices de vegetación.</li>
+</ul>
+<p>Una estructura simplificada podría imaginarse así:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>1250  1252  1255  1258
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>1248  1251  1254  1257
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>1246  1249  1253  1256
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>1244  1247  1250  1254
+</code></pre></div>
+<p>En un modelo digital de elevación, cada número podría representar una <strong>altitud</strong>.</p>
+<p>En una imagen satelital, diferentes bandas pueden representar distintas regiones del espectro electromagnético.</p>
+<div class="admonition captura">
+<p class="admonition-title">Captura pendiente · 2.4-02</p>
+<ul>
+<li><strong>Tipo:</strong> Imagen (PNG)</li>
+<li><strong>Archivo:</strong> <code>assets/images/modulo-02/2-4/2-4-02-vector-raster.png</code></li>
+<li><strong>Qué mostrar:</strong> A la izquierda puntos, líneas y polígonos; a la derecha una cuadrícula ráster ampliada hasta distinguir los píxeles.</li>
+<li><strong>Sugerencia:</strong> Representar aproximadamente la misma zona para facilitar la comparación.</li>
+</ul>
+</div>
+<hr />
+<h2 id="vector-y-raster-responden-preguntas-diferentes">Vector y ráster responden preguntas diferentes<a class="headerlink" href="#vector-y-raster-responden-preguntas-diferentes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>Vector</th>
+<th>Ráster</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unidad principal</td>
+<td>Entidad</td>
+<td>Píxel</td>
+</tr>
+<tr>
+<td>Estructura espacial</td>
+<td>Punto, línea o polígono</td>
+<td>Matriz de celdas</td>
+</tr>
+<tr>
+<td>Información descriptiva</td>
+<td>Campos y atributos</td>
+<td>Valores de píxel y bandas</td>
+</tr>
+<tr>
+<td>Ejemplo</td>
+<td>Predios</td>
+<td>Imagen aérea</td>
+</tr>
+<tr>
+<td>Cantidad característica</td>
+<td>Número de entidades</td>
+<td>Filas × columnas</td>
+</tr>
+<tr>
+<td>Detalle espacial</td>
+<td>Geometría</td>
+<td>Tamaño del píxel</td>
+</tr>
+<tr>
+<td>Consulta típica</td>
+<td>¿Qué atributos tiene este predio?</td>
+<td>¿Qué valor tiene este píxel?</td>
+</tr>
+</tbody>
+</table>
+<p>No existe un modelo universalmente “mejor”.</p>
+<p>La elección depende del fenómeno, del origen de los datos y del análisis que necesitas realizar.</p>
+<hr />
+<h2 id="el-formato-no-es-lo-mismo-que-el-modelo-de-datos">El formato no es lo mismo que el modelo de datos<a class="headerlink" href="#el-formato-no-es-lo-mismo-que-el-modelo-de-datos" title="Permanent link">&para;</a></h2>
+<p><strong>Vectorial</strong> y <strong>ráster</strong> describen formas de representar información.</p>
+<p><strong>GeoPackage</strong>, <strong>Shapefile</strong>, <strong>GeoJSON</strong> y <strong>GeoTIFF</strong> son formatos utilizados para almacenarla.</p>
+<p>En esta lección trabajaremos principalmente con:</p>
+<table>
+<thead>
+<tr>
+<th>Formato</th>
+<th>Extensión habitual</th>
+<th>Tipo principal</th>
+<th>Característica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GeoPackage</strong></td>
+<td><code>.gpkg</code></td>
+<td>Vectorial y otros contenidos</td>
+<td>Contenedor basado en SQLite</td>
+</tr>
+<tr>
+<td><strong>Shapefile</strong></td>
+<td><code>.shp</code> + archivos asociados</td>
+<td>Vectorial</td>
+<td>Conjunto compuesto por varios archivos</td>
+</tr>
+<tr>
+<td><strong>GeoJSON</strong></td>
+<td><code>.geojson</code>, <code>.json</code></td>
+<td>Vectorial</td>
+<td>Formato de texto basado en JSON</td>
+</tr>
+<tr>
+<td><strong>GeoTIFF</strong></td>
+<td><code>.tif</code>, <code>.tiff</code></td>
+<td>Ráster</td>
+<td>Imagen ráster con información geográfica</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">La extensión no cuenta toda la historia</p>
+<p>Reconocer <code>.shp</code> o <code>.tif</code> ayuda a identificar un formato, pero no permite saber automáticamente <strong>qué representa</strong>, cuál es su fecha, qué calidad tiene o si resulta adecuado para tu trabajo. Debes inspeccionar también su contenido y metadatos.</p>
+</div>
+<hr />
+<h1 id="geopackage">GeoPackage<a class="headerlink" href="#geopackage" title="Permanent link">&para;</a></h1>
+<h2 id="un-archivo-que-puede-contener-varias-capas">Un archivo que puede contener varias capas<a class="headerlink" href="#un-archivo-que-puede-contener-varias-capas" title="Permanent link">&para;</a></h2>
+<p>Un <strong>GeoPackage</strong>, normalmente identificado mediante <code>.gpkg</code>, funciona como un contenedor basado en SQLite.</p>
+<p>Un mismo archivo puede contener varias capas.</p>
+<p>Por ejemplo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>municipio.gpkg
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── distritos
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>├── vias
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>├── establecimientos_salud
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>└── areas_verdes
+</code></pre></div>
+<p>Por esta razón debes distinguir:</p>
+<ul>
+<li>el <strong>archivo GeoPackage</strong>;</li>
+<li>la <strong>capa interna</strong> que quieres utilizar.</li>
+</ul>
+<p>Al incorporar un GeoPackage con varias capas, QGIS puede solicitarte seleccionar cuáles quieres añadir.</p>
+<div class="admonition captura">
+<p class="admonition-title">Captura pendiente · 2.4-03</p>
+<ul>
+<li><strong>Tipo:</strong> GIF animado</li>
+<li><strong>Archivo:</strong> <code>assets/images/modulo-02/2-4/2-4-03-geopackage-capas.gif</code></li>
+<li><strong>Qué mostrar:</strong> Expandir un <code>.gpkg</code> desde el Navegador y observar varias capas internas; añadir solamente una.</li>
+<li><strong>Sugerencia:</strong> Mantener visible el nombre del archivo y los nombres de las capas para reforzar la diferencia entre contenedor y capa.</li>
+</ul>
+</div>
+<h3 id="ventajas-para-el-trabajo-cotidiano">Ventajas para el trabajo cotidiano<a class="headerlink" href="#ventajas-para-el-trabajo-cotidiano" title="Permanent link">&para;</a></h3>
+<p>GeoPackage resulta especialmente práctico porque:</p>
+<ul>
+<li>puede reunir varias capas en un único archivo;</li>
+<li>mantiene geometrías y atributos juntos;</li>
+<li>admite nombres y estructuras de campos más flexibles que formatos antiguos;</li>
+<li>facilita trasladar conjuntos de datos;</li>
+<li>puede utilizar índices espaciales;</li>
+<li>es ampliamente compatible con QGIS y otras herramientas SIG.</li>
+</ul>
+<p>En este curso será normalmente el <strong>formato de trabajo preferido para datos vectoriales locales</strong>, salvo que una actividad requiera otro.</p>
+<div class="admonition warning">
+<p class="admonition-title">Un solo archivo puede contener muchas cosas</p>
+<p>Copiar <code>municipio.gpkg</code> suele ser suficiente para trasladar las capas almacenadas dentro del contenedor, pero eso no significa que todas las capas tengan la misma procedencia, fecha o propósito. Debes documentarlas individualmente cuando corresponda.</p>
+</div>
+<hr />
+<h1 id="shapefile">Shapefile<a class="headerlink" href="#shapefile" title="Permanent link">&para;</a></h1>
+<h2 id="una-fuente-formada-por-varios-archivos">Una fuente formada por varios archivos<a class="headerlink" href="#una-fuente-formada-por-varios-archivos" title="Permanent link">&para;</a></h2>
+<p>Aunque habitualmente hablamos de “un Shapefile”, una fuente Shapefile está compuesta por varios archivos relacionados.</p>
+<p>Como mínimo encontrarás normalmente:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>rios.shp
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>rios.shx
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>rios.dbf
+</code></pre></div>
+<p>Pueden existir además otros archivos como:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>rios.prj
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>rios.cpg
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>rios.qix
+</code></pre></div>
+<p>Entre los componentes más habituales:</p>
+<table>
+<thead>
+<tr>
+<th>Extensión</th>
+<th>Función general</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.shp</code></td>
+<td>Geometrías</td>
+</tr>
+<tr>
+<td><code>.dbf</code></td>
+<td>Tabla de atributos</td>
+</tr>
+<tr>
+<td><code>.shx</code></td>
+<td>Índice que relaciona las geometrías</td>
+</tr>
+<tr>
+<td><code>.prj</code></td>
+<td>Información sobre el sistema de referencia</td>
+</tr>
+<tr>
+<td><code>.cpg</code></td>
+<td>Información de codificación de caracteres</td>
+</tr>
+<tr>
+<td><code>.qix</code></td>
+<td>Índice espacial utilizado para acelerar determinadas consultas</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition danger">
+<p class="admonition-title">No copies solamente el SHP</p>
+<p>Si recibes <code>rios.shp</code>, no debes asumir que ese único archivo constituye toda la fuente. Conserva juntos sus archivos asociados.</p>
+</div>
+<p>Esta particularidad ya apareció en la lección anterior al preparar proyectos para compartir. Ahora puedes explicar <strong>por qué</strong> era necesario hacerlo.</p>
+<h3 id="limitaciones-que-debes-reconocer">Limitaciones que debes reconocer<a class="headerlink" href="#limitaciones-que-debes-reconocer" title="Permanent link">&para;</a></h3>
+<p>Shapefile continúa siendo ampliamente utilizado y resulta útil para intercambio con sistemas antiguos, pero tiene restricciones heredadas de su diseño.</p>
+<p>Entre ellas pueden aparecer:</p>
+<ul>
+<li>limitaciones en nombres de campos;</li>
+<li>restricciones en determinados tipos de atributos;</li>
+<li>dependencia de varios archivos;</li>
+<li>problemas de codificación cuando falta información complementaria;</li>
+<li>menor flexibilidad que formatos modernos.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Shapefile no significa dato incorrecto</p>
+<p>Una fuente Shapefile puede ser perfectamente válida. El formato por sí solo no determina la calidad de la información. La decisión depende de su contenido, integridad, procedencia y del trabajo que necesitas realizar.</p>
+</div>
+<hr />
+<h1 id="geojson">GeoJSON<a class="headerlink" href="#geojson" title="Permanent link">&para;</a></h1>
+<h2 id="informacion-geografica-escrita-como-texto">Información geográfica escrita como texto<a class="headerlink" href="#informacion-geografica-escrita-como-texto" title="Permanent link">&para;</a></h2>
+<p>GeoJSON representa entidades geográficas utilizando estructuras <strong>JSON</strong>.</p>
+<p>Un fragmento simplificado puede tener esta forma:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Feature"</span><span class="p">,</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nt">"nombre"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plaza principal"</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="nt">"geometry"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Point"</span><span class="p">,</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="nt">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">-66.15</span><span class="p">,</span><span class="w"> </span><span class="mf">-17.39</span><span class="p">]</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="p">}</span>
+</code></pre></div>
+<p>No necesitas editar manualmente este contenido durante la práctica.</p>
+<p>Lo importante es reconocer que GeoJSON es un formato de texto y que resulta frecuente en:</p>
+<ul>
+<li>aplicaciones web;</li>
+<li>APIs;</li>
+<li>intercambio de información;</li>
+<li>publicación de datos;</li>
+<li>flujos de trabajo con programación.</li>
+</ul>
+<div class="admonition captura">
+<p class="admonition-title">Captura pendiente · 2.4-04</p>
+<ul>
+<li><strong>Tipo:</strong> Imagen (PNG) compuesta</li>
+<li><strong>Archivo:</strong> <code>assets/images/modulo-02/2-4/2-4-04-geojson-texto-qgis.png</code></li>
+<li><strong>Qué mostrar:</strong> El mismo GeoJSON abierto como texto y representado en QGIS.</li>
+<li><strong>Sugerencia:</strong> Resaltar <code>properties</code>, <code>geometry</code> y <code>coordinates</code>, sin convertir la captura en una clase de programación.</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">GeoJSON y sistemas de referencia</p>
+<p>Algunas variantes históricas permiten declarar sistemas de referencia de diferentes maneras. Cuando se trabaja conforme a <strong>RFC 7946</strong>, GeoJSON utiliza coordenadas geográficas WGS 84. No asumas el SRC solamente por la apariencia del mapa: revisa cómo QGIS interpreta la fuente.</p>
+</div>
+<hr />
+<h1 id="geotiff">GeoTIFF<a class="headerlink" href="#geotiff" title="Permanent link">&para;</a></h1>
+<h2 id="una-imagen-que-conoce-su-posicion-geografica">Una imagen que conoce su posición geográfica<a class="headerlink" href="#una-imagen-que-conoce-su-posicion-geografica" title="Permanent link">&para;</a></h2>
+<p>Un archivo TIFF convencional contiene una imagen.</p>
+<p>Un <strong>GeoTIFF</strong> puede incorporar además información necesaria para situar el ráster en el espacio geográfico.</p>
+<p>Por ejemplo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>elevacion.tif
+</code></pre></div>
+<p>podría contener:</p>
+<ul>
+<li>2 000 columnas;</li>
+<li>1 500 filas;</li>
+<li>tamaño de píxel de 10 m;</li>
+<li>una banda;</li>
+<li>valores de elevación;</li>
+<li>un determinado sistema de referencia.</li>
+</ul>
+<p>Otro GeoTIFF podría contener una imagen multibanda obtenida mediante un sensor remoto.</p>
+<p>Por eso saber que un archivo es <code>.tif</code> todavía no responde qué información contiene.</p>
+<hr />
+<h2 id="las-bandas">Las bandas<a class="headerlink" href="#las-bandas" title="Permanent link">&para;</a></h2>
+<p>Una capa ráster puede tener <strong>una o varias bandas</strong>.</p>
+<p>Ejemplos:</p>
+<table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th>Bandas posibles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modelo digital de elevación</td>
+<td>1 banda</td>
+</tr>
+<tr>
+<td>Clasificación de cobertura</td>
+<td>1 banda</td>
+</tr>
+<tr>
+<td>Fotografía RGB</td>
+<td>3 bandas</td>
+</tr>
+<tr>
+<td>Imagen satelital multiespectral</td>
+<td>Varias bandas</td>
+</tr>
+</tbody>
+</table>
+<p>En QGIS puedes revisar el número de bandas desde <strong>Propiedades de la capa ▸ Información</strong>.</p>
+<div class="admonition captura">
+<p class="admonition-title">Captura pendiente · 2.4-05</p>
+<ul>
+<li><strong>Tipo:</strong> Imagen (PNG) anotada</li>
+<li><strong>Archivo:</strong> <code>assets/images/modulo-02/2-4/2-4-05-raster-informacion.png</code></li>
+<li><strong>Qué mostrar:</strong> Propiedades de un GeoTIFF destacando dimensiones, número de bandas, tipo de dato, tamaño de píxel, extensión y SRC.</li>
+<li><strong>Sugerencia:</strong> Numerar solamente las propiedades que el estudiante deberá registrar posteriormente en su inventario.</li>
+</ul>
+</div>
+<hr />
+<h1 id="incorporar-datos-al-proyecto">Incorporar datos al proyecto<a class="headerlink" href="#incorporar-datos-al-proyecto" title="Permanent link">&para;</a></h1>
+<p>QGIS permite incorporar información desde diferentes lugares de la interfaz.</p>
+<p>Para esta práctica utilizaremos principalmente dos métodos:</p>
+<ol>
+<li><strong>Panel Navegador</strong></li>
+<li><strong>Añadir capa / Administrador de fuentes de datos</strong></li>
+</ol>
+<hr />
+<h2 id="utilizar-el-panel-navegador">Utilizar el panel Navegador<a class="headerlink" href="#utilizar-el-panel-navegador" title="Permanent link">&para;</a></h2>
+<p>El Navegador permite explorar carpetas y determinadas fuentes sin incorporarlas inmediatamente al proyecto.</p>
+<h3 id="procedimiento">Procedimiento<a class="headerlink" href="#procedimiento" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Localiza la carpeta <code>datos/originales/</code>.</li>
+<li>Expándela en el panel <strong>Navegador</strong>.</li>
+<li>Observa los archivos disponibles.</li>
+<li>Si encuentras un GeoPackage, expándelo para observar sus capas internas.</li>
+<li>Arrastra una capa hasta el lienzo o haz doble clic para incorporarla.</li>
+<li>Observa cómo aparece en el panel <strong>Capas</strong>.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Navegador y Capas cumplen funciones diferentes</p>
+<p><strong>Navegador</strong> muestra fuentes que puedes explorar.</p>
+<p><strong>Capas</strong> muestra los elementos incorporados al proyecto actual.</p>
+</div>
+<p>Una fuente puede existir en el Navegador sin formar parte de tu proyecto.</p>
+<hr />
+<h2 id="utilizar-anadir-capa">Utilizar Añadir capa<a class="headerlink" href="#utilizar-anadir-capa" title="Permanent link">&para;</a></h2>
+<p>También puedes utilizar las acciones de <strong>Capa ▸ Añadir capa</strong> o el <strong>Administrador de fuentes de datos</strong>.</p>
+<p>Dependiendo del tipo de fuente encontrarás opciones específicas para:</p>
+<ul>
+<li>vector;</li>
+<li>ráster;</li>
+<li>texto delimitado;</li>
+<li>bases de datos;</li>
+<li>servicios web;</li>
+<li>otras fuentes.</li>
+</ul>
+<p>Para los archivos de esta lección, QGIS suele poder reconocer automáticamente el proveedor correspondiente.</p>
+<div class="admonition captura">
+<p class="admonition-title">Captura pendiente · 2.4-06</p>
+<ul>
+<li><strong>Tipo:</strong> GIF animado</li>
+<li><strong>Archivo:</strong> <code>assets/images/modulo-02/2-4/2-4-06-incorporar-datos.gif</code></li>
+<li><strong>Qué mostrar:</strong> Incorporar un GPKG, un Shapefile, un GeoJSON y un GeoTIFF, alternando entre Navegador y Administrador de fuentes.</li>
+<li><strong>Sugerencia:</strong> Evitar configurar simbología; el objetivo del GIF es mostrar cómo se incorporan las fuentes.</li>
+</ul>
+</div>
+<hr />
+<h1 id="inspeccionar-antes-de-utilizar">Inspeccionar antes de utilizar<a class="headerlink" href="#inspeccionar-antes-de-utilizar" title="Permanent link">&para;</a></h1>
+<p>Que una capa aparezca correctamente en el mapa <strong>no demuestra que sea la fuente adecuada</strong>.</p>
+<p>Para una primera evaluación revisaremos al menos:</p>
+<h3 id="si-es-vectorial">Si es vectorial<a class="headerlink" href="#si-es-vectorial" title="Permanent link">&para;</a></h3>
+<ul>
+<li>formato;</li>
+<li>nombre de la capa;</li>
+<li>tipo de geometría;</li>
+<li>número de entidades;</li>
+<li>extensión;</li>
+<li>sistema de referencia;</li>
+<li>campos;</li>
+<li>tipos de campos;</li>
+<li>valores de ejemplo;</li>
+<li>procedencia y metadatos.</li>
+</ul>
+<h3 id="si-es-raster">Si es ráster<a class="headerlink" href="#si-es-raster" title="Permanent link">&para;</a></h3>
+<ul>
+<li>formato;</li>
+<li>número de columnas;</li>
+<li>número de filas;</li>
+<li>tamaño de píxel;</li>
+<li>número de bandas;</li>
+<li>tipo de dato;</li>
+<li>valores NoData;</li>
+<li>extensión;</li>
+<li>sistema de referencia;</li>
+<li>metadatos y procedencia.</li>
+</ul>
+<p>Estos elementos constituyen una <strong>ficha mínima de reconocimiento</strong>.</p>
+<hr />
+<h1 id="reconocer-la-geometria">Reconocer la geometría<a class="headerlink" href="#reconocer-la-geometria" title="Permanent link">&para;</a></h1>
+<p>Haz clic derecho sobre una capa vectorial y abre:</p>
+<p><strong>Propiedades ▸ Información</strong></p>
+<p>Localiza su tipo de geometría.</p>
+<p>Podrás encontrar denominaciones relacionadas con:</p>
+<ul>
+<li>Point;</li>
+<li>MultiPoint;</li>
+<li>LineString;</li>
+<li>MultiLineString;</li>
+<li>Polygon;</li>
+<li>MultiPolygon.</li>
+</ul>
+<p>En esta etapa no necesitas memorizar todas sus variantes.</p>
+<p>Lo importante es distinguir inicialmente:</p>
+<p><strong>punto → línea → polígono</strong></p>
+<p>y reconocer que pueden existir geometrías <strong>simples</strong> y <strong>multipartes</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">La apariencia puede engañar</p>
+<p>No determines el tipo de geometría solamente mirando el mapa. Un punto con un símbolo muy grande puede parecer una superficie y un polígono muy pequeño puede parecer un punto. Consulta las propiedades de la fuente.</p>
+</div>
+<hr />
+<h2 id="geometria-y-fenomeno-deben-tener-sentido-juntos">Geometría y fenómeno deben tener sentido juntos<a class="headerlink" href="#geometria-y-fenomeno-deben-tener-sentido-juntos" title="Permanent link">&para;</a></h2>
+<p>Imagina una capa llamada:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>hospitales
+</code></pre></div>
+<p>Si su geometría es de tipo punto, puede ser completamente razonable para determinadas escalas de trabajo.</p>
+<p>Ahora imagina:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>limites_municipales
+</code></pre></div>
+<p>pero la capa contiene solamente puntos.</p>
+<p>No necesariamente está dañada, pero debes investigar qué representan realmente esos puntos antes de utilizarla como delimitación administrativa.</p>
+<div class="admonition question">
+<p class="admonition-title">Pregunta de control</p>
+<p>Una capa se llama <code>rios</code>, pero contiene polígonos.</p>
+<p>¿Está necesariamente equivocada?</p>
+<p>No. Podría representar superficies de cuerpos de agua o cauces delimitados. <strong>El nombre de la capa no es suficiente para determinar su significado.</strong></p>
+</div>
+<hr />
+<h1 id="el-numero-de-entidades">El número de entidades<a class="headerlink" href="#el-numero-de-entidades" title="Permanent link">&para;</a></h1>
+<p>Para una capa vectorial es útil registrar cuántos objetos contiene.</p>
+<p>Por ejemplo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Capa: establecimientos_salud
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Entidades: 84
+</code></pre></div>
+<p>Este número puede utilizarse como un primer control.</p>
+<p>Si posteriormente recibes otra versión con solamente 12 entidades, existe una diferencia que debes investigar.</p>
+<div class="admonition warning">
+<p class="admonition-title">Cantidad no equivale a calidad</p>
+<p>Dos capas pueden tener exactamente el mismo número de entidades y contener información diferente. El conteo es un control útil, pero debe combinarse con geometría, atributos, extensión, fecha y procedencia.</p>
+</div>
+<hr />
+<h1 id="comprender-la-extension">Comprender la extensión<a class="headerlink" href="#comprender-la-extension" title="Permanent link">&para;</a></h1>
+<p>La <strong>extensión espacial</strong> o <em>extent</em> es el rectángulo mínimo que contiene espacialmente una capa.</p>
+<p>Puede expresarse mediante valores como:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>X mínima
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>X máxima
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>Y mínima
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>Y máxima
+</code></pre></div>
+<p>Visualmente:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>┌─────────────────────────────┐
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>│                             │
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>│       datos de la capa      │
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>│           ● ●               │
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>│      ●          ●           │
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>│          ●                  │
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>│                             │
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>└─────────────────────────────┘
+</code></pre></div>
+<p>El rectángulo exterior representa aproximadamente la <strong>extensión</strong>.</p>
+<div class="admonition danger">
+<p class="admonition-title">Extensión no significa cobertura completa</p>
+<p>Una capa puede tener una extensión que abarque todo un municipio y contener solamente cinco puntos dentro de él.</p>
+</div>
+<p>Por ello debes diferenciar:</p>
+<p><strong>extensión espacial</strong></p>
+<p>de</p>
+<p><strong>cobertura efectiva de los datos</strong>.</p>
+<hr />
+<h2 id="detectar-extensiones-sospechosas">Detectar extensiones sospechosas<a class="headerlink" href="#detectar-extensiones-sospechosas" title="Permanent link">&para;</a></h2>
+<p>Supongamos que esperas datos correspondientes únicamente a un municipio, pero al usar:</p>
+<p><strong>Zoom a la capa</strong></p>
+<p>el mapa muestra prácticamente todo el continente.</p>
+<p>Podría existir:</p>
+<ul>
+<li>una entidad localizada incorrectamente;</li>
+<li>una geometría anómala;</li>
+<li>un problema relacionado con coordenadas;</li>
+<li>una fuente que contiene información de un territorio mucho mayor.</li>
+</ul>
+<p>Todavía no corregiremos estos problemas.</p>
+<p>Por ahora debes <strong>detectarlos y documentarlos</strong>.</p>
+<div class="admonition captura">
+<p class="admonition-title">Captura pendiente · 2.4-07</p>
+<ul>
+<li><strong>Tipo:</strong> Imagen (PNG) comparativa</li>
+<li><strong>Archivo:</strong> <code>assets/images/modulo-02/2-4/2-4-07-extension.png</code></li>
+<li><strong>Qué mostrar:</strong> Una capa con extensión razonable y otra con una entidad anómala que amplía enormemente su extensión.</li>
+<li><strong>Sugerencia:</strong> Utilizar el mismo lienzo y remarcar el rectángulo conceptual de extensión.</li>
+</ul>
+</div>
+<hr />
+<h1 id="examinar-los-campos">Examinar los campos<a class="headerlink" href="#examinar-los-campos" title="Permanent link">&para;</a></h1>
+<p>Abre la <strong>tabla de atributos</strong> de una capa vectorial.</p>
+<p>Encontrarás columnas como:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>id
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>nombre
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>categoria
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>poblacion
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>fecha
+</code></pre></div>
+<p>Cada columna corresponde a un <strong>campo</strong>.</p>
+<p>Cada fila representa normalmente una <strong>entidad</strong>.</p>
+<hr />
+<h2 id="el-nombre-del-campo-no-define-su-contenido">El nombre del campo no define su contenido<a class="headerlink" href="#el-nombre-del-campo-no-define-su-contenido" title="Permanent link">&para;</a></h2>
+<p>Un campo denominado:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>POBLACION
+</code></pre></div>
+<p>podría contener números enteros.</p>
+<p>Pero también podría haber sido creado como texto:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>"12450"
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>"9820"
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>"15003"
+</code></pre></div>
+<p>Visualmente parecen números, pero su <strong>tipo de dato</strong> puede impedir determinadas operaciones matemáticas.</p>
+<p>Por ello debes comprobar:</p>
+<ul>
+<li>nombre del campo;</li>
+<li>tipo;</li>
+<li>longitud o precisión cuando corresponda;</li>
+<li>valores de ejemplo;</li>
+<li>presencia de valores nulos.</li>
+</ul>
+<hr />
+<h2 id="tipos-habituales-de-campos">Tipos habituales de campos<a class="headerlink" href="#tipos-habituales-de-campos" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Tipo conceptual</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entero</td>
+<td><code>1532</code></td>
+</tr>
+<tr>
+<td>Decimal</td>
+<td><code>17.42</code></td>
+</tr>
+<tr>
+<td>Texto</td>
+<td><code>Distrito Norte</code></td>
+</tr>
+<tr>
+<td>Fecha</td>
+<td><code>2026-09-16</code></td>
+</tr>
+<tr>
+<td>Fecha y hora</td>
+<td><code>2026-09-16 10:35</code></td>
+</tr>
+<tr>
+<td>Booleano</td>
+<td>verdadero / falso</td>
+</tr>
+</tbody>
+</table>
+<p>Los tipos disponibles dependen también del formato utilizado.</p>
+<div class="admonition warning">
+<p class="admonition-title">Vacío, cero y NULL no significan necesariamente lo mismo</p>
+<ul>
+<li><code>0</code> puede ser un valor numérico válido.</li>
+<li><code>""</code> puede representar texto vacío.</li>
+<li><code>NULL</code> representa ausencia de valor.</li>
+</ul>
+<p>No reemplaces automáticamente uno por otro sin entender el significado del campo.</p>
+</div>
+<hr />
+<h1 id="inspeccionar-un-raster">Inspeccionar un ráster<a class="headerlink" href="#inspeccionar-un-raster" title="Permanent link">&para;</a></h1>
+<p>Para una capa GeoTIFF abre:</p>
+<p><strong>Propiedades ▸ Información</strong></p>
+<p>Registra como mínimo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Columnas:
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>Filas:
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>Número de bandas:
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>Tipo de dato:
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>Tamaño de píxel:
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>NoData:
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>Extensión:
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>SRC:
+</code></pre></div>
+<hr />
+<h2 id="filas-y-columnas">Filas y columnas<a class="headerlink" href="#filas-y-columnas" title="Permanent link">&para;</a></h2>
+<p>Un ráster de:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>3000 columnas × 2000 filas
+</code></pre></div>
+<p>contiene:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>6 000 000 de píxeles
+</code></pre></div>
+<p>por banda.</p>
+<p>Esto permite comenzar a comprender por qué determinados ráster pueden ocupar mucho espacio o requerir más procesamiento.</p>
+<hr />
+<h1 id="tamano-de-pixel-y-resolucion-espacial">Tamaño de píxel y resolución espacial<a class="headerlink" href="#tamano-de-pixel-y-resolucion-espacial" title="Permanent link">&para;</a></h1>
+<p>El tamaño de cada píxel está relacionado con el nivel de detalle espacial que puede representar el ráster.</p>
+<p>Por ejemplo, en un sistema de coordenadas cuyas unidades sean metros:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>10 × 10 m
+</code></pre></div>
+<p>significaría que cada píxel representa aproximadamente una celda de diez metros por diez metros.</p>
+<p>Otro ráster podría tener:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>30 × 30 m
+</code></pre></div>
+<p>Los dos pueden representar la misma región, pero con diferente nivel de detalle.</p>
+<div class="admonition danger">
+<p class="admonition-title">Más píxeles no significa automáticamente mejor información</p>
+<p>La resolución debe evaluarse junto con la fuente, el método de captura, la fecha, la precisión y el propósito del trabajo. Aumentar artificialmente el número de píxeles no genera nuevos detalles reales.</p>
+</div>
+<hr />
+<h1 id="el-tipo-de-dato-del-raster">El tipo de dato del ráster<a class="headerlink" href="#el-tipo-de-dato-del-raster" title="Permanent link">&para;</a></h1>
+<p>Los píxeles también tienen un <strong>tipo de dato</strong>.</p>
+<p>Puedes encontrar, entre otros:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Byte
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>UInt16
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>Int16
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>UInt32
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>Float32
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>Float64
+</code></pre></div>
+<p>Estos tipos determinan qué clases y rangos de valores pueden almacenarse.</p>
+<p>Un ráster categórico podría utilizar valores enteros como:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>1 = bosque
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>2 = cultivo
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>3 = urbano
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>4 = agua
+</code></pre></div>
+<p>Un modelo de elevación puede requerir valores con decimales.</p>
+<p>En esta etapa no es necesario memorizar todos los tipos numéricos; debes aprender a <strong>reconocerlos y registrarlos</strong>.</p>
+<hr />
+<h1 id="valores-nodata">Valores NoData<a class="headerlink" href="#valores-nodata" title="Permanent link">&para;</a></h1>
+<p>Un ráster puede contener zonas donde no existe un valor válido.</p>
+<p>Estas zonas pueden identificarse mediante un valor <strong>NoData</strong>.</p>
+<p>Por ejemplo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>-9999
+</code></pre></div>
+<p>podría estar reservado para indicar ausencia de información.</p>
+<p>Eso no significa necesariamente que <code>-9999</code> represente una medición real.</p>
+<div class="admonition warning">
+<p class="admonition-title">NoData no es cero</p>
+<p>Un píxel con valor <code>0</code> puede contener una observación válida.</p>
+<p>Un píxel definido como <strong>NoData</strong> indica que el dataset no proporciona allí un valor válido.</p>
+</div>
+<hr />
+<h1 id="reconocer-el-sistema-de-referencia">Reconocer el sistema de referencia<a class="headerlink" href="#reconocer-el-sistema-de-referencia" title="Permanent link">&para;</a></h1>
+<p>Tanto las fuentes vectoriales como los ráster pueden tener asociado un <strong>Sistema de Referencia de Coordenadas (SRC)</strong>.</p>
+<p>En esta lección registra:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Nombre del SRC
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>Código EPSG, si existe
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>Unidades
+</code></pre></div>
+<p>Por ejemplo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>EPSG:4326
+</code></pre></div>
+<p>o:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>EPSG:32719
+</code></pre></div>
+<p>No necesitas todavía explicar sus diferencias matemáticas.</p>
+<p>Eso se desarrollará en la lección <strong>2.6</strong>.</p>
+<div class="admonition danger">
+<p class="admonition-title">Que las capas coincidan visualmente no demuestra que tengan el mismo SRC</p>
+<p>QGIS puede realizar transformaciones para representar conjuntamente capas con sistemas diferentes. Consulta siempre la información de cada fuente.</p>
+</div>
+<hr />
+<h1 id="metadatos-datos-acerca-de-los-datos">Metadatos: datos acerca de los datos<a class="headerlink" href="#metadatos-datos-acerca-de-los-datos" title="Permanent link">&para;</a></h1>
+<p>Conocer geometrías y campos no es suficiente.</p>
+<p>También necesitas saber:</p>
+<ul>
+<li>quién produjo la información;</li>
+<li>qué institución es responsable;</li>
+<li>cuándo fue creada;</li>
+<li>cuándo fue actualizada;</li>
+<li>qué representa exactamente;</li>
+<li>cómo fue obtenida;</li>
+<li>qué precisión tiene;</li>
+<li>qué restricciones de uso existen;</li>
+<li>cuál es su licencia;</li>
+<li>para qué propósito fue producida.</li>
+</ul>
+<p>Esta información constituye parte de los <strong>metadatos</strong>.</p>
+<hr />
+<h2 id="un-archivo-sin-contexto-pierde-valor">Un archivo sin contexto pierde valor<a class="headerlink" href="#un-archivo-sin-contexto-pierde-valor" title="Permanent link">&para;</a></h2>
+<p>Compara estos dos casos:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>calles.shp
+</code></pre></div>
+<p>frente a:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>Fuente: Gobierno Autónomo Municipal
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>Contenido: red vial municipal
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>Fecha de actualización: agosto de 2026
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>Método: restitución y verificación de campo
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>SRC: EPSG:32719
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>Responsable: Unidad SIG
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>Uso: planificación municipal
+</code></pre></div>
+<p>En ambos casos puedes abrir el archivo.</p>
+<p>Pero solamente en el segundo puedes comenzar a evaluar con mayor fundamento <strong>qué representa y si resulta apropiado</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Metadatos incompletos también son información</p>
+<p>Si desconoces la fecha, responsable o método de producción, no inventes esos valores.</p>
+<p>Registra:</p>
+<p><strong>No disponible</strong></p>
+<p>o:</p>
+<p><strong>Por verificar</strong></p>
+</div>
+<p>La ausencia de documentación debe formar parte de la evaluación.</p>
+<hr />
+<h1 id="procedencia-y-linaje">Procedencia y linaje<a class="headerlink" href="#procedencia-y-linaje" title="Permanent link">&para;</a></h1>
+<p>La <strong>procedencia</strong> indica de dónde provienen los datos.</p>
+<p>El <strong>linaje</strong> describe cómo fueron producidos o transformados.</p>
+<p>Por ejemplo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>Fuente original:
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>Catastro municipal 2025
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>Proceso:
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>Selección de predios urbanos
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>Transformación:
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>Reproyección y corrección geométrica
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>
+<a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>Producto:
+<a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>predios_urbanos_2026.gpkg
+</code></pre></div>
+<p>Esto permite diferenciar un dato original de un producto derivado.</p>
+<hr />
+<h1 id="construir-un-inventario-de-datos">Construir un inventario de datos<a class="headerlink" href="#construir-un-inventario-de-datos" title="Permanent link">&para;</a></h1>
+<p>Antes de comenzar un análisis crea una tabla de inventario.</p>
+<p>Una estructura básica puede ser:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">ID</th>
+<th>Archivo / capa</th>
+<th>Tipo</th>
+<th>Formato</th>
+<th>Geometría / bandas</th>
+<th>Entidades / dimensiones</th>
+<th>SRC</th>
+<th>Fecha</th>
+<th>Procedencia</th>
+<th>Estado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">01</td>
+<td>distritos</td>
+<td>Vector</td>
+<td>GPKG</td>
+<td>Polígono</td>
+<td>12 entidades</td>
+<td>EPSG:…</td>
+<td>2026</td>
+<td>GAMS</td>
+<td>Utilizable</td>
+</tr>
+<tr>
+<td style="text-align: right;">02</td>
+<td>rios</td>
+<td>Vector</td>
+<td>Shapefile</td>
+<td>Línea</td>
+<td>356 entidades</td>
+<td>EPSG:…</td>
+<td>N/D</td>
+<td>N/D</td>
+<td>Revisar</td>
+</tr>
+<tr>
+<td style="text-align: right;">03</td>
+<td>equipamientos</td>
+<td>Vector</td>
+<td>GeoJSON</td>
+<td>Punto</td>
+<td>84 entidades</td>
+<td>EPSG:…</td>
+<td>2026</td>
+<td>Levantamiento</td>
+<td>Utilizable</td>
+</tr>
+<tr>
+<td style="text-align: right;">04</td>
+<td>elevacion.tif</td>
+<td>Ráster</td>
+<td>GeoTIFF</td>
+<td>1 banda</td>
+<td>2000 × 1500</td>
+<td>EPSG:…</td>
+<td>N/D</td>
+<td>N/D</td>
+<td>Revisar</td>
+</tr>
+</tbody>
+</table>
+<p>Esta tabla no sustituye los metadatos completos.</p>
+<p>Funciona como un <strong>inventario operativo</strong> para conocer rápidamente qué has recibido.</p>
+<hr />
+<h1 id="clasificar-el-estado-de-una-fuente">Clasificar el estado de una fuente<a class="headerlink" href="#clasificar-el-estado-de-una-fuente" title="Permanent link">&para;</a></h1>
+<p>Para el curso utilizaremos tres estados sencillos:</p>
+<table>
+<thead>
+<tr>
+<th>Estado</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Utilizable</strong></td>
+<td>Tiene información suficiente y cumple las necesidades inmediatas</td>
+</tr>
+<tr>
+<td><strong>Revisar / preparar</strong></td>
+<td>Puede servir, pero existe algún aspecto que debe verificarse o corregirse</td>
+</tr>
+<tr>
+<td><strong>No utilizar por ahora</strong></td>
+<td>No cumple los requisitos del trabajo o su significado no puede verificarse</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">No utilizar no significa eliminar</p>
+<p>Una fuente que no sirve para un análisis determinado puede ser útil posteriormente.</p>
+<p>Conserva los originales y documenta la razón de tu decisión.</p>
+</div>
+<hr />
+<h1 id="criterios-para-decidir-si-un-dato-sirve">Criterios para decidir si un dato sirve<a class="headerlink" href="#criterios-para-decidir-si-un-dato-sirve" title="Permanent link">&para;</a></h1>
+<p>Antes de incorporar definitivamente una fuente a tu flujo de trabajo, pregunta:</p>
+<h3 id="contenido">Contenido<a class="headerlink" href="#contenido" title="Permanent link">&para;</a></h3>
+<ul>
+<li>¿Representa el fenómeno que necesito?</li>
+<li>¿La geometría es apropiada?</li>
+<li>¿Tiene los campos necesarios?</li>
+<li>¿Las bandas representan las variables requeridas?</li>
+</ul>
+<h3 id="cobertura">Cobertura<a class="headerlink" href="#cobertura" title="Permanent link">&para;</a></h3>
+<ul>
+<li>¿Cubre mi área de estudio?</li>
+<li>¿Tiene entidades fuera de la zona esperada?</li>
+<li>¿La extensión parece razonable?</li>
+</ul>
+<h3 id="escala-y-detalle">Escala y detalle<a class="headerlink" href="#escala-y-detalle" title="Permanent link">&para;</a></h3>
+<ul>
+<li>¿El nivel de detalle es adecuado?</li>
+<li>¿El tamaño de píxel permite el análisis previsto?</li>
+<li>¿El dato fue creado para una escala compatible con mi trabajo?</li>
+</ul>
+<h3 id="temporalidad">Temporalidad<a class="headerlink" href="#temporalidad" title="Permanent link">&para;</a></h3>
+<ul>
+<li>¿De qué fecha son los datos?</li>
+<li>¿Representan el período que necesito?</li>
+<li>¿Existe una versión más reciente?</li>
+</ul>
+<h3 id="referencia-espacial">Referencia espacial<a class="headerlink" href="#referencia-espacial" title="Permanent link">&para;</a></h3>
+<ul>
+<li>¿Conozco su SRC?</li>
+<li>¿Las unidades son apropiadas?</li>
+<li>¿Existe información suficiente para interpretarlo correctamente?</li>
+</ul>
+<h3 id="procedencia">Procedencia<a class="headerlink" href="#procedencia" title="Permanent link">&para;</a></h3>
+<ul>
+<li>¿Quién produjo los datos?</li>
+<li>¿Conozco el método?</li>
+<li>¿Puedo verificar su fuente?</li>
+</ul>
+<h3 id="uso">Uso<a class="headerlink" href="#uso" title="Permanent link">&para;</a></h3>
+<ul>
+<li>¿Tengo permiso para utilizarlo?</li>
+<li>¿Existen restricciones para publicarlo o redistribuirlo?</li>
+</ul>
+<hr />
+<h1 id="un-ejemplo-de-decision">Un ejemplo de decisión<a class="headerlink" href="#un-ejemplo-de-decision" title="Permanent link">&para;</a></h1>
+<p>Supongamos que necesitas localizar establecimientos de salud existentes en 2026.</p>
+<p>Recibes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>hospitales_2015.shp
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>establecimientos_2026.gpkg
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>centros_salud.geojson
+</code></pre></div>
+<p>No deberías elegir automáticamente el GeoPackage solo porque sea un formato más moderno.</p>
+<p>Debes comparar:</p>
+<table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>hospitales_2015</th>
+<th>establecimientos_2026</th>
+<th>centros_salud</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fecha</td>
+<td>2015</td>
+<td>2026</td>
+<td>Desconocida</td>
+</tr>
+<tr>
+<td>Geometría</td>
+<td>Punto</td>
+<td>Punto</td>
+<td>Punto</td>
+</tr>
+<tr>
+<td>Procedencia</td>
+<td>Conocida</td>
+<td>Conocida</td>
+<td>Desconocida</td>
+</tr>
+<tr>
+<td>Cobertura</td>
+<td>Parcial</td>
+<td>Municipal</td>
+<td>Municipal</td>
+</tr>
+<tr>
+<td>Campos requeridos</td>
+<td>Parciales</td>
+<td>Completos</td>
+<td>Parciales</td>
+</tr>
+</tbody>
+</table>
+<p>La elección debe fundamentarse principalmente en el <strong>contenido y adecuación de los datos</strong>, no solo en su extensión de archivo.</p>
+<hr />
+<h1 id="flujo-minimo-de-inspeccion">Flujo mínimo de inspección<a class="headerlink" href="#flujo-minimo-de-inspeccion" title="Permanent link">&para;</a></h1>
+<p>Cuando recibas una nueva fuente geográfica utiliza esta secuencia:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>RECIBIR
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>   │
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>   ▼
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>IDENTIFICAR FORMATO
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>   │
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>   ▼
+<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>INCORPORAR EN QGIS
+<a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a>   │
+<a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a>   ▼
+<a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a>IDENTIFICAR MODELO
+<a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a>Vector / Ráster
+<a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a>   │
+<a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a>   ▼
+<a id="__codelineno-30-14" name="__codelineno-30-14" href="#__codelineno-30-14"></a>REVISAR ESTRUCTURA
+<a id="__codelineno-30-15" name="__codelineno-30-15" href="#__codelineno-30-15"></a>   │
+<a id="__codelineno-30-16" name="__codelineno-30-16" href="#__codelineno-30-16"></a>   ├── Vector:
+<a id="__codelineno-30-17" name="__codelineno-30-17" href="#__codelineno-30-17"></a>   │   geometría
+<a id="__codelineno-30-18" name="__codelineno-30-18" href="#__codelineno-30-18"></a>   │   entidades
+<a id="__codelineno-30-19" name="__codelineno-30-19" href="#__codelineno-30-19"></a>   │   campos
+<a id="__codelineno-30-20" name="__codelineno-30-20" href="#__codelineno-30-20"></a>   │
+<a id="__codelineno-30-21" name="__codelineno-30-21" href="#__codelineno-30-21"></a>   └── Ráster:
+<a id="__codelineno-30-22" name="__codelineno-30-22" href="#__codelineno-30-22"></a>       dimensiones
+<a id="__codelineno-30-23" name="__codelineno-30-23" href="#__codelineno-30-23"></a>       bandas
+<a id="__codelineno-30-24" name="__codelineno-30-24" href="#__codelineno-30-24"></a>       píxel
+<a id="__codelineno-30-25" name="__codelineno-30-25" href="#__codelineno-30-25"></a>       tipo de dato
+<a id="__codelineno-30-26" name="__codelineno-30-26" href="#__codelineno-30-26"></a>   │
+<a id="__codelineno-30-27" name="__codelineno-30-27" href="#__codelineno-30-27"></a>   ▼
+<a id="__codelineno-30-28" name="__codelineno-30-28" href="#__codelineno-30-28"></a>REVISAR EXTENSIÓN Y SRC
+<a id="__codelineno-30-29" name="__codelineno-30-29" href="#__codelineno-30-29"></a>   │
+<a id="__codelineno-30-30" name="__codelineno-30-30" href="#__codelineno-30-30"></a>   ▼
+<a id="__codelineno-30-31" name="__codelineno-30-31" href="#__codelineno-30-31"></a>REVISAR METADATOS
+<a id="__codelineno-30-32" name="__codelineno-30-32" href="#__codelineno-30-32"></a>   │
+<a id="__codelineno-30-33" name="__codelineno-30-33" href="#__codelineno-30-33"></a>   ▼
+<a id="__codelineno-30-34" name="__codelineno-30-34" href="#__codelineno-30-34"></a>REGISTRAR EN INVENTARIO
+<a id="__codelineno-30-35" name="__codelineno-30-35" href="#__codelineno-30-35"></a>   │
+<a id="__codelineno-30-36" name="__codelineno-30-36" href="#__codelineno-30-36"></a>   ▼
+<a id="__codelineno-30-37" name="__codelineno-30-37" href="#__codelineno-30-37"></a>DECIDIR
+<a id="__codelineno-30-38" name="__codelineno-30-38" href="#__codelineno-30-38"></a>Utilizar / Revisar / No utilizar
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Principio de trabajo</p>
+<p><strong>No empieces un análisis importante con datos que todavía no has identificado.</strong></p>
+</div>
+<hr />
+<h2 id="reto-practico">Reto práctico<a class="headerlink" href="#reto-practico" title="Permanent link">&para;</a></h2>
+<div class="admonition example">
+<p class="admonition-title">Reto 2.4 — Inventariar y evaluar un paquete de datos</p>
+<p><strong>Situación:</strong> recibiste varias fuentes geográficas para preparar un proyecto municipal. Antes de trabajar con ellas debes determinar qué contiene cada una, registrar sus características y justificar cuáles pueden utilizarse.</p>
+<p><strong>1. Preparar el proyecto</strong></p>
+<ul>
+<li>Abre el proyecto creado durante la lección 2.3.</li>
+<li>Guarda una nueva versión como:</li>
+</ul>
+<p><code>proyectos/reto_2-4_inventario.qgz</code></p>
+<ul>
+<li>Comprueba que utiliza rutas relativas.</li>
+<li>No modifiques los archivos almacenados en <code>datos/originales/</code>.</li>
+</ul>
+<p><strong>2. Incorporar las fuentes</strong></p>
+<p>Incorpora al menos:</p>
+<ul>
+<li>un GeoPackage;</li>
+<li>un Shapefile;</li>
+<li>un GeoJSON;</li>
+<li>un GeoTIFF.</li>
+</ul>
+<p>Utiliza tanto el <strong>panel Navegador</strong> como las herramientas de <strong>Añadir capa</strong>.</p>
+<p><strong>3. Inspeccionar los datos vectoriales</strong></p>
+<p>Para cada capa registra:</p>
+<ul>
+<li>archivo;</li>
+<li>nombre de capa;</li>
+<li>formato;</li>
+<li>geometría;</li>
+<li>número de entidades;</li>
+<li>extensión;</li>
+<li>SRC;</li>
+<li>nombres de al menos tres campos;</li>
+<li>tipo de esos campos;</li>
+<li>tres valores de ejemplo;</li>
+<li>procedencia conocida.</li>
+</ul>
+<p><strong>4. Inspeccionar el GeoTIFF</strong></p>
+<p>Registra:</p>
+<ul>
+<li>archivo;</li>
+<li>dimensiones;</li>
+<li>número de bandas;</li>
+<li>tipo de dato;</li>
+<li>tamaño de píxel;</li>
+<li>valores NoData, si están definidos;</li>
+<li>extensión;</li>
+<li>SRC;</li>
+<li>información disponible sobre procedencia.</li>
+</ul>
+<p><strong>5. Comparar las extensiones</strong></p>
+<ul>
+<li>Utiliza <strong>Zoom a la capa</strong> para cada fuente.</li>
+<li>Determina si todas corresponden aproximadamente al área esperada.</li>
+<li>Registra cualquier extensión que parezca anómala.</li>
+<li>No corrijas todavía los datos.</li>
+</ul>
+<p><strong>6. Crear el inventario</strong></p>
+<p>Completa una tabla con:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">ID</th>
+<th>Fuente</th>
+<th>Tipo</th>
+<th>Formato</th>
+<th>Geometría / bandas</th>
+<th>Cantidad</th>
+<th>SRC</th>
+<th>Procedencia</th>
+<th>Estado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Para <strong>Estado</strong>, utiliza solamente:</p>
+<ul>
+<li>Utilizable</li>
+<li>Revisar / preparar</li>
+<li>No utilizar por ahora</li>
+</ul>
+<p><strong>7. Justificar</strong></p>
+<p>Para cada fuente escribe una frase breve explicando tu decisión.</p>
+<p>Ejemplo:</p>
+<blockquote>
+<p><strong>Revisar / preparar:</strong> la capa contiene los campos necesarios, pero no se dispone de información sobre su fecha de actualización.</p>
+</blockquote>
+<p><strong>8. Guardar</strong></p>
+<ul>
+<li>Guarda el proyecto.</li>
+<li>Conserva el inventario dentro de la carpeta de trabajo.</li>
+<li>No sobrescribas ni conviertas todavía los datos originales.</li>
+</ul>
+<p><strong>Entregables:</strong></p>
+<ul>
+<li><code>reto_2-4_inventario.qgz</code></li>
+<li>inventario de datos;</li>
+<li>una captura con las cuatro fuentes incorporadas;</li>
+<li>una captura de la información de una capa vectorial;</li>
+<li>una captura de la información del GeoTIFF;</li>
+<li>justificación del estado asignado a cada fuente.</li>
+</ul>
+</div>
+<div class="admonition captura">
+<p class="admonition-title">Captura pendiente · 2.4-08</p>
+<ul>
+<li><strong>Tipo:</strong> Imagen (PNG)</li>
+<li><strong>Archivo:</strong> <code>assets/images/modulo-02/2-4/2-4-08-inventario-final.png</code></li>
+<li><strong>Qué mostrar:</strong> QGIS con las fuentes incorporadas y, junto a él, la tabla de inventario completada.</li>
+<li><strong>Sugerencia:</strong> Utilizar pocos registros y texto legible; la captura debe mostrar el método, no toda la tabla del estudiante.</li>
+</ul>
+</div>
+<details class="success">
+<summary>Criterios de evaluación del reto</summary>
+<table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>Se cumple si...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identificación</td>
+<td>Distingue correctamente fuentes vectoriales y ráster</td>
+</tr>
+<tr>
+<td>Formatos</td>
+<td>Reconoce GPKG, Shapefile, GeoJSON y GeoTIFF</td>
+</tr>
+<tr>
+<td>Vector</td>
+<td>Registra geometría, entidades y campos</td>
+</tr>
+<tr>
+<td>Ráster</td>
+<td>Registra dimensiones, bandas, píxel y tipo de dato</td>
+</tr>
+<tr>
+<td>Cobertura</td>
+<td>Examina extensión y detecta posibles anomalías</td>
+</tr>
+<tr>
+<td>Referencia</td>
+<td>Registra el SRC sin asumirlo visualmente</td>
+</tr>
+<tr>
+<td>Metadatos</td>
+<td>Identifica procedencia y señala información desconocida</td>
+</tr>
+<tr>
+<td>Inventario</td>
+<td>Todas las fuentes están registradas de forma homogénea</td>
+</tr>
+<tr>
+<td>Decisión</td>
+<td>Cada fuente tiene un estado acompañado de una justificación</td>
+</tr>
+<tr>
+<td>Conservación</td>
+<td>Los datos originales permanecen sin modificar</td>
+</tr>
+</tbody>
+</table>
+</details>
+<hr />
+<h1 id="problemas-frecuentes">Problemas frecuentes<a class="headerlink" href="#problemas-frecuentes" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Problema</th>
+<th>Posible causa</th>
+<th>Qué revisar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Solo recibí <code>datos.shp</code></td>
+<td>Faltan componentes del Shapefile</td>
+<td>Solicita también <code>.dbf</code>, <code>.shx</code> y archivos complementarios</td>
+</tr>
+<tr>
+<td>El GeoPackage muestra varias capas</td>
+<td>Es un contenedor</td>
+<td>Identifica cuál capa interna necesitas</td>
+</tr>
+<tr>
+<td>La capa aparece muy lejos de las demás</td>
+<td>Extensión o coordenadas inesperadas</td>
+<td>Comprueba extensión y SRC</td>
+</tr>
+<tr>
+<td>Hay números que no puedo sumar</td>
+<td>El campo puede ser de tipo texto</td>
+<td>Comprueba el tipo del campo</td>
+</tr>
+<tr>
+<td>Algunos caracteres aparecen incorrectos</td>
+<td>Problema de codificación</td>
+<td>Revisa formato, archivos complementarios y procedencia</td>
+</tr>
+<tr>
+<td>El ráster tiene zonas vacías</td>
+<td>Pueden ser valores NoData</td>
+<td>Consulta sus propiedades</td>
+</tr>
+<tr>
+<td>El TIFF abre, pero no sé qué representa</td>
+<td>Falta información temática</td>
+<td>Revisa metadatos y procedencia</td>
+</tr>
+<tr>
+<td>El mapa se ve correctamente</td>
+<td>Eso no garantiza que el dato sea adecuado</td>
+<td>Revisa contenido, fecha, atributos, cobertura y fuente</td>
+</tr>
+<tr>
+<td>Dos capas tienen el mismo nombre</td>
+<td>Pueden ser versiones diferentes</td>
+<td>Compara origen, fecha, entidades, campos y extensión</td>
+</tr>
+<tr>
+<td>No conozco la fecha de una capa</td>
+<td>Metadatos incompletos</td>
+<td>Registra <code>No disponible</code> o <code>Por verificar</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="ideas-clave">Ideas clave<a class="headerlink" href="#ideas-clave" title="Permanent link">&para;</a></h1>
+<div class="admonition success">
+<p class="admonition-title">Para recordar</p>
+<ul>
+<li>Los datos geográficos pueden organizarse principalmente mediante modelos <strong>vectoriales</strong> y <strong>ráster</strong>.</li>
+<li>Punto, línea y polígono son geometrías vectoriales; los ráster se organizan mediante <strong>píxeles</strong>.</li>
+<li><strong>GeoPackage, Shapefile, GeoJSON y GeoTIFF son formatos</strong>, no fenómenos geográficos.</li>
+<li>Un GeoPackage puede contener <strong>varias capas</strong> dentro de un único archivo.</li>
+<li>Un Shapefile depende de <strong>varios archivos relacionados</strong>.</li>
+<li>GeoJSON es un formato de texto ampliamente utilizado para intercambio y aplicaciones web.</li>
+<li>GeoTIFF puede almacenar información geográfica y una o varias <strong>bandas ráster</strong>.</li>
+<li>La <strong>extensión</strong> indica los límites espaciales generales de un dataset, pero no garantiza una cobertura completa.</li>
+<li>Los <strong>campos</strong> tienen tipos de datos que condicionan las operaciones que pueden realizarse.</li>
+<li>En un ráster debes reconocer al menos dimensiones, bandas, tamaño de píxel, tipo de dato y NoData.</li>
+<li>Que una capa aparezca correctamente en el mapa <strong>no demuestra que sea apropiada</strong> para el análisis.</li>
+<li>Los metadatos permiten comprender <strong>qué representa, quién produjo y cuándo fue creado</strong> un conjunto de datos.</li>
+<li>Cuando recibas información nueva, <strong>inventaría primero y analiza después</strong>.</li>
+</ul>
+</div>
+<hr />
+<h1 id="autoevaluacion">Autoevaluación<a class="headerlink" href="#autoevaluacion" title="Permanent link">&para;</a></h1>
+<details class="question">
+<summary>1. Recibes <code>predios.shp</code> y copias únicamente ese archivo. ¿Tienes necesariamente toda la fuente?</summary>
+<p>No. Un Shapefile utiliza varios archivos asociados. Como mínimo suelen intervenir <code>.shp</code>, <code>.shx</code> y <code>.dbf</code>; pueden existir además archivos relacionados con el SRC, codificación e índices.</p>
+</details>
+<details class="question">
+<summary>2. Un archivo <code>municipio.gpkg</code> aparece una sola vez en la carpeta, pero QGIS muestra cinco capas. ¿Es un error?</summary>
+<p>No. GeoPackage funciona como un contenedor y puede almacenar varias capas dentro del mismo archivo.</p>
+</details>
+<details class="question">
+<summary>3. Una capa de establecimientos tiene geometría de puntos y otra de municipios tiene polígonos. ¿Qué describe esa diferencia?</summary>
+<p>Describe cómo se representan espacialmente sus entidades. Los establecimientos se representan mediante posiciones puntuales y los municipios mediante superficies delimitadas.</p>
+</details>
+<details class="question">
+<summary>4. Dos capas coinciden perfectamente en el lienzo. ¿Puedes concluir que utilizan el mismo SRC?</summary>
+<p>No. QGIS puede transformar datos durante la representación. Debes consultar el SRC de cada fuente.</p>
+</details>
+<details class="question">
+<summary>5. ¿La extensión de una capa permite saber que existen datos en cada lugar situado dentro de ese rectángulo?</summary>
+<p>No. La extensión representa el rectángulo que contiene el conjunto de datos. No implica cobertura continua.</p>
+</details>
+<details class="question">
+<summary>6. Un campo contiene <code>10</code>, <code>20</code> y <code>30</code>, pero está definido como texto. ¿Por qué importa?</summary>
+<p>Porque su apariencia no determina su tipo. Determinadas operaciones numéricas requieren valores almacenados mediante tipos numéricos.</p>
+</details>
+<details class="question">
+<summary>7. ¿Cuál es una diferencia básica entre una tabla vectorial y un ráster?</summary>
+<p>Una capa vectorial relaciona entidades geométricas con atributos. Un ráster organiza valores mediante una matriz de píxeles y puede contener una o varias bandas.</p>
+</details>
+<details class="question">
+<summary>8. ¿Qué significa NoData en un ráster?</summary>
+<p>Indica ubicaciones donde el dataset no proporciona un valor válido. No debe confundirse automáticamente con el valor numérico cero.</p>
+</details>
+<details class="question">
+<summary>9. Recibes dos capas técnicamente correctas: una de 2014 y otra de 2026. ¿Cuál debes utilizar?</summary>
+<p>No puede decidirse únicamente por el formato ni por la fecha. Debes comparar el período requerido por el trabajo, contenido, cobertura, procedencia, metodología y demás requisitos.</p>
+</details>
+<details class="question">
+<summary>10. ¿Para qué sirve un inventario antes de comenzar un análisis?</summary>
+<p>Permite registrar de forma homogénea qué información existe, cuáles son sus características, qué problemas deben revisarse y qué fuentes resultan adecuadas para el trabajo.</p>
+</details>
+<hr />
+<h1 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h1>
+<ul>
+<li>QGIS Project. <em>Manual de usuario 3.44: Abriendo datos</em>.</li>
+<li>QGIS Project. <em>Manual de usuario 3.44: Explorando formatos y campos de datos</em>.</li>
+<li>QGIS Project. <em>Manual de usuario 3.44: Propiedades de capas ráster</em>.</li>
+<li>QGIS Project. <em>Manual de usuario 3.44: Propiedades de capas vectoriales</em>.</li>
+<li>GDAL Project. <em>Documentación de controladores vectoriales y ráster</em>.</li>
+<li>Open Geospatial Consortium. <em>GeoPackage Encoding Standard</em>.</li>
+<li>IETF. <em>RFC 7946 — The GeoJSON Format</em>.</li>
+</ul>
+<hr />
+<p>En la próxima etapa del curso, los datos ya no se tratarán simplemente como archivos que pueden abrirse. A partir de este inventario podremos comenzar a <strong>seleccionar, preparar y transformar fuentes de manera controlada</strong>, conservando siempre los originales y documentando los cambios realizados.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../03-gestionar-proyectos/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 2.3 Comprender y gestionar proyectos">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                2.3 Comprender y gestionar proyectos
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../05-tablas-coordenadas/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: 2.5 Convertir una tabla en información geográfica">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                2.5 Convertir una tabla en información geográfica
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.footer", "navigation.path", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../assets/vendor/d3.v7.min.js"></script>
+      
+        <script src="../../assets/js/latlon.js"></script>
+      
+    
+  </body>
+</html>

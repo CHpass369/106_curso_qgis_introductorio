@@ -1,0 +1,4653 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Diferencias y relaciones entre SIG, CAD, cartografía, GNSS, teledetección, fotogrametría y bases de datos espaciales, y cómo convergen en los proyectos actuales.">
+      
+      
+        <meta name="author" content="Chpass">
+      
+      
+        <link rel="canonical" href="https://chpass369.github.io/curso-qgis/modulo-01/14-sig-otras-geotecnologias/">
+      
+      
+        <link rel="prev" href="../13-calidad-informacion/">
+      
+      
+        <link rel="next" href="../15-ecosistema-geotecnologias/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>1.14 SIG y otras geotecnologías - 106 - Curso Introductorio QGIS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+      <link rel="stylesheet" href="../../assets/css/latlon.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#114-sig-y-otras-geotecnologias" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="106 - Curso Introductorio QGIS" class="md-header__button md-logo" aria-label="106 - Curso Introductorio QGIS" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            106 - Curso Introductorio QGIS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1.14 SIG y otras geotecnologías
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="teal"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="teal"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartir" aria-label="Compartir" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/chpass369/curso-qgis" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chpass369/curso-qgis
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../instructor/" class="md-tabs__link">
+          
+  
+  
+  Acerca
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../programa/" class="md-tabs__link">
+          
+  
+  
+  Curso
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Mod1 · Fundamentos SIG
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../modulo-02/" class="md-tabs__link">
+          
+  
+  
+  Mod2 · Introducción a QGIS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../modulo-03/index.md" class="md-tabs__link">
+          
+  
+  
+  Mod3 · Sistemas de referencia en QGIS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../practicas/index.md" class="md-tabs__link">
+          
+  
+  
+  Prácticas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../evaluaciones/index.md" class="md-tabs__link">
+          
+  
+  
+  Evaluaciones
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../descargas/index.md" class="md-tabs__link">
+          
+  
+  
+  Descargas
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="106 - Curso Introductorio QGIS" class="md-nav__button md-logo" aria-label="106 - Curso Introductorio QGIS" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    106 - Curso Introductorio QGIS
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/chpass369/curso-qgis" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chpass369/curso-qgis
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acerca
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Acerca
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../instructor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instructor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syllabus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../videos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Videos Tutoriales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../material/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Material de apoyo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agradecimientos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agradecimientos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../acerca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acerca del curso
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Curso
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Curso
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mod1 · Fundamentos SIG
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mod1 · Fundamentos SIG
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SIG y territorio
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SIG y territorio
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-sistemas-informacion-geografica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1 Sistemas de Información Geográfica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-espacio-geografico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2 Espacio geográfico y territorio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geodesia y sistemas de referencia
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Geodesia y sistemas de referencia
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-fundamentos-geodesia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3 Fundamentos de Geodesia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-sistemas-referencia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.4 Sistemas de Referencia de Coordenadas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-proyecciones-cartograficas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.5 Proyecciones cartográficas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-sistema-utm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.6 Sistema UTM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cartografía y escala
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cartografía y escala
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-fundamentos-cartografia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.7 Fundamentos de Cartografía
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-escala-cartografica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.8 Escala cartográfica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-escala-resolucion-precision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.9 Escala, resolución y precisión
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-generalizacion-cartografica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.10 Generalización cartográfica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Datos geoespaciales
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Datos geoespaciales
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-modelos-representacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.11 Modelos de representación espacial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-dato-geoespacial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.12 El dato geoespacial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-calidad-informacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.13 Calidad de la información geográfica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panorama geotecnológico
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Panorama geotecnológico
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.14 SIG y otras geotecnologías
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.14 SIG y otras geotecnologías
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#muchas-tecnologias-un-mismo-territorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Muchas tecnologías, un mismo territorio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SIG
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CAD
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CAD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cad-frente-a-sig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CAD frente a SIG
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cartografia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cartografía
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cartografía">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cartografia-frente-a-sig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cartografía frente a SIG
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gnss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GNSS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GNSS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#como-funciona" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Cómo funciona?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fuentes-de-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fuentes de error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos-de-posicionamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Métodos de posicionamiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teledeteccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Teledetección
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Teledetección">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sensores-pasivos-y-activos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensores pasivos y activos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#productos-y-aplicaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Productos y aplicaciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#programas-satelitales-de-acceso-libre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programas satelitales de acceso libre
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fotogrametria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fotogrametría
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fotogrametría">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#de-la-fotografia-aerea-al-dron" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        De la fotografía aérea al dron
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#productos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Productos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fotogrametria-frente-a-teledeteccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fotogrametría frente a teledetección
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bases-de-datos-espaciales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bases de datos espaciales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bases de datos espaciales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#por-que-no-basta-con-archivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Por qué no basta con archivos?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principales-opciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principales opciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consultas-espaciales-con-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consultas espaciales con SQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formatos-y-datos-de-cada-geotecnologia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formatos y datos de cada geotecnología
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#las-geotecnologias-convergen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Las geotecnologías convergen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Las geotecnologías convergen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#un-proyecto-integrado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Un proyecto integrado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ideas-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ideas clave
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autoevaluación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-propuesta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actividad propuesta
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referencias
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-ecosistema-geotecnologias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.15 Ecosistema de geotecnologías
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Práctica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mod2 · Introducción a QGIS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mod2 · Introducción a QGIS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entorno y proyectos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Entorno y proyectos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/01-entorno-trabajo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.1 Preparar un entorno de trabajo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/02-orientarse-interfaz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.2 Orientarse y trabajar con fluidez
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/03-gestionar-proyectos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.3 Comprender y gestionar proyectos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Datos y coordenadas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Datos y coordenadas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/04-incorporar-datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.4 Incorporar datos y reconocer sus diferencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/05-tablas-coordenadas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.5 Convertir una tabla en información geográfica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/06-problemas-coordenadas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.6 Resolver problemas de coordenadas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Explorar y consultar
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Explorar y consultar
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/07-leer-datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.7 Leer los datos antes de utilizarlos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/08-seleccionar-filtrar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.8 Seleccionar, filtrar y extraer información
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Representar y conectar
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Representar y conectar
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/09-simbologia-etiquetas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.9 Representar y etiquetar datos vectoriales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/10-explorar-raster/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.10 Explorar imágenes y superficies ráster
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/11-servicios-web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.11 Conectar información disponible en internet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Taller
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Taller
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-02/12-taller-proyecto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.12 Construir y entregar un proyecto funcional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mod3 · Sistemas de referencia en QGIS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mod3 · Sistemas de referencia en QGIS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/01-crs-proyecto-capa.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CRS del proyecto y CRS de la capa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/02-identificar-asignar-crs.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Identificar y asignar un CRS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/03-reproyectar-capas.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproyectar capas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/04-transformaciones-datum.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transformaciones de datum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/practica.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Práctica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prácticas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prácticas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practicas/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Índice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluaciones
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Evaluaciones
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../evaluaciones/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Índice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Descargas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Descargas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../descargas/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Material del curso
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#muchas-tecnologias-un-mismo-territorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Muchas tecnologías, un mismo territorio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SIG
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CAD
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CAD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cad-frente-a-sig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CAD frente a SIG
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cartografia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cartografía
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cartografía">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cartografia-frente-a-sig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cartografía frente a SIG
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gnss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GNSS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GNSS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#como-funciona" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Cómo funciona?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fuentes-de-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fuentes de error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos-de-posicionamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Métodos de posicionamiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teledeteccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Teledetección
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Teledetección">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sensores-pasivos-y-activos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensores pasivos y activos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#productos-y-aplicaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Productos y aplicaciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#programas-satelitales-de-acceso-libre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programas satelitales de acceso libre
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fotogrametria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fotogrametría
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fotogrametría">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#de-la-fotografia-aerea-al-dron" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        De la fotografía aérea al dron
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#productos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Productos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fotogrametria-frente-a-teledeteccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fotogrametría frente a teledetección
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bases-de-datos-espaciales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bases de datos espaciales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bases de datos espaciales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#por-que-no-basta-con-archivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Por qué no basta con archivos?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principales-opciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principales opciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consultas-espaciales-con-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consultas espaciales con SQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formatos-y-datos-de-cada-geotecnologia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formatos y datos de cada geotecnología
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#las-geotecnologias-convergen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Las geotecnologías convergen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Las geotecnologías convergen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#un-proyecto-integrado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Un proyecto integrado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ideas-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ideas clave
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autoevaluación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-propuesta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actividad propuesta
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referencias
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="Navegación" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Mod1 · Fundamentos SIG
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Panorama geotecnológico
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/chpass369/curso-qgis/edit/main/docs/modulo-01/14-sig-otras-geotecnologias.md" title="Editar esta página" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/chpass369/curso-qgis/raw/main/docs/modulo-01/14-sig-otras-geotecnologias.md" title="Ver código fuente de esta página" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="114-sig-y-otras-geotecnologias">1.14 SIG y otras geotecnologías<a class="headerlink" href="#114-sig-y-otras-geotecnologias" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Objetivos de aprendizaje</p>
+<p>Al finalizar este tema, el estudiante será capaz de:</p>
+<ul>
+<li>Diferenciar el SIG de otras geotecnologías: CAD, cartografía, GNSS, teledetección, fotogrametría y bases de datos espaciales.</li>
+<li>Explicar la función principal, los productos y las limitaciones de cada una.</li>
+<li>Reconocer qué datos aporta cada geotecnología a un proyecto SIG.</li>
+<li>Identificar los problemas habituales al integrar datos de distintas fuentes.</li>
+<li>Comprender por qué las geotecnologías convergen en los proyectos actuales.</li>
+</ul>
+</div>
+<hr />
+<h2 id="muchas-tecnologias-un-mismo-territorio">Muchas tecnologías, un mismo territorio<a class="headerlink" href="#muchas-tecnologias-un-mismo-territorio" title="Permanent link">&para;</a></h2>
+<p>En el trabajo real, un proyecto territorial casi nunca se resuelve con una sola herramienta. Un plan de actualización catastral, por ejemplo, puede requerir un <strong>dron</strong> para obtener imágenes, un <strong>receptor GNSS</strong> para medir puntos de control, <strong>planos en CAD</strong> de urbanizaciones aprobadas, una <strong>base de datos</strong> para almacenar los predios, un <strong>SIG</strong> para integrar y analizar todo, y <strong>cartografía</strong> para comunicar los resultados.</p>
+<p>Cada una de esas tecnologías tiene una <strong>función principal</strong> distinta. Conocerlas permite saber <strong>qué pedir a cada una</strong>, <strong>qué esperar de sus datos</strong> y <strong>cómo integrarlos</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Tecnología</th>
+<th>Función principal</th>
+<th>Pregunta que responde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SIG</strong></td>
+<td>Gestión y análisis espacial</td>
+<td>¿Qué relaciones y patrones hay en el territorio?</td>
+</tr>
+<tr>
+<td><strong>CAD</strong></td>
+<td>Diseño geométrico</td>
+<td>¿Cómo debe ser exactamente lo que vamos a construir?</td>
+</tr>
+<tr>
+<td><strong>Cartografía</strong></td>
+<td>Representación territorial</td>
+<td>¿Cómo comunicamos visualmente el territorio?</td>
+</tr>
+<tr>
+<td><strong>GNSS</strong></td>
+<td>Posicionamiento</td>
+<td>¿Dónde estoy exactamente?</td>
+</tr>
+<tr>
+<td><strong>Teledetección</strong></td>
+<td>Observación remota</td>
+<td>¿Qué hay en la superficie y cómo cambia?</td>
+</tr>
+<tr>
+<td><strong>Fotogrametría</strong></td>
+<td>Obtención de medidas desde imágenes</td>
+<td>¿Qué forma y dimensiones tiene el terreno o un objeto?</td>
+</tr>
+<tr>
+<td><strong>Bases de datos espaciales</strong></td>
+<td>Gestión estructurada de información geográfica</td>
+<td>¿Cómo almacenamos, protegemos y consultamos grandes volúmenes de datos?</td>
+</tr>
+</tbody>
+</table>
+<figure class="figura">
+<svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="El SIG como integrador de GNSS, teledetección, fotogrametría, CAD, bases de datos espaciales y cartografía">
+<circle cx="360" cy="215" r="60" fill="#3f6fd8" fill-opacity="0.15" stroke="#3f6fd8" stroke-width="2.5"/>
+<text x="360" y="211" text-anchor="middle" font-size="22" font-weight="bold" fill="#3f6fd8">SIG</text>
+<text x="360" y="233" text-anchor="middle" font-size="11" fill="currentColor">Integración</text>
+<text x="360" y="247" text-anchor="middle" font-size="11" fill="currentColor">y análisis</text>
+<defs>
+<marker id="geo-ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e9e5b"/></marker>
+<marker id="geo-ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e0823d"/></marker>
+<marker id="geo-ay" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b8860b"/></marker>
+<marker id="geo-ap" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9b59b6"/></marker>
+<marker id="geo-at" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1b9e9e"/></marker>
+<marker id="geo-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d63b3b"/></marker>
+</defs>
+<rect x="30" y="30" width="180" height="58" rx="8" fill="#2e9e5b" fill-opacity="0.12" stroke="#2e9e5b" stroke-width="2"/>
+<text x="120.0" y="55" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">GNSS</text>
+<text x="120.0" y="74" text-anchor="middle" font-size="11.5" fill="currentColor">Posicionamiento</text>
+<line x1="168.0" y1="90.2" x2="304.7" y2="179.0" stroke="#2e9e5b" stroke-width="2.2" marker-end="url(#geo-ag)" />
+<text x="236.3" y="124.6" text-anchor="middle" font-size="11" font-style="italic" fill="currentColor">Coordenadas</text>
+<rect x="510" y="30" width="180" height="58" rx="8" fill="#e0823d" fill-opacity="0.12" stroke="#e0823d" stroke-width="2"/>
+<text x="600.0" y="55" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">Teledetección</text>
+<text x="600.0" y="74" text-anchor="middle" font-size="11.5" fill="currentColor">Observación remota</text>
+<line x1="552.0" y1="90.2" x2="415.3" y2="179.0" stroke="#e0823d" stroke-width="2.2" marker-end="url(#geo-ao)" />
+<text x="483.7" y="124.6" text-anchor="middle" font-size="11" font-style="italic" fill="currentColor">Imágenes y clasificaciones</text>
+<rect x="0" y="186" width="180" height="58" rx="8" fill="#b8860b" fill-opacity="0.12" stroke="#b8860b" stroke-width="2"/>
+<text x="90.0" y="211" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">CAD</text>
+<text x="90.0" y="230" text-anchor="middle" font-size="11.5" fill="currentColor">Diseño geométrico</text>
+<line x1="184.0" y1="215.0" x2="294.0" y2="215.0" stroke="#b8860b" stroke-width="2.2" marker-end="url(#geo-ay)" marker-start="url(#geo-ay)"/>
+<text x="239.0" y="193.0" text-anchor="middle" font-size="11" font-style="italic" fill="currentColor">Planos</text>
+<text x="239.0" y="206.0" text-anchor="middle" font-size="11" font-style="italic" fill="currentColor">y diseños</text>
+<rect x="540" y="186" width="180" height="58" rx="8" fill="#9b59b6" fill-opacity="0.12" stroke="#9b59b6" stroke-width="2"/>
+<text x="630.0" y="211" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">Fotogrametría</text>
+<text x="630.0" y="230" text-anchor="middle" font-size="11.5" fill="currentColor">Medición desde imágenes</text>
+<line x1="536.0" y1="215.0" x2="426.0" y2="215.0" stroke="#9b59b6" stroke-width="2.2" marker-end="url(#geo-ap)" />
+<text x="481.0" y="193.0" text-anchor="middle" font-size="11" font-style="italic" fill="currentColor">Ortofotos</text>
+<text x="481.0" y="206.0" text-anchor="middle" font-size="11" font-style="italic" fill="currentColor">y modelos 3D</text>
+<rect x="30" y="342" width="180" height="58" rx="8" fill="#1b9e9e" fill-opacity="0.12" stroke="#1b9e9e" stroke-width="2"/>
+<text x="120.0" y="367" text-anchor="middle" font-size="13" font-weight="bold" fill="currentColor">Bases de datos espaciales</text>
+<text x="120.0" y="386" text-anchor="middle" font-size="11.5" fill="currentColor">Gestión estructurada</text>
+<line x1="168.0" y1="339.8" x2="304.7" y2="251.0" stroke="#1b9e9e" stroke-width="2.2" marker-end="url(#geo-at)" marker-start="url(#geo-at)"/>
+<text x="236.3" y="313.4" text-anchor="middle" font-size="11" font-style="italic" fill="currentColor">Almacenar y consultar</text>
+<rect x="510" y="342" width="180" height="58" rx="8" fill="#d63b3b" fill-opacity="0.12" stroke="#d63b3b" stroke-width="2"/>
+<text x="600.0" y="367" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">Cartografía</text>
+<text x="600.0" y="386" text-anchor="middle" font-size="11.5" fill="currentColor">Representación</text>
+<line x1="552.0" y1="339.8" x2="415.3" y2="251.0" stroke="#d63b3b" stroke-width="2.2"  marker-start="url(#geo-ar)"/>
+<text x="483.7" y="313.4" text-anchor="middle" font-size="11" font-style="italic" fill="currentColor">Mapas y planos</text>
+</svg><figcaption>El SIG como entorno de integración: cada geotecnología aporta o recibe un tipo de información.</figcaption>
+</figure>
+
+<hr />
+<h2 id="sig">SIG<a class="headerlink" href="#sig" title="Permanent link">&para;</a></h2>
+<p>Como vimos en el tema 1.1, un <strong>Sistema de Información Geográfica</strong> integra personas, métodos, datos, software y hardware para <strong>capturar, almacenar, gestionar, analizar y representar</strong> información geográfica.</p>
+<p>Lo que lo distingue de las demás geotecnologías es su capacidad para:</p>
+<ul>
+<li><strong>Integrar</strong> datos de fuentes, formatos y modelos muy distintos en un mismo sistema de referencia.</li>
+<li><strong>Relacionar</strong> geometrías con atributos.</li>
+<li><strong>Analizar</strong> relaciones espaciales: superposición, proximidad, conectividad, patrones.</li>
+<li><strong>Modelar</strong> escenarios y apoyar la toma de decisiones.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">El SIG como punto de encuentro</p>
+<p>Muchas geotecnologías <strong>producen</strong> datos (GNSS, teledetección, fotogrametría, CAD) y otras los <strong>almacenan</strong> o los <strong>comunican</strong> (bases de datos, cartografía). El SIG suele ser el entorno donde <strong>todo se encuentra</strong> y adquiere sentido en conjunto.</p>
+</div>
+<hr />
+<h2 id="cad">CAD<a class="headerlink" href="#cad" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Definición</p>
+<p>El <strong>CAD</strong> (<em>Computer-Aided Design</em>, <strong>diseño asistido por computadora</strong>) es la tecnología para <strong>dibujar y diseñar</strong> con precisión geométrica objetos, construcciones e infraestructuras.</p>
+</div>
+<p>Se usa ampliamente en <strong>arquitectura</strong>, <strong>ingeniería civil</strong>, <strong>topografía</strong> y <strong>urbanismo</strong>: planos de edificios, diseño de vías y puentes, redes de agua, loteamientos y levantamientos topográficos.</p>
+<h3 id="cad-frente-a-sig">CAD frente a SIG<a class="headerlink" href="#cad-frente-a-sig" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>CAD</th>
+<th>SIG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Propósito</strong></td>
+<td>Diseñar lo que <strong>se va a construir</strong></td>
+<td>Gestionar y analizar lo que <strong>existe en el territorio</strong></td>
+</tr>
+<tr>
+<td><strong>Unidad de trabajo</strong></td>
+<td>Entidades de dibujo: líneas, arcos, textos, bloques</td>
+<td>Entidades geográficas con atributos</td>
+</tr>
+<tr>
+<td><strong>Atributos</strong></td>
+<td>Limitados; la información suele estar en textos y estilos</td>
+<td>Tablas de atributos estructuradas</td>
+</tr>
+<tr>
+<td><strong>Capas</strong></td>
+<td>Organizan el <strong>dibujo</strong> (colores, tipos de línea)</td>
+<td>Organizan <strong>temas</strong> de información</td>
+</tr>
+<tr>
+<td><strong>Sistema de referencia</strong></td>
+<td>Frecuentemente coordenadas <strong>locales</strong> o sin definir</td>
+<td>Sistema de referencia <strong>definido</strong></td>
+</tr>
+<tr>
+<td><strong>Topología y análisis</strong></td>
+<td>Escasos</td>
+<td>Centrales</td>
+</tr>
+<tr>
+<td><strong>Precisión geométrica</strong></td>
+<td>Muy alta: curvas, arcos, cotas</td>
+<td>Alta, con geometrías más simples</td>
+</tr>
+<tr>
+<td><strong>Escala de trabajo</strong></td>
+<td>Un proyecto o una obra</td>
+<td>Desde un predio hasta un país</td>
+</tr>
+<tr>
+<td><strong>Formatos</strong></td>
+<td>DWG, DXF, DGN</td>
+<td>GeoPackage, Shapefile, PostGIS</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Problemas frecuentes al llevar datos de CAD a un SIG</p>
+<ul>
+<li><strong>Coordenadas locales</strong> o sin sistema de referencia (tema 1.4).</li>
+<li><strong>Unidades</strong> distintas: dibujos en milímetros o centímetros en lugar de metros.</li>
+<li><strong>Polígonos que no están cerrados</strong>: los contornos de predios dibujados como líneas sueltas.</li>
+<li><strong>Información en textos</strong>: el número de lote o el nombre del propietario escrito como un texto cercano, no como un atributo.</li>
+<li><strong>Capas del dibujo mezcladas</strong>: en una misma capa conviven elementos de distinto tipo.</li>
+<li><strong>Arcos y curvas</strong> que deben convertirse en segmentos.</li>
+</ul>
+<p>Integrar un plano CAD suele requerir <strong>georreferenciarlo</strong>, <strong>limpiarlo</strong> y <strong>reestructurarlo</strong> antes de que funcione como dato geoespacial.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">CAD y SIG en QGIS</p>
+<p>QGIS puede <strong>leer</strong> archivos DXF y, con algunas limitaciones, DWG, y <strong>exportar</strong> proyectos a DXF. Además, incluye herramientas de <strong>digitalización avanzada</strong> que permiten dibujar con distancias, ángulos y restricciones exactas, al estilo de un programa CAD.</p>
+</div>
+<details class="info">
+<summary>Para saber más: BIM</summary>
+<p>El <strong>BIM</strong> (<em>Building Information Modeling</em>, <strong>modelado de información de construcción</strong>) es la evolución del CAD hacia modelos 3D de edificios e infraestructuras que contienen, además de la geometría, <strong>información</strong> sobre cada componente: materiales, costos, mantenimiento. La integración entre <strong>BIM y SIG</strong> es un campo en crecimiento para la gestión de ciudades e infraestructuras.</p>
+</details>
+<hr />
+<h2 id="cartografia">Cartografía<a class="headerlink" href="#cartografia" title="Permanent link">&para;</a></h2>
+<p>Como vimos en el tema 1.7, la <strong>cartografía</strong> es la disciplina que se ocupa del <strong>arte, la ciencia y la técnica</strong> de elaborar y utilizar mapas.</p>
+<h3 id="cartografia-frente-a-sig">Cartografía frente a SIG<a class="headerlink" href="#cartografia-frente-a-sig" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Cartografía</th>
+<th>SIG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Naturaleza</strong></td>
+<td>Una <strong>disciplina</strong> con siglos de historia</td>
+<td>Un <strong>sistema tecnológico</strong> de las últimas décadas</td>
+</tr>
+<tr>
+<td><strong>Objetivo principal</strong></td>
+<td><strong>Comunicar</strong> el territorio de forma eficaz</td>
+<td><strong>Gestionar y analizar</strong> información territorial</td>
+</tr>
+<tr>
+<td><strong>Producto principal</strong></td>
+<td>El <strong>mapa</strong></td>
+<td>La <strong>información</strong> y el <strong>análisis</strong></td>
+</tr>
+<tr>
+<td><strong>Pregunta central</strong></td>
+<td>¿Cómo se representa y se entiende?</td>
+<td>¿Qué relaciones hay y qué significan?</td>
+</tr>
+</tbody>
+</table>
+<p>La relación entre ambos es muy estrecha: el SIG ha transformado la forma de <strong>producir</strong> mapas, y la cartografía aporta los <strong>principios</strong> para que esos mapas <strong>comuniquen</strong> correctamente.</p>
+<div class="admonition danger">
+<p class="admonition-title">Un SIG no garantiza buena cartografía</p>
+<p>Un SIG permite generar un mapa en minutos, pero no decide por nosotros la jerarquía visual, la simbología adecuada ni la composición. <strong>Los principios de la cartografía siguen siendo indispensables</strong>, aunque la herramienta sea digital.</p>
+</div>
+<hr />
+<h2 id="gnss">GNSS<a class="headerlink" href="#gnss" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Definición</p>
+<p>Los <strong>GNSS</strong> (<em>Global Navigation Satellite Systems</em>, <strong>sistemas globales de navegación por satélite</strong>) son sistemas que permiten determinar la <strong>posición</strong> de un receptor en cualquier lugar de la Tierra a partir de señales emitidas por constelaciones de satélites.</p>
+</div>
+<p>Es común llamar "GPS" a cualquier receptor de posicionamiento, pero <strong>GPS es solo uno</strong> de los sistemas existentes:</p>
+<table>
+<thead>
+<tr>
+<th>Sistema</th>
+<th>Operador</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GPS</strong></td>
+<td>Estados Unidos</td>
+</tr>
+<tr>
+<td><strong>GLONASS</strong></td>
+<td>Rusia</td>
+</tr>
+<tr>
+<td><strong>Galileo</strong></td>
+<td>Unión Europea</td>
+</tr>
+<tr>
+<td><strong>BeiDou</strong></td>
+<td>China</td>
+</tr>
+</tbody>
+</table>
+<p>Además, existen sistemas <strong>regionales</strong>, como QZSS (Japón) y NavIC (India). Los receptores modernos, incluidos los de los teléfonos celulares, combinan <strong>varias constelaciones</strong> para mejorar la disponibilidad y la exactitud.</p>
+<h3 id="como-funciona">¿Cómo funciona?<a class="headerlink" href="#como-funciona" title="Permanent link">&para;</a></h3>
+<figure class="figura">
+<svg viewBox="0 0 720 365" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Principio de posicionamiento GNSS por distancias a varios satélites">
+<defs><clipPath id="geo-tri"><rect x="0" y="0" width="720" height="330"/></clipPath></defs><g clip-path="url(#geo-tri)">
+<path d="M 427.0 143.6 A 286.6 286.6 0 0 1 243.9 340.8" fill="none" stroke="#2e9e5b" stroke-width="2" stroke-dasharray="7 5"/>
+<line x1="150" y1="70" x2="360" y2="265" stroke="#2e9e5b" stroke-width="1.5" stroke-opacity="0.8"/>
+<text x="265" y="168" font-size="13" font-weight="bold" fill="#2e9e5b">d₁</text>
+<path d="M 468.0 258.0 A 223.6 223.6 0 0 1 261.4 220.5" fill="none" stroke="#e0823d" stroke-width="2" stroke-dasharray="7 5"/>
+<line x1="400" y1="45" x2="360" y2="265" stroke="#e0823d" stroke-width="1.5" stroke-opacity="0.8"/>
+<text x="390" y="155" font-size="13" font-weight="bold" fill="#e0823d">d₂</text>
+<path d="M 458.5 370.1 A 297.7 297.7 0 0 1 322.4 126.0" fill="none" stroke="#9b59b6" stroke-width="2" stroke-dasharray="7 5"/>
+<line x1="620" y1="120" x2="360" y2="265" stroke="#9b59b6" stroke-width="1.5" stroke-opacity="0.8"/>
+<text x="500" y="192" font-size="13" font-weight="bold" fill="#9b59b6">d₃</text>
+</g>
+<rect x="141" y="63" width="18" height="14" rx="2" fill="#2e9e5b"/>
+<rect x="119" y="66" width="18" height="8" fill="#2e9e5b" fill-opacity="0.6"/>
+<rect x="163" y="66" width="18" height="8" fill="#2e9e5b" fill-opacity="0.6"/>
+<text x="150" y="56" text-anchor="middle" font-size="12" fill="currentColor">Satélite 1</text>
+<rect x="391" y="38" width="18" height="14" rx="2" fill="#e0823d"/>
+<rect x="369" y="41" width="18" height="8" fill="#e0823d" fill-opacity="0.6"/>
+<rect x="413" y="41" width="18" height="8" fill="#e0823d" fill-opacity="0.6"/>
+<text x="400" y="31" text-anchor="middle" font-size="12" fill="currentColor">Satélite 2</text>
+<rect x="611" y="113" width="18" height="14" rx="2" fill="#9b59b6"/>
+<rect x="589" y="116" width="18" height="8" fill="#9b59b6" fill-opacity="0.6"/>
+<rect x="633" y="116" width="18" height="8" fill="#9b59b6" fill-opacity="0.6"/>
+<text x="620" y="106" text-anchor="middle" font-size="12" fill="currentColor">Satélite 3</text>
+<circle cx="360" cy="265" r="8" fill="#3f6fd8" stroke="#fff" stroke-width="2"/>
+<text x="374" y="287" font-size="13" font-weight="bold" fill="#3f6fd8">Receptor</text>
+<text x="360" y="350" text-anchor="middle" font-size="12.5" fill="currentColor">Distancia = velocidad de la luz × tiempo de viaje de la señal</text>
+</svg><figcaption>Principio del posicionamiento GNSS, simplificado en dos dimensiones.</figcaption>
+</figure>
+
+<ol>
+<li>Cada satélite emite una señal que indica <strong>su posición</strong> y el <strong>momento exacto</strong> en que fue enviada.</li>
+<li>El receptor mide cuánto <strong>tiempo</strong> tardó la señal en llegar y calcula la <strong>distancia</strong> a cada satélite.</li>
+<li>Con las distancias a varios satélites, el receptor determina <strong>su posición</strong> en el punto donde todas coinciden.</li>
+</ol>
+<p>Se necesitan como mínimo <strong>cuatro satélites</strong>: tres para las tres coordenadas de la posición y uno más para corregir el <strong>error del reloj</strong> del receptor, que es mucho menos preciso que los relojes atómicos de los satélites.</p>
+<h3 id="fuentes-de-error">Fuentes de error<a class="headerlink" href="#fuentes-de-error" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Fuente</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Atmósfera</strong></td>
+<td>La ionosfera y la troposfera retrasan las señales</td>
+</tr>
+<tr>
+<td><strong>Multitrayectoria</strong></td>
+<td>La señal rebota en edificios, cerros o superficies antes de llegar al receptor</td>
+</tr>
+<tr>
+<td><strong>Geometría de los satélites</strong></td>
+<td>Si los satélites visibles están agrupados en una zona del cielo, la posición es menos precisa</td>
+</tr>
+<tr>
+<td><strong>Obstrucciones</strong></td>
+<td>Edificios altos, vegetación densa, quebradas profundas</td>
+</tr>
+<tr>
+<td><strong>Órbitas y relojes</strong></td>
+<td>Pequeños errores en la posición y el tiempo de los satélites</td>
+</tr>
+</tbody>
+</table>
+<h3 id="metodos-de-posicionamiento">Métodos de posicionamiento<a class="headerlink" href="#metodos-de-posicionamiento" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Cómo funciona</th>
+<th>Exactitud orientativa</th>
+<th>Uso típico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Autónomo</strong></td>
+<td>Un solo receptor, sin correcciones</td>
+<td>3 a 10 m</td>
+<td>Navegación, celulares, relevamientos generales</td>
+</tr>
+<tr>
+<td><strong>Diferencial (DGNSS)</strong></td>
+<td>Correcciones desde una estación de referencia</td>
+<td>Submétrica</td>
+<td>Inventarios, catastro rural</td>
+</tr>
+<tr>
+<td><strong>RTK</strong></td>
+<td>Correcciones en <strong>tiempo real</strong> desde una base cercana o una red</td>
+<td>1 a 3 cm</td>
+<td>Topografía, catastro, replanteo de obras</td>
+</tr>
+<tr>
+<td><strong>PPK</strong></td>
+<td>Correcciones aplicadas <strong>después</strong>, en gabinete</td>
+<td>1 a 3 cm</td>
+<td>Levantamientos con drones, zonas sin comunicación</td>
+</tr>
+<tr>
+<td><strong>Estático</strong></td>
+<td>Observaciones prolongadas y posprocesadas</td>
+<td>Milímetros a centímetros</td>
+<td>Redes geodésicas, puntos de control</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">GNSS y el marco de referencia de Bolivia</p>
+<p>Las estaciones de operación continua de la red <strong>MARGEN</strong> (tema 1.4) registran observaciones GNSS de forma permanente y sirven como <strong>referencia</strong> para vincular los levantamientos al marco geodésico oficial del país.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Lo que hay que recordar al usar datos GNSS</p>
+<ul>
+<li>Las coordenadas se obtienen en un marco <strong>geocéntrico</strong> (WGS 84 o ITRF/SIRGAS).</li>
+<li>Las alturas que calcula el receptor son <strong>elipsoidales</strong>, no alturas sobre el nivel del mar (tema 1.3).</li>
+<li>La exactitud depende del <strong>método</strong> y de las <strong>condiciones</strong>: siempre hay que registrarla en los metadatos (tema 1.12).</li>
+</ul>
+</div>
+<hr />
+<h2 id="teledeteccion">Teledetección<a class="headerlink" href="#teledeteccion" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Definición</p>
+<p>La <strong>teledetección</strong> (o <strong>percepción remota</strong>) es la obtención de información sobre la superficie terrestre <strong>sin contacto físico</strong>, mediante <strong>sensores</strong> instalados en satélites, aviones o drones que registran la <strong>energía electromagnética</strong> reflejada o emitida por los objetos.</p>
+</div>
+<p>Cada material de la superficie (agua, vegetación, suelo, construcciones) <strong>refleja la energía de forma distinta</strong> en cada longitud de onda. Esa "firma espectral" permite identificarlos, incluso en longitudes de onda que el ojo humano no percibe, como el <strong>infrarrojo</strong>.</p>
+<h3 id="sensores-pasivos-y-activos">Sensores pasivos y activos<a class="headerlink" href="#sensores-pasivos-y-activos" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Pasivos</label><label for="__tabbed_1_2">Activos</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Registran la energía <strong>del Sol</strong> reflejada por la superficie, o la energía <strong>térmica</strong> emitida por ella.</p>
+<ul>
+<li><strong>Ópticos multiespectrales:</strong> registran varias bandas del visible y del infrarrojo. Ejemplos: Landsat, Sentinel-2.</li>
+<li><strong>Térmicos:</strong> registran la temperatura de la superficie.</li>
+<li><strong>Limitación:</strong> no funcionan de noche (salvo los térmicos) ni a través de las <strong>nubes</strong>.</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p><strong>Emiten su propia energía</strong> y registran la que regresa.</p>
+<ul>
+<li><strong>Radar (SAR):</strong> funciona de día y de noche, y <strong>atraviesa las nubes</strong>. Muy útil en regiones con nubosidad frecuente, como la Amazonía durante la época de lluvias. Ejemplo: Sentinel-1.</li>
+<li><strong>LiDAR:</strong> emite pulsos láser y mide con gran detalle la forma del terreno, la vegetación y las construcciones. Puede registrar el suelo a través de los huecos de la vegetación.</li>
+</ul>
+</div>
+</div>
+</div>
+<h3 id="productos-y-aplicaciones">Productos y aplicaciones<a class="headerlink" href="#productos-y-aplicaciones" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Producto</th>
+<th>Descripción</th>
+<th>Aplicación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Imágenes en color natural o falso color</strong></td>
+<td>Combinaciones de bandas para interpretar visualmente</td>
+<td>Identificación de coberturas, mapas base</td>
+</tr>
+<tr>
+<td><strong>Índices espectrales</strong></td>
+<td>Operaciones entre bandas. El más conocido es el <strong>NDVI</strong>: <code>(NIR − Rojo) / (NIR + Rojo)</code></td>
+<td>Vigor de la vegetación, sequías, cultivos</td>
+</tr>
+<tr>
+<td><strong>Clasificaciones</strong></td>
+<td>Asignación de cada píxel a una clase de cobertura</td>
+<td>Mapas de uso de suelo y cobertura</td>
+</tr>
+<tr>
+<td><strong>Detección de cambios</strong></td>
+<td>Comparación de imágenes de distintas fechas</td>
+<td>Deforestación, expansión urbana, áreas quemadas</td>
+</tr>
+<tr>
+<td><strong>Focos de calor</strong></td>
+<td>Detección de anomalías térmicas</td>
+<td>Monitoreo de incendios</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">Teledetección para el monitoreo de incendios</p>
+<p>Bolivia ha sufrido temporadas de incendios de gran magnitud, especialmente en la Chiquitanía, la Amazonía y el Pantanal. Sistemas como <strong>FIRMS</strong> de la NASA publican, casi en tiempo real, los <strong>focos de calor</strong> detectados por sensores satelitales, y las imágenes de Sentinel-2 y Landsat permiten delimitar después las <strong>áreas quemadas</strong>. En un SIG, esa información se cruza con áreas protegidas, comunidades y uso de suelo para priorizar la respuesta y evaluar los daños.</p>
+</div>
+<h3 id="programas-satelitales-de-acceso-libre">Programas satelitales de acceso libre<a class="headerlink" href="#programas-satelitales-de-acceso-libre" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Programa</th>
+<th>Tipo</th>
+<th>Resolución espacial</th>
+<th>Desde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Landsat</strong> (NASA/USGS)</td>
+<td>Óptico multiespectral y térmico</td>
+<td>30 m en los satélites actuales</td>
+<td>1972</td>
+</tr>
+<tr>
+<td><strong>Sentinel-2</strong> (Copernicus, UE)</td>
+<td>Óptico multiespectral</td>
+<td>10 a 60 m</td>
+<td>2015</td>
+</tr>
+<tr>
+<td><strong>Sentinel-1</strong> (Copernicus, UE)</td>
+<td>Radar</td>
+<td>Unos 10 m</td>
+<td>2014</td>
+</tr>
+<tr>
+<td><strong>MODIS</strong> (NASA)</td>
+<td>Óptico, cobertura diaria</td>
+<td>250 m a 1 km</td>
+<td>1999</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="fotogrametria">Fotogrametría<a class="headerlink" href="#fotogrametria" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Definición</p>
+<p>La <strong>fotogrametría</strong> es la técnica que permite obtener <strong>medidas, formas y posiciones</strong> de objetos y del terreno a partir de <strong>fotografías</strong> tomadas desde distintos puntos de vista.</p>
+</div>
+<p>Su principio es el mismo que usa la visión humana: al observar un mismo objeto <strong>desde dos posiciones distintas</strong>, es posible reconstruir su <strong>forma tridimensional</strong>. Por eso las fotografías deben tomarse con un <strong>gran solapamiento</strong> entre ellas.</p>
+<h3 id="de-la-fotografia-aerea-al-dron">De la fotografía aérea al dron<a class="headerlink" href="#de-la-fotografia-aerea-al-dron" title="Permanent link">&para;</a></h3>
+<p>Durante gran parte del siglo XX, la fotogrametría se basó en <strong>fotografías aéreas</strong> tomadas desde aviones y procesadas con instrumentos ópticos de gran precisión. Hoy, la combinación de <strong>drones</strong>, <strong>cámaras digitales</strong> y algoritmos de <strong>reconstrucción automática</strong> (conocidos como <em>Structure from Motion</em>) ha hecho la fotogrametría accesible a instituciones de todo tamaño, incluidos los gobiernos municipales.</p>
+<h3 id="productos">Productos<a class="headerlink" href="#productos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Producto</th>
+<th>Descripción</th>
+<th>Uso en SIG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ortofoto (ortomosaico)</strong></td>
+<td>Imagen corregida de las deformaciones de perspectiva y del relieve, con escala uniforme</td>
+<td>Base para digitalizar y verificar datos</td>
+</tr>
+<tr>
+<td><strong>Modelo digital de superficie (MDS)</strong></td>
+<td>Elevación de la superficie, incluidas construcciones y vegetación</td>
+<td>Alturas de edificaciones, obstrucciones</td>
+</tr>
+<tr>
+<td><strong>Modelo digital del terreno (MDT)</strong></td>
+<td>Elevación del suelo desnudo</td>
+<td>Pendientes, drenaje, curvas de nivel</td>
+</tr>
+<tr>
+<td><strong>Nube de puntos</strong></td>
+<td>Millones de puntos con coordenadas X, Y, Z y color</td>
+<td>Modelado 3D, cálculo de volúmenes</td>
+</tr>
+<tr>
+<td><strong>Modelo 3D texturizado</strong></td>
+<td>Superficie tridimensional con fotografía</td>
+<td>Patrimonio, urbanismo, visualización</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Una foto aérea no es una ortofoto</p>
+<p>En una fotografía aérea sin corregir, los objetos más altos y los alejados del centro aparecen <strong>desplazados</strong> por la perspectiva y el relieve. Solo una <strong>ortofoto</strong>, corregida mediante un modelo de elevación, tiene una <strong>escala uniforme</strong> y permite <strong>medir</strong> distancias y superficies de forma confiable.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Los puntos de control definen la exactitud</p>
+<p>La exactitud absoluta de una ortofoto de dron depende, en gran medida, de los <strong>puntos de control terrestre</strong>: marcas en el terreno medidas con <strong>GNSS de precisión</strong> (tema 1.9). Los drones con <strong>RTK o PPK</strong> reducen la cantidad de puntos necesarios, pero siempre conviene medir <strong>puntos de verificación</strong> independientes para evaluar la calidad (tema 1.13).</p>
+</div>
+<h3 id="fotogrametria-frente-a-teledeteccion">Fotogrametría frente a teledetección<a class="headerlink" href="#fotogrametria-frente-a-teledeteccion" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Fotogrametría</th>
+<th>Teledetección</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Énfasis</strong></td>
+<td><strong>Geometría</strong>: forma, posición, dimensiones</td>
+<td><strong>Propiedades físicas</strong>: tipo de cobertura, estado, temperatura</td>
+</tr>
+<tr>
+<td><strong>Resultado típico</strong></td>
+<td>Ortofotos, modelos de elevación, modelos 3D</td>
+<td>Clasificaciones, índices, detección de cambios</td>
+</tr>
+<tr>
+<td><strong>Plataformas habituales</strong></td>
+<td>Drones y aviones</td>
+<td>Satélites y, cada vez más, drones</td>
+</tr>
+</tbody>
+</table>
+<p>En la práctica, ambas <strong>se superponen cada vez más</strong>: los satélites de muy alta resolución permiten hacer fotogrametría, y los drones llevan sensores multiespectrales y térmicos.</p>
+<hr />
+<h2 id="bases-de-datos-espaciales">Bases de datos espaciales<a class="headerlink" href="#bases-de-datos-espaciales" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Definición</p>
+<p>Una <strong>base de datos espacial</strong> es un sistema de gestión de bases de datos que incorpora <strong>tipos de datos geométricos</strong>, <strong>índices espaciales</strong> y <strong>funciones espaciales</strong>, lo que permite almacenar y consultar información geográfica con las mismas garantías que cualquier otra información institucional.</p>
+</div>
+<h3 id="por-que-no-basta-con-archivos">¿Por qué no basta con archivos?<a class="headerlink" href="#por-que-no-basta-con-archivos" title="Permanent link">&para;</a></h3>
+<p>Trabajar con archivos es práctico para proyectos individuales, pero en una institución aparecen necesidades que los archivos no resuelven bien:</p>
+<table>
+<thead>
+<tr>
+<th>Necesidad</th>
+<th>Con archivos</th>
+<th>Con una base de datos espacial</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Varios usuarios editando a la vez</strong></td>
+<td>Conflictos y copias duplicadas</td>
+<td>Acceso concurrente controlado</td>
+</tr>
+<tr>
+<td><strong>Una sola versión de los datos</strong></td>
+<td>Muchas copias en distintas computadoras</td>
+<td>Un repositorio central</td>
+</tr>
+<tr>
+<td><strong>Permisos</strong></td>
+<td>Quien tiene el archivo puede modificarlo</td>
+<td>Permisos por usuario, tabla y operación</td>
+</tr>
+<tr>
+<td><strong>Integridad</strong></td>
+<td>Nada impide valores incorrectos</td>
+<td>Restricciones, dominios, claves y relaciones</td>
+</tr>
+<tr>
+<td><strong>Grandes volúmenes</strong></td>
+<td>Archivos lentos o con límites de tamaño</td>
+<td>Millones de registros con índices espaciales</td>
+</tr>
+<tr>
+<td><strong>Integración</strong></td>
+<td>Difícil de conectar con otros sistemas</td>
+<td>Conexión con aplicaciones web, sistemas de trámites o de recaudación</td>
+</tr>
+<tr>
+<td><strong>Respaldos</strong></td>
+<td>Manuales y dispersos</td>
+<td>Centralizados y programables</td>
+</tr>
+</tbody>
+</table>
+<h3 id="principales-opciones">Principales opciones<a class="headerlink" href="#principales-opciones" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Sistema</th>
+<th>Tipo</th>
+<th>Uso típico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PostgreSQL + PostGIS</strong></td>
+<td>Servidor, de código abierto</td>
+<td>Sistemas institucionales, aplicaciones web, grandes volúmenes</td>
+</tr>
+<tr>
+<td><strong>GeoPackage / SpatiaLite</strong></td>
+<td>Archivo basado en SQLite</td>
+<td>Proyectos individuales, trabajo de campo, intercambio</td>
+</tr>
+<tr>
+<td><strong>Oracle Spatial, SQL Server</strong></td>
+<td>Servidor, comerciales</td>
+<td>Grandes organizaciones con esas plataformas</td>
+</tr>
+<tr>
+<td><strong>DuckDB Spatial</strong></td>
+<td>Motor analítico en archivo</td>
+<td>Análisis rápido de grandes conjuntos de datos</td>
+</tr>
+</tbody>
+</table>
+<h3 id="consultas-espaciales-con-sql">Consultas espaciales con SQL<a class="headerlink" href="#consultas-espaciales-con-sql" title="Permanent link">&para;</a></h3>
+<p>Las bases de datos espaciales permiten hacer análisis directamente con <strong>SQL</strong>, el lenguaje estándar de consulta de bases de datos.</p>
+<div class="admonition example">
+<p class="admonition-title">¿Cuántas unidades educativas hay en cada distrito?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">nombre</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">distrito</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">       </span><span class="k">COUNT</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">unidades_educativas</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">FROM</span><span class="w"> </span><span class="n">distritos</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">d</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">unidades_educativas</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">u</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">       </span><span class="k">ON</span><span class="w"> </span><span class="n">ST_Within</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n">geom</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">geom</span><span class="p">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">nombre</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">unidades_educativas</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+</code></pre></div>
+<p>La función <code>ST_Within</code> evalúa la relación espacial <strong>está dentro de</strong> (tema 1.2), sin necesidad de abrir un SIG de escritorio.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Bases de datos y QGIS</p>
+<p>QGIS se conecta directamente a PostGIS y a GeoPackage: permite <strong>visualizar</strong>, <strong>editar</strong> y <strong>consultar</strong> sus capas como si fueran archivos locales, y ejecutar consultas SQL desde el <strong>Administrador de bases de datos</strong>. Es la combinación más habitual en los SIG institucionales basados en software libre.</p>
+</div>
+<hr />
+<h2 id="formatos-y-datos-de-cada-geotecnologia">Formatos y datos de cada geotecnología<a class="headerlink" href="#formatos-y-datos-de-cada-geotecnologia" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Geotecnología</th>
+<th>Datos que produce o gestiona</th>
+<th>Formatos habituales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GNSS</strong></td>
+<td>Puntos, recorridos, observaciones crudas</td>
+<td>CSV, GPX, NMEA, RINEX</td>
+</tr>
+<tr>
+<td><strong>Teledetección</strong></td>
+<td>Imágenes multiespectrales, radar, productos derivados</td>
+<td>GeoTIFF, JPEG 2000, HDF, NetCDF</td>
+</tr>
+<tr>
+<td><strong>Fotogrametría</strong></td>
+<td>Ortofotos, modelos de elevación, nubes de puntos, modelos 3D</td>
+<td>GeoTIFF, LAS/LAZ, OBJ, PLY</td>
+</tr>
+<tr>
+<td><strong>CAD</strong></td>
+<td>Planos, diseños, levantamientos topográficos</td>
+<td>DWG, DXF, DGN</td>
+</tr>
+<tr>
+<td><strong>Bases de datos espaciales</strong></td>
+<td>Tablas con geometrías y atributos</td>
+<td>PostGIS, GeoPackage</td>
+</tr>
+<tr>
+<td><strong>Cartografía</strong></td>
+<td>Mapas impresos y digitales</td>
+<td>PDF, PDF georreferenciado, SVG, PNG</td>
+</tr>
+<tr>
+<td><strong>SIG</strong></td>
+<td>Capas vectoriales y ráster, proyectos</td>
+<td>GeoPackage, Shapefile, GeoTIFF, proyectos <code>.qgz</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="las-geotecnologias-convergen">Las geotecnologías convergen<a class="headerlink" href="#las-geotecnologias-convergen" title="Permanent link">&para;</a></h2>
+<p>Hace algunas décadas, cada geotecnología era un <strong>mundo separado</strong>: con sus propios profesionales, equipos, programas y formatos. Hoy, los límites entre ellas son <strong>cada vez más difusos</strong>.</p>
+<ul>
+<li>Los <strong>programas CAD</strong> incorporan sistemas de referencia y funciones SIG, y los <strong>SIG</strong> incorporan herramientas de dibujo de precisión.</li>
+<li>Los <strong>teléfonos celulares</strong> llevan receptores GNSS multiconstelación, y aplicaciones como <strong>QField</strong> permiten capturar datos SIG en campo.</li>
+<li>Los <strong>drones</strong> combinan GNSS de precisión, fotogrametría y sensores multiespectrales en un solo vuelo.</li>
+<li>Las <strong>imágenes satelitales</strong> se procesan en la <strong>nube</strong>, sin descargarlas, y sus resultados llegan directamente al SIG.</li>
+<li>Las <strong>bases de datos espaciales</strong> almacenan tanto datos vectoriales como ráster, y alimentan visores web y aplicaciones.</li>
+</ul>
+<h3 id="un-proyecto-integrado">Un proyecto integrado<a class="headerlink" href="#un-proyecto-integrado" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    DR["&lt;b&gt;Fotogrametría&lt;/b&gt;&lt;br/&gt;Vuelo con dron&lt;br/&gt;→ ortofoto y MDT"]
+    GN["&lt;b&gt;GNSS RTK&lt;/b&gt;&lt;br/&gt;Puntos de control&lt;br/&gt;y verificación"]
+    CA["&lt;b&gt;CAD&lt;/b&gt;&lt;br/&gt;Planos de urbanizaciones&lt;br/&gt;aprobadas"]
+    TE["&lt;b&gt;Teledetección&lt;/b&gt;&lt;br/&gt;Imágenes históricas&lt;br/&gt;→ crecimiento urbano"]
+    BD["&lt;b&gt;Base de datos espacial&lt;/b&gt;&lt;br/&gt;Predios, manzanos,&lt;br/&gt;historial de cambios"]
+    SIG["&lt;b&gt;SIG&lt;/b&gt;&lt;br/&gt;Integración, control&lt;br/&gt;de calidad y análisis"]
+    CT["&lt;b&gt;Cartografía&lt;/b&gt;&lt;br/&gt;Planos catastrales&lt;br/&gt;y visor para la ciudadanía"]
+    GN --&gt; DR
+    DR --&gt; SIG
+    CA --&gt; SIG
+    TE --&gt; SIG
+    SIG &lt;--&gt; BD
+    SIG --&gt; CT</code></pre>
+<p><em>Esquema de un proyecto de actualización catastral municipal que integra varias geotecnologías.</em></p>
+<div class="admonition success">
+<p class="admonition-title">La consecuencia para el profesional</p>
+<p>Hoy no basta con dominar un solo programa. Un profesional de las geotecnologías necesita <strong>comprender los fundamentos</strong> de todas ellas: de dónde vienen los datos, qué exactitud tienen, en qué sistema de referencia están y cómo se integran. Es precisamente lo que construye este <strong>Módulo 1</strong>: sistemas de referencia, escala, exactitud, modelos y calidad son el <strong>lenguaje común</strong> de todas las geotecnologías.</p>
+</div>
+<hr />
+<h2 id="ideas-clave">Ideas clave<a class="headerlink" href="#ideas-clave" title="Permanent link">&para;</a></h2>
+<div class="admonition success">
+<p class="admonition-title">Para recordar</p>
+<ul>
+<li>Cada geotecnología tiene una <strong>función principal</strong>: el <strong>SIG</strong> gestiona y analiza; el <strong>CAD</strong> diseña; la <strong>cartografía</strong> representa; el <strong>GNSS</strong> posiciona; la <strong>teledetección</strong> observa; la <strong>fotogrametría</strong> mide desde imágenes; las <strong>bases de datos espaciales</strong> gestionan de forma estructurada.</li>
+<li>El <strong>SIG</strong> actúa como <strong>entorno de integración</strong> de los datos que producen las demás.</li>
+<li>Los datos de <strong>CAD</strong> suelen requerir georreferenciación, limpieza y reestructuración para usarse en un SIG.</li>
+<li>El <strong>GNSS</strong> requiere al menos <strong>cuatro satélites</strong>; su exactitud depende del <strong>método</strong>: de metros (autónomo) a centímetros (RTK, PPK).</li>
+<li>La <strong>teledetección</strong> usa sensores <strong>pasivos</strong> (ópticos, térmicos) y <strong>activos</strong> (radar, LiDAR).</li>
+<li>La <strong>fotogrametría</strong> produce <strong>ortofotos</strong>, <strong>modelos de elevación</strong> y <strong>nubes de puntos</strong>; su exactitud depende de los <strong>puntos de control</strong>.</li>
+<li>Las <strong>bases de datos espaciales</strong> aportan multiusuario, integridad, permisos y consultas SQL.</li>
+<li>Las geotecnologías <strong>convergen</strong>: comprender sus fundamentos comunes es más importante que dominar un único programa.</li>
+</ul>
+</div>
+<hr />
+<h2 id="autoevaluacion">Autoevaluación<a class="headerlink" href="#autoevaluacion" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>1. ¿Qué geotecnología es la más adecuada para cada tarea?</summary>
+<ul>
+<li>Diseñar el trazado de una nueva avenida → <strong>CAD</strong>.</li>
+<li>Determinar qué barrios quedan a más de 1 km de un centro de salud → <strong>SIG</strong>.</li>
+<li>Medir la posición de los hitos de un predio con precisión centimétrica → <strong>GNSS</strong> (RTK).</li>
+<li>Detectar la pérdida de bosque en un municipio entre 2015 y 2025 → <strong>Teledetección</strong>.</li>
+<li>Obtener una ortofoto actualizada de un barrio → <strong>Fotogrametría</strong> (con dron).</li>
+<li>Permitir que 15 técnicos editen la capa de predios al mismo tiempo → <strong>Base de datos espacial</strong>.</li>
+<li>Elaborar el mapa de zonificación para socializar un plan con la población → <strong>Cartografía</strong>.</li>
+</ul>
+</details>
+<details class="question">
+<summary>2. Un plano de loteamiento en DWG aparece en medio del océano al abrirlo en QGIS. ¿Qué pudo haber pasado y qué pasos seguirías?</summary>
+<p>Probablemente el plano está en <strong>coordenadas locales</strong> o sin sistema de referencia (tema 1.4). Habría que identificar puntos del plano con coordenadas conocidas, <strong>georreferenciarlo</strong>, verificar sus <strong>unidades</strong>, cerrar los <strong>polígonos</strong> abiertos y convertir los <strong>textos</strong> relevantes en <strong>atributos</strong>.</p>
+</details>
+<details class="question">
+<summary>3. ¿Por qué un receptor GNSS necesita al menos cuatro satélites?</summary>
+<p>Porque debe resolver <strong>cuatro incógnitas</strong>: las tres coordenadas de su posición y el <strong>error de su reloj</strong>, que no es tan preciso como los relojes atómicos de los satélites.</p>
+</details>
+<details class="question">
+<summary>4. ¿Por qué el radar es especialmente útil para monitorear la Amazonía durante la época de lluvias?</summary>
+<p>Porque es un sensor <strong>activo</strong> que emite su propia energía en longitudes de onda que <strong>atraviesan las nubes</strong>, y funciona de día y de noche. Los sensores ópticos, en cambio, no pueden observar la superficie cuando está cubierta de nubes.</p>
+</details>
+<details class="question">
+<summary>5. ¿Por qué no se deben medir superficies sobre una fotografía aérea sin corregir?</summary>
+<p>Porque tiene deformaciones por <strong>perspectiva</strong> y por <strong>relieve</strong>: los objetos se desplazan según su altura y su distancia al centro de la imagen, y la escala no es uniforme. Para medir se necesita una <strong>ortofoto</strong>.</p>
+</details>
+<details class="question">
+<summary>6. Menciona tres ventajas de usar PostGIS en lugar de archivos Shapefile para el catastro de un municipio.</summary>
+<p>Entre otras: <strong>edición simultánea</strong> por varios usuarios, <strong>permisos</strong> por usuario, <strong>integridad</strong> mediante restricciones y relaciones, <strong>un único repositorio</strong> sin copias dispersas, capacidad para <strong>grandes volúmenes</strong> con índices espaciales, <strong>consultas SQL</strong> e <strong>integración</strong> con otros sistemas institucionales.</p>
+</details>
+<hr />
+<h2 id="actividad-propuesta">Actividad propuesta<a class="headerlink" href="#actividad-propuesta" title="Permanent link">&para;</a></h2>
+<div class="admonition example">
+<p class="admonition-title">Actividad 1.14 — Mapa de geotecnologías del proyecto integrador (sin software)</p>
+<p>Retoma el proyecto integrador de las actividades anteriores y desarrolla lo siguiente:</p>
+<ol>
+<li>Identifica qué <strong>geotecnologías</strong> intervienen o podrían intervenir en tu proyecto.</li>
+<li>Para cada una, indica qué <strong>datos</strong> aporta, en qué <strong>formato</strong> y con qué <strong>exactitud</strong> esperada.</li>
+<li>Identifica los <strong>problemas de integración</strong> que podrían surgir: sistemas de referencia, unidades, formatos, escalas, fechas.</li>
+<li>Elabora un <strong>diagrama de flujo</strong> de tu proyecto que muestre cómo circulan los datos entre las distintas geotecnologías, similar al del ejemplo de este tema.</li>
+<li>Decide si tu proyecto necesita una <strong>base de datos espacial</strong> o si basta con archivos, y justifica tu respuesta.</li>
+</ol>
+</div>
+<hr />
+<h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Chuvieco, E. (2010). <em>Teledetección ambiental: la observación de la Tierra desde el espacio</em> (3.ª ed.). Ariel.</li>
+<li>Hofmann-Wellenhof, B., Lichtenegger, H., &amp; Wasle, E. (2008). <em>GNSS – Global Navigation Satellite Systems: GPS, GLONASS, Galileo, and more</em>. Springer.</li>
+<li>Lillesand, T., Kiefer, R. W., &amp; Chipman, J. (2015). <em>Remote Sensing and Image Interpretation</em> (7.ª ed.). Wiley.</li>
+<li>Longley, P. A., Goodchild, M. F., Maguire, D. J., &amp; Rhind, D. W. (2015). <em>Geographic Information Science and Systems</em> (4.ª ed.). Wiley.</li>
+<li>NASA. <em>Fire Information for Resource Management System (FIRMS)</em>. <a href="https://firms.modaps.eosdis.nasa.gov">https://firms.modaps.eosdis.nasa.gov</a></li>
+<li>Obe, R. O., &amp; Hsu, L. S. (2021). <em>PostGIS in Action</em> (3.ª ed.). Manning.</li>
+<li>Olaya, V. (2020). <em>Sistemas de Información Geográfica</em>. Libro libre disponible en línea.</li>
+<li>Wolf, P. R., Dewitt, B. A., &amp; Wilkinson, B. E. (2014). <em>Elements of Photogrammetry with Applications in GIS</em> (4.ª ed.). McGraw-Hill.</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../13-calidad-informacion/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 1.13 Calidad de la información geográfica">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                1.13 Calidad de la información geográfica
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../15-ecosistema-geotecnologias/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: 1.15 Ecosistema de geotecnologías">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                1.15 Ecosistema de geotecnologías
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.footer", "navigation.path", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../assets/vendor/d3.v7.min.js"></script>
+      
+        <script src="../../assets/js/latlon.js"></script>
+      
+    
+  </body>
+</html>

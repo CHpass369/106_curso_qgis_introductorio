@@ -1,0 +1,4767 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Ventana principal de QGIS, navegación por el mapa, paneles, navegador, localizador, identificación y medición, marcadores espaciales, y orden y agrupación de capas.">
+      
+      
+        <meta name="author" content="Chpass">
+      
+      
+        <link rel="canonical" href="https://chpass369.github.io/curso-qgis/modulo-02/02-orientarse-interfaz/">
+      
+      
+        <link rel="prev" href="../01-entorno-trabajo/">
+      
+      
+        <link rel="next" href="../03-gestionar-proyectos/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>2.2 Orientarse y trabajar con fluidez - 106 - Curso Introductorio QGIS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+      <link rel="stylesheet" href="../../assets/css/latlon.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#22-orientarse-y-trabajar-con-fluidez" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="106 - Curso Introductorio QGIS" class="md-header__button md-logo" aria-label="106 - Curso Introductorio QGIS" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            106 - Curso Introductorio QGIS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2.2 Orientarse y trabajar con fluidez
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="teal"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="teal"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartir" aria-label="Compartir" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/chpass369/curso-qgis" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chpass369/curso-qgis
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../instructor/" class="md-tabs__link">
+          
+  
+  
+  Acerca
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../programa/" class="md-tabs__link">
+          
+  
+  
+  Curso
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../modulo-01/" class="md-tabs__link">
+          
+  
+  
+  Mod1 · Fundamentos SIG
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Mod2 · Introducción a QGIS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../modulo-03/index.md" class="md-tabs__link">
+          
+  
+  
+  Mod3 · Sistemas de referencia en QGIS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../practicas/index.md" class="md-tabs__link">
+          
+  
+  
+  Prácticas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../evaluaciones/index.md" class="md-tabs__link">
+          
+  
+  
+  Evaluaciones
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../descargas/index.md" class="md-tabs__link">
+          
+  
+  
+  Descargas
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="106 - Curso Introductorio QGIS" class="md-nav__button md-logo" aria-label="106 - Curso Introductorio QGIS" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    106 - Curso Introductorio QGIS
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/chpass369/curso-qgis" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    chpass369/curso-qgis
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acerca
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Acerca
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../instructor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instructor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syllabus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../videos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Videos Tutoriales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../material/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Material de apoyo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agradecimientos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agradecimientos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../acerca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acerca del curso
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Curso
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Curso
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mod1 · Fundamentos SIG
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mod1 · Fundamentos SIG
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SIG y territorio
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SIG y territorio
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/01-sistemas-informacion-geografica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1 Sistemas de Información Geográfica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/02-espacio-geografico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2 Espacio geográfico y territorio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geodesia y sistemas de referencia
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Geodesia y sistemas de referencia
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/03-fundamentos-geodesia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3 Fundamentos de Geodesia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/04-sistemas-referencia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.4 Sistemas de Referencia de Coordenadas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/05-proyecciones-cartograficas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.5 Proyecciones cartográficas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/06-sistema-utm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.6 Sistema UTM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cartografía y escala
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cartografía y escala
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/07-fundamentos-cartografia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.7 Fundamentos de Cartografía
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/08-escala-cartografica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.8 Escala cartográfica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/09-escala-resolucion-precision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.9 Escala, resolución y precisión
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/10-generalizacion-cartografica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.10 Generalización cartográfica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Datos geoespaciales
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Datos geoespaciales
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/11-modelos-representacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.11 Modelos de representación espacial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/12-dato-geoespacial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.12 El dato geoespacial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/13-calidad-informacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.13 Calidad de la información geográfica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Panorama geotecnológico
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Panorama geotecnológico
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/14-sig-otras-geotecnologias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.14 SIG y otras geotecnologías
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/15-ecosistema-geotecnologias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.15 Ecosistema de geotecnologías
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-01/practica.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Práctica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mod2 · Introducción a QGIS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mod2 · Introducción a QGIS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entorno y proyectos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Entorno y proyectos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-entorno-trabajo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.1 Preparar un entorno de trabajo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.2 Orientarse y trabajar con fluidez
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.2 Orientarse y trabajar con fluidez
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#la-ventana-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La ventana principal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navegar-por-el-mapa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Navegar por el mapa
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Navegar por el mapa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#herramientas-de-navegacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Herramientas de navegación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-barra-de-estado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La barra de estado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paneles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paneles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paneles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abrir-y-organizar-paneles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Abrir y organizar paneles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paneles-mas-usados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paneles más usados
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-navegador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        El navegador
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="El navegador">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trabajar-con-el-navegador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trabajar con el navegador
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-localizador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        El localizador
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="El localizador">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filtros-y-prefijos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtros y prefijos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buscar-lugares-e-ir-a-coordenadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Buscar lugares e ir a coordenadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identificar-y-medir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identificar y medir
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Identificar y medir">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-herramienta-identificar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La herramienta Identificar
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="La herramienta Identificar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modos-de-identificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modos de identificación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informacion-derivada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Información derivada
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#medir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Medir
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#marcadores-espaciales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Marcadores espaciales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Marcadores espaciales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crear-un-marcador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crear un marcador
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proyecto-o-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Proyecto o usuario?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#administrar-marcadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Administrar marcadores
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ordenar-y-agrupar-capas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ordenar y agrupar capas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ordenar y agrupar capas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orden-de-dibujo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orden de dibujo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grupos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grupos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buenas-practicas-en-el-panel-capas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Buenas prácticas en el panel Capas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atajos-de-teclado-utiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atajos de teclado útiles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reto-practico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reto práctico
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problemas-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problemas frecuentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ideas-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ideas clave
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autoevaluación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referencias
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-gestionar-proyectos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.3 Comprender y gestionar proyectos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Datos y coordenadas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Datos y coordenadas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-incorporar-datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.4 Incorporar datos y reconocer sus diferencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-tablas-coordenadas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.5 Convertir una tabla en información geográfica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-problemas-coordenadas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.6 Resolver problemas de coordenadas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Explorar y consultar
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Explorar y consultar
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-leer-datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.7 Leer los datos antes de utilizarlos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-seleccionar-filtrar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.8 Seleccionar, filtrar y extraer información
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Representar y conectar
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Representar y conectar
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-simbologia-etiquetas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.9 Representar y etiquetar datos vectoriales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-explorar-raster/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.10 Explorar imágenes y superficies ráster
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-servicios-web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.11 Conectar información disponible en internet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Taller
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Taller
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-taller-proyecto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.12 Construir y entregar un proyecto funcional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mod3 · Sistemas de referencia en QGIS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mod3 · Sistemas de referencia en QGIS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/01-crs-proyecto-capa.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CRS del proyecto y CRS de la capa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/02-identificar-asignar-crs.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Identificar y asignar un CRS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/03-reproyectar-capas.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproyectar capas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/04-transformaciones-datum.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transformaciones de datum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo-03/practica.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Práctica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prácticas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prácticas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practicas/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Índice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluaciones
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Evaluaciones
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../evaluaciones/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Índice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Descargas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Descargas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../descargas/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Material del curso
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#la-ventana-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La ventana principal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navegar-por-el-mapa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Navegar por el mapa
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Navegar por el mapa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#herramientas-de-navegacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Herramientas de navegación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-barra-de-estado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La barra de estado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paneles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paneles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paneles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abrir-y-organizar-paneles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Abrir y organizar paneles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paneles-mas-usados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paneles más usados
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-navegador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        El navegador
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="El navegador">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trabajar-con-el-navegador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trabajar con el navegador
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-localizador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        El localizador
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="El localizador">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filtros-y-prefijos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtros y prefijos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buscar-lugares-e-ir-a-coordenadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Buscar lugares e ir a coordenadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identificar-y-medir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identificar y medir
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Identificar y medir">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-herramienta-identificar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La herramienta Identificar
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="La herramienta Identificar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modos-de-identificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modos de identificación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informacion-derivada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Información derivada
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#medir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Medir
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#marcadores-espaciales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Marcadores espaciales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Marcadores espaciales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crear-un-marcador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crear un marcador
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proyecto-o-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Proyecto o usuario?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#administrar-marcadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Administrar marcadores
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ordenar-y-agrupar-capas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ordenar y agrupar capas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ordenar y agrupar capas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orden-de-dibujo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orden de dibujo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grupos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grupos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buenas-practicas-en-el-panel-capas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Buenas prácticas en el panel Capas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atajos-de-teclado-utiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atajos de teclado útiles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reto-practico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reto práctico
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problemas-frecuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problemas frecuentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ideas-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ideas clave
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autoevaluación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referencias
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="Navegación" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Mod2 · Introducción a QGIS
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../01-entorno-trabajo/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Entorno y proyectos
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/chpass369/curso-qgis/edit/main/docs/modulo-02/02-orientarse-interfaz.md" title="Editar esta página" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/chpass369/curso-qgis/raw/main/docs/modulo-02/02-orientarse-interfaz.md" title="Ver código fuente de esta página" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="22-orientarse-y-trabajar-con-fluidez">2.2 Orientarse y trabajar con fluidez<a class="headerlink" href="#22-orientarse-y-trabajar-con-fluidez" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Objetivos de aprendizaje</p>
+<p>Al finalizar esta lección, el estudiante será capaz de:</p>
+<ul>
+<li>Reconocer las partes de la ventana principal de QGIS y organizar su espacio de trabajo.</li>
+<li>Navegar por el mapa con el ratón, el teclado y la barra de estado.</li>
+<li>Encontrar datos con el <strong>navegador</strong> y herramientas o lugares con el <strong>localizador</strong>.</li>
+<li>Consultar información de las entidades y medir sobre el mapa.</li>
+<li>Crear y administrar <strong>marcadores espaciales</strong>, distinguiendo los del proyecto y los del usuario.</li>
+<li>Ordenar, agrupar y nombrar capas de forma clara.</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Antes de empezar</p>
+<ul>
+<li><strong>Entorno:</strong> QGIS abierto con el perfil <code>curso-qgis</code> (lección <strong>2.1</strong>).</li>
+<li><strong>Datos:</strong> la capa de límites municipales incluida en los <a href="../descargas/index.md">datos del curso</a>, guardada en <code>datos/originales/</code>.</li>
+<li><strong>Conexión a internet:</strong> necesaria para el mapa base de OpenStreetMap y la búsqueda de lugares.</li>
+</ul>
+</div>
+<hr />
+<h2 id="la-ventana-principal">La ventana principal<a class="headerlink" href="#la-ventana-principal" title="Permanent link">&para;</a></h2>
+<p>Antes de trabajar con fluidez, conviene conocer <strong>cómo está organizada</strong> la ventana de QGIS.</p>
+<div class="admonition captura">
+<p class="admonition-title">Captura pendiente · 2.2-01</p>
+<ul>
+<li><strong>Tipo:</strong> Imagen (PNG) anotada</li>
+<li><strong>Archivo:</strong> <code>assets/images/modulo-02/2-2/2-2-01-ventana-principal.png</code></li>
+<li><strong>Qué mostrar:</strong> La ventana principal de QGIS con un proyecto abierto (mapa base y una capa), con <strong>números</strong> sobre cada parte, que coincidan con la tabla de abajo.</li>
+<li><strong>Sugerencia:</strong> Usa círculos numerados del mismo color que las figuras del curso.</li>
+</ul>
+</div>
+<table>
+<thead>
+<tr>
+<th>N.º</th>
+<th>Parte</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Barra de menús</strong></td>
+<td>Acceso a todas las funciones de QGIS, organizadas por tema</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Barras de herramientas</strong></td>
+<td>Botones para las funciones más usadas: navegación, selección, edición, identificación</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Panel Capas</strong></td>
+<td>Lista de las capas del proyecto, su orden, visibilidad y agrupación</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Panel Navegador</strong></td>
+<td>Explorador de archivos, bases de datos y servicios para incorporar datos</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Vista del mapa</strong></td>
+<td>El lienzo donde se dibujan las capas</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Localizador</strong></td>
+<td>Buscador rápido de capas, herramientas, entidades y lugares</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Barra de estado</strong></td>
+<td>Coordenadas del cursor, escala, rotación, sistema de referencia del proyecto y mensajes</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Ver más del mapa</p>
+<ul>
+<li><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-tab">Tab</kbd></span> oculta o muestra <strong>todos los paneles</strong> a la vez, para ganar espacio en el mapa.</li>
+<li><span class="keys"><kbd class="key-f11">F11</kbd></span> activa el <strong>modo de pantalla completa</strong>.</li>
+</ul>
+</div>
+<hr />
+<h2 id="navegar-por-el-mapa">Navegar por el mapa<a class="headerlink" href="#navegar-por-el-mapa" title="Permanent link">&para;</a></h2>
+<h3 id="herramientas-de-navegacion">Herramientas de navegación<a class="headerlink" href="#herramientas-de-navegacion" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Herramienta</th>
+<th>Qué hace</th>
+<th>Atajo o gesto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Desplazar mapa</strong></td>
+<td>Mueve la vista arrastrando el mapa</td>
+<td>Mantener <span class="keys"><kbd class="key-space">Space</kbd></span> y mover el ratón, o arrastrar con la <strong>rueda</strong> presionada</td>
+</tr>
+<tr>
+<td><strong>Acercar / Alejar</strong></td>
+<td>Cambia la escala de la vista</td>
+<td><strong>Rueda del ratón</strong></td>
+</tr>
+<tr>
+<td><strong>Zoom general</strong></td>
+<td>Muestra la extensión de todas las capas del proyecto</td>
+<td><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-f">F</kbd></span></td>
+</tr>
+<tr>
+<td><strong>Zoom a la capa</strong></td>
+<td>Muestra la extensión de una capa</td>
+<td>Clic derecho sobre la capa ▸ <strong>Zoom a la capa</strong></td>
+</tr>
+<tr>
+<td><strong>Zoom a la selección</strong></td>
+<td>Muestra las entidades seleccionadas</td>
+<td>Botón de la barra de navegación</td>
+</tr>
+<tr>
+<td><strong>Zoom anterior / siguiente</strong></td>
+<td>Vuelve a las vistas anteriores, como el botón <em>atrás</em> de un navegador web</td>
+<td>Botones de la barra de navegación</td>
+</tr>
+<tr>
+<td><strong>Actualizar</strong></td>
+<td>Vuelve a dibujar el mapa</td>
+<td><span class="keys"><kbd class="key-f5">F5</kbd></span></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition captura">
+<p class="admonition-title">Captura pendiente · 2.2-02</p>
+<ul>
+<li><strong>Tipo:</strong> GIF animado</li>
+<li><strong>Archivo:</strong> <code>assets/images/modulo-02/2-2/2-2-02-navegar-mapa.gif</code></li>
+<li><strong>Qué mostrar:</strong> Acercar con la rueda del ratón, desplazar el mapa manteniendo la barra espaciadora, usar <strong>Zoom a la capa</strong> desde el panel Capas y volver con <strong>Zoom anterior</strong>.</li>
+<li><strong>Sugerencia:</strong> Muestra en pantalla las teclas presionadas o menciónalas en el pie de figura.</li>
+</ul>
+</div>
+<h3 id="la-barra-de-estado">La barra de estado<a class="headerlink" href="#la-barra-de-estado" title="Permanent link">&para;</a></h3>
+<p>La barra de estado ofrece información y controles que se usan constantemente:</p>
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>Qué muestra o permite hacer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Coordenada</strong></td>
+<td>La posición del cursor en el <strong>SRC del proyecto</strong>. Al hacer clic en su ícono, alterna con la extensión de la vista</td>
+</tr>
+<tr>
+<td><strong>Escala</strong></td>
+<td>La escala de visualización actual. Se puede <strong>escribir</strong> una escala para ir directamente a ella (tema 1.8)</td>
+</tr>
+<tr>
+<td><strong>Lupa</strong></td>
+<td>Amplía la vista sin cambiar la escala del mapa</td>
+</tr>
+<tr>
+<td><strong>Rotación</strong></td>
+<td>Gira la vista del mapa</td>
+</tr>
+<tr>
+<td><strong>Representar</strong></td>
+<td>Activa o desactiva el dibujo del mapa, útil con capas muy pesadas</td>
+</tr>
+<tr>
+<td><strong>SRC del proyecto</strong></td>
+<td>Muestra el código del sistema de referencia del proyecto. Al hacer clic, abre sus propiedades</td>
+</tr>
+<tr>
+<td><strong>Mensajes</strong></td>
+<td>Registro de avisos y errores de QGIS</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition captura">
+<p class="admonition-title">Captura pendiente · 2.2-03</p>
+<ul>
+<li><strong>Tipo:</strong> Imagen (PNG)</li>
+<li><strong>Archivo:</strong> <code>assets/images/modulo-02/2-2/2-2-03-barra-estado.png</code></li>
+<li><strong>Qué mostrar:</strong> La barra de estado completa, con cada elemento resaltado: coordenada, escala, lupa, rotación, casilla de representar, SRC del proyecto y mensajes.</li>
+<li><strong>Sugerencia:</strong> Recorta solo la barra de estado y amplíala para que se lean los textos.</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">La coordenada que ves depende del SRC del proyecto</p>
+<p>La barra de estado muestra las coordenadas en el <strong>sistema de referencia del proyecto</strong>, no en el de cada capa. Si el proyecto está en EPSG:3857 (el de los mapas base web), verás valores en metros de Pseudo-Mercator, <strong>no</strong> coordenadas UTM ni grados. Veremos cómo manejar esto en la lección <strong>2.6</strong>.</p>
+</div>
+<hr />
+<h2 id="paneles">Paneles<a class="headerlink" href="#paneles" title="Permanent link">&para;</a></h2>
+<p>Los <strong>paneles</strong> son ventanas acopladas que se pueden <strong>abrir</strong>, <strong>cerrar</strong>, <strong>mover</strong> y <strong>agrupar</strong> según lo que se esté haciendo.</p>
+<h3 id="abrir-y-organizar-paneles">Abrir y organizar paneles<a class="headerlink" href="#abrir-y-organizar-paneles" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Abrir o cerrar:</strong> menú <strong>Ver ▸ Paneles</strong>, o <strong>clic derecho</strong> sobre el área de las barras de herramientas.</li>
+<li><strong>Mover:</strong> arrastrar el panel desde su barra de título hasta otro borde de la ventana.</li>
+<li><strong>Agrupar en pestañas:</strong> soltar un panel encima de otro.</li>
+<li><strong>Flotar:</strong> hacer doble clic en la barra de título del panel, útil con dos monitores.</li>
+</ul>
+<div class="admonition captura">
+<p class="admonition-title">Captura pendiente · 2.2-04</p>
+<ul>
+<li><strong>Tipo:</strong> GIF animado</li>
+<li><strong>Archivo:</strong> <code>assets/images/modulo-02/2-2/2-2-04-organizar-paneles.gif</code></li>
+<li><strong>Qué mostrar:</strong> Abrir un panel desde <strong>Ver ▸ Paneles</strong>, arrastrarlo a otro borde, agruparlo en pestañas con otro panel y dejarlo flotando.</li>
+</ul>
+</div>
+<h3 id="paneles-mas-usados">Paneles más usados<a class="headerlink" href="#paneles-mas-usados" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Panel</th>
+<th>Para qué sirve</th>
+<th>Atajo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Capas</strong></td>
+<td>Administrar las capas del proyecto</td>
+<td><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-1">1</kbd></span></td>
+</tr>
+<tr>
+<td><strong>Navegador</strong></td>
+<td>Explorar y agregar datos</td>
+<td><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-2">2</kbd></span></td>
+</tr>
+<tr>
+<td><strong>Estilo de capas</strong></td>
+<td>Cambiar la simbología sin abrir las propiedades</td>
+<td><span class="keys"><kbd class="key-f7">F7</kbd></span></td>
+</tr>
+<tr>
+<td><strong>Caja de herramientas de Procesos</strong></td>
+<td>Buscar y ejecutar herramientas de análisis</td>
+<td><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-t">T</kbd></span></td>
+</tr>
+<tr>
+<td><strong>Resultados de la identificación</strong></td>
+<td>Ver los atributos de las entidades consultadas</td>
+<td>Se abre al identificar</td>
+</tr>
+<tr>
+<td><strong>Orden de capas</strong></td>
+<td>Controlar el orden de dibujo independientemente de la lista de capas</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Registro de mensajes</strong></td>
+<td>Revisar avisos y errores</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Un espacio de trabajo para cada tarea</p>
+<p>No hace falta tener todos los paneles abiertos. Mantén visibles solo los que usas en cada etapa: <strong>Capas</strong> y <strong>Navegador</strong> para organizar datos; <strong>Estilo de capas</strong> para simbolizar; la <strong>Caja de herramientas</strong> para analizar. Un espacio de trabajo despejado ayuda a concentrarse en el mapa.</p>
+</div>
+<hr />
+<h2 id="el-navegador">El navegador<a class="headerlink" href="#el-navegador" title="Permanent link">&para;</a></h2>
+<p>El panel <strong>Navegador</strong> es la puerta de entrada a los datos. Funciona como un explorador de archivos, pero <strong>especializado en información geográfica</strong>: reconoce formatos espaciales, bases de datos y servicios.</p>
+<div class="admonition captura">
+<p class="admonition-title">Captura pendiente · 2.2-05</p>
+<ul>
+<li><strong>Tipo:</strong> Imagen (PNG)</li>
+<li><strong>Archivo:</strong> <code>assets/images/modulo-02/2-2/2-2-05-panel-navegador.png</code></li>
+<li><strong>Qué mostrar:</strong> El panel Navegador con sus principales entradas visibles: <strong>Favoritos</strong>, <strong>Marcadores espaciales</strong>, <strong>Inicio del proyecto</strong>, carpetas del sistema, <strong>GeoPackage</strong> y <strong>XYZ Tiles</strong> desplegado con <strong>OpenStreetMap</strong>.</li>
+</ul>
+</div>
+<table>
+<thead>
+<tr>
+<th>Entrada</th>
+<th>Contenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Favoritos</strong></td>
+<td>Carpetas marcadas para acceder rápidamente</td>
+</tr>
+<tr>
+<td><strong>Marcadores espaciales</strong></td>
+<td>Lugares guardados del proyecto y del usuario</td>
+</tr>
+<tr>
+<td><strong>Inicio del proyecto</strong></td>
+<td>La carpeta donde está guardado el proyecto actual</td>
+</tr>
+<tr>
+<td><strong>Carpetas del sistema</strong></td>
+<td>Unidades y carpetas de la computadora</td>
+</tr>
+<tr>
+<td><strong>GeoPackage, SpatiaLite, PostgreSQL...</strong></td>
+<td>Conexiones a bases de datos</td>
+</tr>
+<tr>
+<td><strong>WMS/WMTS, WFS, XYZ Tiles...</strong></td>
+<td>Conexiones a servicios de internet (lección <strong>2.11</strong>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="trabajar-con-el-navegador">Trabajar con el navegador<a class="headerlink" href="#trabajar-con-el-navegador" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Agregar una capa:</strong> <strong>arrastrar</strong> el archivo al mapa o al panel Capas, o hacer <strong>doble clic</strong> sobre él.</li>
+<li><strong>Agregar una carpeta a Favoritos:</strong> clic derecho sobre la carpeta ▸ <strong>Añadir a Favoritos</strong>.</li>
+<li><strong>Filtrar:</strong> usar el cuadro de búsqueda del panel para encontrar un archivo por su nombre.</li>
+<li><strong>Ver información antes de cargar:</strong> clic derecho sobre una capa ▸ <strong>Propiedades de la capa</strong>, para revisar su SRC, geometría o campos.</li>
+</ul>
+<div class="admonition captura">
+<p class="admonition-title">Captura pendiente · 2.2-06</p>
+<ul>
+<li><strong>Tipo:</strong> GIF animado</li>
+<li><strong>Archivo:</strong> <code>assets/images/modulo-02/2-2/2-2-06-favoritos-arrastrar.gif</code></li>
+<li><strong>Qué mostrar:</strong> Agregar la carpeta <code>curso-qgis/</code> a <strong>Favoritos</strong> y arrastrar la capa de límites municipales desde el navegador hasta el mapa.</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tu carpeta del curso en Favoritos</p>
+<p>Agrega la carpeta <code>curso-qgis/</code> a <strong>Favoritos</strong> desde el primer día. Así tendrás siempre a mano tus datos, sin recorrer todo el sistema de archivos. Como los favoritos se guardan en el <strong>perfil de usuario</strong>, estarán disponibles en todos tus proyectos del curso.</p>
+</div>
+<hr />
+<h2 id="el-localizador">El localizador<a class="headerlink" href="#el-localizador" title="Permanent link">&para;</a></h2>
+<p>El <strong>localizador</strong> es la barra de búsqueda de la esquina inferior izquierda. Es, probablemente, <strong>la herramienta que más acelera el trabajo</strong> en QGIS.</p>
+<p>Se activa con <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-k">K</kbd></span>. Al escribir, busca simultáneamente en capas, herramientas, entidades, marcadores y opciones.</p>
+<div class="admonition captura">
+<p class="admonition-title">Captura pendiente · 2.2-07</p>
+<ul>
+<li><strong>Tipo:</strong> GIF animado</li>
+<li><strong>Archivo:</strong> <code>assets/images/modulo-02/2-2/2-2-07-localizador-herramienta.gif</code></li>
+<li><strong>Qué mostrar:</strong> Presionar <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-k">K</kbd></span>, escribir <em>buffer</em> (o <em>área de influencia</em>) y abrir la herramienta directamente desde los resultados.</li>
+</ul>
+</div>
+<h3 id="filtros-y-prefijos">Filtros y prefijos<a class="headerlink" href="#filtros-y-prefijos" title="Permanent link">&para;</a></h3>
+<p>Para buscar solo en un tipo de elemento, se escribe un <strong>prefijo</strong> seguido de un espacio y el texto a buscar:</p>
+<table>
+<thead>
+<tr>
+<th>Prefijo</th>
+<th>Busca en</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>l</code></td>
+<td>Capas del proyecto</td>
+<td><code>l limites</code></td>
+</tr>
+<tr>
+<td><code>a</code></td>
+<td>Herramientas de procesamiento</td>
+<td><code>a recortar</code></td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>Entidades de la capa activa</td>
+<td><code>f Sacaba</code></td>
+</tr>
+<tr>
+<td><code>af</code></td>
+<td>Entidades de todas las capas</td>
+<td><code>af unidad educativa</code></td>
+</tr>
+<tr>
+<td><code>b</code></td>
+<td>Marcadores espaciales</td>
+<td><code>b plaza</code></td>
+</tr>
+<tr>
+<td><code>go</code></td>
+<td>Ir a una coordenada</td>
+<td><code>go -17.3935, -66.1570</code></td>
+</tr>
+<tr>
+<td><code>=</code></td>
+<td>Calculadora</td>
+<td><code>= 1250 * 0.5</code></td>
+</tr>
+<tr>
+<td><code>set</code></td>
+<td>Opciones y configuraciones</td>
+<td><code>set idioma</code></td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>Búsqueda de lugares en OpenStreetMap (Nominatim)</td>
+<td><code>&gt; Cochabamba</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Verifica los filtros disponibles</p>
+<p>La lista completa de filtros, sus prefijos y si están activos se puede consultar y modificar en <strong>Configuración ▸ Opciones ▸ Localizador</strong>. Algunos filtros, como la búsqueda de lugares, pueden estar desactivados por defecto o variar entre versiones.</p>
+</div>
+<h3 id="buscar-lugares-e-ir-a-coordenadas">Buscar lugares e ir a coordenadas<a class="headerlink" href="#buscar-lugares-e-ir-a-coordenadas" title="Permanent link">&para;</a></h3>
+<div class="admonition captura">
+<p class="admonition-title">Captura pendiente · 2.2-08</p>
+<ul>
+<li><strong>Tipo:</strong> GIF animado</li>
+<li><strong>Archivo:</strong> <code>assets/images/modulo-02/2-2/2-2-08-localizador-lugares.gif</code></li>
+<li><strong>Qué mostrar:</strong> Buscar un municipio con el prefijo <code>&gt;</code> y hacer clic en el resultado para acercar el mapa; luego usar <code>go</code> con una coordenada y mostrar cómo QGIS indica la interpretación antes de ir.</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Dos precauciones al buscar lugares y coordenadas</p>
+<ul>
+<li><strong>La búsqueda de lugares</strong> usa datos de <strong>OpenStreetMap</strong>: los resultados dependen de cómo está cargada la información en esa plataforma y requieren conexión a internet. Sirve para <strong>orientarse</strong>, no como fuente oficial de límites o ubicaciones.</li>
+<li><strong>Al ir a una coordenada</strong>, revisa cómo la interpreta QGIS en el resultado del localizador: el <strong>orden</strong> de latitud y longitud y el <strong>sistema de referencia</strong> importan (temas 1.3 y 1.4). Un error de orden puede llevarte al otro lado del planeta.</li>
+</ul>
+</div>
+<hr />
+<h2 id="identificar-y-medir">Identificar y medir<a class="headerlink" href="#identificar-y-medir" title="Permanent link">&para;</a></h2>
+<h3 id="la-herramienta-identificar">La herramienta Identificar<a class="headerlink" href="#la-herramienta-identificar" title="Permanent link">&para;</a></h3>
+<p>La herramienta <strong>Identificar objetos espaciales</strong> (<span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-i">I</kbd></span>) muestra los <strong>atributos</strong> de las entidades en las que se hace clic, en el panel <strong>Resultados de la identificación</strong>.</p>
+<div class="admonition captura">
+<p class="admonition-title">Captura pendiente · 2.2-09</p>
+<ul>
+<li><strong>Tipo:</strong> GIF animado</li>
+<li><strong>Archivo:</strong> <code>assets/images/modulo-02/2-2/2-2-09-identificar.gif</code></li>
+<li><strong>Qué mostrar:</strong> Activar <strong>Identificar</strong>, hacer clic sobre un municipio y desplegar sus atributos en el panel de resultados; luego cambiar el modo de identificación.</li>
+</ul>
+</div>
+<h4 id="modos-de-identificacion">Modos de identificación<a class="headerlink" href="#modos-de-identificacion" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Modo</th>
+<th>Qué consulta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Capa actual</strong></td>
+<td>Solo la capa seleccionada en el panel Capas</td>
+</tr>
+<tr>
+<td><strong>De arriba abajo, detenerse en la primera</strong></td>
+<td>La primera capa visible que tenga una entidad en ese lugar</td>
+</tr>
+<tr>
+<td><strong>De arriba abajo</strong></td>
+<td>Todas las capas visibles con entidades en ese lugar</td>
+</tr>
+<tr>
+<td><strong>Selección de capas</strong></td>
+<td>Muestra un menú para elegir qué capa consultar</td>
+</tr>
+</tbody>
+</table>
+<h4 id="informacion-derivada">Información derivada<a class="headerlink" href="#informacion-derivada" title="Permanent link">&para;</a></h4>
+<p>Además de los atributos, el panel de resultados incluye un grupo <strong>(Derivado)</strong> con información que QGIS <strong>calcula</strong> a partir de la geometría: coordenadas del punto consultado, <strong>longitud</strong>, <strong>perímetro</strong>, <strong>área</strong>, número de partes y vértices.</p>
+<div class="admonition captura">
+<p class="admonition-title">Captura pendiente · 2.2-10</p>
+<ul>
+<li><strong>Tipo:</strong> Imagen (PNG)</li>
+<li><strong>Archivo:</strong> <code>assets/images/modulo-02/2-2/2-2-10-resultados-derivado.png</code></li>
+<li><strong>Qué mostrar:</strong> El panel <strong>Resultados de la identificación</strong> con los atributos de un municipio y el grupo <strong>(Derivado)</strong> desplegado, mostrando área y perímetro.</li>
+</ul>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Atributos almacenados frente a valores calculados</p>
+<p>Un campo de la tabla llamado <code>superficie</code> es un <strong>valor almacenado</strong>: puede estar desactualizado o haberse calculado con otro método. El <strong>área derivada</strong> es un <strong>valor calculado</strong> en ese momento a partir de la geometría, y depende del <strong>SRC</strong> y de la configuración de <strong>medición</strong> del proyecto. Si ambos valores no coinciden, no siempre hay un error: hay que averiguar <strong>cómo se obtuvo cada uno</strong> (temas 1.12 y 1.13).</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Identificar también funciona en ráster</p>
+<p>Al hacer clic sobre una capa ráster, la herramienta muestra el <strong>valor de cada banda</strong> en ese píxel: por ejemplo, la elevación de un modelo digital. Lo usaremos en la lección <strong>2.10</strong>.</p>
+</div>
+<h3 id="medir">Medir<a class="headerlink" href="#medir" title="Permanent link">&para;</a></h3>
+<p>Las herramientas de <strong>medición</strong> (<span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-m">M</kbd></span> para medir líneas) permiten medir <strong>distancias</strong>, <strong>áreas</strong> y <strong>ángulos</strong> directamente sobre el mapa.</p>
+<div class="admonition captura">
+<p class="admonition-title">Captura pendiente · 2.2-11 (opcional)</p>
+<ul>
+<li><strong>Tipo:</strong> GIF animado</li>
+<li><strong>Archivo:</strong> <code>assets/images/modulo-02/2-2/2-2-11-medir.gif</code></li>
+<li><strong>Qué mostrar:</strong> Medir una distancia entre dos puntos del municipio y alternar en la ventana de resultados entre medición <strong>cartesiana</strong> y <strong>elipsoidal</strong>.</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Medir con criterio</p>
+<p>La ventana de medición permite elegir entre medición <strong>cartesiana</strong> (sobre el plano de la proyección) y <strong>elipsoidal</strong> (sobre el elipsoide). Si el proyecto está en un SRC geográfico o en Pseudo-Mercator, la medición cartesiana <strong>no es confiable</strong> (temas 1.4 y 1.5). Estudiaremos la configuración de mediciones en la lección <strong>2.6</strong>.</p>
+</div>
+<hr />
+<h2 id="marcadores-espaciales">Marcadores espaciales<a class="headerlink" href="#marcadores-espaciales" title="Permanent link">&para;</a></h2>
+<p>Un <strong>marcador espacial</strong> guarda una <strong>extensión del mapa</strong> con un nombre, para volver a ella con un clic. Es útil para lugares que se revisan con frecuencia: el centro del municipio, una zona de riesgo, un área de estudio.</p>
+<h3 id="crear-un-marcador">Crear un marcador<a class="headerlink" href="#crear-un-marcador" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Encuadra el mapa en el lugar que quieres guardar.</li>
+<li>Presiona <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-b">B</kbd></span> o usa <strong>Ver ▸ Nuevo marcador espacial</strong>.</li>
+<li>Completa los datos:<ul>
+<li><strong>Nombre:</strong> descriptivo, por ejemplo <code>Plaza principal</code>.</li>
+<li><strong>Grupo:</strong> para organizar varios marcadores, por ejemplo <code>Equipamientos</code>.</li>
+<li><strong>Extensión y SRC:</strong> se completan con la vista actual.</li>
+<li><strong>Guardado en:</strong> marcadores del <strong>proyecto</strong> o del <strong>usuario</strong>.</li>
+</ul>
+</li>
+<li>Guarda el marcador.</li>
+</ol>
+<div class="admonition captura">
+<p class="admonition-title">Captura pendiente · 2.2-12</p>
+<ul>
+<li><strong>Tipo:</strong> GIF animado</li>
+<li><strong>Archivo:</strong> <code>assets/images/modulo-02/2-2/2-2-12-crear-marcador.gif</code></li>
+<li><strong>Qué mostrar:</strong> Encuadrar un lugar, presionar <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-b">B</kbd></span>, completar nombre y grupo, elegir <strong>Guardado en: Marcadores del proyecto</strong> y guardar.</li>
+</ul>
+</div>
+<h3 id="proyecto-o-usuario">¿Proyecto o usuario?<a class="headerlink" href="#proyecto-o-usuario" title="Permanent link">&para;</a></h3>
+<p>Esta decisión aplica directamente la distinción de la lección <strong>2.1</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Guardado en</th>
+<th>Dónde queda</th>
+<th>Viaja con el proyecto</th>
+<th>Úsalo para</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Marcadores del proyecto</strong></td>
+<td>Dentro del archivo <code>.qgz</code></td>
+<td>Sí</td>
+<td>Lugares relevantes <strong>para ese trabajo</strong>, que otras personas también necesitan</td>
+</tr>
+<tr>
+<td><strong>Marcadores del usuario</strong></td>
+<td>En el perfil de usuario</td>
+<td>No</td>
+<td>Lugares que <strong>tú</strong> usas en muchos proyectos distintos</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">Un caso típico</p>
+<p>Preparas un proyecto de zonas de riesgo para el equipo municipal y guardas marcadores de las quebradas más críticas como <strong>marcadores del usuario</strong>. Envías el proyecto y tus colegas <strong>no los ven</strong>. Debiste guardarlos como <strong>marcadores del proyecto</strong>.</p>
+</div>
+<h3 id="administrar-marcadores">Administrar marcadores<a class="headerlink" href="#administrar-marcadores" title="Permanent link">&para;</a></h3>
+<p>El <strong>administrador de marcadores espaciales</strong> (<span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-b">B</kbd></span>) permite:</p>
+<ul>
+<li><strong>Ir</strong> a un marcador con doble clic.</li>
+<li><strong>Editar</strong> su nombre, grupo o extensión.</li>
+<li><strong>Eliminar</strong> marcadores.</li>
+<li><strong>Exportar</strong> e <strong>importar</strong> marcadores en un archivo, para compartirlos o respaldarlos.</li>
+</ul>
+<p>Los marcadores también aparecen en el <strong>Navegador</strong> y se pueden buscar en el <strong>localizador</strong> con el prefijo <code>b</code>.</p>
+<div class="admonition captura">
+<p class="admonition-title">Captura pendiente · 2.2-13</p>
+<ul>
+<li><strong>Tipo:</strong> Imagen (PNG)</li>
+<li><strong>Archivo:</strong> <code>assets/images/modulo-02/2-2/2-2-13-administrador-marcadores.png</code></li>
+<li><strong>Qué mostrar:</strong> El administrador de marcadores espaciales con varios marcadores organizados en grupos, diferenciando los del proyecto y los del usuario, y los botones de importar y exportar visibles.</li>
+</ul>
+</div>
+<hr />
+<h2 id="ordenar-y-agrupar-capas">Ordenar y agrupar capas<a class="headerlink" href="#ordenar-y-agrupar-capas" title="Permanent link">&para;</a></h2>
+<p>Un panel de capas ordenado hace que el proyecto sea <strong>fácil de entender</strong>, para ti y para quien lo reciba.</p>
+<h3 id="orden-de-dibujo">Orden de dibujo<a class="headerlink" href="#orden-de-dibujo" title="Permanent link">&para;</a></h3>
+<p>Las capas se dibujan <strong>de abajo hacia arriba</strong>: la capa que está <strong>arriba</strong> en la lista se dibuja <strong>encima</strong> de las demás.</p>
+<div class="admonition tip">
+<p class="admonition-title">Un orden que casi siempre funciona</p>
+<p>De arriba abajo: <strong>etiquetas y puntos</strong>, <strong>líneas</strong>, <strong>polígonos</strong>, <strong>ráster</strong> y <strong>mapas base</strong>. Así, los elementos pequeños no quedan tapados por los grandes. Recuerda también la <strong>jerarquía visual</strong> del tema 1.7.</p>
+</div>
+<h3 id="grupos">Grupos<a class="headerlink" href="#grupos" title="Permanent link">&para;</a></h3>
+<p>Los <strong>grupos</strong> reúnen capas relacionadas, como carpetas dentro del panel Capas.</p>
+<ul>
+<li><strong>Crear un grupo:</strong> botón <strong>Añadir grupo</strong> del panel Capas, o seleccionar varias capas ▸ clic derecho ▸ <strong>Agrupar seleccionadas</strong>.</li>
+<li><strong>Mover capas:</strong> arrastrarlas dentro o fuera del grupo.</li>
+<li><strong>Encender o apagar</strong> todas las capas de un grupo con su casilla.</li>
+<li><strong>Grupo mutuamente excluyente:</strong> clic derecho sobre el grupo ▸ <strong>Grupo mutuamente excluyente</strong>. Solo una de sus capas puede estar visible a la vez. Muy útil para <strong>mapas base</strong> alternativos.</li>
+</ul>
+<div class="admonition captura">
+<p class="admonition-title">Captura pendiente · 2.2-14</p>
+<ul>
+<li><strong>Tipo:</strong> GIF animado</li>
+<li><strong>Archivo:</strong> <code>assets/images/modulo-02/2-2/2-2-14-agrupar-ordenar.gif</code></li>
+<li><strong>Qué mostrar:</strong> Crear los grupos <code>Referencia</code> y <code>Mapas base</code>, arrastrar capas a cada uno, cambiar el orden de dibujo y convertir <code>Mapas base</code> en grupo mutuamente excluyente.</li>
+</ul>
+</div>
+<h3 id="buenas-practicas-en-el-panel-capas">Buenas prácticas en el panel Capas<a class="headerlink" href="#buenas-practicas-en-el-panel-capas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Práctica</th>
+<th>Cómo hacerlo</th>
+<th>Por qué</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nombres claros</strong></td>
+<td>Clic derecho ▸ <strong>Cambiar nombre de capa</strong>: <code>Límites municipales</code>, no <code>lim_mun_v3</code></td>
+<td>El nombre de la capa en el proyecto puede ser distinto al del archivo y debe entenderse</td>
+</tr>
+<tr>
+<td><strong>Grupos por función</strong></td>
+<td>Por ejemplo: <code>Tema</code>, <code>Referencia</code>, <code>Mapas base</code></td>
+<td>Refleja la jerarquía del mapa</td>
+</tr>
+<tr>
+<td><strong>Contar entidades</strong></td>
+<td>Clic derecho ▸ <strong>Mostrar recuento de objetos</strong></td>
+<td>Permite detectar capas vacías o incompletas</td>
+</tr>
+<tr>
+<td><strong>Filtrar la leyenda</strong></td>
+<td>Opción <strong>Filtrar leyenda por contenido del mapa</strong></td>
+<td>Muestra solo lo visible en la vista actual</td>
+</tr>
+<tr>
+<td><strong>Revisar los indicadores</strong></td>
+<td>Íconos junto al nombre de la capa</td>
+<td>Avisan de filtros aplicados, capas temporales o <strong>fuentes no disponibles</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition danger">
+<p class="admonition-title">Quitar una capa no es borrar el archivo</p>
+<p><strong>Eliminar capa</strong> en el panel Capas solo <strong>quita la capa del proyecto</strong>: el archivo sigue intacto en su carpeta. Es la diferencia entre <strong>proyecto</strong> y <strong>fuente de datos</strong> que estudiaremos en la lección <strong>2.3</strong>. Del mismo modo, borrar un archivo desde el explorador <strong>no lo quita</strong> del proyecto: la capa quedará como <strong>no disponible</strong>.</p>
+</div>
+<div class="admonition captura">
+<p class="admonition-title">Captura pendiente · 2.2-15</p>
+<ul>
+<li><strong>Tipo:</strong> Imagen (PNG)</li>
+<li><strong>Archivo:</strong> <code>assets/images/modulo-02/2-2/2-2-15-panel-capas-ordenado.png</code></li>
+<li><strong>Qué mostrar:</strong> Un panel Capas bien organizado: grupos con nombres claros, capas renombradas, recuento de entidades visible y un grupo mutuamente excluyente de mapas base.</li>
+<li><strong>Sugerencia:</strong> Si puedes, muéstralo junto a un panel desordenado (capas con nombres de archivo, sin grupos) para comparar.</li>
+</ul>
+</div>
+<details class="info">
+<summary>Para saber más: temas del mapa</summary>
+<p>Los <strong>temas del mapa</strong> guardan combinaciones de <strong>capas visibles</strong> y <strong>estilos</strong>, para alternar rápidamente entre distintas vistas del mismo proyecto: por ejemplo, <em>vista de riesgo</em>, <em>vista de equipamientos</em> y <em>vista de referencia</em>. Se administran desde el ícono del <strong>ojo</strong> en la parte superior del panel Capas, y se usan también al preparar mapas para imprimir.</p>
+</details>
+<hr />
+<h2 id="atajos-de-teclado-utiles">Atajos de teclado útiles<a class="headerlink" href="#atajos-de-teclado-utiles" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Acción</th>
+<th>Atajo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nuevo proyecto</td>
+<td><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-n">N</kbd></span></td>
+</tr>
+<tr>
+<td>Abrir proyecto</td>
+<td><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-o">O</kbd></span></td>
+</tr>
+<tr>
+<td>Guardar proyecto</td>
+<td><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-s">S</kbd></span></td>
+</tr>
+<tr>
+<td>Guardar proyecto como</td>
+<td><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-s">S</kbd></span></td>
+</tr>
+<tr>
+<td>Administrador de fuentes de datos</td>
+<td><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-l">L</kbd></span></td>
+</tr>
+<tr>
+<td>Localizador</td>
+<td><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-k">K</kbd></span></td>
+</tr>
+<tr>
+<td>Identificar objetos espaciales</td>
+<td><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-i">I</kbd></span></td>
+</tr>
+<tr>
+<td>Medir línea</td>
+<td><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-m">M</kbd></span></td>
+</tr>
+<tr>
+<td>Zoom general</td>
+<td><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-f">F</kbd></span></td>
+</tr>
+<tr>
+<td>Nuevo marcador espacial</td>
+<td><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-b">B</kbd></span></td>
+</tr>
+<tr>
+<td>Administrador de marcadores espaciales</td>
+<td><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-b">B</kbd></span></td>
+</tr>
+<tr>
+<td>Panel Capas / Navegador</td>
+<td><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-1">1</kbd></span> / <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-2">2</kbd></span></td>
+</tr>
+<tr>
+<td>Panel Estilo de capas</td>
+<td><span class="keys"><kbd class="key-f7">F7</kbd></span></td>
+</tr>
+<tr>
+<td>Caja de herramientas de Procesos</td>
+<td><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-t">T</kbd></span></td>
+</tr>
+<tr>
+<td>Ocultar o mostrar todos los paneles</td>
+<td><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-tab">Tab</kbd></span></td>
+</tr>
+<tr>
+<td>Pantalla completa</td>
+<td><span class="keys"><kbd class="key-f11">F11</kbd></span></td>
+</tr>
+<tr>
+<td>Actualizar el mapa</td>
+<td><span class="keys"><kbd class="key-f5">F5</kbd></span></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Personalizar atajos</p>
+<p>Los atajos se pueden consultar y modificar en <strong>Configuración ▸ Atajos de teclado</strong>. Allí también se puede <strong>buscar</strong> una acción para conocer su atajo, que puede variar ligeramente entre versiones.</p>
+</div>
+<div class="admonition captura">
+<p class="admonition-title">Captura pendiente · 2.2-16 (opcional)</p>
+<ul>
+<li><strong>Tipo:</strong> Imagen (PNG)</li>
+<li><strong>Archivo:</strong> <code>assets/images/modulo-02/2-2/2-2-16-atajos-teclado.png</code></li>
+<li><strong>Qué mostrar:</strong> La ventana <strong>Configuración ▸ Atajos de teclado</strong> con una búsqueda aplicada (por ejemplo, <em>marcador</em>) y el atajo correspondiente visible.</li>
+</ul>
+</div>
+<hr />
+<h2 id="reto-practico">Reto práctico<a class="headerlink" href="#reto-practico" title="Permanent link">&para;</a></h2>
+<div class="admonition example">
+<p class="admonition-title">Reto 2.2 — Explorar un municipio y guardar sus lugares de interés</p>
+<p><strong>Situación:</strong> te incorporas a un equipo técnico que trabajará en un municipio que no conoces. Antes de la primera reunión, debes explorar el territorio y preparar un proyecto con los <strong>lugares de interés</strong> ya marcados, para que el equipo pueda revisarlos.</p>
+<p><strong>1. Preparar el proyecto</strong></p>
+<ul>
+<li>Crea un proyecto nuevo con el perfil <code>curso-qgis</code>.</li>
+<li>Agrega la carpeta <code>curso-qgis/</code> a <strong>Favoritos</strong> del navegador.</li>
+<li>Desde el navegador, agrega el mapa base <strong>OpenStreetMap</strong> (XYZ Tiles) y la capa de <strong>límites municipales</strong> de los datos del curso.</li>
+<li>Guarda el proyecto como <code>proyectos/reto_2-2_exploracion.qgz</code>.</li>
+</ul>
+<p><strong>2. Encontrar el municipio</strong></p>
+<ul>
+<li>Usa el <strong>localizador</strong> para encontrar el municipio asignado (o el tuyo), mediante la búsqueda de lugares o buscando la entidad en la capa de límites.</li>
+<li>Con la herramienta <strong>Identificar</strong>, consulta sus atributos y anota su <strong>nombre</strong>, su <strong>código</strong> y la <strong>superficie</strong> que indica la tabla.</li>
+<li>Compara esa superficie con el <strong>área derivada</strong> que calcula QGIS. ¿Coinciden? Anota una posible explicación.</li>
+</ul>
+<p><strong>3. Marcar lugares de interés</strong></p>
+<p>Crea <strong>al menos seis marcadores espaciales del proyecto</strong>, organizados en <strong>dos grupos o más</strong>. Por ejemplo:</p>
+<ul>
+<li><code>Centros urbanos</code>: plaza principal, centro poblado secundario.</li>
+<li><code>Equipamientos</code>: hospital, unidad educativa, mercado.</li>
+<li><code>Riesgos o ambiente</code>: río, quebrada, área protegida, zona de expansión urbana.</li>
+</ul>
+<p>Además, crea <strong>un marcador del usuario</strong> con la ubicación de tu institución o de tu hogar.</p>
+<p><strong>4. Organizar el proyecto</strong></p>
+<ul>
+<li>Crea los grupos <code>Referencia</code> y <code>Mapas base</code>, y ordena las capas correctamente.</li>
+<li>Renombra las capas con nombres claros.</li>
+<li>Activa el <strong>recuento de objetos</strong> de la capa de límites.</li>
+<li>Guarda el proyecto.</li>
+</ul>
+<p><strong>5. Compartir y verificar</strong></p>
+<ul>
+<li><strong>Exporta</strong> los marcadores del proyecto a un archivo en <code>salidas/</code>.</li>
+<li>Intercambia el proyecto con un compañero: ¿ve tus seis marcadores del proyecto? ¿Ve tu marcador del usuario? Explica por qué.</li>
+</ul>
+<p><strong>Entregables:</strong></p>
+<ul>
+<li>El proyecto <code>reto_2-2_exploracion.qgz</code>.</li>
+<li>El archivo de marcadores exportado.</li>
+<li>Un breve texto (media página) con los datos del municipio, la comparación de superficies y la respuesta del paso 5.</li>
+</ul>
+</div>
+<details class="success">
+<summary>Criterios de evaluación del reto</summary>
+<table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>Se cumple si...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Localización</td>
+<td>Se encontró el municipio y se registraron correctamente sus datos</td>
+</tr>
+<tr>
+<td>Análisis</td>
+<td>Se compararon la superficie almacenada y la derivada, con una explicación razonable</td>
+</tr>
+<tr>
+<td>Marcadores</td>
+<td>Hay al menos seis marcadores del proyecto en dos grupos o más, con nombres claros, y un marcador del usuario</td>
+</tr>
+<tr>
+<td>Organización</td>
+<td>Las capas están agrupadas, ordenadas y con nombres comprensibles</td>
+</tr>
+<tr>
+<td>Comprensión</td>
+<td>Se explica correctamente la diferencia entre marcadores del proyecto y del usuario</td>
+</tr>
+</tbody>
+</table>
+</details>
+<hr />
+<h2 id="problemas-frecuentes">Problemas frecuentes<a class="headerlink" href="#problemas-frecuentes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Problema</th>
+<th>Causa probable</th>
+<th>Solución</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Desapareció un panel</td>
+<td>Se cerró o quedó oculto con <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-tab">Tab</kbd></span></td>
+<td><strong>Ver ▸ Paneles</strong>, o presiona <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-tab">Tab</kbd></span></td>
+</tr>
+<tr>
+<td>El mapa base de OpenStreetMap no se ve</td>
+<td>Sin conexión a internet, o la capa está debajo de otra capa opaca</td>
+<td>Verifica la conexión y el orden de las capas</td>
+</tr>
+<tr>
+<td>La búsqueda de lugares no devuelve resultados</td>
+<td>Filtro desactivado, sin internet o lugar no registrado en OpenStreetMap</td>
+<td>Revisa <strong>Configuración ▸ Opciones ▸ Localizador</strong> y prueba otro nombre</td>
+</tr>
+<tr>
+<td>Identificar no muestra nada</td>
+<td>Está en modo <strong>Capa actual</strong> con otra capa seleccionada, o se hizo clic fuera de las entidades</td>
+<td>Cambia el modo o selecciona la capa correcta</td>
+</tr>
+<tr>
+<td>El compañero no ve mis marcadores</td>
+<td>Se guardaron como <strong>marcadores del usuario</strong></td>
+<td>Guárdalos como <strong>marcadores del proyecto</strong> o expórtalos</td>
+</tr>
+<tr>
+<td>Una capa no se ve aunque está activada</td>
+<td>Está debajo de otra capa, fuera de la vista o tiene visibilidad por escala</td>
+<td>Revisa el orden, usa <strong>Zoom a la capa</strong> y verifica su rango de escalas</td>
+</tr>
+<tr>
+<td>Las coordenadas de la barra de estado "no tienen sentido"</td>
+<td>Se muestran en el SRC del proyecto, no en el de la capa</td>
+<td>Revisa el SRC del proyecto (lección <strong>2.6</strong>)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="ideas-clave">Ideas clave<a class="headerlink" href="#ideas-clave" title="Permanent link">&para;</a></h2>
+<div class="admonition success">
+<p class="admonition-title">Para recordar</p>
+<ul>
+<li>La ventana de QGIS se organiza en <strong>menús</strong>, <strong>barras de herramientas</strong>, <strong>paneles</strong>, <strong>vista del mapa</strong>, <strong>localizador</strong> y <strong>barra de estado</strong>.</li>
+<li>Los paneles se pueden <strong>abrir, mover, agrupar y ocultar</strong>; <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-tab">Tab</kbd></span> oculta todos a la vez.</li>
+<li>El <strong>navegador</strong> es la puerta de entrada a los datos; agrega tu carpeta del curso a <strong>Favoritos</strong>.</li>
+<li>El <strong>localizador</strong> (<span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-k">K</kbd></span>) busca capas, herramientas, entidades, marcadores y lugares; los <strong>prefijos</strong> acotan la búsqueda.</li>
+<li><strong>Identificar</strong> muestra atributos almacenados y valores <strong>derivados</strong> calculados a partir de la geometría.</li>
+<li>Los <strong>marcadores del proyecto</strong> viajan con el <code>.qgz</code>; los <strong>del usuario</strong> quedan en tu perfil.</li>
+<li>Las capas se dibujan de <strong>abajo hacia arriba</strong>. <strong>Grupos</strong>, <strong>nombres claros</strong> y un <strong>orden lógico</strong> hacen comprensible el proyecto.</li>
+<li><strong>Quitar una capa no borra el archivo</strong>, y <strong>borrar un archivo no quita la capa</strong> del proyecto.</li>
+</ul>
+</div>
+<hr />
+<h2 id="autoevaluacion">Autoevaluación<a class="headerlink" href="#autoevaluacion" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>1. ¿Cómo encontrarías rápidamente la herramienta para recortar una capa si no sabes en qué menú está?</summary>
+<p>Con el <strong>localizador</strong>: presionar <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-k">K</kbd></span> y escribir <em>recortar</em>, o usar el prefijo <code>a</code> para buscar solo entre las herramientas de procesamiento (<code>a recortar</code>).</p>
+</details>
+<details class="question">
+<summary>2. En modo de identificación Capa actual, haces clic sobre una escuela y no aparece nada. ¿Qué pudo pasar?</summary>
+<p>Probablemente la capa <strong>seleccionada</strong> en el panel Capas no es la de escuelas, así que la herramienta consultó otra capa. Hay que seleccionar la capa correcta o cambiar el modo a <strong>De arriba abajo</strong>.</p>
+</details>
+<details class="question">
+<summary>3. ¿Qué diferencia hay entre un marcador espacial del proyecto y uno del usuario?</summary>
+<p>El <strong>marcador del proyecto</strong> se guarda dentro del archivo <code>.qgz</code> y lo ve cualquier persona que abra el proyecto. El <strong>marcador del usuario</strong> se guarda en el <strong>perfil de usuario</strong> y solo está disponible para quien lo creó, en cualquier proyecto que abra con ese perfil.</p>
+</details>
+<details class="question">
+<summary>4. Una capa de puntos está activada pero no se ve, aunque sus datos están en la vista actual. ¿Qué revisarías primero?</summary>
+<p>El <strong>orden de dibujo</strong>: probablemente está <strong>debajo</strong> de una capa de polígonos o de un mapa base opaco. También conviene revisar si tiene configurada una <strong>visibilidad por escala</strong>.</p>
+</details>
+<details class="question">
+<summary>5. La superficie almacenada en la tabla de un municipio y el área derivada que muestra Identificar no coinciden. ¿Significa que hay un error?</summary>
+<p><strong>No necesariamente.</strong> La superficie almacenada pudo calcularse con <strong>otra geometría</strong> (por ejemplo, más detallada), con <strong>otro sistema de referencia</strong> o <strong>método</strong>, o en otra fecha. El área derivada depende del <strong>SRC</strong> y de la <strong>configuración de mediciones</strong> del proyecto. Hay que averiguar cómo se obtuvo cada valor antes de concluir.</p>
+</details>
+<details class="question">
+<summary>6. Eliminas una capa del panel Capas por error. ¿Perdiste los datos?</summary>
+<p><strong>No.</strong> Eliminar una capa del panel solo la <strong>quita del proyecto</strong>; el archivo sigue en su carpeta y se puede volver a agregar desde el navegador.</p>
+</details>
+<hr />
+<h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
+<ul>
+<li>QGIS Project. <em>Manual de usuario: Interfaz de QGIS</em>. <a href="https://docs.qgis.org/latest/es/docs/user_manual/introduction/qgis_gui.html">https://docs.qgis.org/latest/es/docs/user_manual/introduction/qgis_gui.html</a></li>
+<li>QGIS Project. <em>Manual de usuario: Herramientas generales</em>. <a href="https://docs.qgis.org/latest/es/docs/user_manual/introduction/general_tools.html">https://docs.qgis.org/latest/es/docs/user_manual/introduction/general_tools.html</a></li>
+<li>QGIS Project. <em>Manual de usuario: Abrir datos (panel Navegador)</em>. <a href="https://docs.qgis.org/latest/es/docs/user_manual/managing_data_source/opening_data.html">https://docs.qgis.org/latest/es/docs/user_manual/managing_data_source/opening_data.html</a></li>
+<li>OpenStreetMap Foundation. <em>Nominatim Usage Policy</em>. <a href="https://operations.osmfoundation.org/policies/nominatim/">https://operations.osmfoundation.org/policies/nominatim/</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../01-entorno-trabajo/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 2.1 Preparar un entorno de trabajo">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                2.1 Preparar un entorno de trabajo
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../03-gestionar-proyectos/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: 2.3 Comprender y gestionar proyectos">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                2.3 Comprender y gestionar proyectos
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.footer", "navigation.path", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../assets/vendor/d3.v7.min.js"></script>
+      
+        <script src="../../assets/js/latlon.js"></script>
+      
+    
+  </body>
+</html>
