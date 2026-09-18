@@ -395,7 +395,7 @@ Al finalizar este módulo deberías ser capaz de:
 
     **información histórica.**
 
-    [Ir a 3.10 →](10-recuperar-mapas-historicos.md)
+    [Ir a 3.10 →](10-georreferenciar-mapas-historicos.md)
 
 -   :material-cog-sync:{ .lg .middle } **3.11 · Construir procedimientos reproducibles**
 
