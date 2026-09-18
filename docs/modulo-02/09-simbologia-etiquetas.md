@@ -33,7 +33,7 @@ description: Simbología simple, categorizada y graduada, etiquetado básico, vi
 !!! note "Antes de empezar"
 
     - **Entorno:** QGIS con el perfil `curso-qgis`. Los procedimientos toman como referencia **QGIS 3.44**; algunos nombres pueden variar ligeramente según la versión o idioma instalado.
-    - **Punto de partida:** haber completado la [lección 2.8](08-seleccionar-filtrar-extraer.md), de manera que las capas hayan sido previamente revisadas, filtradas y estructuradas.
+    - **Punto de partida:** haber completado la [lección 2.8](08-seleccionar-filtrar.md), de manera que las capas hayan sido previamente revisadas, filtradas y estructuradas.
     - **Datos recomendados:** capas vectoriales de puntos, líneas y polígonos con atributos cualitativos y cuantitativos.
     - **Ejemplos sugeridos:** equipamientos, distritos, vías, barrios, población, superficie, capacidad o categorías de servicios.
     - **Principio de trabajo:** antes de elegir un color o tamaño debemos saber **qué variable queremos representar y qué significa**.

@@ -35,7 +35,7 @@ description: Exploración de datos ráster en QGIS; bandas, resolución espacial
 !!! note "Antes de empezar"
 
     - **Entorno:** QGIS con el perfil `curso-qgis`. Los procedimientos toman como referencia **QGIS 3.44**; algunos nombres pueden variar ligeramente según el idioma o la versión instalada.
-    - **Punto de partida:** haber completado la [lección 2.9](09-representar-etiquetar.md), especialmente los conceptos de simbología, variables y representación.
+    - **Punto de partida:** haber completado la [lección 2.9](09-simbologia-etiquetas.md), especialmente los conceptos de simbología, variables y representación.
     - **Datos recomendados:** disponer de:
         - una imagen ráster multibanda;
         - un Modelo Digital de Elevación — MDE/DEM;

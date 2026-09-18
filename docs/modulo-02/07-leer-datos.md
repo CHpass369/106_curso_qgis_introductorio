@@ -30,7 +30,7 @@ description: Lectura y control básico de calidad de atributos en QGIS; tabla de
 !!! note "Antes de empezar"
 
     - **Entorno:** QGIS con el perfil `curso-qgis`. Los procedimientos toman como referencia **QGIS 3.44**; algunos nombres pueden variar ligeramente según el idioma o la versión instalada.
-    - **Punto de partida:** haber completado la [lección 2.6](06-resolver-problemas-coordenadas.md), de manera que las capas utilizadas posean una referencia espacial conocida y validada.
+    - **Punto de partida:** haber completado la [lección 2.6](06-problemas-coordenadas.md), de manera que las capas utilizadas posean una referencia espacial conocida y validada.
     - **Datos recomendados:** una capa de equipamientos, establecimientos, predios, comunidades u otra fuente con geometría y varios atributos.
     - **Campos recomendados:** identificador, nombre, categoría, estado, población o capacidad, fecha y alguna variable numérica.
     - **Edición:** durante la primera revisión no corregiremos inmediatamente los valores sospechosos; primero los identificaremos y documentaremos.

@@ -2713,7 +2713,7 @@ flowchart LR
 
 </div>
 
-[Continuar con 3.10 →](10-recuperar-mapas-historicos.md){ .md-button .md-button--primary }
+[Continuar con 3.10 →](10-georreferenciar-mapas-historicos.md){ .md-button .md-button--primary }
 
 ---
 
