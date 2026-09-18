@@ -3,8 +3,8 @@ site_description: Documentación y material del curso de QGIS
 site_author: Chpass
 site_url: https://chpass369.github.io/106_curso_qgis_introductorio/
 
-repo_url: https://chpass369.github.io/106_curso_qgis_introductorio/
-repo_name: chpass369/curso-qgis
+repo_url: https://github.com/chpass369/106_curso_qgis_introductorio
+repo_name: chpass369/106_curso_qgis_introductorio
 edit_uri: edit/main/docs/
 
 theme:
@@ -171,6 +171,35 @@ nav:
         - 3.11 Construir procedimientos reproducibles: modulo-03/11-procedimientos-reproducibles.md
       - Taller:
         - 3.12 Laboratorio · Justificar una decisión territorial: modulo-03/12-laboratorio-decision-territorial.md
+
+  - "Mod4 · Diseño cartográfico, composición y publicación":
+      - Introducción: modulo-04/index.md
+
+      - Encargo y escala:
+          - 4.1 Definir el encargo cartográfico: modulo-04/01-definir-encargo-cartografico.md
+          - 4.2 Preparar información para la escala de salida: modulo-04/02-preparar-informacion-escala-salida.md
+
+      - Representación temática:
+          - 4.3 Elegir una representación temática adecuada: modulo-04/03-elegir-representacion-tematica.md
+          - 4.4 Evaluar clasificaciones y colores: modulo-04/04-evaluar-clasificaciones-colores.md
+          - 4.5 Construir una jerarquía visual: modulo-04/05-construir-jerarquia-visual.md
+
+      - Etiquetado:
+          - 4.6 Resolver el etiquetado de mapas complejos: modulo-04/06-resolver-etiquetado-mapas-complejos.md
+
+      - Composición:
+          - 4.7 Diseñar una composición reutilizable: modulo-04/07-disenar-composicion-reutilizable.md
+          - 4.8 Coordinar mapas y elementos complementarios: modulo-04/08-coordinar-mapas-elementos-complementarios.md
+
+      - Automatización cartográfica:
+          - 4.9 Incorporar información dinámica: modulo-04/09-incorporar-informacion-dinamica.md
+          - 4.10 Producir un atlas territorial: modulo-04/10-producir-atlas-territorial.md
+
+      - Publicación:
+          - 4.11 Revisar y exportar para distintos usos: modulo-04/11-revisar-exportar-distintos-usos.md
+
+      - Taller:
+          - 4.12 Taller editorial · Publicar una colección coherente: modulo-04/12-taller-editorial-publicar-coleccion-coherente.md
 
   - Prácticas:
       - Índice: practicas/index.md
