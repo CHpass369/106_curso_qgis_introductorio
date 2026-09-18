@@ -2429,3 +2429,66 @@ tbody tr:hover {
 .latlon-point {
   fill: #f59e0b;
 }
+/* =========================================================
+   TABLAS RESPONSIVAS
+   Evita que las tablas anchas queden cortadas por el TOC
+   ========================================================= */
+
+/* Contenedor que genera MkDocs Material para las tablas */
+.md-typeset__scrollwrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.2rem 0;
+}
+
+/* Contenedor interno de la tabla */
+.md-typeset__table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* La tabla puede crecer según la cantidad de columnas */
+.md-typeset table:not([class]) {
+  display: table;
+  width: max-content;
+  min-width: 100%;
+  max-width: none;
+  margin: 0;
+  border-collapse: collapse;
+}
+
+/* Evita que encabezados cortos se deformen demasiado */
+.md-typeset table:not([class]) th {
+  white-space: nowrap;
+}
+
+/* Las celdas pueden envolver texto largo */
+.md-typeset table:not([class]) td {
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+/* Permite desplazar horizontalmente con claridad */
+.md-typeset__scrollwrap::-webkit-scrollbar,
+.md-typeset__table::-webkit-scrollbar {
+  height: 8px;
+}
+
+.md-typeset__scrollwrap::-webkit-scrollbar-thumb,
+.md-typeset__table::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+}
+
+/* En pantallas pequeñas evitamos que las tablas
+   intenten comprimirse dentro de la página */
+@media screen and (max-width: 76.234375em) {
+  .md-typeset table:not([class]) {
+    min-width: max-content;
+  }
+}

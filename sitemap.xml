@@ -1,147 +1,271 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/acerca/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/agradecimientos/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/instructor/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/material/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/programa/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/syllabus/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/videos/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/descargas/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/evaluaciones/</loc>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-01/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-01/01-sistemas-informacion-geografica/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-01/02-espacio-geografico/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-01/03-fundamentos-geodesia/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-01/04-sistemas-referencia/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-01/05-proyecciones-cartograficas/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-01/06-sistema-utm/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-01/07-fundamentos-cartografia/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-01/08-escala-cartografica/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-01/09-escala-resolucion-precision/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-01/10-generalizacion-cartografica/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-01/11-modelos-representacion/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-01/12-dato-geoespacial/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-01/13-calidad-informacion/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-01/14-sig-otras-geotecnologias/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-01/15-ecosistema-geotecnologias/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-01/practica/</loc>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-02/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-02/01-entorno-trabajo/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-02/02-orientarse-interfaz/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-02/03-gestionar-proyectos/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-02/04-incorporar-datos/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-02/05-tablas-coordenadas/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-02/06-problemas-coordenadas/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-02/07-leer-datos/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-02/08-seleccionar-filtrar/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-02/09-simbologia-etiquetas/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-02/10-explorar-raster/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-02/11-servicios-web/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
     </url>
     <url>
          <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-02/12-taller-proyecto/</loc>
-         <lastmod>2026-09-17</lastmod>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-03/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-03/01-preparar-datos-confiables/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-03/02-digitalizar-editar-precision/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-03/03-disenar-formularios-captura/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-03/04-construir-indicadores-expresiones/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-03/05-integrar-tablas/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-03/06-relaciones-espaciales/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-03/07-proximidad-superposicion/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-03/08-preparar-combinar-raster/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-03/09-relieve-estadisticas-zonales/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-03/10-georreferenciar-mapas-historicos/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-03/11-procedimientos-reproducibles/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-03/12-laboratorio-decision-territorial/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-04/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-04/01-definir-encargo-cartografico/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-04/02-preparar-informacion-escala-salida/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-04/03-elegir-representacion-tematica/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-04/04-evaluar-clasificaciones-colores/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-04/05-construir-jerarquia-visual/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-04/06-resolver-etiquetado-mapas-complejos/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-04/07-disenar-composicion-reutilizable/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-04/08-coordinar-mapas-elementos-complementarios/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-04/09-incorporar-informacion-dinamica/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-04/10-producir-atlas-territorial/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-04/11-revisar-exportar-distintos-usos/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/modulo-04/12-taller-editorial-publicar-coleccion-coherente/</loc>
+         <lastmod>2026-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://chpass369.github.io/106_curso_qgis_introductorio/practicas/</loc>
+         <lastmod>2026-09-18</lastmod>
     </url>
 </urlset>
