@@ -151,13 +151,25 @@ nav:
           - 2.12 Construir y entregar un proyecto funcional: modulo-02/12-taller-proyecto.md
 
   # Mod3 aplica en QGIS la teoría de 1.3–1.6 (títulos provisionales)
-  - "Mod3 · Sistemas de referencia en QGIS":
+  - "Mod3 · Edición, integración y análisis espacial":
       - Introducción: modulo-03/index.md
-      - CRS del proyecto y CRS de la capa: modulo-03/01-crs-proyecto-capa.md
-      - Identificar y asignar un CRS: modulo-03/02-identificar-asignar-crs.md
-      - Reproyectar capas: modulo-03/03-reproyectar-capas.md
-      - Transformaciones de datum: modulo-03/04-transformaciones-datum.md
-      - Práctica: modulo-03/practica.md
+      - Preparar, digitalizar y editar:
+        - 3.1 Preparar datos confiables: modulo-03/01-preparar-datos-confiables.md
+        - 3.2 Digitalizar y editar con precisión: modulo-03/02-digitalizar-editar-precision.md
+      - Diseñar Formularios:
+        - 3.3 Diseñar formularios de captura: modulo-03/03-disenar-formularios-captura.md
+      - Analizar y combinar información:
+        - 3.4 Construir indicadores con expresiones: modulo-03/04-construir-indicadores-expresiones.md
+        - 3.5 Integrar tablas sin perder información: modulo-03/05-integrar-tablas.md
+        - 3.6 Traducir preguntas en relaciones espaciales: modulo-03/06-relaciones-espaciales.md
+        - 3.7 Analizar proximidad y superposición: modulo-03/07-proximidad-superposicion.md
+      - Raster y Geoprocesamiento:
+        - 3.8 Preparar y combinar datos ráster: modulo-03/08-preparar-combinar-raster.md
+        - 3.9 Interpretar el relieve y resumirlo por zonas: modulo-03/09-relieve-estadisticas-zonales.md
+        - 3.10 Recuperar información de mapas históricos: modulo-03/10-georreferenciar-mapas-historicos.md
+        - 3.11 Construir procedimientos reproducibles: modulo-03/11-procedimientos-reproducibles.md
+      - Taller:
+        - 3.12 Laboratorio · Justificar una decisión territorial: modulo-03/12-laboratorio-decision-territorial.md
 
   - Prácticas:
       - Índice: practicas/index.md
