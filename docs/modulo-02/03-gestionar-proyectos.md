@@ -18,7 +18,7 @@ description: Proyectos y fuentes de datos en QGIS, formatos QGS y QGZ, guardado,
 
 !!! note "Antes de empezar"
 
-    - **Entorno:** QGIS con el perfil `curso-qgis`. Los procedimientos toman como referencia **QGIS 3.44**; algunas traducciones de los botones pueden variar.
+    - **Entorno:** QGIS con el perfil `curso-qgis`. Los procedimientos toman como referencia **QGIS 4.x**; algunas traducciones de los botones pueden variar.
     - **Punto de partida:** el proyecto de la [lección 2.2](02-orientarse-interfaz.md), o un proyecto con al menos una capa vectorial **local** que puedas consultar.
     - **Datos:** una copia de esa capa y sus archivos asociados. No necesitas descargar datos nuevos ni modificar los originales.
     - **Conexión a internet:** solo si conservas un mapa base o un servicio web. La práctica principal se realiza con archivos locales.
@@ -487,11 +487,11 @@ Puedes comprimir la carpeta completa para enviarla. Quien la reciba deberá **ex
 
 ## Referencias
 
-- QGIS Project. *Manual de usuario 3.44: Trabajar con archivos de proyecto y gestionar rutas rotas*. [Consultar el manual](https://docs.qgis.org/3.44/es/docs/user_manual/introduction/project_files.html).
-- QGIS Project. *Manual de usuario 3.44: Configuración de QGIS y propiedades del proyecto*. [Consultar propiedades y opciones](https://docs.qgis.org/3.44/es/docs/user_manual/introduction/qgis_configuration.html).
-- QGIS Project. *Manual de usuario 3.44: Propiedades vectoriales, información y cambio de fuente*. [Consultar el origen de las capas](https://docs.qgis.org/3.44/en/docs/user_manual/working_with_vector/vector_properties.html#source-properties).
-- QGIS Project. *Manual de usuario 3.44: Formatos de archivos de QGIS, QGS y QGZ*. [Consultar los formatos](https://docs.qgis.org/3.44/es/docs/user_manual/appendices/qgis_file_formats.html).
-- QGIS Project. *Manual de usuario 3.44: Crear nuevas capas vectoriales y capas temporales*. [Consultar creación de capas](https://docs.qgis.org/3.44/es/docs/user_manual/managing_data_source/create_layers.html).
-- QGIS Project. *Manual de usuario 3.44: Edición y guardado de capas*. [Consultar edición de datos](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/editing_geometry_attributes.html).
+- QGIS Project. *Manual de usuario: Trabajar con archivos de proyecto y gestionar rutas rotas*. [Consultar el manual](https://docs.qgis.org/latest/es/docs/user_manual/introduction/project_files.html).
+- QGIS Project. *Manual de usuario: Configuración de QGIS y propiedades del proyecto*. [Consultar propiedades y opciones](https://docs.qgis.org/latest/es/docs/user_manual/introduction/qgis_configuration.html).
+- QGIS Project. *Manual de usuario: Propiedades vectoriales, información y cambio de fuente*. [Consultar el origen de las capas](https://docs.qgis.org/latest/en/docs/user_manual/working_with_vector/vector_properties.html#source-properties).
+- QGIS Project. *Manual de usuario: Formatos de archivos de QGIS, QGS y QGZ*. [Consultar los formatos](https://docs.qgis.org/latest/es/docs/user_manual/appendices/qgis_file_formats.html).
+- QGIS Project. *Manual de usuario: Crear nuevas capas vectoriales y capas temporales*. [Consultar creación de capas](https://docs.qgis.org/latest/es/docs/user_manual/managing_data_source/create_layers.html).
+- QGIS Project. *Manual de usuario: Edición y guardado de capas*. [Consultar edición de datos](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/editing_geometry_attributes.html).
 
 En la próxima lección, **2.4 Incorporar datos y reconocer sus diferencias**, utilizaremos esta organización para examinar formatos, geometrías, atributos y metadatos antes de incorporar nuevas fuentes al proyecto.

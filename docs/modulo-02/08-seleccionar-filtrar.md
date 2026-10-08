@@ -30,7 +30,7 @@ description: Selección manual y por expresión, filtros de capa, operadores bá
 
 !!! note "Antes de empezar"
 
-    - **Entorno:** QGIS con el perfil `curso-qgis`. Los procedimientos toman como referencia **QGIS 3.44**; algunos nombres pueden variar ligeramente según el idioma o la versión instalada.
+    - **Entorno:** QGIS con el perfil `curso-qgis`. Los procedimientos toman como referencia **QGIS 4.x**; algunos nombres pueden variar ligeramente según el idioma o la versión instalada.
     - **Punto de partida:** haber completado la [lección 2.7](07-leer-datos.md), especialmente la revisión de campos, valores NULL, identificadores y categorías.
     - **Datos recomendados:** una capa de servicios o equipamientos con campos como:
         - identificador;
@@ -3073,28 +3073,28 @@ La expresión queda documentada junto al resultado.
 
 ## Referencias
 
-- [QGIS Project. *QGIS 3.44 — Trabajar con la tabla de atributos*](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/attribute_table.html)  
+- [QGIS Project. *Trabajar con la tabla de atributos*](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/attribute_table.html)  
   Documentación oficial sobre selección de entidades, visualización de registros seleccionados, filtros de tabla y trabajo con atributos.
 
-- [QGIS Project. *QGIS 3.44 — Herramientas generales: selección de objetos espaciales*](https://docs.qgis.org/3.44/es/docs/user_manual/introduction/general_tools.html#seleccionando-objetos-espaciales)  
+- [QGIS Project. *Herramientas generales: selección de objetos espaciales*](https://docs.qgis.org/latest/es/docs/user_manual/introduction/general_tools.html#seleccionando-objetos-espaciales)  
   Referencia sobre selección manual, selección por expresión, selección por valor, inversión y administración de selecciones.
 
-- [QGIS Project. *QGIS 3.44 — Expresiones*](https://docs.qgis.org/3.44/es/docs/user_manual/expressions/expression.html)  
+- [QGIS Project. *Expresiones*](https://docs.qgis.org/latest/es/docs/user_manual/expressions/expression.html)  
   Introducción oficial al sistema de expresiones utilizado por QGIS para selección, filtrado, cálculo y otras operaciones.
 
-- [QGIS Project. *QGIS 3.44 — Lista de funciones y operadores de expresiones*](https://docs.qgis.org/3.44/es/docs/user_manual/expressions/functions_list.html)  
+- [QGIS Project. *Lista de funciones y operadores de expresiones*](https://docs.qgis.org/latest/es/docs/user_manual/expressions/functions_list.html)  
   Referencia completa de operadores y funciones, incluyendo `AND`, `OR`, `NOT`, `IN`, `LIKE`, `ILIKE`, `BETWEEN`, `IS NULL` y otras expresiones.
 
-- [QGIS Project. *QGIS 3.44 — Propiedades de capas vectoriales: Constructor de consultas*](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/vector_properties.html#constructor-de-consulta)  
+- [QGIS Project. *Propiedades de capas vectoriales: Constructor de consultas*](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/vector_properties.html#constructor-de-consulta)  
   Documentación sobre filtros de proveedor, construcción de subconjuntos mediante condiciones tipo `WHERE` y comportamiento de capas filtradas.
 
-- [QGIS Project. *QGIS 3.44 — Extraer entidades seleccionadas*](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/qgis/vectorgeneral.html#extraer-entidades-seleccionadas)  
+- [QGIS Project. *Extraer entidades seleccionadas*](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/vectorgeneral.html#extraer-entidades-seleccionadas)  
   Documentación del algoritmo que crea una nueva capa utilizando únicamente las entidades seleccionadas de una capa de entrada.
 
-- [QGIS Project. *QGIS 3.44 — Algoritmos vectoriales generales*](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/qgis/vectorgeneral.html)  
+- [QGIS Project. *Algoritmos vectoriales generales*](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/vectorgeneral.html)  
   Referencia de herramientas de procesamiento para manipular, extraer, ordenar y transformar capas vectoriales.
 
-- [QGIS Project. *QGIS 3.44 — Manual de formación*](https://docs.qgis.org/3.44/es/docs/training_manual/)  
+- [QGIS Project. *Manual de formación*](https://docs.qgis.org/latest/es/docs/training_manual/)  
   Material oficial de aprendizaje con ejercicios sobre selección, atributos, consultas y procesamiento de datos espaciales.
 
 ---

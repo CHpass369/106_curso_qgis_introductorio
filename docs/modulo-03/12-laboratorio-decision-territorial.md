@@ -3129,22 +3129,22 @@ modulo-03/
 
 ## Referencias
 
-- [QGIS 3.44 — Manual de usuario](https://docs.qgis.org/3.44/es/docs/user_manual/)  
+- [QGIS — Manual de usuario](https://docs.qgis.org/latest/es/docs/user_manual/)  
   Referencia general para herramientas de edición, análisis vectorial, ráster y Procesamiento.
 
-- [QGIS 3.44 — Framework de Procesamiento](https://docs.qgis.org/3.44/es/docs/user_manual/processing/)  
+- [QGIS — Framework de Procesamiento](https://docs.qgis.org/latest/es/docs/user_manual/processing/)  
   Algoritmos, Modelador gráfico y procedimientos reproducibles.
 
-- [QGIS 3.44 — Expresiones](https://docs.qgis.org/3.44/es/docs/user_manual/expressions/)  
+- [QGIS — Expresiones](https://docs.qgis.org/latest/es/docs/user_manual/expressions/)  
   Construcción de variables derivadas, condiciones e indicadores.
 
-- [QGIS 3.44 — Análisis vectorial](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/qgis/)  
+- [QGIS — Análisis vectorial](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/)  
   Herramientas para proximidad, superposición, selección e integración espacial.
 
-- [QGIS 3.44 — Trabajo con ráster](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_raster/)  
+- [QGIS — Trabajo con ráster](https://docs.qgis.org/latest/es/docs/user_manual/working_with_raster/)  
   Preparación, análisis y representación de datos ráster.
 
-- [QGIS Training Manual](https://docs.qgis.org/3.44/es/docs/training_manual/)  
+- [QGIS Training Manual](https://docs.qgis.org/latest/es/docs/training_manual/)  
   Material oficial de formación con ejercicios aplicados.
 
 - [Material for MkDocs — Reference](https://squidfunk.github.io/mkdocs-material/reference/)  

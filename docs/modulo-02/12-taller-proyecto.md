@@ -39,7 +39,7 @@ description: Taller integrador para organizar, revisar, documentar y entregar un
 
 !!! note "Antes de empezar"
 
-    - **Entorno:** QGIS con el perfil `curso-qgis`. El taller toma como referencia **QGIS 3.44**.
+    - **Entorno:** QGIS con el perfil `curso-qgis`. El taller toma como referencia **QGIS 4.x**.
     - **Punto de partida:** haber completado las lecciones **2.1 a 2.11**.
     - **Datos:** reutilizaremos las capas construidas y revisadas durante el módulo.
     - **Proyecto:** no comenzaremos desde cero; integraremos productos anteriores.
@@ -1211,7 +1211,7 @@ Título:
 Servicios y estructura territorial del área de estudio
 
 Resumen:
-Proyecto de formación elaborado en QGIS 3.44 que integra
+Proyecto de formación elaborado en QGIS 4.4 que integra
 información administrativa, equipamientos, ráster y servicios
 web para una lectura exploratoria del territorio.
 
@@ -1263,7 +1263,7 @@ Este archivo será la primera guía para quien reciba la carpeta.
 ```markdown
 # Servicios y territorio
 
-Proyecto elaborado con QGIS 3.44.
+Proyecto elaborado con QGIS 4.4.
 
 ## Cómo abrir
 
@@ -2307,7 +2307,7 @@ Versión del proyecto:
 1.0
 
 QGIS utilizado:
-3.44
+4.4.0
 
 Fecha:
 AAAA-MM-DD
@@ -3188,41 +3188,41 @@ Las limitaciones y dependencias están declaradas.
 
 ## Referencias
 
-- [QGIS Project. *QGIS 3.44 — Trabajando con archivos de proyecto*](https://docs.qgis.org/3.44/es/docs/user_manual/introduction/project_files.html)  
+- [QGIS Project. *Trabajando con archivos de proyecto*](https://docs.qgis.org/latest/es/docs/user_manual/introduction/project_files.html)  
   Documentación oficial sobre proyectos QGIS, formatos QGS/QGZ, información almacenada en el proyecto y manejo de fuentes no disponibles.
 
-- [QGIS Project. *QGIS 3.44 — Formatos de archivo QGS/QGZ*](https://docs.qgis.org/3.44/es/docs/user_manual/appendices/qgis_file_formats.html#qgs-qgz-the-qgis-project-file-format)  
+- [QGIS Project. *Formatos de archivo QGS/QGZ*](https://docs.qgis.org/latest/es/docs/user_manual/appendices/qgis_file_formats.html#qgs-qgz-the-qgis-project-file-format)  
   Descripción técnica del formato QGS y del archivo comprimido QGZ, incluidos los vínculos hacia las fuentes subyacentes y los datos auxiliares.
 
-- [QGIS Project. *QGIS 3.44 — Propiedades del proyecto*](https://docs.qgis.org/3.44/es/docs/user_manual/introduction/qgis_configuration.html#project-properties)  
+- [QGIS Project. *Propiedades del proyecto*](https://docs.qgis.org/latest/es/docs/user_manual/introduction/qgis_configuration.html#project-properties)  
   Referencia sobre carpeta de inicio, almacenamiento de rutas absolutas o relativas, metadatos, estilos y otras configuraciones específicas del proyecto.
 
-- [QGIS Project. *QGIS 3.44 — Propiedades generales del proyecto*](https://docs.qgis.org/3.44/es/docs/user_manual/introduction/qgis_configuration.html#general-properties)  
+- [QGIS Project. *Propiedades generales del proyecto*](https://docs.qgis.org/latest/es/docs/user_manual/introduction/qgis_configuration.html#general-properties)  
   Documentación de la ubicación del archivo de proyecto, carpeta de inicio y configuración para almacenar rutas de capas como absolutas o relativas.
 
-- [QGIS Project. *QGIS 3.44 — Manejo de rutas de archivo rotas*](https://docs.qgis.org/3.44/es/docs/user_manual/introduction/project_files.html#handling-broken-file-paths)  
+- [QGIS Project. *Manejo de rutas de archivo rotas*](https://docs.qgis.org/latest/es/docs/user_manual/introduction/project_files.html#handling-broken-file-paths)  
   Referencia para diagnosticar y reparar capas no disponibles cuando sus archivos fueron movidos, renombrados o eliminados.
 
-- [QGIS Project. *QGIS 3.44 — Documentando tus datos*](https://docs.qgis.org/3.44/es/docs/user_manual/introduction/general_tools.html#documenting-your-data)  
+- [QGIS Project. *Documentando tus datos*](https://docs.qgis.org/latest/es/docs/user_manual/introduction/general_tools.html#documenting-your-data)  
   Documentación oficial sobre metadatos y notas utilizadas para describir proyectos, capas, procedencia y condiciones de uso.
 
-- [QGIS Project. *QGIS 3.44 — Metadatos*](https://docs.qgis.org/3.44/es/docs/user_manual/introduction/general_tools.html#metadata)  
+- [QGIS Project. *Metadatos*](https://docs.qgis.org/latest/es/docs/user_manual/introduction/general_tools.html#metadata)  
   Referencia sobre título, resumen, identificación, categorías, palabras clave, extensión, contactos, historia y almacenamiento de metadatos.
 
-- [QGIS Project. *QGIS 3.44 — Propiedades de capas vectoriales*](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/vector_properties.html)  
+- [QGIS Project. *Propiedades de capas vectoriales*](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/vector_properties.html)  
   Documentación sobre información, fuente, simbología, etiquetas, campos, uniones, metadatos y otras propiedades de capas vectoriales.
 
-- [QGIS Project. *QGIS 3.44 — Creando nuevas capas desde una capa existente*](https://docs.qgis.org/3.44/es/docs/user_manual/managing_data_source/create_layers.html#creating-new-layers-from-an-existing-layer)  
+- [QGIS Project. *Creando nuevas capas desde una capa existente*](https://docs.qgis.org/latest/es/docs/user_manual/managing_data_source/create_layers.html#creating-new-layers-from-an-existing-layer)  
   Referencia sobre exportación y almacenamiento persistente de capas vectoriales y ráster utilizadas como productos derivados.
 
-- [QGIS Project. *QGIS 3.44 — Creación de GeoPackage*](https://docs.qgis.org/3.44/es/docs/user_manual/managing_data_source/create_layers.html#creating-a-new-geopackage-layer)  
+- [QGIS Project. *Creación de GeoPackage*](https://docs.qgis.org/latest/es/docs/user_manual/managing_data_source/create_layers.html#creating-a-new-geopackage-layer)  
   Documentación para crear y organizar información vectorial dentro de contenedores GeoPackage.
 
-- [QGIS Project. *QGIS 3.44 — Abrir datos y fuentes*](https://docs.qgis.org/3.44/es/docs/user_manual/managing_data_source/opening_data.html)  
+- [QGIS Project. *Abrir datos y fuentes*](https://docs.qgis.org/latest/es/docs/user_manual/managing_data_source/opening_data.html)  
   Referencia general sobre las diferentes fuentes locales, bases de datos y servicios que pueden formar parte de un proyecto QGIS.
 
-- [QGIS Project. *QGIS 3.44 — Guía de usuario*](https://docs.qgis.org/3.44/es/docs/user_manual/)  
-  Documentación completa de referencia para QGIS 3.44.
+- [QGIS Project. *Guía de usuario*](https://docs.qgis.org/latest/es/docs/user_manual/)  
+  Documentación completa de referencia de QGIS (versión vigente).
 
 ---
 

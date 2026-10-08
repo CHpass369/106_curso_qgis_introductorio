@@ -142,7 +142,7 @@ flowchart LR
 
 !!! info "Necesitarás"
 
-    - QGIS 3.44.
+    - QGIS 4.x (ver [2.1 Preparar un entorno de trabajo](../modulo-02/01-entorno-trabajo.md)).
     - Una capa vectorial de práctica.
     - Una capa de referencia espacial.
     - Una carpeta de trabajo organizada.
@@ -2849,28 +2849,28 @@ flowchart LR
 
 ## Referencias
 
-- [QGIS 3.44 — Crear capas y GeoPackage](https://docs.qgis.org/3.44/es/docs/user_manual/managing_data_source/create_layers.html)  
+- [QGIS — Crear capas y GeoPackage](https://docs.qgis.org/latest/es/docs/user_manual/managing_data_source/create_layers.html)  
   Referencia oficial sobre creación de capas, GeoPackage, geometrías, SRC y tipos de campos.
 
-- [QGIS 3.44 — Propiedades de capas vectoriales](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/vector_properties.html)  
+- [QGIS — Propiedades de capas vectoriales](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/vector_properties.html)  
   Documentación de campos, restricciones, fuentes, metadatos y configuración de capas vectoriales.
 
-- [QGIS 3.44 — Tabla de atributos](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/attribute_table.html)  
+- [QGIS — Tabla de atributos](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/attribute_table.html)  
   Herramientas para explorar, seleccionar y editar registros.
 
-- [QGIS 3.44 — Expresiones](https://docs.qgis.org/3.44/es/docs/user_manual/expressions/expression.html)  
+- [QGIS — Expresiones](https://docs.qgis.org/latest/es/docs/user_manual/expressions/expression.html)  
   Referencia para construir reglas de validación y consultas.
 
-- [QGIS 3.44 — Funciones de expresiones](https://docs.qgis.org/3.44/es/docs/user_manual/expressions/functions_list.html)  
+- [QGIS — Funciones de expresiones](https://docs.qgis.org/latest/es/docs/user_manual/expressions/functions_list.html)  
   Funciones para trabajar con texto, NULL, condiciones y validaciones.
 
-- [QGIS 3.44 — Algoritmos vectoriales generales](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/qgis/vectorgeneral.html)  
+- [QGIS — Algoritmos vectoriales generales](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/vectorgeneral.html)  
   Herramientas relacionadas con duplicados, tablas y procesamiento vectorial.
 
-- [QGIS 3.44 — Herramientas de geometría vectorial](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/qgis/vectorgeometry.html)  
+- [QGIS — Herramientas de geometría vectorial](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/vectorgeometry.html)  
   Algoritmos para comprobar, modificar y reparar geometrías.
 
-- [QGIS Training Manual](https://docs.qgis.org/3.44/es/docs/training_manual/)  
+- [QGIS Training Manual](https://docs.qgis.org/latest/es/docs/training_manual/)  
   Manual oficial de prácticas y formación de QGIS.
 
 - [Material for MkDocs — Reference](https://squidfunk.github.io/mkdocs-material/reference/)  

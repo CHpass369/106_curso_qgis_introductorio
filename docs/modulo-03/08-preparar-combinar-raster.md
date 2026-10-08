@@ -164,7 +164,7 @@ flowchart LR
 
 !!! info "Necesitarás"
 
-    - QGIS 3.44.
+    - QGIS 4.x (ver [2.1 Preparar un entorno de trabajo](../modulo-02/01-entorno-trabajo.md)).
     - Al menos dos capas ráster.
     - Un ráster continuo, por ejemplo:
         - elevación;
@@ -2898,25 +2898,25 @@ flowchart LR
 
 ## Referencias
 
-- [QGIS 3.44 — Propiedades ráster](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_raster/raster_properties.html)  
+- [QGIS — Propiedades ráster](https://docs.qgis.org/latest/es/docs/user_manual/working_with_raster/raster_properties.html)  
   Información, simbología, histogramas, transparencia y propiedades del ráster.
 
-- [QGIS 3.44 — Análisis ráster](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/qgis/rasteranalysis.html)  
+- [QGIS — Análisis ráster](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/rasteranalysis.html)  
   Herramientas de análisis y procesamiento de matrices.
 
-- [QGIS 3.44 — GDAL ráster](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/gdal/rasterprojections.html)  
+- [QGIS — GDAL ráster](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/gdal/rasterprojections.html)  
   Reproyección y transformación de datos ráster.
 
-- [QGIS 3.44 — Raster miscellaneous](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/gdal/rastermiscellaneous.html)  
+- [QGIS — Raster miscellaneous](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/gdal/rastermiscellaneous.html)  
   Utilidades de preparación y procesamiento ráster.
 
-- [QGIS 3.44 — Raster extraction](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/gdal/rasterextraction.html)  
+- [QGIS — Raster extraction](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/gdal/rasterextraction.html)  
   Recorte por extensión y máscara.
 
-- [QGIS 3.44 — Calculadora ráster](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_raster/raster_analysis.html)  
+- [QGIS — Calculadora ráster](https://docs.qgis.org/latest/es/docs/user_manual/working_with_raster/raster_analysis.html)  
   Construcción de expresiones y operaciones celda por celda.
 
-- [QGIS Training Manual](https://docs.qgis.org/3.44/es/docs/training_manual/)  
+- [QGIS Training Manual](https://docs.qgis.org/latest/es/docs/training_manual/)  
   Ejercicios oficiales relacionados con procesamiento y análisis ráster.
 
 - [Material for MkDocs — Reference](https://squidfunk.github.io/mkdocs-material/reference/)  

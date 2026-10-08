@@ -949,7 +949,7 @@ flowchart LR
 Asegúrate de disponer de:
 
 ```text
-QGIS 3.44
+QGIS 4.4
 ```
 
 y de un proyecto que contenga al menos:
@@ -1016,16 +1016,16 @@ Comienza en:
 
 ## Referencias generales
 
-- [QGIS 3.44 · Manual de usuario](https://docs.qgis.org/3.44/es/docs/user_manual/)  
+- [QGIS · Manual de usuario](https://docs.qgis.org/latest/es/docs/user_manual/)  
   Documentación general de las herramientas utilizadas durante el módulo.
 
-- [QGIS 3.44 · Diseñador de impresión](https://docs.qgis.org/3.44/es/docs/user_manual/print_composer/)  
+- [QGIS · Diseñador de impresión](https://docs.qgis.org/latest/es/docs/user_manual/print_composer/)  
   Referencia para composiciones, elementos cartográficos y Atlas.
 
-- [QGIS 3.44 · Expresiones](https://docs.qgis.org/3.44/es/docs/user_manual/expressions/)  
+- [QGIS · Expresiones](https://docs.qgis.org/latest/es/docs/user_manual/expressions/)  
   Funciones, operadores y variables para construir contenido dinámico.
 
-- [QGIS Training Manual](https://docs.qgis.org/3.44/es/docs/training_manual/)  
+- [QGIS Training Manual](https://docs.qgis.org/latest/es/docs/training_manual/)  
   Material oficial de formación de QGIS.
 
 - [ColorBrewer](https://colorbrewer2.org/)  

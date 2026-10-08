@@ -2022,16 +2022,16 @@ y comprobaremos que:
 
 ## Referencias
 
-- [QGIS 3.44 — Manual de usuario](https://docs.qgis.org/3.44/es/docs/user_manual/)  
+- [QGIS — Manual de usuario](https://docs.qgis.org/latest/es/docs/user_manual/)  
   Referencia general para configuración de proyectos, simbología y producción cartográfica.
 
-- [QGIS 3.44 — Diseñador de impresión](https://docs.qgis.org/3.44/es/docs/user_manual/print_composer/)  
+- [QGIS — Diseñador de impresión](https://docs.qgis.org/latest/es/docs/user_manual/print_composer/)  
   Herramientas para la construcción de composiciones y productos cartográficos.
 
-- [QGIS 3.44 — Simbología vectorial](https://docs.qgis.org/3.44/es/docs/user_manual/style_library/symbol_selector.html)  
+- [QGIS — Simbología vectorial](https://docs.qgis.org/latest/es/docs/user_manual/style_library/symbol_selector.html)  
   Configuración de símbolos y estilos utilizados posteriormente en el módulo.
 
-- [QGIS Training Manual](https://docs.qgis.org/3.44/es/docs/training_manual/)  
+- [QGIS Training Manual](https://docs.qgis.org/latest/es/docs/training_manual/)  
   Material oficial de formación de QGIS.
 
 - [Material for MkDocs — Reference](https://squidfunk.github.io/mkdocs-material/reference/)  

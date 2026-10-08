@@ -40,7 +40,7 @@ description: Conexión de información geográfica en línea mediante XYZ, WMS/W
 
 !!! note "Antes de empezar"
 
-    - **Entorno:** QGIS con el perfil `curso-qgis`. Los procedimientos toman como referencia **QGIS 3.44**; algunos nombres pueden variar ligeramente según el idioma o versión instalada.
+    - **Entorno:** QGIS con el perfil `curso-qgis`. Los procedimientos toman como referencia **QGIS 4.x**; algunos nombres pueden variar ligeramente según el idioma o versión instalada.
     - **Punto de partida:** haber completado la [lección 2.10](10-explorar-raster.md), comprendiendo ya la diferencia entre datos vectoriales y ráster.
     - **Conectividad:** esta lección requiere conexión a internet.
     - **Fuente recomendada:** utilizar un geoportal, IDE o servicio publicado por una institución pública, académica o técnica reconocida.
@@ -3377,22 +3377,22 @@ preferimos el WFS cuando está disponible y resulta adecuado.
 
 ## Referencias
 
-- [QGIS Project. *QGIS 3.44 — Trabajando con protocolos OGC / ISO*](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_ogc/ogc_client_support.html)  
+- [QGIS Project. *Trabajando con protocolos OGC / ISO*](https://docs.qgis.org/latest/es/docs/user_manual/working_with_ogc/ogc_client_support.html)  
   Documentación oficial de QGIS sobre interoperabilidad mediante WMS, WMTS, WFS, WFS-T y otros servicios geoespaciales.
 
-- [QGIS Project. *QGIS 3.44 — Cliente WMS/WMTS*](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_ogc/ogc_client_support.html#cliente-wms-wmts)  
+- [QGIS Project. *Cliente WMS/WMTS*](https://docs.qgis.org/latest/es/docs/user_manual/working_with_ogc/ogc_client_support.html#cliente-wms-wmts)  
   Referencia sobre creación de conexiones, consulta de capacidades, incorporación de capas WMS/WMTS, teselas e identificación de información.
 
-- [QGIS Project. *QGIS 3.44 — Cliente WFS y WFS-T*](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_ogc/ogc_client_support.html#cliente-wfs-y-wfs-t)  
+- [QGIS Project. *Cliente WFS y WFS-T*](https://docs.qgis.org/latest/es/docs/user_manual/working_with_ogc/ogc_client_support.html#cliente-wfs-y-wfs-t)  
   Documentación para acceder a entidades geográficas publicadas mediante WFS y utilizar capacidades transaccionales cuando estén disponibles.
 
-- [QGIS Project. *QGIS 3.44 — Conectar con servicios web*](https://docs.qgis.org/3.44/es/docs/user_manual/managing_data_source/opening_data.html#conectar-con-el-servicios-web)  
+- [QGIS Project. *Conectar con servicios web*](https://docs.qgis.org/latest/es/docs/user_manual/managing_data_source/opening_data.html#conectar-con-el-servicios-web)  
   Referencia general para añadir servicios web desde el Administrador de fuentes de datos.
 
-- [QGIS Project. *QGIS 3.44 — Servicios de teselas XYZ*](https://docs.qgis.org/3.44/es/docs/user_manual/managing_data_source/opening_data.html#usando-servicios-de-teselas-xyz)  
+- [QGIS Project. *Servicios de teselas XYZ*](https://docs.qgis.org/latest/es/docs/user_manual/managing_data_source/opening_data.html#usando-servicios-de-teselas-xyz)  
   Documentación oficial sobre creación de conexiones XYZ mediante URL, niveles de zoom, autenticación y resolución de teselas.
 
-- [QGIS Project. *QGIS 3.44 — Panel Navegador: mosaicos y servicios web*](https://docs.qgis.org/3.44/es/docs/user_manual/introduction/browser.html#tiles-and-web-services)  
+- [QGIS Project. *Panel Navegador: mosaicos y servicios web*](https://docs.qgis.org/latest/es/docs/user_manual/introduction/browser.html#tiles-and-web-services)  
   Referencia sobre administración de conexiones WMS/WMTS, XYZ, WFS y otros servicios desde el panel Navegador.
 
 - [Open Geospatial Consortium. *Web Map Service — WMS*](https://www.ogc.org/standards/wms/)  

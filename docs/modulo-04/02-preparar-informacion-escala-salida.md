@@ -1894,19 +1894,19 @@ La pregunta central será:
 
 ## Referencias
 
-- [QGIS 3.44 — Simbología vectorial](https://docs.qgis.org/3.44/es/docs/user_manual/style_library/symbol_selector.html)  
+- [QGIS — Simbología vectorial](https://docs.qgis.org/latest/es/docs/user_manual/style_library/symbol_selector.html)  
   Configuración de símbolos, tamaños y propiedades visuales.
 
-- [QGIS 3.44 — Propiedades de capas vectoriales](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/vector_properties.html)  
+- [QGIS — Propiedades de capas vectoriales](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/vector_properties.html)  
   Configuración de visibilidad por escala y propiedades de representación.
 
-- [QGIS 3.44 — Edición de geometrías](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/editing_geometry_attributes.html)  
+- [QGIS — Edición de geometrías](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/editing_geometry_attributes.html)  
   Herramientas relacionadas con geometría y simplificación.
 
-- [QGIS 3.44 — Processing](https://docs.qgis.org/3.44/es/docs/user_manual/processing/)  
+- [QGIS — Processing](https://docs.qgis.org/latest/es/docs/user_manual/processing/)  
   Algoritmos utilizados para preparar y generalizar datos.
 
-- [QGIS Training Manual](https://docs.qgis.org/3.44/es/docs/training_manual/)  
+- [QGIS Training Manual](https://docs.qgis.org/latest/es/docs/training_manual/)  
   Material oficial de formación con ejercicios cartográficos.
 
 - [Material for MkDocs — Reference](https://squidfunk.github.io/mkdocs-material/reference/)  

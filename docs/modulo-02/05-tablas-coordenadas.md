@@ -26,7 +26,7 @@ description: Importación y validación de tablas CSV en QGIS; separadores, codi
 
 !!! note "Antes de empezar"
 
-    - **Entorno:** QGIS con el perfil `curso-qgis`. Los procedimientos toman como referencia **QGIS 3.44**; algunos nombres pueden variar ligeramente según el idioma o la versión instalada.
+    - **Entorno:** QGIS con el perfil `curso-qgis`. Los procedimientos toman como referencia **QGIS 4.x**; algunos nombres pueden variar ligeramente según el idioma o la versión instalada.
     - **Punto de partida:** el proyecto y el inventario elaborados durante la [lección 2.4](04-incorporar-datos.md).
     - **Datos recomendados:** una tabla `.csv` que contenga al menos un identificador, un nombre, una categoría y dos columnas de coordenadas.
     - **Capa de referencia:** disponer de límites municipales, calles, distritos u otra fuente cuya posición espacial ya haya sido verificada.
@@ -2861,22 +2861,22 @@ Si no puedes responder estas preguntas, la importación todavía no está comple
 
 ## Referencias
 
-- [QGIS Project. *QGIS 3.44 — Archivos de texto delimitado*](https://docs.qgis.org/3.44/es/docs/user_manual/managing_data_source/supported_data.html#delimited-text-files)  
+- [QGIS Project. *Archivos de texto delimitado*](https://docs.qgis.org/latest/es/docs/user_manual/managing_data_source/supported_data.html#delimited-text-files)  
   Documentación oficial sobre la estructura de archivos de texto delimitado, encabezados, campos X/Y e incorporación de información posicional.
 
-- [QGIS Project. *QGIS 3.44 — Explorando campos y formatos de datos*](https://docs.qgis.org/3.44/es/docs/user_manual/managing_data_source/supported_data.html)  
+- [QGIS Project. *Explorando campos y formatos de datos*](https://docs.qgis.org/latest/es/docs/user_manual/managing_data_source/supported_data.html)  
   Referencia general sobre los formatos de datos admitidos por QGIS y la forma en que se interpretan sus campos.
 
-- [QGIS Project. *QGIS 3.44 — Sistema de Referencia de Coordenadas*](https://docs.qgis.org/3.44/es/docs/gentle_gis_introduction/coordinate_reference_systems.html)  
+- [QGIS Project. *Sistema de Referencia de Coordenadas*](https://docs.qgis.org/latest/es/docs/gentle_gis_introduction/coordinate_reference_systems.html)  
   Introducción conceptual a los SRC, coordenadas geográficas, coordenadas proyectadas, latitud, longitud, Este y Norte.
 
-- [QGIS Project. *QGIS 3.44 — Trabajar con proyecciones*](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_projections/working_with_projections.html)  
+- [QGIS Project. *Trabajar con proyecciones*](https://docs.qgis.org/latest/es/docs/user_manual/working_with_projections/working_with_projections.html)  
   Documentación sobre el SRC de las capas, SRC del proyecto, reproyección al vuelo, selección de sistemas de referencia y transformaciones.
 
-- [QGIS Project. *QGIS 3.44 — Reproyección y transformación de datos*](https://docs.qgis.org/3.44/es/docs/training_manual/vector_analysis/reproject_transform.html)  
+- [QGIS Project. *Reproyección y transformación de datos*](https://docs.qgis.org/latest/es/docs/training_manual/vector_analysis/reproject_transform.html)  
   Lección práctica del manual de formación de QGIS sobre reproyección y transformación de conjuntos de datos vectoriales.
 
-- [QGIS Project. *QGIS 3.44 — Propiedades de capas vectoriales y SRC*](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/vector_properties.html)  
+- [QGIS Project. *Propiedades de capas vectoriales y SRC*](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/vector_properties.html)  
   Referencia útil para comprender la diferencia entre asignar un SRC a una capa y reproyectar los datos hacia otro sistema.
 
 - [GDAL/OGR. *Vector Data Model*](https://gdal.org/en/stable/user/vector_data_model.html)  

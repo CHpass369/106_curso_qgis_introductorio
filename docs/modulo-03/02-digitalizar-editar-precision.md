@@ -141,7 +141,7 @@ flowchart LR
 
 !!! info "Necesitarás"
 
-    - QGIS 3.44.
+    - QGIS 4.x (ver [2.1 Preparar un entorno de trabajo](../modulo-02/01-entorno-trabajo.md)).
     - Una capa o imagen de referencia.
     - Una capa vectorial GeoPackage editable.
     - Un SRC conocido y apropiado para la tarea.
@@ -2857,34 +2857,34 @@ flowchart LR
 
 ## Referencias
 
-- [QGIS 3.44 — Edición de geometrías y atributos](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/editing_geometry_attributes.html)  
+- [QGIS — Edición de geometrías y atributos](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/editing_geometry_attributes.html)  
   Documentación oficial sobre creación y edición de geometrías, vértices, división, combinación y remodelación.
 
-- [QGIS 3.44 — Autoensamblado](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/editing_geometry_attributes.html#snapping-options)  
+- [QGIS — Autoensamblado](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/editing_geometry_attributes.html#snapping-options)  
   Configuración de ajuste a vértices, segmentos e intersecciones.
 
-- [QGIS 3.44 — Digitalización avanzada](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/editing_geometry_attributes.html#the-advanced-digitizing-panel)  
+- [QGIS — Digitalización avanzada](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/editing_geometry_attributes.html#the-advanced-digitizing-panel)  
   Referencia sobre restricciones de distancia, ángulo y coordenadas.
 
-- [QGIS 3.44 — Rastreo automático](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/editing_geometry_attributes.html#automatic-tracing)  
+- [QGIS — Rastreo automático](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/editing_geometry_attributes.html#automatic-tracing)  
   Documentación para reutilizar trayectorias existentes durante la captura.
 
-- [QGIS 3.44 — Edición topológica](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/editing_geometry_attributes.html#topological-editing)  
+- [QGIS — Edición topológica](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/editing_geometry_attributes.html#topological-editing)  
   Referencia sobre límites compartidos y comportamiento topológico.
 
-- [QGIS 3.44 — Herramientas de geometría vectorial](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/qgis/vectorgeometry.html)  
+- [QGIS — Herramientas de geometría vectorial](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/vectorgeometry.html)  
   Algoritmos para validar, corregir y transformar geometrías.
 
-- [QGIS 3.44 — Comprobación de geometrías](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/qgis/checkgeometry.html)  
+- [QGIS — Comprobación de geometrías](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/checkgeometry.html)  
   Herramientas de comprobación de errores geométricos y relaciones espaciales.
 
-- [QGIS 3.44 — Comprobador de topología](https://docs.qgis.org/3.44/es/docs/user_manual/plugins/core_plugins/plugins_topology_checker.html)  
+- [QGIS — Comprobador de topología](https://docs.qgis.org/latest/es/docs/user_manual/plugins/core_plugins/plugins_topology_checker.html)  
   Referencia sobre reglas topológicas y detección de errores.
 
-- [QGIS Training Manual — Creación de datos vectoriales](https://docs.qgis.org/3.44/es/docs/training_manual/create_vector_data/)  
+- [QGIS Training Manual — Creación de datos vectoriales](https://docs.qgis.org/latest/es/docs/training_manual/create_vector_data/)  
   Ejercicios oficiales sobre digitalización y edición.
 
-- [QGIS Training Manual — Edición topológica](https://docs.qgis.org/3.44/es/docs/training_manual/create_vector_data/topo_editing.html)  
+- [QGIS Training Manual — Edición topológica](https://docs.qgis.org/latest/es/docs/training_manual/create_vector_data/topo_editing.html)  
   Prácticas oficiales sobre autoensamblado y límites compartidos.
 
 - [Material for MkDocs — Reference](https://squidfunk.github.io/mkdocs-material/reference/)  

@@ -34,7 +34,7 @@ description: Exploración de datos ráster en QGIS; bandas, resolución espacial
 
 !!! note "Antes de empezar"
 
-    - **Entorno:** QGIS con el perfil `curso-qgis`. Los procedimientos toman como referencia **QGIS 3.44**; algunos nombres pueden variar ligeramente según el idioma o la versión instalada.
+    - **Entorno:** QGIS con el perfil `curso-qgis`. Los procedimientos toman como referencia **QGIS 4.x**; algunos nombres pueden variar ligeramente según el idioma o la versión instalada.
     - **Punto de partida:** haber completado la [lección 2.9](09-simbologia-etiquetas.md), especialmente los conceptos de simbología, variables y representación.
     - **Datos recomendados:** disponer de:
         - una imagen ráster multibanda;
@@ -3062,40 +3062,40 @@ SIGNIFICADO DE LOS VALORES
 
 ## Referencias
 
-- [QGIS Project. *QGIS 3.44 — Datos ráster*](https://docs.qgis.org/3.44/es/docs/gentle_gis_introduction/raster_data.html)  
+- [QGIS Project. *Datos ráster*](https://docs.qgis.org/latest/es/docs/gentle_gis_introduction/raster_data.html)  
   Introducción oficial al modelo ráster, píxeles, imágenes, georreferenciación y resolución espacial.
 
-- [QGIS Project. *QGIS 3.44 — Explorando campos y formatos de datos: Datos ráster*](https://docs.qgis.org/3.44/es/docs/user_manual/managing_data_source/supported_data.html#raster-data)  
+- [QGIS Project. *Explorando campos y formatos de datos: Datos ráster*](https://docs.qgis.org/latest/es/docs/user_manual/managing_data_source/supported_data.html#raster-data)  
   Referencia sobre la estructura de datos ráster, celdas, resolución, georreferenciación y formatos compatibles.
 
-- [QGIS Project. *QGIS 3.44 — Propiedades de capas ráster*](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_raster/raster_properties.html)  
+- [QGIS Project. *Propiedades de capas ráster*](https://docs.qgis.org/latest/es/docs/user_manual/working_with_raster/raster_properties.html)  
   Documentación principal sobre información, fuente, simbología, transparencia, histogramas, renderizado, metadatos e identificación de píxeles.
 
-- [QGIS Project. *QGIS 3.44 — Color multibanda*](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_raster/raster_properties.html#multiband-color)  
+- [QGIS Project. *Color multibanda*](https://docs.qgis.org/latest/es/docs/user_manual/working_with_raster/raster_properties.html#multiband-color)  
   Referencia sobre la asignación de bandas ráster a los canales rojo, verde y azul y las opciones de mejora de contraste.
 
-- [QGIS Project. *QGIS 3.44 — Gris monobanda*](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_raster/raster_properties.html#singleband-gray)  
+- [QGIS Project. *Gris monobanda*](https://docs.qgis.org/latest/es/docs/user_manual/working_with_raster/raster_properties.html#singleband-gray)  
   Documentación sobre la representación de una banda mediante gradientes de gris y configuración de valores mínimos y máximos.
 
-- [QGIS Project. *QGIS 3.44 — Pseudocolor monobanda*](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_raster/raster_properties.html#singleband-pseudocolor)  
+- [QGIS Project. *Pseudocolor monobanda*](https://docs.qgis.org/latest/es/docs/user_manual/working_with_raster/raster_properties.html#singleband-pseudocolor)  
   Referencia oficial sobre rampas de color, intervalos, interpolación y clasificación de valores de una banda.
 
-- [QGIS Project. *QGIS 3.44 — Transparencia ráster y valores NoData*](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_raster/raster_properties.html#transparency-properties)  
+- [QGIS Project. *Transparencia ráster y valores NoData*](https://docs.qgis.org/latest/es/docs/user_manual/working_with_raster/raster_properties.html#transparency-properties)  
   Documentación sobre tratamiento de valores sin datos, transparencia global y transparencia personalizada de valores de píxel.
 
-- [QGIS Project. *QGIS 3.44 — Histograma ráster*](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_raster/raster_properties.html#histogram-properties)  
+- [QGIS Project. *Histograma ráster*](https://docs.qgis.org/latest/es/docs/user_manual/working_with_raster/raster_properties.html#histogram-properties)  
   Referencia sobre cálculo, visualización e interpretación de histogramas de las bandas de una capa ráster.
 
-- [QGIS Project. *QGIS 3.44 — Identificar celdas ráster*](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_raster/raster_properties.html#identify-raster-cells)  
+- [QGIS Project. *Identificar celdas ráster*](https://docs.qgis.org/latest/es/docs/user_manual/working_with_raster/raster_properties.html#identify-raster-cells)  
   Documentación sobre consulta de valores de bandas, coordenadas, fila y columna mediante Identificar objetos espaciales.
 
-- [QGIS Project. *QGIS 3.44 — Lección: Trabajar con datos ráster*](https://docs.qgis.org/3.44/es/docs/training_manual/rasters/data_manipulation.html)  
+- [QGIS Project. *Lección: Trabajar con datos ráster*](https://docs.qgis.org/latest/es/docs/training_manual/rasters/data_manipulation.html)  
   Ejercicios oficiales para incorporar y gestionar conjuntos de datos ráster dentro de QGIS.
 
-- [QGIS Project. *QGIS 3.44 — Lección: Cambio de la simbología ráster*](https://docs.qgis.org/3.44/es/docs/training_manual/rasters/changing_symbology.html)  
+- [QGIS Project. *Lección: Cambio de la simbología ráster*](https://docs.qgis.org/latest/es/docs/training_manual/rasters/changing_symbology.html)  
   Material práctico sobre escala de grises, pseudocolor, valores mínimos y máximos y representación de modelos de elevación.
 
-- [QGIS Project. *QGIS 3.44 — Análisis ráster*](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_raster/raster_analysis.html)  
+- [QGIS Project. *Análisis ráster*](https://docs.qgis.org/latest/es/docs/user_manual/working_with_raster/raster_analysis.html)  
   Introducción a operaciones de análisis basadas en los valores de píxel, incluida la Calculadora ráster.
 
 - [GDAL. *Raster Data Model*](https://gdal.org/en/stable/user/raster_data_model.html)  

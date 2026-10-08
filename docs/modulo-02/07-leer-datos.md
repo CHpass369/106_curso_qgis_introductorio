@@ -29,7 +29,7 @@ description: Lectura y control básico de calidad de atributos en QGIS; tabla de
 
 !!! note "Antes de empezar"
 
-    - **Entorno:** QGIS con el perfil `curso-qgis`. Los procedimientos toman como referencia **QGIS 3.44**; algunos nombres pueden variar ligeramente según el idioma o la versión instalada.
+    - **Entorno:** QGIS con el perfil `curso-qgis`. Los procedimientos toman como referencia **QGIS 4.x**; algunos nombres pueden variar ligeramente según el idioma o la versión instalada.
     - **Punto de partida:** haber completado la [lección 2.6](06-problemas-coordenadas.md), de manera que las capas utilizadas posean una referencia espacial conocida y validada.
     - **Datos recomendados:** una capa de equipamientos, establecimientos, predios, comunidades u otra fuente con geometría y varios atributos.
     - **Campos recomendados:** identificador, nombre, categoría, estado, población o capacidad, fecha y alguna variable numérica.
@@ -3038,28 +3038,28 @@ Antes de utilizar atributos en un análisis deberíamos poder responder:
 
 ## Referencias
 
-- [QGIS Project. *QGIS 3.44 — Trabajar con la tabla de atributos*](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/attribute_table.html)  
+- [QGIS Project. *Trabajar con la tabla de atributos*](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/attribute_table.html)  
   Documentación oficial sobre estructura de la tabla de atributos, navegación, selección, edición y manejo de registros en capas espaciales y no espaciales.
 
-- [QGIS Project. *QGIS 3.44 — Propiedades de capas vectoriales*](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/vector_properties.html)  
+- [QGIS Project. *Propiedades de capas vectoriales*](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/vector_properties.html)  
   Referencia sobre información de la capa, campos, tipos de atributos, origen de datos, geometría, SRC y otras propiedades de fuentes vectoriales.
 
-- [QGIS Project. *QGIS 3.44 — Herramientas generales y resumen estadístico*](https://docs.qgis.org/3.44/es/docs/user_manual/introduction/general_tools.html)  
+- [QGIS Project. *Herramientas generales y resumen estadístico*](https://docs.qgis.org/latest/es/docs/user_manual/introduction/general_tools.html)  
   Documentación del panel de estadísticas de QGIS y de las medidas disponibles según el tipo de campo, incluyendo valores faltantes, únicos, mínimo, máximo, media y cuartiles.
 
-- [QGIS Project. *QGIS 3.44 — Estadísticas básicas para campos*](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/qgis/vectoranalysis.html#basic-statistics-for-fields)  
+- [QGIS Project. *Estadísticas básicas para campos*](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/vectoranalysis.html#basic-statistics-for-fields)  
   Documentación del algoritmo de Procesamiento para obtener estadísticas reproducibles sobre campos numéricos, textuales y temporales.
 
-- [QGIS Project. *QGIS 3.44 — Expresiones*](https://docs.qgis.org/3.44/es/docs/user_manual/expressions/expression.html)  
+- [QGIS Project. *Expresiones*](https://docs.qgis.org/latest/es/docs/user_manual/expressions/expression.html)  
   Introducción al sistema de expresiones de QGIS, que posteriormente permitirá transformar reglas de control de calidad en consultas y validaciones automatizadas.
 
-- [QGIS Project. *QGIS 3.44 — Lista de funciones de expresiones*](https://docs.qgis.org/3.44/es/docs/user_manual/expressions/functions_list.html)  
+- [QGIS Project. *Lista de funciones de expresiones*](https://docs.qgis.org/latest/es/docs/user_manual/expressions/functions_list.html)  
   Referencia completa de funciones disponibles para trabajar con atributos, texto, números, fechas, geometrías y valores NULL.
 
-- [QGIS Project. *QGIS 3.44 — Selección de entidades*](https://docs.qgis.org/3.44/es/docs/user_manual/introduction/general_tools.html#selecting-features)  
+- [QGIS Project. *Selección de entidades*](https://docs.qgis.org/latest/es/docs/user_manual/introduction/general_tools.html#selecting-features)  
   Referencia sobre herramientas para seleccionar entidades desde el mapa y utilizar subconjuntos durante la inspección y análisis.
 
-- [QGIS Project. *QGIS 3.44 — Manual de formación*](https://docs.qgis.org/3.44/es/docs/training_manual/)  
+- [QGIS Project. *Manual de formación*](https://docs.qgis.org/latest/es/docs/training_manual/)  
   Material oficial de aprendizaje con ejercicios sobre atributos, selección, consultas y análisis de datos vectoriales.
 
 - [ISO. *ISO 19157 — Geographic information — Data quality*](https://www.iso.org/standard/66199.html)  

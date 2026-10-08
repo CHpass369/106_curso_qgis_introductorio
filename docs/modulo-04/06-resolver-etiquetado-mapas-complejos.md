@@ -180,7 +180,7 @@ Puede construirse mediante:
 expresiones
 ```
 
-QGIS permite utilizar un atributo o una expresión como contenido de la etiqueta. :chatgpt-content-reference{index="1"}
+QGIS permite utilizar un atributo o una expresión como contenido de la etiqueta.
 
 ### Ejemplo básico
 
@@ -583,7 +583,7 @@ Un nombre de calle no debería ocultar:
 el símbolo del hospital
 ```
 
-QGIS permite controlar interacciones entre etiquetas y entidades mediante reglas de etiquetado y obstáculos. En QGIS 3.44 existen reglas de proyecto para impedir superposiciones o empujar etiquetas respecto de entidades o etiquetas de otras capas. :chatgpt-content-reference{index="2"}
+QGIS permite controlar interacciones entre etiquetas y entidades mediante reglas de etiquetado y obstáculos. QGIS dispone de reglas de proyecto para impedir superposiciones o empujar etiquetas respecto de entidades o etiquetas de otras capas.
 
 ---
 
@@ -698,7 +698,7 @@ QGIS permite utilizar:
 etiquetado basado en reglas
 ```
 
-además del etiquetado individual. :chatgpt-content-reference{index="3"}
+además del etiquetado individual.
 
 Esto es útil cuando una misma capa contiene:
 
@@ -870,7 +870,7 @@ sin utilizar necesariamente un gran:
 halo visible
 ```
 
-QGIS 3.44 incluye opciones específicas de máscara dentro de la configuración de etiquetas. :chatgpt-content-reference{index="4"}
+QGIS incluye opciones específicas de máscara dentro de la configuración de etiquetas.
 
 ---
 
@@ -928,7 +928,7 @@ y mantener la relación mediante:
 una línea de llamada
 ```
 
-QGIS dispone de configuración específica de `Callouts` dentro del etiquetado. :chatgpt-content-reference{index="5"}
+QGIS dispone de configuración específica de `Callouts` dentro del etiquetado.
 
 ### Uso frecuente
 
@@ -1020,7 +1020,7 @@ QGIS puede decidir no dibujar una etiqueta porque:
 no encontró una posición adecuada
 ```
 
-QGIS 3.44 incluye una opción para mostrar las etiquetas no colocadas y herramientas de depuración de candidatos de colocación. :chatgpt-content-reference{index="6"}
+QGIS incluye una opción para mostrar las etiquetas no colocadas y herramientas de depuración de candidatos de colocación.
 
 ### Esto es fundamental
 
@@ -1075,7 +1075,7 @@ Para depuración, QGIS puede mostrar:
 posiciones candidatas
 ```
 
-que el motor considera durante la colocación. :chatgpt-content-reference{index="7"}
+que el motor considera durante la colocación.
 
 Esto ayuda a comprender:
 
@@ -1114,7 +1114,7 @@ ocultar
 
 una etiqueta manualmente.
 
-QGIS dispone de herramientas para mover y editar etiquetas desde el lienzo; estas posiciones pueden almacenarse en campos auxiliares sin necesidad de modificar directamente la fuente principal. :chatgpt-content-reference{index="8"}
+QGIS dispone de herramientas para mover y editar etiquetas desde el lienzo; estas posiciones pueden almacenarse en campos auxiliares sin necesidad de modificar directamente la fuente principal.
 
 ### Esto es útil cuando
 
@@ -2234,17 +2234,17 @@ La pregunta central será:
 
 ## Referencias
 
-- [QGIS 3.44 — Propiedades de etiquetas](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/vector_properties.html)  
+- [QGIS — Propiedades de etiquetas](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/vector_properties.html)  
   Configuración de métodos de etiquetado, texto, formato, buffer, máscara, llamadas, colocación y renderizado.
 
-- [QGIS 3.44 — Reglas de etiquetado del proyecto](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/vector_properties.html)  
+- [QGIS — Reglas de etiquetado del proyecto](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/vector_properties.html)  
   Control de interacciones entre etiquetas y entidades de distintas capas.
 
-- [QGIS 3.44 — Barra de herramientas de etiquetas](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/vector_properties.html)  
+- [QGIS — Barra de herramientas de etiquetas](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/vector_properties.html)  
   Herramientas para revisar, mover, fijar, ocultar y diagnosticar etiquetas.
 
-- [QGIS 3.44 — Expresiones](https://docs.qgis.org/3.44/es/docs/user_manual/expressions/)  
+- [QGIS — Expresiones](https://docs.qgis.org/latest/es/docs/user_manual/expressions/)  
   Construcción dinámica del contenido de las etiquetas.
 
-- [QGIS Training Manual](https://docs.qgis.org/3.44/es/docs/training_manual/)  
+- [QGIS Training Manual](https://docs.qgis.org/latest/es/docs/training_manual/)  
   Material oficial de formación de QGIS.

@@ -1172,22 +1172,22 @@ mindmap
 
 ## Referencias del módulo
 
-- [QGIS 3.44 — Manual de usuario](https://docs.qgis.org/3.44/es/docs/user_manual/)  
+- [QGIS — Manual de usuario](https://docs.qgis.org/latest/es/docs/user_manual/)  
   Referencia general para el trabajo con capas vectoriales, ráster, expresiones y procesamiento.
 
-- [QGIS 3.44 — Trabajo con datos vectoriales](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/)  
+- [QGIS — Trabajo con datos vectoriales](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/)  
   Edición, atributos, formularios, relaciones y propiedades vectoriales.
 
-- [QGIS 3.44 — Trabajo con datos ráster](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_raster/)  
+- [QGIS — Trabajo con datos ráster](https://docs.qgis.org/latest/es/docs/user_manual/working_with_raster/)  
   Propiedades, visualización, análisis y procesamiento de datos matriciales.
 
-- [QGIS 3.44 — Expresiones](https://docs.qgis.org/3.44/es/docs/user_manual/expressions/)  
+- [QGIS — Expresiones](https://docs.qgis.org/latest/es/docs/user_manual/expressions/)  
   Lenguaje de expresiones utilizado para cálculos, condiciones e indicadores.
 
-- [QGIS 3.44 — Procesamiento](https://docs.qgis.org/3.44/es/docs/user_manual/processing/)  
+- [QGIS — Procesamiento](https://docs.qgis.org/latest/es/docs/user_manual/processing/)  
   Caja de herramientas, ejecución por lotes y Modelador gráfico.
 
-- [QGIS Training Manual](https://docs.qgis.org/3.44/es/docs/training_manual/)  
+- [QGIS Training Manual](https://docs.qgis.org/latest/es/docs/training_manual/)  
   Material oficial de formación y ejercicios prácticos.
 
 - [Material for MkDocs — Reference](https://squidfunk.github.io/mkdocs-material/reference/)  

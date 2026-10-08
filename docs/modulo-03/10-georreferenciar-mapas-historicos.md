@@ -172,7 +172,7 @@ flowchart LR
 
 !!! info "Necesitarás"
 
-    - QGIS 3.44.
+    - QGIS 4.x (ver [2.1 Preparar un entorno de trabajo](../modulo-02/01-entorno-trabajo.md)).
     - Un mapa escaneado o imagen cartográfica.
     - Una fuente de referencia actual o conocida.
     - Un SRC de trabajo definido.
@@ -2889,19 +2889,19 @@ flowchart LR
 
 ## Referencias
 
-- [QGIS 3.44 — Georreferenciador](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_raster/georeferencer.html)  
+- [QGIS — Georreferenciador](https://docs.qgis.org/latest/es/docs/user_manual/working_with_raster/georeferencer.html)  
   Documentación oficial sobre puntos de control, transformaciones, remuestreo y generación del ráster georreferenciado.
 
-- [QGIS 3.44 — Sistemas de referencia de coordenadas](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_projections/working_with_projections.html)  
+- [QGIS — Sistemas de referencia de coordenadas](https://docs.qgis.org/latest/es/docs/user_manual/working_with_projections/working_with_projections.html)  
   Fundamentos para interpretar y seleccionar correctamente el SRC destino.
 
-- [QGIS 3.44 — Propiedades ráster](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_raster/raster_properties.html)  
+- [QGIS — Propiedades ráster](https://docs.qgis.org/latest/es/docs/user_manual/working_with_raster/raster_properties.html)  
   Información sobre resolución, visualización, transparencia y propiedades del producto generado.
 
-- [QGIS 3.44 — Digitalización vectorial](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/editing_geometry_attributes.html)  
+- [QGIS — Digitalización vectorial](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/editing_geometry_attributes.html)  
   Herramientas para recuperar información vectorial después de la georreferenciación.
 
-- [QGIS Training Manual](https://docs.qgis.org/3.44/es/docs/training_manual/)  
+- [QGIS Training Manual](https://docs.qgis.org/latest/es/docs/training_manual/)  
   Ejercicios oficiales relacionados con georreferenciación, edición y análisis espacial.
 
 - [GDAL — Georeferencing and Warping](https://gdal.org/en/stable/programs/gdalwarp.html)  

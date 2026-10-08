@@ -30,7 +30,7 @@ description: Diagnóstico y corrección de problemas de coordenadas en QGIS; SRC
 
 !!! note "Antes de empezar"
 
-    - **Entorno:** QGIS con el perfil `curso-qgis`. Los procedimientos toman como referencia **QGIS 3.44**; algunos nombres pueden variar ligeramente según el idioma o la versión instalada.
+    - **Entorno:** QGIS con el perfil `curso-qgis`. Los procedimientos toman como referencia **QGIS 4.x**; algunos nombres pueden variar ligeramente según el idioma o la versión instalada.
     - **Punto de partida:** haber completado la [lección 2.5](05-tablas-coordenadas.md), especialmente la identificación de X/Y y SRC de origen.
     - **Datos recomendados:** al menos dos capas que representen el mismo territorio en diferentes SRC y una tercera capa cuyo SRC haya sido asignado incorrectamente.
     - **Referencia territorial:** disponer de una capa cuya posición haya sido previamente validada.
@@ -2350,28 +2350,28 @@ Eso es una **justificación técnica**.
 
 ## Referencias
 
-- [QGIS Project. *QGIS 3.44 — Trabajar con Proyecciones*](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_projections/working_with_projections.html)  
+- [QGIS Project. *Trabajar con Proyecciones*](https://docs.qgis.org/latest/es/docs/user_manual/working_with_projections/working_with_projections.html)  
   Documentación oficial sobre SRC de capa, SRC del proyecto, reproyección al vuelo, selector de sistemas de referencia y transformaciones de datum.
 
-- [QGIS Project. *QGIS 3.44 — Sistemas de Coordenadas de las capas y del proyecto*](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_projections/working_with_projections.html#layer-coordinate-reference-systems)  
+- [QGIS Project. *Sistemas de Coordenadas de las capas y del proyecto*](https://docs.qgis.org/latest/es/docs/user_manual/working_with_projections/working_with_projections.html#layer-coordinate-reference-systems)  
   Referencia para comprender cómo QGIS interpreta el SRC de cada capa y cómo lo relaciona con el SRC configurado para el proyecto.
 
-- [QGIS Project. *QGIS 3.44 — Transformaciones de Datum*](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_projections/working_with_projections.html#datum-transformations)  
+- [QGIS Project. *Transformaciones de Datum*](https://docs.qgis.org/latest/es/docs/user_manual/working_with_projections/working_with_projections.html#datum-transformations)  
   Explica la selección de operaciones de transformación, precisión, área de uso y utilización de cuadrículas de transformación.
 
-- [QGIS Project. *QGIS 3.44 — Configuración de SRC y transformaciones*](https://docs.qgis.org/3.44/es/docs/user_manual/introduction/qgis_configuration.html)  
+- [QGIS Project. *Configuración de SRC y transformaciones*](https://docs.qgis.org/latest/es/docs/user_manual/introduction/qgis_configuration.html)  
   Documentación sobre la configuración general de SRC, comportamiento de nuevas capas y proyectos y preferencias para transformaciones de coordenadas.
 
-- [QGIS Project. *QGIS 3.44 — CRS y reproyección en Processing*](https://docs.qgis.org/3.44/es/docs/training_manual/processing/crs.html)  
+- [QGIS Project. *CRS y reproyección en Processing*](https://docs.qgis.org/latest/es/docs/training_manual/processing/crs.html)  
   Lección del manual de formación que muestra cómo capas con diferentes SRC pueden coincidir visualmente mediante reproyección al vuelo y cómo cambia una capa al reproyectarla.
 
-- [QGIS Project. *QGIS 3.44 — Algoritmos vectoriales generales*](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/qgis/vectorgeneral.html)  
+- [QGIS Project. *Algoritmos vectoriales generales*](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/vectorgeneral.html)  
   Incluye herramientas de procesamiento relacionadas con **Asignar proyección** y **Reproyectar capa**, fundamentales para distinguir entre redefinir y transformar coordenadas.
 
-- [QGIS Project. *QGIS 3.44 — Mediciones en la vista de mapa*](https://docs.qgis.org/3.44/es/docs/user_manual/map_views/map_view.html#measurements)  
+- [QGIS Project. *Mediciones en la vista de mapa*](https://docs.qgis.org/latest/es/docs/user_manual/map_views/map_view.html#measurements)  
   Documentación oficial sobre herramientas de medición, cálculo elipsoidal, medición planimétrica, unidades y configuración del elipsoide.
 
-- [QGIS Project. *QGIS 3.44 — Manual de Aprendizaje*](https://docs.qgis.org/3.44/es/docs/training_manual/)  
+- [QGIS Project. *Manual de Aprendizaje*](https://docs.qgis.org/latest/es/docs/training_manual/)  
   Material práctico oficial de QGIS para ejercicios de reproyección, transformación y análisis espacial.
 
 - [PROJ. *Coordinate operations*](https://proj.org/en/stable/operations/index.html)  

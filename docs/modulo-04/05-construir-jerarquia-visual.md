@@ -2053,16 +2053,16 @@ La pregunta central será:
 
 ## Referencias
 
-- [QGIS 3.44 — Simbología vectorial](https://docs.qgis.org/3.44/es/docs/user_manual/style_library/symbol_selector.html)  
+- [QGIS — Simbología vectorial](https://docs.qgis.org/latest/es/docs/user_manual/style_library/symbol_selector.html)  
   Configuración de símbolos, capas de símbolo y propiedades visuales.
 
-- [QGIS 3.44 — Propiedades vectoriales](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/vector_properties.html)  
+- [QGIS — Propiedades vectoriales](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/vector_properties.html)  
   Simbología por reglas, orden de representación y propiedades dependientes de escala.
 
-- [QGIS 3.44 — Biblioteca de estilos](https://docs.qgis.org/3.44/es/docs/user_manual/style_library/style_manager.html)  
+- [QGIS — Biblioteca de estilos](https://docs.qgis.org/latest/es/docs/user_manual/style_library/style_manager.html)  
   Gestión y reutilización de símbolos y estilos.
 
-- [QGIS Training Manual](https://docs.qgis.org/3.44/es/docs/training_manual/)  
+- [QGIS Training Manual](https://docs.qgis.org/latest/es/docs/training_manual/)  
   Material oficial de formación.
 
 - [Material for MkDocs — Reference](https://squidfunk.github.io/mkdocs-material/reference/)  

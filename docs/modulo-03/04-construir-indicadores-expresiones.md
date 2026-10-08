@@ -181,7 +181,7 @@ flowchart LR
 
 !!! info "Necesitarás"
 
-    - QGIS 3.44.
+    - QGIS 4.x (ver [2.1 Preparar un entorno de trabajo](../modulo-02/01-entorno-trabajo.md)).
     - Una capa GeoPackage con atributos numéricos y categóricos.
     - Una capa poligonal para los cálculos geométricos.
     - Haber completado:
@@ -3631,25 +3631,25 @@ flowchart LR
 
 ## Referencias
 
-- [QGIS 3.44 — Expresiones](https://docs.qgis.org/3.44/es/docs/user_manual/expressions/expression.html)  
+- [QGIS — Expresiones](https://docs.qgis.org/latest/es/docs/user_manual/expressions/expression.html)  
   Introducción al lenguaje de expresiones utilizado en QGIS.
 
-- [QGIS 3.44 — Lista de funciones](https://docs.qgis.org/3.44/es/docs/user_manual/expressions/functions_list.html)  
+- [QGIS — Lista de funciones](https://docs.qgis.org/latest/es/docs/user_manual/expressions/functions_list.html)  
   Referencia de funciones de texto, condiciones, conversiones, geometría y tratamiento de valores.
 
-- [QGIS 3.44 — Tabla de atributos](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/attribute_table.html)  
+- [QGIS — Tabla de atributos](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/attribute_table.html)  
   Documentación sobre Calculadora de campos, edición y campos virtuales.
 
-- [QGIS 3.44 — Expresiones condicionales](https://docs.qgis.org/3.44/es/docs/user_manual/expressions/functions_list.html)  
+- [QGIS — Expresiones condicionales](https://docs.qgis.org/latest/es/docs/user_manual/expressions/functions_list.html)  
   Referencia para `if()`, `CASE`, `coalesce()` y otras funciones de control.
 
-- [QGIS 3.44 — Funciones de geometría](https://docs.qgis.org/3.44/es/docs/user_manual/expressions/functions_list.html)  
+- [QGIS — Funciones de geometría](https://docs.qgis.org/latest/es/docs/user_manual/expressions/functions_list.html)  
   Funciones relacionadas con área, longitud, perímetro y geometrías.
 
-- [QGIS 3.44 — Procesamiento y Calculadora de campos](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/qgis/vectortable.html)  
+- [QGIS — Procesamiento y Calculadora de campos](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/vectortable.html)  
   Algoritmos para incorporar cálculos dentro de flujos reproducibles.
 
-- [QGIS Training Manual](https://docs.qgis.org/3.44/es/docs/training_manual/)  
+- [QGIS Training Manual](https://docs.qgis.org/latest/es/docs/training_manual/)  
   Ejercicios oficiales relacionados con expresiones, tablas y análisis vectorial.
 
 - [Material for MkDocs — Reference](https://squidfunk.github.io/mkdocs-material/reference/)  

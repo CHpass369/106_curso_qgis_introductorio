@@ -2233,17 +2233,17 @@ y resolveremos una dificultad nueva:
 
 ## Referencias
 
-- [QGIS 3.44 — Diseñador de impresión](https://docs.qgis.org/3.44/es/docs/user_manual/print_composer/)  
+- [QGIS — Diseñador de impresión](https://docs.qgis.org/latest/es/docs/user_manual/print_composer/)  
   Herramientas para crear y organizar composiciones cartográficas.
 
-- [QGIS 3.44 — Elementos del Diseñador](https://docs.qgis.org/3.44/es/docs/user_manual/print_composer/composer_items/)  
+- [QGIS — Elementos del Diseñador](https://docs.qgis.org/latest/es/docs/user_manual/print_composer/composer_items/)  
   Mapas, etiquetas, leyendas, escalas, formas y otros elementos de composición.
 
-- [QGIS 3.44 — Gestión del diseño](https://docs.qgis.org/3.44/es/docs/user_manual/print_composer/overview_composer.html)  
+- [QGIS — Gestión del diseño](https://docs.qgis.org/latest/es/docs/user_manual/print_composer/overview_composer.html)  
   Configuración de páginas, guías, selección y administración de elementos.
 
-- [QGIS 3.44 — Plantillas de composición](https://docs.qgis.org/3.44/es/docs/user_manual/print_composer/overview_composer.html)  
+- [QGIS — Plantillas de composición](https://docs.qgis.org/latest/es/docs/user_manual/print_composer/overview_composer.html)  
   Creación y reutilización de plantillas `.qpt`.
 
-- [QGIS Training Manual](https://docs.qgis.org/3.44/es/docs/training_manual/)  
+- [QGIS Training Manual](https://docs.qgis.org/latest/es/docs/training_manual/)  
   Material oficial de formación de QGIS.

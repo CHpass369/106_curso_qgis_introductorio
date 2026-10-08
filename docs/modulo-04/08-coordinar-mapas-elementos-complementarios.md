@@ -1838,20 +1838,20 @@ La pregunta central será:
 
 ## Referencias
 
-- [QGIS 3.44 — Diseñador de impresión](https://docs.qgis.org/3.44/es/docs/user_manual/print_composer/)  
+- [QGIS — Diseñador de impresión](https://docs.qgis.org/latest/es/docs/user_manual/print_composer/)  
   Creación y administración de múltiples mapas dentro de una composición.
 
-- [QGIS 3.44 — Elemento mapa](https://docs.qgis.org/3.44/es/docs/user_manual/print_composer/composer_items/composer_map.html)  
+- [QGIS — Elemento mapa](https://docs.qgis.org/latest/es/docs/user_manual/print_composer/composer_items/composer_map.html)  
   Configuración de extensión, escala, cuadrículas y localizadores.
 
-- [QGIS 3.44 — Leyenda](https://docs.qgis.org/3.44/es/docs/user_manual/print_composer/composer_items/composer_legend.html)  
+- [QGIS — Leyenda](https://docs.qgis.org/latest/es/docs/user_manual/print_composer/composer_items/composer_legend.html)  
   Vinculación y configuración de leyendas.
 
-- [QGIS 3.44 — Escala gráfica](https://docs.qgis.org/3.44/es/docs/user_manual/print_composer/composer_items/composer_scale_bar.html)  
+- [QGIS — Escala gráfica](https://docs.qgis.org/latest/es/docs/user_manual/print_composer/composer_items/composer_scale_bar.html)  
   Configuración y asociación con mapas.
 
-- [QGIS 3.44 — Temas de mapa](https://docs.qgis.org/3.44/es/docs/user_manual/introduction/general_tools.html)  
+- [QGIS — Temas de mapa](https://docs.qgis.org/latest/es/docs/user_manual/introduction/general_tools.html)  
   Gestión de combinaciones de visibilidad y estilos.
 
-- [QGIS Training Manual](https://docs.qgis.org/3.44/es/docs/training_manual/)  
+- [QGIS Training Manual](https://docs.qgis.org/latest/es/docs/training_manual/)  
   Material oficial de formación de QGIS.

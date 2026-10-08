@@ -528,7 +528,7 @@ flowchart TB
 
 !!! note "Almacenar en un CRS y trabajar en otro"
 
-    Es habitual **almacenar e intercambiar** los datos en un CRS geográfico (por ejemplo, EPSG:4326) y **proyectarlos** al CRS más adecuado para cada análisis o mapa. QGIS permite incluso mostrar capas en distintos CRS en un mismo proyecto, reproyectándolas al vuelo. Lo practicaremos en el **Módulo 3**.
+    Es habitual **almacenar e intercambiar** los datos en un CRS geográfico (por ejemplo, EPSG:4326) y **proyectarlos** al CRS más adecuado para cada análisis o mapa. QGIS permite incluso mostrar capas en distintos CRS en un mismo proyecto, reproyectándolas al vuelo. Lo practicaremos en la lección [2.6 Resolver problemas de coordenadas](../modulo-02/06-problemas-coordenadas.md).
 
 ---
 

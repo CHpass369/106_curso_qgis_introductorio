@@ -173,7 +173,7 @@ flowchart LR
 
 !!! info "Necesitarás"
 
-    - QGIS 3.44.
+    - QGIS 4.x (ver [2.1 Preparar un entorno de trabajo](../modulo-02/01-entorno-trabajo.md)).
     - Una capa poligonal de distritos.
     - Una capa puntual de equipamientos o servicios.
     - Haber completado:
@@ -2812,25 +2812,25 @@ flowchart LR
 
 ## Referencias
 
-- [QGIS 3.44 — Selección por ubicación](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/qgis/vectorselection.html)  
+- [QGIS — Selección por ubicación](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/vectorselection.html)  
   Herramientas para seleccionar entidades mediante relaciones espaciales.
 
-- [QGIS 3.44 — Unir atributos por localización](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/qgis/vectorgeneral.html)  
+- [QGIS — Unir atributos por localización](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/vectorgeneral.html)  
   Algoritmos para transferir atributos según relaciones geométricas.
 
-- [QGIS 3.44 — Unir atributos por localización con resumen](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/qgis/vectorgeneral.html)  
+- [QGIS — Unir atributos por localización con resumen](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/vectorgeneral.html)  
   Herramientas para generar conteos, sumas y otros resúmenes espaciales.
 
-- [QGIS 3.44 — Análisis vectorial](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/qgis/vectoranalysis.html)  
+- [QGIS — Análisis vectorial](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/vectoranalysis.html)  
   Algoritmos para análisis de relaciones espaciales.
 
-- [QGIS 3.44 — Expresiones geométricas](https://docs.qgis.org/3.44/es/docs/user_manual/expressions/functions_list.html)  
+- [QGIS — Expresiones geométricas](https://docs.qgis.org/latest/es/docs/user_manual/expressions/functions_list.html)  
   Funciones espaciales y geométricas disponibles en expresiones.
 
-- [QGIS 3.44 — Trabajo con datos vectoriales](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/)  
+- [QGIS — Trabajo con datos vectoriales](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/)  
   Fundamentos de geometrías, selección y análisis vectorial.
 
-- [QGIS Training Manual](https://docs.qgis.org/3.44/es/docs/training_manual/)  
+- [QGIS Training Manual](https://docs.qgis.org/latest/es/docs/training_manual/)  
   Ejercicios oficiales de análisis espacial y procesamiento vectorial.
 
 - [Material for MkDocs — Reference](https://squidfunk.github.io/mkdocs-material/reference/)  

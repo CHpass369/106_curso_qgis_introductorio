@@ -183,7 +183,7 @@ flowchart LR
 
 !!! info "Necesitarás"
 
-    - QGIS 3.44.
+    - QGIS 4.x (ver [2.1 Preparar un entorno de trabajo](../modulo-02/01-entorno-trabajo.md)).
     - Una capa puntual de servicios.
     - Una capa poligonal de área de estudio.
     - Haber completado especialmente:
@@ -2278,7 +2278,7 @@ reduce dependencias
 Una ficha reproducible puede incluir:
 
 ```text
-QGIS 3.44
+QGIS 4.4
 ```
 
 y, cuando sea relevante:
@@ -3476,25 +3476,25 @@ flowchart LR
 
 ## Referencias
 
-- [QGIS 3.44 — Framework de Procesamiento](https://docs.qgis.org/3.44/es/docs/user_manual/processing/index.html)  
+- [QGIS — Framework de Procesamiento](https://docs.qgis.org/latest/es/docs/user_manual/processing/index.html)  
   Introducción al entorno de algoritmos, proveedores, historial y ejecución de procesos.
 
-- [QGIS 3.44 — Caja de herramientas de Procesamiento](https://docs.qgis.org/3.44/es/docs/user_manual/processing/toolbox.html)  
+- [QGIS — Caja de herramientas de Procesamiento](https://docs.qgis.org/latest/es/docs/user_manual/processing/toolbox.html)  
   Ejecución de algoritmos, parámetros, salidas y opciones de Procesamiento.
 
-- [QGIS 3.44 — Modelador gráfico](https://docs.qgis.org/3.44/es/docs/user_manual/processing/modeler.html)  
+- [QGIS — Modelador gráfico](https://docs.qgis.org/latest/es/docs/user_manual/processing/modeler.html)  
   Construcción de modelos mediante entradas, algoritmos, parámetros y dependencias.
 
-- [QGIS 3.44 — Ejecución por lotes](https://docs.qgis.org/3.44/es/docs/user_manual/processing/batch.html)  
+- [QGIS — Ejecución por lotes](https://docs.qgis.org/latest/es/docs/user_manual/processing/batch.html)  
   Ejecución repetida de un algoritmo sobre múltiples entradas o configuraciones.
 
-- [QGIS 3.44 — Historial de Procesamiento](https://docs.qgis.org/3.44/es/docs/user_manual/processing/history.html)  
+- [QGIS — Historial de Procesamiento](https://docs.qgis.org/latest/es/docs/user_manual/processing/history.html)  
   Registro de algoritmos y parámetros utilizados.
 
-- [QGIS 3.44 — Consola y comandos de Procesamiento](https://docs.qgis.org/3.44/es/docs/user_manual/processing/console.html)  
+- [QGIS — Consola y comandos de Procesamiento](https://docs.qgis.org/latest/es/docs/user_manual/processing/console.html)  
   Puente entre procedimientos gráficos y automatización mediante comandos.
 
-- [QGIS Training Manual](https://docs.qgis.org/3.44/es/docs/training_manual/)  
+- [QGIS Training Manual](https://docs.qgis.org/latest/es/docs/training_manual/)  
   Ejercicios oficiales para análisis, Procesamiento y automatización.
 
 - [Material for MkDocs — Reference](https://squidfunk.github.io/mkdocs-material/reference/)  

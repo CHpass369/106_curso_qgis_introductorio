@@ -94,21 +94,13 @@ En **marzo de 2026** se publicó **QGIS 4.0**, la primera versión mayor en ocho
 
 ### Estado actual
 
-!!! warning "Información vigente a septiembre de 2026"
-
-    Las versiones cambian cada mes. Antes de instalar, consulta la **hoja de ruta** oficial: <https://qgis.org/resources/roadmap/>
-
-| Línea | Versión actual | Nombre | Próximo hito |
-|---|---|---|---|
-| **LTR** | 3.44.x | Solothurn | Será reemplazada por QGIS 4.4 como LTR |
-| **Última versión** | 4.2.x | Belém do Pará | Corrección 4.2.3 a fines de septiembre de 2026 |
-| **Próxima LTR** | 4.4 | — | Publicación prevista para el **30 de octubre de 2026** |
+--8<-- "snippets/version-qgis.md"
 
 !!! tip "Recomendación para el curso"
 
     - **Todo el grupo debe usar la misma versión mayor y menor** (por ejemplo, 4.2 o 4.4). Las diferencias de corrección (4.2.2 frente a 4.2.3) no suelen causar problemas.
-    - Para un curso que empieza ahora y continuará varios meses, se recomienda **QGIS 4.x**: la línea 3.x ya no incorporará funciones nuevas.
-    - Cuando se publique **QGIS 4.4 LTR**, será la opción más estable para trabajos institucionales.
+    - El curso está preparado para **QGIS 4.x**: la línea 3.x ya no incorporará funciones nuevas.
+    - La **4.4** será la primera LTR de la serie 4 y la opción más estable para trabajos institucionales.
     - Registra la versión exacta en la **ficha del entorno** que construiremos en el reto práctico.
 
 ---

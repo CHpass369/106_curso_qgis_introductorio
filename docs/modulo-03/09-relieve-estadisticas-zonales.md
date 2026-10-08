@@ -152,7 +152,7 @@ flowchart LR
 
 !!! info "Necesitarás"
 
-    - QGIS 3.44.
+    - QGIS 4.x (ver [2.1 Preparar un entorno de trabajo](../modulo-02/01-entorno-trabajo.md)).
     - Un modelo digital de elevación.
     - Una capa poligonal de distritos, cuencas o unidades territoriales.
     - Haber completado:
@@ -2719,25 +2719,25 @@ flowchart LR
 
 ## Referencias
 
-- [QGIS 3.44 — Análisis del terreno](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/qgis/rasterterrainanalysis.html)  
+- [QGIS — Análisis del terreno](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/rasterterrainanalysis.html)  
   Herramientas relacionadas con pendiente y derivados del relieve.
 
-- [QGIS 3.44 — GDAL análisis ráster](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/gdal/rasteranalysis.html)  
+- [QGIS — GDAL análisis ráster](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/gdal/rasteranalysis.html)  
   Herramientas para hillshade, pendiente y otros derivados.
 
-- [QGIS 3.44 — Curvas de nivel](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/gdal/rasterextraction.html)  
+- [QGIS — Curvas de nivel](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/gdal/rasterextraction.html)  
   Generación de isolíneas a partir de modelos de elevación.
 
-- [QGIS 3.44 — Estadísticas zonales](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/qgis/rasteranalysis.html)  
+- [QGIS — Estadísticas zonales](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/rasteranalysis.html)  
   Resumen de variables ráster dentro de polígonos.
 
-- [QGIS 3.44 — Propiedades ráster](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_raster/raster_properties.html)  
+- [QGIS — Propiedades ráster](https://docs.qgis.org/latest/es/docs/user_manual/working_with_raster/raster_properties.html)  
   Información, simbología, histogramas y valores ráster.
 
-- [QGIS 3.44 — Simbología ráster](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_raster/raster_properties.html)  
+- [QGIS — Simbología ráster](https://docs.qgis.org/latest/es/docs/user_manual/working_with_raster/raster_properties.html)  
   Visualización mediante pseudocolor, contraste y transparencia.
 
-- [QGIS Training Manual](https://docs.qgis.org/3.44/es/docs/training_manual/)  
+- [QGIS Training Manual](https://docs.qgis.org/latest/es/docs/training_manual/)  
   Ejercicios oficiales relacionados con análisis del relieve.
 
 - [Material for MkDocs — Reference](https://squidfunk.github.io/mkdocs-material/reference/)  

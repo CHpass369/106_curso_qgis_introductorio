@@ -1975,20 +1975,20 @@ La pregunta central será:
 
 ## Referencias
 
-- [QGIS 3.44 — Expresiones](https://docs.qgis.org/3.44/es/docs/user_manual/expressions/)  
+- [QGIS — Expresiones](https://docs.qgis.org/latest/es/docs/user_manual/expressions/)  
   Funciones, operadores y variables utilizadas para construir contenido dinámico.
 
-- [QGIS 3.44 — Diseñador de impresión](https://docs.qgis.org/3.44/es/docs/user_manual/print_composer/)  
+- [QGIS — Diseñador de impresión](https://docs.qgis.org/latest/es/docs/user_manual/print_composer/)  
   Configuración de elementos y propiedades dependientes de datos.
 
-- [QGIS 3.44 — Elemento etiqueta](https://docs.qgis.org/3.44/es/docs/user_manual/print_composer/composer_items/composer_label.html)  
+- [QGIS — Elemento etiqueta](https://docs.qgis.org/latest/es/docs/user_manual/print_composer/composer_items/composer_label.html)  
   Uso de texto y expresiones dentro de composiciones.
 
-- [QGIS 3.44 — Tablas de atributos en composiciones](https://docs.qgis.org/3.44/es/docs/user_manual/print_composer/composer_items/composer_attribute_table.html)  
+- [QGIS — Tablas de atributos en composiciones](https://docs.qgis.org/latest/es/docs/user_manual/print_composer/composer_items/composer_attribute_table.html)  
   Incorporación de tablas vinculadas a capas.
 
-- [QGIS 3.44 — Variables](https://docs.qgis.org/3.44/es/docs/user_manual/expressions/expression.html)  
+- [QGIS — Variables](https://docs.qgis.org/latest/es/docs/user_manual/expressions/expression.html)  
   Uso de variables de contexto dentro del motor de expresiones.
 
-- [QGIS Training Manual](https://docs.qgis.org/3.44/es/docs/training_manual/)  
+- [QGIS Training Manual](https://docs.qgis.org/latest/es/docs/training_manual/)  
   Material oficial de formación de QGIS.

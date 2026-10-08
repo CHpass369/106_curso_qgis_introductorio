@@ -177,7 +177,7 @@ Un **CRS proyectado** toma un CRS geográfico y le aplica una **proyección cart
 
     Si calculas el área de un predio en un CRS geográfico usando geometría plana, el resultado estará en **grados cuadrados**, una unidad sin sentido práctico. Como vimos en el tema 1.3, un grado de longitud mide unos 106 km en el centro de Bolivia y 111 km en el ecuador.
 
-    Para medir, usa un **CRS proyectado adecuado** o herramientas que calculen sobre el **elipsoide**. Veremos cómo hacerlo en QGIS en el **Módulo 3**.
+    Para medir, usa un **CRS proyectado adecuado** o herramientas que calculen sobre el **elipsoide**. Veremos cómo hacerlo en QGIS en la lección [2.6 Resolver problemas de coordenadas](../modulo-02/06-problemas-coordenadas.md).
 
 ### Otros tipos de CRS
 
@@ -554,7 +554,7 @@ flowchart TB
     - **Asignar (definir) un CRS:** le dice al software cómo **interpretar** las coordenadas existentes. Los números **no cambian**. Se usa cuando el CRS falta o está mal declarado.
     - **Reproyectar (transformar):** **calcula nuevas coordenadas** en otro CRS. Los números **sí cambian**, pero el lugar representado es el mismo.
 
-    Confundirlas es uno de los errores más frecuentes en SIG. Practicaremos ambas operaciones en QGIS en el **Módulo 3**.
+    Confundirlas es uno de los errores más frecuentes en SIG. Practicaremos ambas operaciones en QGIS en la lección [2.6 Resolver problemas de coordenadas](../modulo-02/06-problemas-coordenadas.md).
 
 ---
 

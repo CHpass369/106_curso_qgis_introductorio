@@ -2071,16 +2071,16 @@ para resolver una nueva pregunta:
 
 ## Referencias
 
-- [QGIS 3.44 — Propiedades de capas vectoriales](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/vector_properties.html)  
+- [QGIS — Propiedades de capas vectoriales](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/vector_properties.html)  
   Configuración de simbología categorizada y graduada.
 
-- [QGIS 3.44 — Selector de símbolos](https://docs.qgis.org/3.44/es/docs/user_manual/style_library/symbol_selector.html)  
+- [QGIS — Selector de símbolos](https://docs.qgis.org/latest/es/docs/user_manual/style_library/symbol_selector.html)  
   Configuración de símbolos, colores y propiedades visuales.
 
-- [QGIS 3.44 — Expresiones](https://docs.qgis.org/3.44/es/docs/user_manual/expressions/)  
+- [QGIS — Expresiones](https://docs.qgis.org/latest/es/docs/user_manual/expressions/)  
   Construcción de variables de cambio y otros indicadores.
 
-- [QGIS Training Manual](https://docs.qgis.org/3.44/es/docs/training_manual/)  
+- [QGIS Training Manual](https://docs.qgis.org/latest/es/docs/training_manual/)  
   Material oficial de formación.
 
 - [ColorBrewer](https://colorbrewer2.org/)  

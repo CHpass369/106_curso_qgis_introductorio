@@ -2492,3 +2492,14 @@ tbody tr:hover {
     min-width: max-content;
   }
 }
+
+/* ============================================================
+   MARCADORES DE PRODUCCIÓN
+   Las especificaciones de capturas pendientes (!!! captura) se
+   conservan en el código fuente para el equipo editorial, pero
+   no se muestran a los estudiantes. Ver PENDIENTES.md.
+   ============================================================ */
+
+.md-typeset .admonition.captura {
+  display: none;
+}

@@ -32,7 +32,7 @@ description: Simbología simple, categorizada y graduada, etiquetado básico, vi
 
 !!! note "Antes de empezar"
 
-    - **Entorno:** QGIS con el perfil `curso-qgis`. Los procedimientos toman como referencia **QGIS 3.44**; algunos nombres pueden variar ligeramente según la versión o idioma instalado.
+    - **Entorno:** QGIS con el perfil `curso-qgis`. Los procedimientos toman como referencia **QGIS 4.x**; algunos nombres pueden variar ligeramente según la versión o idioma instalado.
     - **Punto de partida:** haber completado la [lección 2.8](08-seleccionar-filtrar.md), de manera que las capas hayan sido previamente revisadas, filtradas y estructuradas.
     - **Datos recomendados:** capas vectoriales de puntos, líneas y polígonos con atributos cualitativos y cuantitativos.
     - **Ejemplos sugeridos:** equipamientos, distritos, vías, barrios, población, superficie, capacidad o categorías de servicios.
@@ -2719,37 +2719,37 @@ Estas preguntas preparan el camino hacia análisis posteriores.
 
 ## Referencias
 
-- [QGIS Project. *QGIS 3.44 — Simbología de capas vectoriales*](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/vector_properties.html#symbology-properties)  
+- [QGIS Project. *Simbología de capas vectoriales*](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/vector_properties.html#symbology-properties)  
   Documentación oficial sobre renderizadores de símbolo único, categorizado, graduado y otras opciones de representación vectorial.
 
-- [QGIS Project. *QGIS 3.44 — Selector de símbolos*](https://docs.qgis.org/3.44/es/docs/user_manual/style_library/symbol_selector.html)  
+- [QGIS Project. *Selector de símbolos*](https://docs.qgis.org/latest/es/docs/user_manual/style_library/symbol_selector.html)  
   Referencia sobre configuración de símbolos, capas de símbolo, tamaño, contorno, relleno, transparencia y propiedades definidas por datos.
 
-- [QGIS Project. *QGIS 3.44 — Biblioteca de estilos*](https://docs.qgis.org/3.44/es/docs/user_manual/style_library/index.html)  
+- [QGIS Project. *Biblioteca de estilos*](https://docs.qgis.org/latest/es/docs/user_manual/style_library/index.html)  
   Documentación sobre símbolos, rampas de color, estilos reutilizables y administración de recursos cartográficos dentro de QGIS.
 
-- [QGIS Project. *QGIS 3.44 — Propiedades de etiquetado de capas vectoriales*](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/vector_properties.html#labels-properties)  
+- [QGIS Project. *Propiedades de etiquetado de capas vectoriales*](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/vector_properties.html#labels-properties)  
   Referencia oficial sobre configuración de etiquetas, texto, formato, buffer, colocación, prioridad y comportamiento de etiquetado.
 
-- [QGIS Project. *QGIS 3.44 — Etiquetas controladas por datos*](https://docs.qgis.org/3.44/es/docs/user_manual/style_library/label_settings.html)  
+- [QGIS Project. *Etiquetas controladas por datos*](https://docs.qgis.org/latest/es/docs/user_manual/style_library/label_settings.html)  
   Documentación sobre configuración avanzada de etiquetas y propiedades controladas mediante atributos y expresiones.
 
-- [QGIS Project. *QGIS 3.44 — Representación dependiente de escala*](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/vector_properties.html)  
+- [QGIS Project. *Representación dependiente de escala*](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/vector_properties.html)  
   Documentación general de propiedades de capas vectoriales, incluida la configuración de visibilidad y comportamiento según escala.
 
-- [QGIS Project. *QGIS 3.44 — Expresiones*](https://docs.qgis.org/3.44/es/docs/user_manual/expressions/expression.html)  
+- [QGIS Project. *Expresiones*](https://docs.qgis.org/latest/es/docs/user_manual/expressions/expression.html)  
   Referencia para construir expresiones que pueden utilizarse en etiquetas, simbología y propiedades definidas por datos.
 
-- [QGIS Project. *QGIS 3.44 — Guardar y gestionar estilos*](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/vector_properties.html#style-menu)  
+- [QGIS Project. *Guardar y gestionar estilos*](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/vector_properties.html#style-menu)  
   Documentación sobre guardado, carga y reutilización de estilos de capas.
 
-- [QGIS Project. *QGIS 3.44 — Manual de formación: clasificación de datos vectoriales*](https://docs.qgis.org/3.44/es/docs/training_manual/vector_classification/index.html)  
+- [QGIS Project. *Manual de formación: clasificación de datos vectoriales*](https://docs.qgis.org/latest/es/docs/training_manual/vector_classification/index.html)  
   Material didáctico oficial sobre clasificación, simbología temática y representación de variables vectoriales.
 
-- [QGIS Project. *QGIS 3.44 — Manual de formación: simbología*](https://docs.qgis.org/3.44/es/docs/training_manual/basic_map/symbology.html)  
+- [QGIS Project. *Manual de formación: simbología*](https://docs.qgis.org/latest/es/docs/training_manual/basic_map/symbology.html)  
   Ejercicios introductorios oficiales sobre estilos de capas, símbolos y jerarquía cartográfica.
 
-- [QGIS Project. *QGIS 3.44 — Manual de formación: etiquetado*](https://docs.qgis.org/3.44/es/docs/training_manual/vector_classification/label_tool.html)  
+- [QGIS Project. *Manual de formación: etiquetado*](https://docs.qgis.org/latest/es/docs/training_manual/vector_classification/label_tool.html)  
   Ejercicios prácticos sobre configuración y mejora de etiquetas en capas vectoriales.
 
 - [ColorBrewer 2.0](https://colorbrewer2.org/)  

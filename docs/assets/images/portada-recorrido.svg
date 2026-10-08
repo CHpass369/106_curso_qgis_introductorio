@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 230" role="img" aria-labelledby="t d" font-family="Inter, Segoe UI, Arial, sans-serif">
+  <title id="t">Del dato al mapa</title>
+  <desc id="d">Cuatro etapas del curso: entender el dato, cargarlo en QGIS, analizarlo y publicarlo como mapa.</desc>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#14b8a6"/>
+    </marker>
+  </defs>
+  <g stroke="#14b8a6" stroke-width="3" fill="none" marker-end="url(#ar)">
+    <path d="M205 100 H 255"/><path d="M445 100 H 495"/><path d="M685 100 H 735"/>
+  </g>
+
+  <!-- 1 Entender -->
+  <g transform="translate(20,20)">
+    <rect width="180" height="160" rx="14" fill="#14b8a6" fill-opacity=".08" stroke="#14b8a6" stroke-width="2"/>
+    <ellipse cx="90" cy="70" rx="48" ry="44" fill="none" stroke="#64748b" stroke-width="2"/>
+    <ellipse cx="90" cy="70" rx="20" ry="44" fill="none" stroke="#64748b" stroke-width="1.5"/>
+    <path d="M42 70 H138 M48 48 H132 M48 92 H132" stroke="#64748b" stroke-width="1.5"/>
+    <circle cx="104" cy="58" r="6" fill="#ef4444"/>
+    <text x="90" y="142" text-anchor="middle" font-size="17" font-weight="700" fill="#14b8a6">1 · Entender</text>
+    <text x="90" y="200" text-anchor="middle" font-size="13" fill="#64748b">referencia, escala, calidad</text>
+  </g>
+
+  <!-- 2 Manejar -->
+  <g transform="translate(260,20)">
+    <rect width="180" height="160" rx="14" fill="#14b8a6" fill-opacity=".08" stroke="#14b8a6" stroke-width="2"/>
+    <g stroke="#64748b" stroke-width="2">
+      <path d="M40 90 L90 110 L140 90 L90 70 Z" fill="#22c55e" fill-opacity=".35"/>
+      <path d="M40 72 L90 92 L140 72 L90 52 Z" fill="#3b82f6" fill-opacity=".35"/>
+      <path d="M40 54 L90 74 L140 54 L90 34 Z" fill="#f59e0b" fill-opacity=".45"/>
+    </g>
+    <text x="90" y="142" text-anchor="middle" font-size="17" font-weight="700" fill="#14b8a6">2 · Manejar</text>
+    <text x="90" y="200" text-anchor="middle" font-size="13" fill="#64748b">capas y proyectos QGIS</text>
+  </g>
+
+  <!-- 3 Analizar -->
+  <g transform="translate(500,20)">
+    <rect width="180" height="160" rx="14" fill="#14b8a6" fill-opacity=".08" stroke="#14b8a6" stroke-width="2"/>
+    <circle cx="70" cy="68" r="34" fill="#3b82f6" fill-opacity=".18" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5 4"/>
+    <circle cx="112" cy="78" r="30" fill="#3b82f6" fill-opacity=".18" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5 4"/>
+    <circle cx="70" cy="68" r="5" fill="#ef4444"/><circle cx="112" cy="78" r="5" fill="#ef4444"/>
+    <g fill="#64748b"><circle cx="40" cy="104" r="3"/><circle cx="140" cy="40" r="3"/><circle cx="95" cy="66" r="3"/><circle cx="58" cy="50" r="3"/><circle cx="148" cy="104" r="3"/></g>
+    <text x="90" y="142" text-anchor="middle" font-size="17" font-weight="700" fill="#14b8a6">3 · Analizar</text>
+    <text x="90" y="200" text-anchor="middle" font-size="13" fill="#64748b">indicadores y relaciones</text>
+  </g>
+
+  <!-- 4 Comunicar -->
+  <g transform="translate(740,20)">
+    <rect width="180" height="160" rx="14" fill="#14b8a6" fill-opacity=".08" stroke="#14b8a6" stroke-width="2"/>
+    <rect x="35" y="24" width="110" height="94" rx="4" fill="none" stroke="#64748b" stroke-width="2"/>
+    <path d="M45 34 h40 v30 h-40 z" fill="#fde68a"/><path d="M85 34 h50 v30 h-50 z" fill="#f59e0b"/>
+    <path d="M45 64 h55 v30 h-55 z" fill="#b45309"/><path d="M100 64 h35 v30 h-35 z" fill="#fbbf24"/>
+    <path d="M45 102 h40 M45 110 h25" stroke="#64748b" stroke-width="3"/>
+    <path d="M128 100 l7 12 h-14 z" fill="#64748b"/>
+    <text x="90" y="142" text-anchor="middle" font-size="17" font-weight="700" fill="#14b8a6">4 · Comunicar</text>
+    <text x="90" y="200" text-anchor="middle" font-size="13" fill="#64748b">mapas, atlas y publicación</text>
+  </g>
+</svg>

@@ -185,7 +185,7 @@ flowchart LR
 
 !!! info "Necesitarás"
 
-    - QGIS 3.44.
+    - QGIS 4.x (ver [2.1 Preparar un entorno de trabajo](../modulo-02/01-entorno-trabajo.md)).
     - Un GeoPackage con una capa de equipamientos.
     - Una tabla de inspecciones.
     - Haber completado:
@@ -2943,25 +2943,25 @@ flowchart LR
 
 ## Referencias
 
-- [QGIS 3.44 — Uniones y relaciones entre capas](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/joins_relations.html)  
+- [QGIS — Uniones y relaciones entre capas](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/joins_relations.html)  
   Documentación oficial sobre uniones, relaciones uno a muchos y estructuras relacionadas.
 
-- [QGIS 3.44 — Propiedades de capas vectoriales](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/vector_properties.html)  
+- [QGIS — Propiedades de capas vectoriales](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/vector_properties.html)  
   Configuración de formularios, campos y comportamiento de las capas.
 
-- [QGIS 3.44 — Formularios de atributos](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/vector_properties.html)  
+- [QGIS — Formularios de atributos](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/vector_properties.html)  
   Configuración de relaciones dentro de formularios.
 
-- [QGIS 3.44 — Expresiones](https://docs.qgis.org/3.44/es/docs/user_manual/expressions/expression.html)  
+- [QGIS — Expresiones](https://docs.qgis.org/latest/es/docs/user_manual/expressions/expression.html)  
   Lenguaje utilizado para crear campos derivados y agregaciones.
 
-- [QGIS 3.44 — Funciones de expresiones](https://docs.qgis.org/3.44/es/docs/user_manual/expressions/functions_list.html)  
+- [QGIS — Funciones de expresiones](https://docs.qgis.org/latest/es/docs/user_manual/expressions/functions_list.html)  
   Referencia para `relation_aggregate()` y otras funciones.
 
-- [QGIS 3.44 — Algoritmos vectoriales generales](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/qgis/vectorgeneral.html)  
+- [QGIS — Algoritmos vectoriales generales](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/vectorgeneral.html)  
   Herramientas para unir atributos y generar salidas derivadas.
 
-- [QGIS Training Manual](https://docs.qgis.org/3.44/es/docs/training_manual/)  
+- [QGIS Training Manual](https://docs.qgis.org/latest/es/docs/training_manual/)  
   Material oficial para prácticas con tablas, atributos y modelos de datos.
 
 - [Material for MkDocs — Reference](https://squidfunk.github.io/mkdocs-material/reference/)  

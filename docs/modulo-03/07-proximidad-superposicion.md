@@ -171,7 +171,7 @@ flowchart LR
 
 !!! info "Necesitarás"
 
-    - QGIS 3.44.
+    - QGIS 4.x (ver [2.1 Preparar un entorno de trabajo](../modulo-02/01-entorno-trabajo.md)).
     - Una capa puntual de servicios o equipamientos.
     - Una capa poligonal de distritos o área de estudio.
     - Un SRC adecuado para trabajar con distancias y superficies.
@@ -2920,22 +2920,22 @@ flowchart LR
 
 ## Referencias
 
-- [QGIS 3.44 — Buffer](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/qgis/vectorgeometry.html)  
+- [QGIS — Buffer](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/vectorgeometry.html)  
   Documentación oficial sobre generación de zonas de proximidad.
 
-- [QGIS 3.44 — Superposición vectorial](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/qgis/vectoroverlay.html)  
+- [QGIS — Superposición vectorial](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/vectoroverlay.html)  
   Herramientas como Recortar, Intersección, Diferencia y operaciones de superposición.
 
-- [QGIS 3.44 — Disolver](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/qgis/vectorgeometry.html)  
+- [QGIS — Disolver](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/vectorgeometry.html)  
   Referencia para unificación de geometrías según atributos.
 
-- [QGIS 3.44 — Geometría vectorial](https://docs.qgis.org/3.44/es/docs/user_manual/processing_algs/qgis/vectorgeometry.html)  
+- [QGIS — Geometría vectorial](https://docs.qgis.org/latest/es/docs/user_manual/processing_algs/qgis/vectorgeometry.html)  
   Algoritmos de transformación y análisis geométrico.
 
-- [QGIS 3.44 — Expresiones geométricas](https://docs.qgis.org/3.44/es/docs/user_manual/expressions/functions_list.html)  
+- [QGIS — Expresiones geométricas](https://docs.qgis.org/latest/es/docs/user_manual/expressions/functions_list.html)  
   Funciones para cálculo de superficies, longitudes y geometrías.
 
-- [QGIS Training Manual](https://docs.qgis.org/3.44/es/docs/training_manual/)  
+- [QGIS Training Manual](https://docs.qgis.org/latest/es/docs/training_manual/)  
   Ejercicios oficiales de análisis vectorial y geoprocesamiento.
 
 - [Material for MkDocs — Reference](https://squidfunk.github.io/mkdocs-material/reference/)  

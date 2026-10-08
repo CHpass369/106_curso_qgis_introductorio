@@ -145,7 +145,7 @@ flowchart LR
 
 !!! info "Necesitarás"
 
-    - QGIS 3.44.
+    - QGIS 4.x (ver [2.1 Preparar un entorno de trabajo](../modulo-02/01-entorno-trabajo.md)).
     - Una capa GeoPackage editable.
     - Una estructura de campos conocida.
     - Haber completado:
@@ -3403,22 +3403,22 @@ flowchart LR
 
 ## Referencias
 
-- **QGIS 3.44 — Propiedades de capas vectoriales.**  
+- **QGIS — Propiedades de capas vectoriales.**  
   Configuración de campos, formularios, alias, widgets y restricciones.
 
-- **QGIS 3.44 — Formularios de atributos.**  
+- **QGIS — Formularios de atributos.**  
   Diseño automático, Arrastrar y soltar, grupos, pestañas y comportamiento de edición.
 
-- **QGIS 3.44 — Widgets de edición.**  
+- **QGIS — Widgets de edición.**  
   Texto, mapas de valores, relaciones de valores, casillas y fecha/hora.
 
-- **QGIS 3.44 — Expresiones.**  
+- **QGIS — Expresiones.**  
   Lenguaje utilizado para valores predeterminados y restricciones.
 
-- **QGIS 3.44 — Funciones de expresiones.**  
+- **QGIS — Funciones de expresiones.**  
   Funciones como `trim()`, `length()`, `regexp_match()` y operaciones condicionales.
 
-- **QGIS 3.44 — Creación de capas GeoPackage.**  
+- **QGIS — Creación de capas GeoPackage.**  
   Tipos de campos y definición inicial de la estructura.
 
 - **QGIS Training Manual — Creación de datos vectoriales.**  

@@ -1,2 +1,14 @@
-![Image title](https://dummyimage.com/220x300/eee/aaa){ align=left } Pablo A. Orellana C. es Licenciado en Planificación del Territorio y Medio Ambiente, con Maestría en Ciencias de la Geoinformación y Gestión Territorial, mención en Catastro Multifinalitario. Cuenta con formación y experiencia especializada en Administración de Tierras, implementación de geotecnologías y ciencia de datos geoespaciales, aplicadas al análisis territorial, la gestión de información y el fortalecimiento de procesos de planificación y toma de decisiones.
+---
+title: Instructor
+description: Perfil profesional del instructor del Curso Introductorio de QGIS.
+---
+
+# Instructor
+
+<!-- TODO-MANUAL[foto]: añadir foto real en docs/assets/images/instructor.jpg y descomentar la línea siguiente. -->
+<!-- ![Pablo A. Orellana C.](assets/images/instructor.jpg){ align=left width=200 loading=lazy } -->
+
+Pablo A. Orellana C. es Licenciado en Planificación del Territorio y Medio Ambiente, con Maestría en Ciencias de la Geoinformación y Gestión Territorial, mención en Catastro Multifinalitario. Cuenta con formación y experiencia especializada en Administración de Tierras, implementación de geotecnologías y ciencia de datos geoespaciales, aplicadas al análisis territorial, la gestión de información y el fortalecimiento de procesos de planificación y toma de decisiones.
+
+
 Su trayectoria se ha desarrollado tanto en el ámbito privado como en la gestión pública municipal, participando en procesos vinculados con territorio, catastro, información geográfica, modernización institucional y optimización de procedimientos. Su enfoque profesional está orientado a la innovación, el mejoramiento continuo y la integración de tecnologías, datos y metodologías, buscando generar soluciones eficientes, reproducibles y adaptadas a las necesidades reales de las organizaciones y del territorio.

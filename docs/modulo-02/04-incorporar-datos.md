@@ -20,7 +20,7 @@ description: Incorporación e inspección de datos vectoriales y ráster en QGIS
 
 !!! note "Antes de empezar"
 
-    - **Entorno:** QGIS con el perfil `curso-qgis`. Los procedimientos toman como referencia **QGIS 3.44**; algunos nombres de botones pueden variar según la traducción utilizada.
+    - **Entorno:** QGIS con el perfil `curso-qgis`. Los procedimientos toman como referencia **QGIS 4.x**; algunos nombres de botones pueden variar según la traducción utilizada.
     - **Punto de partida:** el proyecto organizado durante la [lección 2.3](03-gestionar-proyectos.md).
     - **Datos:** para aprovechar completamente la práctica conviene disponer de al menos una fuente en cada uno de estos formatos:
         - GeoPackage (`.gpkg`)
@@ -1327,10 +1327,10 @@ Utilizar / Revisar / No utilizar
 
 # Referencias
 
-- QGIS Project. *Manual de usuario 3.44: Abriendo datos*.
-- QGIS Project. *Manual de usuario 3.44: Explorando formatos y campos de datos*.
-- QGIS Project. *Manual de usuario 3.44: Propiedades de capas ráster*.
-- QGIS Project. *Manual de usuario 3.44: Propiedades de capas vectoriales*.
+- QGIS Project. *Manual de usuario: Abriendo datos*.
+- QGIS Project. *Manual de usuario: Explorando formatos y campos de datos*.
+- QGIS Project. *Manual de usuario: Propiedades de capas ráster*.
+- QGIS Project. *Manual de usuario: Propiedades de capas vectoriales*.
 - GDAL Project. *Documentación de controladores vectoriales y ráster*.
 - Open Geospatial Consortium. *GeoPackage Encoding Standard*.
 - IETF. *RFC 7946 — The GeoJSON Format*.

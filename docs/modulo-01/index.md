@@ -454,7 +454,7 @@ A lo largo del material encontrarás recuadros de distintos colores. Cada uno ti
     - Describir los componentes de un dato geoespacial y elaborar sus metadatos básicos.
     - Explicar por qué un análisis nunca puede ser mejor que los datos que lo sustentan.
 
-En el **Módulo 2** comenzaremos a trabajar con **QGIS**: instalación, interfaz y proyectos. Y en el **Módulo 3** aplicaremos en el software todo lo que aprendimos sobre sistemas de referencia.
+En el **[Módulo 2](../modulo-02/index.md)** comenzaremos a trabajar con **QGIS**: instalación, interfaz y proyectos. En las lecciones [2.5](../modulo-02/05-tablas-coordenadas.md) y [2.6](../modulo-02/06-problemas-coordenadas.md) aplicaremos en el software todo lo que aprendimos sobre sistemas de referencia.
 
 ---
 

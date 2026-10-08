@@ -1746,16 +1746,16 @@ La pregunta central será:
 
 ## Referencias
 
-- [QGIS 3.44 — Simbología vectorial](https://docs.qgis.org/3.44/es/docs/user_manual/working_with_vector/vector_properties.html)  
+- [QGIS — Simbología vectorial](https://docs.qgis.org/latest/es/docs/user_manual/working_with_vector/vector_properties.html)  
   Configuración de simbología categorizada, graduada y otras propiedades de representación vectorial.
 
-- [QGIS 3.44 — Expresiones](https://docs.qgis.org/3.44/es/docs/user_manual/expressions/)  
+- [QGIS — Expresiones](https://docs.qgis.org/latest/es/docs/user_manual/expressions/)  
   Construcción de tasas, porcentajes, densidades y variables derivadas.
 
-- [QGIS 3.44 — Manual de usuario](https://docs.qgis.org/3.44/es/docs/user_manual/)  
+- [QGIS — Manual de usuario](https://docs.qgis.org/latest/es/docs/user_manual/)  
   Referencia general para representación y análisis de información geográfica.
 
-- [QGIS Training Manual](https://docs.qgis.org/3.44/es/docs/training_manual/)  
+- [QGIS Training Manual](https://docs.qgis.org/latest/es/docs/training_manual/)  
   Material oficial de formación con ejercicios de representación cartográfica.
 
 - [ColorBrewer](https://colorbrewer2.org/)  
