@@ -77,7 +77,7 @@ El módulo se organiza en **doce lecciones** agrupadas en cinco bloques. Cada le
 
     Paneles, navegador, localizador, identificación, marcadores espaciales, orden y agrupación de capas.
 
-    **Reto:** explorar un municipio y guardar sus lugares de interés.
+    **Reto:** preparar la reunión del equipo con seis marcadores de Cochabamba.
 
     [:octicons-arrow-right-24: Ir a la lección](02-orientarse-interfaz.md)
 
@@ -87,7 +87,7 @@ El módulo se organiza en **doce lecciones** agrupadas en cinco bloques. Cada le
 
     Proyecto `.qgz`, fuentes externas, rutas relativas, propiedades, copias y reparación de capas no disponibles.
 
-    **Reto:** mover un proyecto de carpeta y recuperar sus fuentes.
+    **Reto:** entregar un proyecto que funcione en cualquier computadora.
 
     [:octicons-arrow-right-24: Ir a la lección](03-gestionar-proyectos.md)
 
@@ -103,7 +103,7 @@ El módulo se organiza en **doce lecciones** agrupadas en cinco bloques. Cada le
 
     GeoPackage, Shapefile, GeoJSON y GeoTIFF; geometrías, extensión, campos, bandas y metadatos.
 
-    **Reto:** inventariar los datos recibidos y decidir cuáles sirven.
+    **Reto:** inventariar el paquete de datos y decidir qué sirve.
 
     [:octicons-arrow-right-24: Ir a la lección](04-incorporar-datos.md)
 
@@ -113,7 +113,7 @@ El módulo se organiza en **doce lecciones** agrupadas en cinco bloques. Cada le
 
     Importación de CSV: separadores, codificación, tipos de campo, coordenadas X/Y y SRC de origen.
 
-    **Reto:** localizar equipamientos y detectar coordenadas intercambiadas.
+    **Reto:** encontrar los 22 establecimientos que aparecen frente a la Antártida.
 
     [:octicons-arrow-right-24: Ir a la lección](05-tablas-coordenadas.md)
 
@@ -123,7 +123,7 @@ El módulo se organiza en **doce lecciones** agrupadas en cinco bloques. Cada le
 
     SRC de capa y de proyecto, asignación frente a reproyección, transformaciones, unidades y mediciones.
 
-    **Reto:** diagnosticar una capa desplazada y justificar la corrección.
+    **Reto:** devolver al lugar correcto unas vías que aparecen en el Pacífico.
 
     [:octicons-arrow-right-24: Ir a la lección](06-problemas-coordenadas.md)
 
@@ -139,7 +139,7 @@ El módulo se organiza en **doce lecciones** agrupadas en cinco bloques. Cada le
 
     Tabla de atributos, identificación, estadísticas, valores nulos, identificadores y coherencia.
 
-    **Reto:** detectar registros incompletos y valores sospechosos.
+    **Reto:** construir una matriz de control de calidad.
 
     [:octicons-arrow-right-24: Ir a la lección](07-leer-datos.md)
 
@@ -149,7 +149,7 @@ El módulo se organiza en **doce lecciones** agrupadas en cinco bloques. Cada le
 
     Selección manual y por expresión, filtros de capa, operadores y exportación de entidades.
 
-    **Reto:** crear un subconjunto de servicios que cumplan requisitos.
+    **Reto:** dos subconjuntos reproducibles para dos equipos.
 
     [:octicons-arrow-right-24: Ir a la lección](08-seleccionar-filtrar.md)
 
@@ -165,7 +165,7 @@ El módulo se organiza en **doce lecciones** agrupadas en cinco bloques. Cada le
 
     Símbolos, categorías, graduación, etiquetas, visibilidad por escala y estilos reutilizables.
 
-    **Reto:** elaborar una primera lectura temática del territorio.
+    **Reto:** primera lectura temática de Cochabamba.
 
     [:octicons-arrow-right-24: Ir a la lección](09-simbologia-etiquetas.md)
 
@@ -175,7 +175,7 @@ El módulo se organiza en **doce lecciones** agrupadas en cinco bloques. Cada le
 
     Bandas, resolución, NoData, valores de píxel, escala de grises, pseudocolor y combinaciones RGB.
 
-    **Reto:** comparar una imagen y un modelo de elevación.
+    **Reto:** cuatro miradas al mismo territorio (y tu primer NDVI a mano).
 
     [:octicons-arrow-right-24: Ir a la lección](10-explorar-raster.md)
 
@@ -185,7 +185,7 @@ El módulo se organiza en **doce lecciones** agrupadas en cinco bloques. Cada le
 
     XYZ, WMS/WMTS y WFS; imágenes cartográficas frente a entidades; cobertura, atribución y dependencia.
 
-    **Reto:** incorporar una fuente oficial e identificar qué permite hacer.
+    **Reto:** ficha de servicios web: imagen o dato, licencia y dependencia.
 
     [:octicons-arrow-right-24: Ir a la lección](11-servicios-web.md)
 
@@ -232,18 +232,18 @@ Cada lección de este módulo aplica en QGIS uno o varios temas del Módulo 1. S
 
 ## Cómo están organizadas las lecciones
 
-Las lecciones de este módulo son **prácticas** y siguen una estructura común:
+Todas las lecciones siguen la misma secuencia, para que siempre sepas dónde estás:
 
 | Sección | Para qué sirve |
 |---|---|
-| **Objetivos de aprendizaje** | Qué deberías poder hacer al terminar |
-| **Antes de empezar** | Requisitos, datos necesarios y conocimientos previos |
-| **Desarrollo** | Explicación y procedimientos paso a paso |
-| **Reto práctico** | Una situación real para resolver con autonomía, con sus entregables y criterios de evaluación |
-| **Problemas frecuentes** | Síntomas, causas probables y soluciones |
-| **Ideas clave** | Lo que no debes olvidar |
-| **Autoevaluación** | Preguntas con respuesta desplegable |
-| **Referencias** | Enlaces a la documentación oficial de QGIS |
+| **En esta lección** | Objetivos, tiempo estimado, datos y producto |
+| **Idea central** | Los conceptos imprescindibles, con tablas y figuras |
+| **Hazlo conmigo** | Laboratorio guiado paso a paso con los datos de Cochabamba |
+| **Inténtalo tú** | Reto autónomo, con datos que a veces traen errores a propósito |
+| **¿Lo hiciste bien?** | Criterios para verificar tu resultado y errores frecuentes |
+| **Comprueba lo aprendido** | Autoevaluación con respuestas desplegables, incluida una pregunta de repaso |
+| **Tu proyecto** | Cómo avanza el caso conductor |
+| **Referencias** | Fuentes académicas, oficiales y de datos |
 
 ### Convenciones
 
@@ -251,30 +251,23 @@ Las lecciones de este módulo son **prácticas** y siguen una estructura común:
 |---|---|---|
 | **Menú ▸ Submenú** | Ruta de menús a seguir | **Proyecto ▸ Propiedades** |
 | ++ctrl+s++ | Atajo de teclado | Guardar el proyecto |
-| `texto en monoespaciado` | Nombres de archivos, carpetas, campos o valores que se escriben | `proyectos/reto_2-1_entorno.qgz` |
+| `texto en monoespaciado` | Archivos, carpetas, campos, valores o expresiones | `datos/originales/limites.gpkg` |
 
 !!! note "Los nombres de los menús pueden variar"
 
-    Esta documentación usa la **interfaz de QGIS en español** y la versión acordada para el curso (lección **2.1**). Si usas otra versión o idioma, algunos nombres o ubicaciones pueden cambiar ligeramente. En caso de duda, usa el **localizador** de QGIS (lección **2.2**) para encontrar una herramienta por su nombre.
+    Esta documentación usa la **interfaz de QGIS 4.x en español**. Si un nombre no coincide, busca la herramienta con el **localizador** (++ctrl+k++, lección [2.2](02-orientarse-interfaz.md)).
 
 ---
 
-## Los retos prácticos
+## El caso conductor y los datos
 
-Los retos del módulo **no son ejercicios de "haga clic aquí"**: plantean situaciones reales que hay que **diagnosticar**, **decidir** y **justificar**, como ocurre en el trabajo profesional.
+Todos los laboratorios usan el **[paquete de datos del curso](../descargas/index.md)**: el municipio de **Cochabamba**, con comunas, zonas de población, 661 establecimientos de salud y educación, red vial, ríos, un modelo de elevación y una imagen Sentinel-2. Algunos archivos de `datos/ejercicios/` traen **errores intencionales** (coordenadas intercambiadas, SRC mal declarado, codificaciones mezcladas) para que aprendas a diagnosticarlos.
+
+![Caso conductor: municipio de Cochabamba](../assets/images/mapas/caso-cochabamba.png){ loading=lazy }
 
 !!! example "Un hilo conductor"
 
-    Los retos construyen, paso a paso, las habilidades necesarias para el **taller final (2.12)**: entregar un proyecto que **otra persona pueda abrir desde otra ubicación** y que funcione correctamente. Cada reto aporta una pieza:
-
-    - Un **entorno ordenado** (2.1) y un **proyecto portable** (2.3).
-    - **Datos evaluados** antes de usarlos (2.4, 2.7).
-    - **Coordenadas y sistemas de referencia** correctos (2.5, 2.6).
-    - **Información seleccionada**, bien **representada** y conectada a **fuentes oficiales** (2.8 a 2.11).
-
-### Datos del curso
-
-Los datos para las lecciones y los retos se encuentran en la sección **[Descargas](../descargas/index.md)**. Guárdalos en la carpeta `datos/originales/` de la estructura que crearemos en la lección **2.1**, y **no los modifiques**: trabaja siempre sobre copias.
+    Cada reto aporta una pieza al **taller 2.12**: entregar un proyecto que **otra persona pueda abrir** y que muestre, con datos verificados, dónde están los servicios y dónde vive la población de Cochabamba.
 
 ---
 

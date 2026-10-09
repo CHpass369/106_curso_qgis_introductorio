@@ -331,6 +331,40 @@ leyenda(img, [("#dc2626", "Salud", "punto"), ("#2563eb", "Educación", "punto")]
 atribucion(img, "Datos: © colaboradores de OpenStreetMap (ODbL)")
 guardar(img, "2-5-equipamientos-resultado.png")
 
+# 2b. Lectura temática (2.9)
+z0 = zonas.clone()
+estilo_simple(z0, QgsFillSymbol.createSimple({"color": "#f3f4f6", "outline_color": "#e5e7eb", "outline_width": "0.1"}))
+zt = zonas.clone()
+zt.setSubsetString("\"pob_2020\" > 0")
+ren_t = QgsGraduatedSymbolRenderer("\"pob_2020\" / \"area_km2\"")
+ren_t.setClassificationMethod(QgsClassificationQuantile())
+ren_t.setSourceSymbol(QgsFillSymbol.createSimple({"outline_color": "#ffffff", "outline_width": "0.1"}))
+ren_t.setSourceColorRamp(QgsStyle.defaultStyle().colorRamp("YlOrRd"))
+ren_t.updateClasses(zt, 5)
+zt.setRenderer(ren_t)
+zt.setOpacity(0.7)
+eq_t = equip.clone()
+cats_t = []
+for valor, color, tam in [("hospital", "#7f1d1d", 2.6), ("clinica", "#dc2626", 1.8), ("consultorio", "#fca5a5", 1.5),
+                          ("universidad", "#1e3a8a", 2.4), ("instituto", "#2563eb", 1.6), ("escuela", "#3b82f6", 1.4),
+                          ("kinder", "#93c5fd", 1.3)]:
+    cats_t.append(QgsRendererCategory(valor, QgsMarkerSymbol.createSimple(
+        {"name": "circle", "color": color, "outline_color": "white", "outline_width": "0.35", "size": str(tam)}), valor))
+eq_t.setRenderer(QgsCategorizedSymbolRenderer("subtipo", cats_t))
+com_t = comunas.clone()
+estilo_comunas(com_t)
+etiquetar(com_t, "upper(\"nombre\")", 10, "#111827", expresion=True)
+ext_t = QgsRectangle()
+for f in zonas.getFeatures(QgsFeatureRequest().setFilterExpression('"pob_2020" > 500')):
+    ext_t.combineExtentWith(f.geometry().boundingBox())
+img = render([eq_t, com_t, limite, zt, z0], ampliar(ext_t, 1.08), None, 1200, 1200)
+rotulo(img, "Primera lectura temática de Cochabamba",
+       "Densidad de población por zona (cuantiles), establecimientos por subtipo y comunas")
+leyenda(img, [("#7f1d1d", "Hospital", "punto"), ("#dc2626", "Clínica", "punto"), ("#1e3a8a", "Universidad", "punto"),
+              ("#3b82f6", "Escuela", "punto"), ("#fee08b", "Densidad baja", "area"), ("#bd0026", "Densidad alta", "area")])
+atribucion(img, "© colaboradores de OpenStreetMap · WorldPop (CC BY 4.0)")
+guardar(img, "2-9-lectura-tematica.png")
+
 # 3. Coordenadas intercambiadas: vista mundial
 tierra = vector(os.path.join(REPO, "docs", "assets", "data", "ne_110m_land.geojson"), "Tierra")
 estilo_simple(tierra, QgsFillSymbol.createSimple({"color": "#e5e7eb", "outline_color": "#9ca3af", "outline_width": "0.2"}))
