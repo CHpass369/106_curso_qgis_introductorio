@@ -139,7 +139,7 @@ nav:
       - Panorama geotecnológico:
           - 1.14 SIG y otras geotecnologías: modulo-01/14-sig-otras-geotecnologias.md
           - 1.15 Ecosistema de geotecnologías: modulo-01/15-ecosistema-geotecnologias.md
-      - Práctica: modulo-01/practica.md
+      - Práctica integradora: modulo-01/practica.md
 
   - "Mod2 · Introducción a QGIS":
       - Introducción: modulo-02/index.md
@@ -212,5 +212,10 @@ nav:
 
   - Prácticas y evaluación:
       - Prácticas y laboratorios: practicas/index.md
-      - Evaluaciones: evaluaciones/index.md
+      - Evaluaciones:
+          - Sistema de evaluación: evaluaciones/index.md
+          - Cuestionario Módulo 1: evaluaciones/cuestionario-modulo-1.md
+          - Cuestionario Módulo 2: evaluaciones/cuestionario-modulo-2.md
+          - Cuestionario Módulo 3: evaluaciones/cuestionario-modulo-3.md
+          - Cuestionario Módulo 4: evaluaciones/cuestionario-modulo-4.md
       - Descargas: descargas/index.md
