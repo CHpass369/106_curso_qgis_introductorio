@@ -24,6 +24,7 @@ Contiene la carpeta `curso-qgis/` lista para usar: datos originales, datos de ej
 | | `dem_copernicus_30m.tif` | Modelo de elevación de 30 m | EPSG:4326 |
 | | `sentinel2_2025-07-16.tif` | Imagen Sentinel-2, 4 bandas, 10 m | EPSG:32719 |
 | | `poblacion_worldpop_2020.tif` | Población estimada, 100 m | EPSG:4326 |
+| | `mercados.geojson` | Mercados y ferias (GeoJSON) | EPSG:4326 |
 | | `plano_historico_1985.tif` | Plano escaneado **simulado**, sin georreferenciar | — |
 | `datos/ejercicios/` | `equipamientos_errores.csv` | Codificación, coordenadas intercambiadas, duplicados | EPSG:4326 |
 | | `comunas_sin_prj.shp` | Shapefile sin `.prj` | desconocido |

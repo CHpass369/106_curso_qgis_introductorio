@@ -287,6 +287,33 @@ def leer_equipamientos(osm, muni):
     return filas
 
 
+def escribir_mercados(osm, muni):
+    """Mercados en GeoJSON (RFC 7946, WGS 84) para practicar ese formato."""
+    ds = ogr.Open(osm)
+    ruta = os.path.join(ORIG, "mercados.geojson")
+    out = ogr.GetDriverByName("GeoJSON").CreateDataSource(ruta)
+    lyr = out.CreateLayer("mercados", srs(4326), ogr.wkbPoint, options=["RFC7946=YES"])
+    for nombre, tipo, ancho in [("nombre", ogr.OFTString, 120), ("osm_id", ogr.OFTString, 20)]:
+        fd = ogr.FieldDefn(nombre, tipo)
+        fd.SetWidth(ancho)
+        lyr.CreateField(fd)
+    for capa, filtro in [("points", "other_tags LIKE '%\"amenity\"=>\"marketplace\"%'"),
+                         ("multipolygons", "amenity = 'marketplace'")]:
+        src = ds.GetLayerByName(capa)
+        src.SetAttributeFilter(filtro)
+        for f in src:
+            g = f.GetGeometryRef()
+            p = g.PointOnSurface() if g.GetDimension() == 2 else g.Clone()
+            if not p.Within(muni):
+                continue
+            nf = ogr.Feature(lyr.GetLayerDefn())
+            nf.SetField("nombre", f.GetField("name"))
+            nf.SetField("osm_id", f.GetField("osm_id") or (f.GetField("osm_way_id") if capa == "multipolygons" else None))
+            nf.SetGeometry(p)
+            lyr.CreateFeature(nf)
+    out = None
+
+
 def escribir_csv_equipamientos(filas, fecha):
     ruta = os.path.join(ORIG, "equipamientos.csv")
     with open(ruta, "w", newline="", encoding="utf-8") as fh:
@@ -481,6 +508,7 @@ def main():
     n_zonas = malla_hexagonal(muni_utm, comunas, pob_utm)
     filas = leer_equipamientos(osm, muni)
     escribir_csv_equipamientos(filas, fecha)
+    escribir_mercados(osm, muni)
     escribir_csv_errores(filas, fecha)
     escribir_auditoria(filas)
     construir_vias_rios(osm, muni)
