@@ -5,7 +5,7 @@ description: Qué es la cartografía, el mapa como modelo y como lenguaje gráfi
 
 # 1.7 Fundamentos de Cartografía
 
-!!! abstract "Objetivos de aprendizaje"
+!!! abstract "En esta lección"
 
     Al finalizar este tema, el estudiante será capaz de:
 
@@ -16,9 +16,13 @@ description: Qué es la cartografía, el mapa como modelo y como lenguaje gráfi
     - Aplicar las variables visuales para simbolizar distintos tipos de datos.
     - Utilizar la jerarquía visual y los principios de diseño para construir mapas claros.
 
+    **Tiempo:** 45 min · **Materiales:** calculadora y cuaderno · **Producto:** Propósito, simbología, jerarquía y boceto del mapa (actividad 1.7).
+
 ---
 
-## ¿Qué es la cartografía?
+## Idea central
+
+### ¿Qué es la cartografía?
 
 Hasta ahora nos hemos ocupado de **cómo medir y ubicar** el territorio: geodesia, sistemas de referencia y proyecciones. A partir de este tema nos preguntamos **cómo representarlo y comunicarlo**.
 
@@ -40,7 +44,7 @@ Estas definiciones, basadas en las propuestas por la Asociación Cartográfica I
 
     **Un mapa es una representación selectiva y deliberadamente simplificada de la realidad.**
 
-### La cartografía no es solo "hacer mapas"
+#### La cartografía no es solo "hacer mapas"
 
 Con un SIG, cualquier persona puede generar un mapa en pocos minutos. Pero **producir un mapa no es lo mismo que hacer cartografía**. La cartografía implica responder preguntas antes de abrir el software:
 
@@ -54,7 +58,7 @@ Un mapa técnicamente correcto puede ser un **mal mapa** si no comunica lo que n
 
 ---
 
-## El mapa como modelo del territorio
+### El mapa como modelo del territorio
 
 En el tema 1.2 vimos que todo dato geográfico es resultado de un proceso de **abstracción**. El mapa es la expresión visual de ese proceso.
 
@@ -82,7 +86,7 @@ Todo mapa implica decisiones sobre:
 
 ---
 
-## La cartografía como lenguaje gráfico
+### La cartografía como lenguaje gráfico
 
 Un mapa es un **mensaje**. Como todo lenguaje, tiene un vocabulario (los **símbolos**), una gramática (las **reglas de uso**) y una intención (**lo que se quiere comunicar**).
 
@@ -98,7 +102,7 @@ flowchart LR
 
 El proceso funciona si el lector **interpreta el mapa como el cartógrafo pretendía**. Si los símbolos son confusos, la leyenda es ambigua o el tema principal no se distingue, el mensaje se pierde.
 
-### Las variables visuales
+#### Las variables visuales
 
 En 1967, el cartógrafo francés **Jacques Bertin** publicó *Sémiologie graphique*, donde sistematizó los recursos gráficos disponibles para representar información. Los llamó **variables visuales**.
 
@@ -199,7 +203,7 @@ Además de la **posición** (dónde está el símbolo), Bertin identificó seis 
 
 ---
 
-## Tipos de cartografía
+### Tipos de cartografía
 
 Según su propósito y contenido, la cartografía se suele dividir en tres grandes grupos, aunque los límites entre ellos no son estrictos.
 
@@ -235,7 +239,7 @@ Según su propósito y contenido, la cartografía se suele dividir en tres grand
 | Protagonista | El territorio | La ubicación | El fenómeno |
 | Ejemplo | Carta topográfica IGM 1:50 000 | Mapa político de Bolivia | Mapa de densidad poblacional por municipio |
 
-### Principales tipos de mapas temáticos
+#### Principales tipos de mapas temáticos
 
 | Tipo | Cómo representa el dato | Uso típico | Precaución |
 |---|---|---|---|
@@ -255,7 +259,7 @@ Según su propósito y contenido, la cartografía se suele dividir en tres grand
 
 ---
 
-## Elementos cartográficos
+### Elementos cartográficos
 
 Un mapa terminado no es solo el dibujo del territorio: incluye un conjunto de **elementos** que permiten entenderlo, ubicarlo y evaluar su confiabilidad.
 
@@ -354,7 +358,7 @@ Un mapa terminado no es solo el dibujo del territorio: incluye un conjunto de **
 | 7 | **Orientación (norte)** | Indica la dirección del norte | Sí, en mapas técnicos |
 | 8 | **Información complementaria** | Sistema de referencia, fuente de datos, autor, fecha, institución | Sí |
 
-### Recomendaciones para cada elemento
+#### Recomendaciones para cada elemento
 
 ??? note "Título"
 
@@ -390,11 +394,11 @@ Un mapa terminado no es solo el dibujo del territorio: incluye un conjunto de **
 
 ---
 
-## Simbología
+### Simbología
 
 La **simbología** es el conjunto de símbolos que representan los elementos del mapa. Un símbolo combina una **geometría** con una o más **variables visuales**.
 
-### Tipos de símbolos
+#### Tipos de símbolos
 
 | Tipo | Representa | Ejemplos | Variables más usadas |
 |---|---|---|---|
@@ -403,7 +407,7 @@ La **simbología** es el conjunto de símbolos que representan los elementos del
 | **De área** | Elementos con superficie | Predios, uso de suelo, distritos | Tono, valor, trama |
 | **Textuales** | Nombres y etiquetas | Nombres de ríos, ciudades, calles | Tamaño, estilo, color de la fuente |
 
-### Convenciones cartográficas
+#### Convenciones cartográficas
 
 Algunas asociaciones entre color y significado están tan difundidas que **contradecirlas confunde al lector**:
 
@@ -417,7 +421,7 @@ Algunas asociaciones entre color y significado están tan difundidas que **contr
 | Temperatura alta, riesgo, peligro | **Rojo** y naranja |
 | Nombres de elementos hidrográficos | Texto en **azul** y en *cursiva* |
 
-### Esquemas de color
+#### Esquemas de color
 
 Según el tipo de dato, se usan tres tipos de esquemas de color:
 
@@ -473,7 +477,7 @@ Según el tipo de dato, se usan tres tipos de esquemas de color:
 
 ---
 
-## Jerarquía visual
+### Jerarquía visual
 
 No todos los elementos de un mapa tienen la misma importancia. La **jerarquía visual** es la organización de los elementos para que el ojo del lector perciba **primero lo más importante** y después lo secundario.
 
@@ -525,7 +529,7 @@ No todos los elementos de un mapa tienen la misma importancia. La **jerarquía v
 </svg><figcaption>Los mismos datos con dos simbologías. En la derecha, la zona de riesgo es claramente el tema principal.</figcaption>
 </figure>
 
-### Niveles de jerarquía
+#### Niveles de jerarquía
 
 | Nivel | Contenido | Tratamiento visual |
 |---|---|---|
@@ -534,7 +538,7 @@ No todos los elementos de un mapa tienen la misma importancia. La **jerarquía v
 | **3. Base de referencia** | Vías, límites, hidrografía, relieve | Colores suaves, líneas finas, grises |
 | **4. Elementos del mapa** | Leyenda, escala, norte, fuente | Discretos, ordenados, sin competir con el cuerpo del mapa |
 
-### Recursos para construir jerarquía
+#### Recursos para construir jerarquía
 
 - **Contraste:** lo importante se diferencia con fuerza del fondo; lo secundario, poco.
 - **Saturación del color:** colores intensos para el tema; apagados o grises para la base.
@@ -549,7 +553,7 @@ No todos los elementos de un mapa tienen la misma importancia. La **jerarquía v
 
 ---
 
-## Generalización cartográfica
+### Generalización cartográfica
 
 Al representar el territorio a una escala menor, no es posible mantener todo el detalle: los elementos se superponen, las líneas se vuelven ilegibles y los símbolos se amontonan. La **generalización** es el proceso de **adaptar el contenido del mapa a su escala y propósito** mediante operaciones como seleccionar, simplificar, agregar, desplazar o exagerar elementos.
 
@@ -557,11 +561,11 @@ Es un tema tan importante que le dedicaremos el tema **1.10** completo.
 
 ---
 
-## Diseño cartográfico
+### Diseño cartográfico
 
 El **diseño cartográfico** es el proceso de planificar y construir un mapa para que cumpla su propósito de la forma más clara y eficaz posible.
 
-### El proceso de diseño
+#### El proceso de diseño
 
 ```mermaid
 flowchart TB
@@ -576,7 +580,7 @@ flowchart TB
     G -. "Ajustes" .-> E
 ```
 
-### Principios de diseño
+#### Principios de diseño
 
 | Principio | Qué significa | Cómo aplicarlo |
 |---|---|---|
@@ -588,7 +592,7 @@ flowchart TB
 | **Coherencia** | Lo similar se ve similar | Mismos estilos en una serie de mapas |
 | **Honestidad** | El mapa no distorsiona | Clasificación, proyección y colores que no exageren ni oculten |
 
-### Tipografía en los mapas
+#### Tipografía en los mapas
 
 - Usa **una o dos familias tipográficas** como máximo.
 - Las fuentes **sin serifa** suelen leerse mejor en pantalla; las **con serifa** funcionan bien en impresión y para rasgos naturales.
@@ -597,7 +601,7 @@ flowchart TB
 - En mapas impresos, evita textos menores a **7 u 8 puntos**.
 - Coloca las etiquetas de modo que **no tapen** elementos importantes y queden claramente asociadas al objeto que nombran.
 
-### Errores comunes
+#### Errores comunes
 
 | Error | Consecuencia | Solución |
 |---|---|---|
@@ -616,7 +620,7 @@ flowchart TB
 
 ---
 
-## Ideas clave
+### Ideas clave
 
 !!! success "Para recordar"
 
@@ -631,7 +635,39 @@ flowchart TB
 
 ---
 
-## Autoevaluación
+## Hazlo conmigo
+
+**Lee un mapa terminado como un cartógrafo.** Observa la lámina que producirás en el Módulo 4:
+
+![Lámina A4 del caso conductor](../assets/images/mapas/4-7-composicion-a4.png){ loading=lazy }
+
+| Elemento | Cómo está resuelto |
+|---|---|
+| **Título** | Afirma el mensaje en forma de pregunta |
+| **Figura** | Zonas sin cobertura, el único color saturado (naranja) |
+| **Fondo** | Vías y ríos en grises y azules claros |
+| **Variables visuales** | Tono para categorías (cubierta / no cubierta), tamaño y valor para la jerarquía |
+| **Elementos** | Leyenda, escala gráfica, norte, localizador, fuentes y SRC |
+
+---
+
+## Inténtalo tú
+
+!!! example "Ejercicio"
+
+    Observa el mapa «Antes» de la [lección 4.5](../modulo-04/05-construir-jerarquia-visual.md) e identifica **tres problemas** de diseño y la variable visual que usarías para resolver cada uno.
+
+---
+
+## ¿Lo hiciste bien?
+
+??? success "Respuestas"
+
+    Por ejemplo: 1) **todos los colores saturados** compiten → reservar un solo acento (tono) para la figura; 2) **bordes negros** en todos los polígonos → bordes blancos o sin borde (valor); 3) **vías rojas gruesas** dominan → gris fino (valor y tamaño).
+
+---
+
+## Comprueba lo aprendido
 
 ??? question "1. ¿Por qué se dice que un mapa es una representación selectiva?"
 
@@ -662,7 +698,7 @@ flowchart TB
 
 ---
 
-## Actividad propuesta
+## Tu proyecto
 
 !!! example "Actividad 1.7 — Diseñar el mapa del proyecto integrador (sin software)"
 
@@ -677,6 +713,10 @@ flowchart TB
     7. **Título:** redacta un título que responda qué, dónde y cuándo.
 
     Además, busca un mapa publicado (en un informe, un periódico o un sitio web institucional) y **evalúalo** con los principios de este tema.
+
+!!! tip "En el caso conductor"
+
+    Dibuja a mano el **boceto** del mapa principal de tu proyecto: dónde va el título, el mapa, la leyenda y qué elemento será la figura.
 
 ---
 

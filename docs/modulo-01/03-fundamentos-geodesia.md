@@ -5,7 +5,7 @@ description: Forma de la Tierra, superficie topográfica, geoide y elipsoide, co
 
 # 1.3 Fundamentos de Geodesia
 
-!!! abstract "Objetivos de aprendizaje"
+!!! abstract "En esta lección"
 
     Al finalizar este tema, el estudiante será capaz de:
 
@@ -15,9 +15,13 @@ description: Forma de la Tierra, superficie topográfica, geoide y elipsoide, co
     - Diferenciar altura elipsoidal y altura ortométrica, y relacionarlas mediante la ondulación del geoide.
     - Explicar qué es un datum geodésico y diferenciar un datum local de uno global.
 
+    **Tiempo:** 45 min · **Materiales:** calculadora y cuaderno · **Producto:** Coordenadas y referencias geodésicas del área de estudio (actividad 1.3).
+
 ---
 
-## ¿Por qué un curso de SIG necesita geodesia?
+## Idea central
+
+### ¿Por qué un curso de SIG necesita geodesia?
 
 Toda coordenada que aparece en un SIG responde, aunque no lo veamos, a una pregunta previa: **¿respecto a qué modelo de la Tierra se midió?**
 
@@ -43,9 +47,9 @@ flowchart TB
 
 ---
 
-## La forma real de la Tierra
+### La forma real de la Tierra
 
-### De la esfera al elipsoide
+#### De la esfera al elipsoide
 
 La idea de una Tierra esférica es muy antigua. Hacia el año 240 a. C., **Eratóstenes** estimó la circunferencia terrestre comparando el ángulo de los rayos del Sol en Siena y en Alejandría. Su resultado fue sorprendentemente cercano al valor real.
 
@@ -56,7 +60,7 @@ Siglos después, **Isaac Newton** (1687) planteó que, por efecto de su rotació
 
 Las mediciones confirmaron la hipótesis de Newton: **la Tierra es achatada**. Es uno de los primeros grandes trabajos geodésicos de la historia, y se realizó en parte en los Andes.
 
-### Dimensiones de la Tierra
+#### Dimensiones de la Tierra
 
 | Magnitud | Valor aproximado (elipsoide WGS 84) |
 |---|---|
@@ -81,7 +85,7 @@ Las mediciones confirmaron la hipótesis de Newton: **la Tierra es achatada**. E
 
     Es un buen ejemplo de que "altura" depende de **respecto a qué superficie** se mide.
 
-### La Tierra no es ni esfera ni elipsoide
+#### La Tierra no es ni esfera ni elipsoide
 
 En realidad, la Tierra tiene una forma **irregular**: montañas, valles, fosas oceánicas y, además, una distribución desigual de masas en su interior que hace que la gravedad no sea igual en todas partes.
 
@@ -89,7 +93,7 @@ Para trabajar con esa realidad, la geodesia utiliza **tres superficies**, cada u
 
 ---
 
-## Las tres superficies de referencia
+### Las tres superficies de referencia
 
 <div class="grid cards" markdown>
 
@@ -145,13 +149,13 @@ Para trabajar con esa realidad, la geodesia utiliza **tres superficies**, cada u
 <figcaption>Relación entre las tres superficies. Las ondulaciones del geoide están muy exageradas.</figcaption>
 </figure>
 
-### Superficie topográfica
+#### Superficie topográfica
 
 Es la superficie física del terreno: cerros, valles, quebradas y el fondo de los océanos. Es la que representamos en un **modelo digital de elevación** o con **curvas de nivel**.
 
 Su problema es que es **demasiado irregular** para servir como base de cálculo. No existe una ecuación que la describa.
 
-### Geoide
+#### Geoide
 
 !!! info "Definición"
 
@@ -172,7 +176,7 @@ Características importantes:
 
 El geoide se calcula a partir de mediciones de gravedad (terrestres, aéreas y satelitales) y se distribuye como **modelos geoidales**. Los modelos globales más usados son **EGM96** y **EGM2008**. Muchos países, además, desarrollan modelos nacionales más precisos.
 
-### Elipsoide
+#### Elipsoide
 
 !!! info "Definición"
 
@@ -201,7 +205,7 @@ A lo largo de la historia se han definido muchos elipsoides, cada uno ajustado c
 
     GRS80 y WGS 84 tienen el mismo semieje mayor y un achatamiento casi idéntico. La diferencia en el semieje menor es de aproximadamente **0,1 mm**, por lo que, para cualquier trabajo con SIG, **pueden considerarse equivalentes**.
 
-### Diferencia entre geoide y elipsoide
+#### Diferencia entre geoide y elipsoide
 
 | Característica | Geoide | Elipsoide |
 |---|---|---|
@@ -220,7 +224,7 @@ A lo largo de la historia se han definido muchos elipsoides, cada uno ajustado c
 
 ---
 
-## Coordenadas geocéntricas
+### Coordenadas geocéntricas
 
 La forma más directa de ubicar un punto respecto a la Tierra es mediante un sistema cartesiano tridimensional con origen en su centro.
 
@@ -253,10 +257,10 @@ La forma más directa de ubicar un punto respecto a la Tierra es mediante un sis
 
 ---
 
-## Latitud y longitud
+### Latitud y longitud
 
 Las **coordenadas geográficas** expresan la posición de un punto mediante **ángulos** medidos sobre el elipsoide. Son la forma más conocida de localización absoluta.
-### Explora la latitud y la longitud
+#### Explora la latitud y la longitud
 
 Modifica las coordenadas y observa simultáneamente el **paralelo**, el **meridiano** y la posición del punto **P** sobre la superficie terrestre.
 <figure class="figura">
@@ -296,7 +300,7 @@ Modifica las coordenadas y observa simultáneamente el **paralelo**, el **meridi
 <figcaption>Latitud y longitud de un punto P. El esquema de latitud está simplificado: la latitud geodésica se mide con la normal al elipsoide, no con la línea al centro.</figcaption>
 </figure>
 
-### Latitud (φ)
+#### Latitud (φ)
 
 !!! info "Definición"
 
@@ -315,7 +319,7 @@ Modifica las coordenadas y observa simultáneamente el **paralelo**, el **meridi
 
     La diferencia máxima entre ambas es de unos **0,19°** (unos 11,5 minutos de arco) cerca de los 45° de latitud, lo que equivale a más de 20 km sobre el terreno. Cuando un SIG habla de "latitud", **siempre se refiere a la geodésica**.
 
-### Longitud (λ)
+#### Longitud (λ)
 
 !!! info "Definición"
 
@@ -328,7 +332,7 @@ Modifica las coordenadas y observa simultáneamente el **paralelo**, el **meridi
 Bolivia se encuentra en el **hemisferio sur** y al **oeste de Greenwich**, por lo que **ambas coordenadas son negativas**.
 
 
-### Formatos de expresión
+#### Formatos de expresión
 
 Una misma coordenada puede escribirse de varias formas:
 
@@ -354,7 +358,7 @@ Una misma coordenada puede escribirse de varias formas:
 
     QGIS, las bases de datos espaciales y la mayoría de los formatos usan **grados decimales**. El formato GMS es habitual en cartas topográficas, documentos legales y algunos receptores GNSS, por lo que convertir entre ambos es una habilidad básica.
 
-### ¿Cuánto mide un grado sobre el terreno?
+#### ¿Cuánto mide un grado sobre el terreno?
 
 Un grado de **latitud** mide casi lo mismo en cualquier lugar (unos **111 km**). Un grado de **longitud**, en cambio, **se reduce al acercarse a los polos**, porque los meridianos convergen.
 
@@ -370,7 +374,7 @@ Un grado de **latitud** mide casi lo mismo en cualquier lugar (unos **111 km**).
 
 Esto tiene una consecuencia importante: **los grados no son una unidad de distancia**. Medir áreas o distancias directamente en grados produce resultados incorrectos. Por eso, para medir, usaremos coordenadas **proyectadas** (temas **1.5** y **1.6**).
 
-### ¿Cuántos decimales necesito?
+#### ¿Cuántos decimales necesito?
 
 A partir de la tabla anterior, podemos estimar la precisión que representa cada decimal en latitudes como las de Bolivia:
 
@@ -396,11 +400,11 @@ A partir de la tabla anterior, podemos estimar la precisión que representa cada
 
 ---
 
-## Alturas: elipsoidal y ortométrica
+### Alturas: elipsoidal y ortométrica
 
 Así como la posición horizontal necesita una referencia, **la altura también**. Y aquí aparece una de las confusiones más frecuentes: **no existe una única "altura"**.
 
-### Altura elipsoidal (h)
+#### Altura elipsoidal (h)
 
 !!! info "Definición"
 
@@ -410,7 +414,7 @@ Así como la posición horizontal necesita una referencia, **la altura también*
 - Es puramente **geométrica**: no tiene en cuenta la gravedad.
 - Puede ser **negativa** aunque el punto esté sobre el nivel del mar.
 
-### Altura ortométrica (H)
+#### Altura ortométrica (H)
 
 !!! info "Definición"
 
@@ -420,7 +424,7 @@ Así como la posición horizontal necesita una referencia, **la altura también*
 - Es la que aparece en las **cartas topográficas**, las curvas de nivel y los hitos de nivelación.
 - Tiene **sentido físico**: el agua fluye de mayor a menor altura ortométrica.
 
-### Ondulación del geoide (N)
+#### Ondulación del geoide (N)
 
 La **ondulación del geoide (N)** es la separación entre el geoide y el elipsoide en un lugar determinado. Las tres magnitudes se relacionan mediante una fórmula muy simple:
 
@@ -474,7 +478,7 @@ De donde se obtiene:
 
 ---
 
-## Concepto de datum geodésico
+### Concepto de datum geodésico
 
 Ya tenemos un elipsoide. Pero un elipsoide, por sí solo, es solo una figura geométrica con cierto tamaño y achatamiento. Falta responder: **¿dónde se ubica respecto a la Tierra real?**
 
@@ -514,7 +518,7 @@ Si cambia cualquiera de estas respuestas, **las coordenadas de todos los puntos 
 <figcaption>En verde, el geoide (exagerado); en azul, el elipsoide. El datum global se ajusta a toda la Tierra; el datum local, solo a una región.</figcaption>
 </figure>
 
-### Datum local
+#### Datum local
 
 Antes de los satélites, no era posible conocer con precisión el centro de masas de la Tierra. Cada país o región eligió un elipsoide y lo **ajustó para que coincidiera lo mejor posible con el geoide en su territorio**.
 
@@ -528,7 +532,7 @@ Antes de los satélites, no era posible conocer con precisión el centro de masa
 
     Muchos mapas y datos antiguos siguen referidos a este datum. Mezclarlos con datos actuales sin transformarlos produce **desplazamientos de cientos de metros**.
 
-### Datum global (geocéntrico)
+#### Datum global (geocéntrico)
 
 Con la geodesia satelital fue posible determinar el centro de masas de la Tierra y definir datums **válidos para todo el planeta**.
 
@@ -552,7 +556,7 @@ Ejemplos: **WGS 84** (el sistema del GPS) y los sistemas basados en el **Marco I
 
 ---
 
-## Del planeta al sistema de coordenadas
+### Del planeta al sistema de coordenadas
 
 Ahora podemos leer con sentido la cadena conceptual del inicio del tema:
 
@@ -576,7 +580,7 @@ flowchart TB
 
 ---
 
-## Ideas clave
+### Ideas clave
 
 !!! success "Para recordar"
 
@@ -590,7 +594,48 @@ flowchart TB
 
 ---
 
-## Autoevaluación
+## Hazlo conmigo
+
+**¿Cuántos metros es un grado en Cochabamba?**
+
+- Un grado de **latitud** mide casi lo mismo en todo el planeta: **≈ 110,6 km** a 17° de latitud.
+- Un grado de **longitud** se achica hacia los polos: 111,32 km × cos(latitud) = 111,32 × cos 17,39° ≈ **106,2 km**.
+
+Entonces, en Cochabamba:
+
+| Diferencia en grados | En latitud | En longitud |
+|---|---|---|
+| 1° | 110,6 km | 106,2 km |
+| 0,01° | 1,1 km | 1,06 km |
+| 0,0001° | 11 m | 10,6 m |
+| 0,000001° | 0,11 m | 0,11 m |
+
+**Conversión a grados, minutos y segundos** de la plaza 14 de Septiembre (−17,3935°; −66,1570°):
+
+- Latitud: 0,3935 × 60 = 23,61′ → 0,61 × 60 = 36,6″ → **17° 23′ 36,6″ S**
+- Longitud: 0,1570 × 60 = 9,42′ → 0,42 × 60 = 25,2″ → **66° 09′ 25,2″ O**
+
+---
+
+## Inténtalo tú
+
+!!! example "Ejercicio"
+
+    1. Convierte a grados, minutos y segundos el Cristo de la Concordia: −17,3843°; −66,1356°.
+    2. Dos puntos están separados 0,005° en longitud y a la misma latitud en Cochabamba. ¿Cuántos metros los separan?
+    3. Una coordenada viene con 8 decimales. ¿Qué precisión numérica representa? ¿Tiene sentido para un dato tomado con un celular?
+
+---
+
+## ¿Lo hiciste bien?
+
+??? success "Respuestas"
+
+    1. 17° 23′ 03,5″ S; 66° 08′ 08,2″ O. 2. 0,005 × 106,2 km ≈ **531 m**. 3. 8 decimales ≈ 1 mm: es **falsa precisión** para un celular, cuyo error típico es de 3–10 m ([1.9](09-escala-resolucion-precision.md)).
+
+---
+
+## Comprueba lo aprendido
 
 ??? question "1. ¿Por qué no se usa directamente el geoide para calcular latitud y longitud?"
 
@@ -622,7 +667,7 @@ flowchart TB
 
 ---
 
-## Actividad propuesta
+## Tu proyecto
 
 !!! example "Actividad 1.3 — Revisar las referencias geodésicas del proyecto integrador (sin software)"
 
@@ -633,6 +678,10 @@ flowchart TB
     3. Revisa al menos **dos fuentes de datos** que pienses usar (cartas topográficas, capas descargadas, levantamientos anteriores) e identifica **qué datum declaran**. Si no lo declaran, anótalo como un problema.
     4. Si tu proyecto usa alturas, indica si provienen de **GNSS (h)** o de **cartografía (H)**.
     5. Si tienes un celular con GNSS, registra la altura de un punto conocido y compárala con la altura de una carta topográfica. Explica la posible causa de la diferencia.
+
+!!! tip "En el caso conductor"
+
+    Anota las coordenadas geográficas (en grados decimales y en GMS) de cuatro puntos que delimitan tu área de estudio. Para el caso conductor, usa las esquinas aproximadas del municipio de Cochabamba.
 
 ---
 

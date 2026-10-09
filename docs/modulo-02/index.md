@@ -219,7 +219,7 @@ Cada lección de este módulo aplica en QGIS uno o varios temas del Módulo 1. S
 | 2.2 Orientarse y trabajar con fluidez | 1.2 Localización · 1.8 Escala en un SIG |
 | 2.3 Comprender y gestionar proyectos | 1.12 Dato geoespacial · 1.13 Linaje |
 | 2.4 Incorporar datos y reconocer sus diferencias | 1.11 Modelos vectorial y ráster · 1.12 Metadatos |
-| 2.5 Convertir una tabla en información geográfica | 1.3 Latitud y longitud · 1.4 Identificación de un CRS · 1.12 Atributos |
+| 2.5 Convertir una tabla en información geográfica | 1.3 Latitud y longitud · 1.4 Identificación de un SRC · 1.12 Atributos |
 | 2.6 Resolver problemas de coordenadas | 1.4 Sistemas de referencia · 1.5 Proyecciones · 1.6 UTM |
 | 2.7 Leer los datos antes de utilizarlos | 1.12 Atributos e identificadores · 1.13 Calidad |
 | 2.8 Seleccionar, filtrar y extraer información | 1.2 Relaciones espaciales · 1.12 Escalas de medición |

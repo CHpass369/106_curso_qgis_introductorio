@@ -1,24 +1,28 @@
 ---
 title: 1.4 Sistemas de Referencia de Coordenadas
-description: Qué es un CRS, sistemas geográficos y proyectados, datum horizontal y vertical, sistemas locales y globales, WGS 84, SIRGAS, códigos EPSG e identificación de un CRS.
+description: Qué es un SRC, sistemas geográficos y proyectados, datum horizontal y vertical, sistemas locales y globales, WGS 84, SIRGAS, códigos EPSG e identificación de un SRC.
 ---
 
 # 1.4 Sistemas de Referencia de Coordenadas
 
-!!! abstract "Objetivos de aprendizaje"
+!!! abstract "En esta lección"
 
     Al finalizar este tema, el estudiante será capaz de:
 
-    - Explicar qué es un Sistema de Referencia de Coordenadas (CRS) y cuáles son sus componentes.
-    - Diferenciar un CRS geográfico de uno proyectado, y las coordenadas angulares de las métricas.
+    - Explicar qué es un Sistema de Referencia de Coordenadas (SRC) y cuáles son sus componentes.
+    - Diferenciar un SRC geográfico de uno proyectado, y las coordenadas angulares de las métricas.
     - Distinguir entre datum horizontal y datum vertical.
     - Diferenciar sistemas de referencia locales, regionales y globales.
     - Describir WGS 84 y SIRGAS, y su relación con el marco geodésico de Bolivia.
-    - Interpretar un código EPSG e identificar el CRS de un conjunto de datos.
+    - Interpretar un código EPSG e identificar el SRC de un conjunto de datos.
+
+    **Tiempo:** 50 min · **Materiales:** calculadora y cuaderno · **Producto:** Inventario de sistemas de referencia y SRC de trabajo propuesto (actividad 1.4).
 
 ---
 
-## Un número no es una ubicación
+## Idea central
+
+### Un número no es una ubicación
 
 En el tema anterior vimos que un **datum** fija un elipsoide a la Tierra. Ahora completamos la idea: para que un par de números represente un lugar, hay que saber **exactamente cómo interpretarlos**.
 
@@ -43,22 +47,22 @@ Cinco pares de números para **un solo lugar**. Y hay dos detalles que conviene 
 
 ---
 
-## ¿Qué es un Sistema de Referencia de Coordenadas?
+### ¿Qué es un Sistema de Referencia de Coordenadas?
 
 !!! info "Definición"
 
-    Un **Sistema de Referencia de Coordenadas** (*Coordinate Reference System*, **CRS**) es un sistema de coordenadas vinculado a la Tierra mediante un **datum**. Define de forma completa y sin ambigüedad cómo interpretar los valores de una coordenada para ubicar un punto sobre el territorio.
+    Un **Sistema de Referencia de Coordenadas** (**SRC**; en inglés, *Coordinate Reference System*, CRS) es un sistema de coordenadas vinculado a la Tierra mediante un **datum**. Define de forma completa y sin ambigüedad cómo interpretar los valores de una coordenada para ubicar un punto sobre el territorio.
 
-En español también se le llama **Sistema de Referencia Espacial** (SRS) o, de forma abreviada, **sistema de referencia**. En QGIS verás casi siempre la sigla **SRC** (Sistema de Referencia de Coordenadas) o **CRS**.
+En español también se le llama **Sistema de Referencia Espacial** (SRS) o, de forma abreviada, **sistema de referencia**. En QGIS verás casi siempre la sigla **SRC** (Sistema de Referencia de Coordenadas) o **SRC**.
 
-### Componentes de un CRS
+#### Componentes de un SRC
 
 ```mermaid
 flowchart TB
     CRS["<b>Sistema de Referencia de Coordenadas</b>"]
     DAT["<b>Datum</b><br/>¿Respecto a qué modelo de la Tierra?"]
     CS["<b>Sistema de coordenadas</b><br/>¿Cómo se expresan los valores?"]
-    PRO["<b>Proyección</b><br/>Solo en CRS proyectados"]
+    PRO["<b>Proyección</b><br/>Solo en SRC proyectados"]
     ELI["Elipsoide"]
     MER["Meridiano de origen"]
     POS["Posición y orientación"]
@@ -92,12 +96,12 @@ flowchart TB
 
 ---
 
-## CRS geográficos y CRS proyectados
+### SRC geográficos y SRC proyectados
 
-Los CRS que usaremos casi siempre en un SIG pertenecen a una de estas dos familias.
+Los SRC que usaremos casi siempre en un SIG pertenecen a una de estas dos familias.
 
 <figure class="figura">
-<svg viewBox="0 0 720 370" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparación entre un CRS geográfico sobre el globo y un CRS proyectado sobre un plano">
+<svg viewBox="0 0 720 370" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparación entre un SRC geográfico sobre el globo y un SRC proyectado sobre un plano">
 <circle cx="170" cy="170" r="120" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-width="2"/>
 <ellipse cx="170" cy="170" rx="60" ry="120" fill="none" stroke="#3f6fd8" stroke-width="1.2"/>
 <ellipse cx="170" cy="170" rx="103.9" ry="120" fill="none" stroke="#3f6fd8" stroke-width="1.2"/>
@@ -125,17 +129,17 @@ Los CRS que usaremos casi siempre en un SIG pertenecen a una de estas dos famili
 <text x="508" y="208" text-anchor="middle" font-size="13" font-weight="bold" fill="#e0823d">(E, N)</text>
 <text x="560" y="310" text-anchor="middle" font-size="12" fill="currentColor">Este (m) →</text>
 <text x="418" y="170" text-anchor="middle" font-size="12" fill="currentColor" transform="rotate(-90 418 170)">Norte (m) →</text>
-<text x="170" y="335" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">CRS geográfico</text>
+<text x="170" y="335" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">SRC geográfico</text>
 <text x="170" y="356" text-anchor="middle" font-size="13" fill="currentColor">Coordenadas angulares (grados)</text>
-<text x="560" y="335" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">CRS proyectado</text>
+<text x="560" y="335" text-anchor="middle" font-size="15" font-weight="bold" fill="currentColor">SRC proyectado</text>
 <text x="560" y="356" text-anchor="middle" font-size="13" fill="currentColor">Coordenadas métricas (metros)</text>
 </svg>
-<figcaption>Un CRS geográfico ubica puntos con ángulos sobre el elipsoide; un CRS proyectado los ubica con distancias sobre un plano.</figcaption>
+<figcaption>Un SRC geográfico ubica puntos con ángulos sobre el elipsoide; un SRC proyectado los ubica con distancias sobre un plano.</figcaption>
 </figure>
 
-### CRS geográficos
+#### SRC geográficos
 
-Un **CRS geográfico** expresa la posición mediante **latitud y longitud** sobre el elipsoide del datum, tal como vimos en el tema 1.3.
+Un **SRC geográfico** expresa la posición mediante **latitud y longitud** sobre el elipsoide del datum, tal como vimos en el tema 1.3.
 
 - Sus coordenadas son **angulares**: se expresan en **grados**.
 - La superficie de referencia es **curva** (el elipsoide).
@@ -144,9 +148,9 @@ Un **CRS geográfico** expresa la posición mediante **latitud y longitud** sobr
 
 **Ejemplos:** WGS 84 (EPSG:4326), SIRGAS 2000 (EPSG:4674), PSAD56 (EPSG:4248).
 
-### CRS proyectados
+#### SRC proyectados
 
-Un **CRS proyectado** toma un CRS geográfico y le aplica una **proyección cartográfica** para representar la superficie curva en un plano.
+Un **SRC proyectado** toma un SRC geográfico y le aplica una **proyección cartográfica** para representar la superficie curva en un plano.
 
 - Sus coordenadas son **métricas**: se expresan normalmente en **metros**.
 - La superficie de referencia es **plana**.
@@ -156,15 +160,15 @@ Un **CRS proyectado** toma un CRS geográfico y le aplica una **proyección cart
 
 **Ejemplos:** WGS 84 / UTM zona 19S (EPSG:32719), SIRGAS 2000 / UTM zona 20S (EPSG:31980).
 
-!!! tip "Todo CRS proyectado se apoya en uno geográfico"
+!!! tip "Todo SRC proyectado se apoya en uno geográfico"
 
-    Un CRS proyectado **no reemplaza** al geográfico: lo **contiene**. WGS 84 / UTM zona 19S es el CRS geográfico WGS 84 más una proyección UTM. Por eso decimos que tiene un **CRS geográfico base**.
+    Un SRC proyectado **no reemplaza** al geográfico: lo **contiene**. WGS 84 / UTM zona 19S es el SRC geográfico WGS 84 más una proyección UTM. Por eso decimos que tiene un **SRC geográfico base**.
 
-### Coordenadas angulares y coordenadas métricas
+#### Coordenadas angulares y coordenadas métricas
 
 | Característica | Coordenadas angulares | Coordenadas métricas |
 |---|---|---|
-| Tipo de CRS | Geográfico | Proyectado |
+| Tipo de SRC | Geográfico | Proyectado |
 | Unidades | Grados | Metros (o pies) |
 | Ejes | Longitud (λ), latitud (φ) | Este (E o X), Norte (N o Y) |
 | Superficie | Elipsoide (curva) | Plano |
@@ -175,11 +179,11 @@ Un **CRS proyectado** toma un CRS geográfico y le aplica una **proyección cart
 
 !!! danger "No midas en grados"
 
-    Si calculas el área de un predio en un CRS geográfico usando geometría plana, el resultado estará en **grados cuadrados**, una unidad sin sentido práctico. Como vimos en el tema 1.3, un grado de longitud mide unos 106 km en el centro de Bolivia y 111 km en el ecuador.
+    Si calculas el área de un predio en un SRC geográfico usando geometría plana, el resultado estará en **grados cuadrados**, una unidad sin sentido práctico. Como vimos en el tema 1.3, un grado de longitud mide unos 106 km en el centro de Bolivia y 111 km en el ecuador.
 
-    Para medir, usa un **CRS proyectado adecuado** o herramientas que calculen sobre el **elipsoide**. Veremos cómo hacerlo en QGIS en la lección [2.6 Resolver problemas de coordenadas](../modulo-02/06-problemas-coordenadas.md).
+    Para medir, usa un **SRC proyectado adecuado** o herramientas que calculen sobre el **elipsoide**. Veremos cómo hacerlo en QGIS en la lección [2.6 Resolver problemas de coordenadas](../modulo-02/06-problemas-coordenadas.md).
 
-### Otros tipos de CRS
+#### Otros tipos de SRC
 
 Además de los geográficos y los proyectados, existen otros tipos que conviene reconocer:
 
@@ -193,7 +197,7 @@ Además de los geográficos y los proyectados, existen otros tipos que conviene 
 
 ---
 
-## Datum horizontal y datum vertical
+### Datum horizontal y datum vertical
 
 En el tema 1.3 vimos que la posición horizontal y la altura tienen **superficies de referencia distintas**: el elipsoide y el geoide. Por eso existen dos tipos de datum.
 
@@ -217,7 +221,7 @@ En el tema 1.3 vimos que la posición horizontal y la altura tienen **superficie
 
 </div>
 
-### Tipos de datum vertical
+#### Tipos de datum vertical
 
 | Tipo | Superficie de referencia | Cómo se materializa | Ejemplo |
 |---|---|---|---|
@@ -233,11 +237,11 @@ En el tema 1.3 vimos que la posición horizontal y la altura tienen **superficie
 
 !!! warning "Un dato 3D necesita dos referencias"
 
-    Un modelo digital de elevación, una nube de puntos de dron o un levantamiento GNSS con alturas requieren conocer **ambos datums**. Es frecuente que un archivo declare correctamente su CRS horizontal pero no indique si sus alturas son **elipsoidales u ortométricas**, lo que puede generar diferencias de decenas de metros.
+    Un modelo digital de elevación, una nube de puntos de dron o un levantamiento GNSS con alturas requieren conocer **ambos datums**. Es frecuente que un archivo declare correctamente su SRC horizontal pero no indique si sus alturas son **elipsoidales u ortométricas**, lo que puede generar diferencias de decenas de metros.
 
 ---
 
-## Sistemas locales, regionales y globales
+### Sistemas locales, regionales y globales
 
 Los sistemas de referencia pueden clasificarse según **el área para la que fueron diseñados**.
 
@@ -247,7 +251,7 @@ Los sistemas de referencia pueden clasificarse según **el área para la que fue
 | **Regional o nacional** | Ajustado a un continente o país. Puede ser un datum clásico o una densificación de un sistema global. | PSAD56, SIRGAS, MARGEN-SIRGAS, NAD83, ETRS89 |
 | **Global** | Válido para todo el planeta, geocéntrico y compatible con GNSS. | WGS 84, ITRF |
 
-### Coordenadas locales o de obra
+#### Coordenadas locales o de obra
 
 Es muy común en proyectos de ingeniería y en planos elaborados en CAD trabajar con **coordenadas arbitrarias**, por ejemplo con origen en un punto al que se le asignan los valores `(1000, 1000)`.
 
@@ -259,7 +263,7 @@ Es muy común en proyectos de ingeniería y en planos elaborados en CAD trabajar
 
     Muchos planos de urbanizaciones, loteamientos u obras públicas llegan en formato CAD con coordenadas locales. Cuando se intenta cargarlos en un SIG, **aparecen en cualquier lugar** o no aparecen. Antes de usarlos, hay que identificar puntos de control con coordenadas conocidas y georreferenciarlos.
 
-### Sistema de referencia y marco de referencia
+#### Sistema de referencia y marco de referencia
 
 En geodesia se distinguen dos conceptos que en el uso cotidiano suelen mezclarse:
 
@@ -280,13 +284,13 @@ Un mismo sistema puede tener **varias realizaciones** a lo largo del tiempo, a m
 
 ---
 
-## WGS 84
+### WGS 84
 
 !!! info "Definición"
 
     **WGS 84** (*World Geodetic System 1984*) es un sistema de referencia **global y geocéntrico** desarrollado por el Departamento de Defensa de los Estados Unidos. Es el sistema de referencia del **GPS**.
 
-### Características
+#### Características
 
 - **Geocéntrico:** su origen está en el centro de masas de la Tierra.
 - **Elipsoide:** WGS 84 (*a* = 6 378 137 m; 1/*f* = 298,257223563).
@@ -294,14 +298,14 @@ Un mismo sistema puede tener **varias realizaciones** a lo largo del tiempo, a m
 - **Cobertura:** todo el planeta.
 - **Realizaciones:** se ha actualizado varias veces (G730, G873, G1150, G1674, G1762, G2139, G2296). Las versiones recientes coinciden con el Marco Internacional de Referencia Terrestre (ITRF) al nivel de pocos centímetros.
 
-### ¿Por qué es tan usado?
+#### ¿Por qué es tan usado?
 
 - Es el sistema que entregan **directamente los receptores GPS** y los celulares.
 - Es el sistema por defecto de **Google Earth, KML y GeoJSON**.
-- Es el CRS más reconocido por cualquier software.
+- Es el SRC más reconocido por cualquier software.
 - Su código EPSG:4326 es, probablemente, **el más usado del mundo**.
 
-### Códigos EPSG más usados de WGS 84
+#### Códigos EPSG más usados de WGS 84
 
 | Código | Nombre | Tipo | Uso |
 |---|---|---|---|
@@ -325,19 +329,19 @@ Un mismo sistema puede tener **varias realizaciones** a lo largo del tiempo, a m
 
 ---
 
-## SIRGAS
+### SIRGAS
 
 !!! info "Definición"
 
     **SIRGAS** (*Sistema de Referencia Geocéntrico para las Américas*) es el sistema de referencia **geocéntrico regional** para el continente americano. Es una **densificación del ITRF** en la región y es la base de los sistemas de referencia oficiales de la mayoría de los países de América Latina.
 
-### Origen y evolución
+#### Origen y evolución
 
 - Surgió en **1993**, en una conferencia internacional celebrada en **Asunción, Paraguay**, con el objetivo de definir un sistema de referencia geocéntrico común para América del Sur. Posteriormente amplió su alcance a todo el continente.
 - Su propósito fue **reemplazar los datums locales** (como PSAD56 y SAD69) por un sistema geocéntrico, homogéneo y compatible con GNSS.
 - También es una **organización** que reúne a agencias geográficas nacionales, universidades y centros de investigación de las Américas.
 
-### Realizaciones
+#### Realizaciones
 
 | Realización | Época de referencia | Características |
 |---|---|---|
@@ -345,14 +349,14 @@ Un mismo sistema puede tener **varias realizaciones** a lo largo del tiempo, a m
 | **SIRGAS2000** | 2000.4 | Red ampliada a todo el continente |
 | **SIRGAS-CON** | Actualizada continuamente | Red de estaciones GNSS de operación continua en todo el continente |
 
-### SIRGAS y WGS 84
+#### SIRGAS y WGS 84
 
 SIRGAS usa el elipsoide **GRS80**, prácticamente idéntico al de WGS 84 (tema 1.3), y ambos están alineados con el ITRF. Por eso:
 
 - Para la **mayoría de los trabajos SIG**, las coordenadas en SIRGAS y en WGS 84 pueden considerarse **equivalentes**: sus diferencias son del orden de decímetros.
 - Para **geodesia, catastro de precisión o redes de control**, esas diferencias sí importan y deben tratarse con los parámetros oficiales.
 
-### El marco geodésico de Bolivia
+#### El marco geodésico de Bolivia
 
 Bolivia materializa SIRGAS a través del **Marco de Referencia Geodésico Nacional (MARGEN-SIRGAS)**, a cargo del **Instituto Geográfico Militar (IGM)**.
 
@@ -361,7 +365,7 @@ Bolivia materializa SIRGAS a través del **Marco de Referencia Geodésico Nacion
 - Fue la base para **migrar la información antigua** referida a **PSAD56** mediante parámetros oficiales de transformación.
 - Forma parte del **Sistema de Referencia Geodésico del Estado Plurinacional de Bolivia**, que incluye además el componente vertical (MARVEREN) y la red gravimétrica.
 
-### Códigos EPSG de SIRGAS
+#### Códigos EPSG de SIRGAS
 
 | Código | Nombre | Tipo |
 |---|---|---|
@@ -373,18 +377,18 @@ Bolivia materializa SIRGAS a través del **Marco de Referencia Geodésico Nacion
 | **31981** | SIRGAS 2000 / UTM zona 21S | Proyectado |
 | **4170** | SIRGAS 1995 | Geográfico 2D |
 
-!!! tip "¿Qué CRS usar en un proyecto en Bolivia?"
+!!! tip "¿Qué SRC usar en un proyecto en Bolivia?"
 
     1. **Revisa primero la normativa o el estándar de la institución** para la que trabajas o de la que recibes los datos.
     2. En la práctica, gran parte de la información geográfica en Bolivia se intercambia en **WGS 84**, en coordenadas geográficas (EPSG:4326) o en **UTM zonas 19S, 20S o 21S** (EPSG:32719, 32720 y 32721).
     3. Para trabajos de **precisión geodésica o catastral**, utiliza el marco oficial **MARGEN-SIRGAS** y los parámetros publicados por el IGM.
-    4. Sea cual sea el CRS elegido, **documéntalo** en los metadatos del proyecto.
+    4. Sea cual sea el SRC elegido, **documéntalo** en los metadatos del proyecto.
 
 ---
 
-## Código EPSG
+### Código EPSG
 
-Escribir todos los parámetros de un CRS cada vez que se usa sería impráctico y propenso a errores. Por eso existen **registros** que asignan un **código único** a cada CRS.
+Escribir todos los parámetros de un SRC cada vez que se usa sería impráctico y propenso a errores. Por eso existen **registros** que asignan un **código único** a cada SRC.
 
 !!! info "Definición"
 
@@ -396,8 +400,8 @@ Con un solo número, el software sabe **todo** lo que necesita:
 EPSG:32719
 │
 ├── Nombre:          WGS 84 / UTM zona 19S
-├── Tipo:            CRS proyectado
-├── CRS base:        WGS 84 (EPSG:4326)
+├── Tipo:            SRC proyectado
+├── SRC base:        WGS 84 (EPSG:4326)
 ├── Elipsoide:       WGS 84
 ├── Proyección:      Transversa de Mercator
 │   ├── Meridiano central:  −69°
@@ -410,28 +414,28 @@ EPSG:32719
 
 No te preocupes todavía por el meridiano central, el factor de escala o los falsos Este y Norte: los veremos en detalle en el tema **1.6**.
 
-### Los códigos EPSG no son solo CRS
+#### Los códigos EPSG no son solo SRC
 
-La base de datos EPSG también identifica los componentes de un CRS:
+La base de datos EPSG también identifica los componentes de un SRC:
 
 | Tipo de objeto | Ejemplo | Código |
 |---|---|---|
-| CRS geográfico | WGS 84 | EPSG:4326 |
-| CRS proyectado | WGS 84 / UTM zona 19S | EPSG:32719 |
-| CRS vertical | EGM2008 height | EPSG:3855 |
-| CRS compuesto | WGS 84 + EGM2008 height | EPSG:9518 |
+| SRC geográfico | WGS 84 | EPSG:4326 |
+| SRC proyectado | WGS 84 / UTM zona 19S | EPSG:32719 |
+| SRC vertical | EGM2008 height | EPSG:3855 |
+| SRC compuesto | WGS 84 + EGM2008 height | EPSG:9518 |
 | Elipsoide | WGS 84 | EPSG:7030 |
 | Datum | World Geodetic System 1984 | EPSG:6326 |
 
-Cuando en QGIS o en cualquier software elegimos un CRS, casi siempre lo haremos por su **código de CRS**. Los demás códigos se usan internamente.
+Cuando en QGIS o en cualquier software elegimos un SRC, casi siempre lo haremos por su **código de SRC**. Los demás códigos se usan internamente.
 
-### Otras formas de describir un CRS
+#### Otras formas de describir un SRC
 
 El código EPSG es la forma más cómoda, pero no la única:
 
 === "WKT"
 
-    **WKT** (*Well-Known Text*) es un formato de texto estandarizado (ISO 19162) que describe el CRS de forma completa. Es el formato que se guarda, por ejemplo, en los archivos `.prj` y en las bases de datos espaciales.
+    **WKT** (*Well-Known Text*) es un formato de texto estandarizado (ISO 19162) que describe el SRC de forma completa. Es el formato que se guarda, por ejemplo, en los archivos `.prj` y en las bases de datos espaciales.
 
     ```text
     PROJCRS["WGS 84 / UTM zone 19S",
@@ -455,7 +459,7 @@ El código EPSG es la forma más cómoda, pero no la única:
 
 === "PROJ"
 
-    **PROJ** es la biblioteca que usan QGIS, GDAL y PostGIS para transformar coordenadas. Históricamente, los CRS se describían con una cadena de parámetros:
+    **PROJ** es la biblioteca que usan QGIS, GDAL y PostGIS para transformar coordenadas. Históricamente, los SRC se describían con una cadena de parámetros:
 
     ```text
     +proj=utm +zone=19 +south +datum=WGS84 +units=m +no_defs
@@ -467,19 +471,19 @@ El código EPSG es la forma más cómoda, pero no la única:
 
     Además de EPSG, existen otros registros:
 
-    - **ESRI:** códigos propios del software ArcGIS para CRS que no están en EPSG.
+    - **ESRI:** códigos propios del software ArcGIS para SRC que no están en EPSG.
     - **IGNF:** registro del Instituto Geográfico Nacional de Francia.
-    - **Personalizados:** QGIS permite crear CRS propios, que aparecen con el prefijo `USER:`.
+    - **Personalizados:** QGIS permite crear SRC propios, que aparecen con el prefijo `USER:`.
 
 ---
 
-## Identificación de un CRS
+### Identificación de un SRC
 
-En el trabajo real, es muy común recibir datos **sin saber en qué CRS están**. Identificarlo correctamente es una habilidad fundamental.
+En el trabajo real, es muy común recibir datos **sin saber en qué SRC están**. Identificarlo correctamente es una habilidad fundamental.
 
-### Dónde se guarda el CRS según el formato
+#### Dónde se guarda el SRC según el formato
 
-| Formato | ¿Guarda el CRS? | Dónde |
+| Formato | ¿Guarda el SRC? | Dónde |
 |---|---|---|
 | **GeoPackage** (`.gpkg`) | Sí, obligatorio | En una tabla interna del archivo |
 | **Shapefile** (`.shp`) | Opcional | En el archivo `.prj` que lo acompaña |
@@ -492,36 +496,36 @@ En el trabajo real, es muy común recibir datos **sin saber en qué CRS están**
 
 !!! danger "El caso más común: un Shapefile sin `.prj`"
 
-    Un Shapefile está formado por varios archivos. Si alguien comparte solo `.shp`, `.shx` y `.dbf`, **el CRS se pierde**. El software no puede saber cómo interpretar las coordenadas. Por eso se recomienda preferir **GeoPackage**, que guarda todo en un solo archivo.
+    Un Shapefile está formado por varios archivos. Si alguien comparte solo `.shp`, `.shx` y `.dbf`, **el SRC se pierde**. El software no puede saber cómo interpretar las coordenadas. Por eso se recomienda preferir **GeoPackage**, que guarda todo en un solo archivo.
 
-### Pistas a partir de los valores de las coordenadas
+#### Pistas a partir de los valores de las coordenadas
 
-Si el CRS no está declarado, los **rangos de los valores** dan pistas muy útiles. Para datos ubicados en Bolivia:
+Si el SRC no está declarado, los **rangos de los valores** dan pistas muy útiles. Para datos ubicados en Bolivia:
 
 | Si las coordenadas se parecen a... | Probablemente es | Rango aproximado en Bolivia |
 |---|---|---|
-| `-66.1570, -17.3935` | CRS **geográfico** (grados) | X: −69,7 a −57,4 · Y: −9,6 a −22,9 |
-| `592468, 8176022` | CRS **UTM sur** (metros) | E: 6 dígitos (≈ 170 000 a 830 000) · N: 7 dígitos (≈ 7 460 000 a 8 930 000) |
+| `-66.1570, -17.3935` | SRC **geográfico** (grados) | X: −69,7 a −57,4 · Y: −9,6 a −22,9 |
+| `592468, 8176022` | SRC **UTM sur** (metros) | E: 6 dígitos (≈ 170 000 a 830 000) · N: 7 dígitos (≈ 7 460 000 a 8 930 000) |
 | `-7584598, -1862211` | **Pseudo-Mercator** (EPSG:3857) | X: ≈ −7 750 000 a −6 400 000 · Y: ≈ −1 080 000 a −2 620 000 |
 | `1000.00, 1523.45` | **Coordenadas locales** o de obra | Valores pequeños y arbitrarios |
 
 !!! warning "Lo que los rangos no pueden decirte"
 
-    Los valores permiten identificar el **tipo** de CRS, pero **no el datum**. Unas coordenadas en PSAD56 / UTM 19S y en WGS 84 / UTM 19S tienen el mismo aspecto y difieren en apenas unos cientos de metros. Tampoco permiten saber con certeza la **zona UTM**.
+    Los valores permiten identificar el **tipo** de SRC, pero **no el datum**. Unas coordenadas en PSAD56 / UTM 19S y en WGS 84 / UTM 19S tienen el mismo aspecto y difieren en apenas unos cientos de metros. Tampoco permiten saber con certeza la **zona UTM**.
 
     Para resolverlo, hay que revisar **metadatos** o **superponer** los datos con una capa de referencia confiable.
 
-### Procedimiento para identificar un CRS
+#### Procedimiento para identificar un SRC
 
 ```mermaid
 flowchart TB
-    A{"¿El archivo declara<br/>su CRS?"}
+    A{"¿El archivo declara<br/>su SRC?"}
     B["Revisar metadatos, documentación<br/>o consultar al productor"]
     C["Analizar el rango<br/>de las coordenadas"]
-    D["Proponer un CRS candidato"]
+    D["Proponer un SRC candidato"]
     E["Superponer con una capa<br/>de referencia confiable"]
     F{"¿Coincide?"}
-    G["Asignar el CRS<br/>y documentarlo"]
+    G["Asignar el SRC<br/>y documentarlo"]
     A -- "Sí" --> E
     A -- "No" --> B
     B --> C
@@ -532,11 +536,11 @@ flowchart TB
     F -- "No" --> D
 ```
 
-!!! tip "Verificar incluso cuando el CRS está declarado"
+!!! tip "Verificar incluso cuando el SRC está declarado"
 
-    Que un archivo declare un CRS **no garantiza que sea el correcto**. Es frecuente encontrar capas con un CRS mal asignado por error. Superponer siempre con una referencia confiable (imágenes satelitales, límites oficiales, puntos de control) es una buena práctica.
+    Que un archivo declare un SRC **no garantiza que sea el correcto**. Es frecuente encontrar capas con un SRC mal asignado por error. Superponer siempre con una referencia confiable (imágenes satelitales, límites oficiales, puntos de control) es una buena práctica.
 
-### Síntomas de un CRS mal definido
+#### Síntomas de un SRC mal definido
 
 | Síntoma | Causa probable |
 |---|---|
@@ -547,32 +551,68 @@ flowchart TB
 | La capa aparece en el hemisferio norte | Se usó una zona UTM **norte** en lugar de **sur** |
 | La capa aparece en la Antártida o en otro continente | **Latitud y longitud invertidas** |
 
-!!! note "Asignar un CRS no es lo mismo que transformarlo"
+!!! note "Asignar un SRC no es lo mismo que transformarlo"
 
     Hay dos operaciones que suelen confundirse:
 
-    - **Asignar (definir) un CRS:** le dice al software cómo **interpretar** las coordenadas existentes. Los números **no cambian**. Se usa cuando el CRS falta o está mal declarado.
-    - **Reproyectar (transformar):** **calcula nuevas coordenadas** en otro CRS. Los números **sí cambian**, pero el lugar representado es el mismo.
+    - **Asignar (definir) un SRC:** le dice al software cómo **interpretar** las coordenadas existentes. Los números **no cambian**. Se usa cuando el SRC falta o está mal declarado.
+    - **Reproyectar (transformar):** **calcula nuevas coordenadas** en otro SRC. Los números **sí cambian**, pero el lugar representado es el mismo.
 
     Confundirlas es uno de los errores más frecuentes en SIG. Practicaremos ambas operaciones en QGIS en la lección [2.6 Resolver problemas de coordenadas](../modulo-02/06-problemas-coordenadas.md).
 
 ---
 
-## Ideas clave
+### Ideas clave
 
 !!! success "Para recordar"
 
-    - Un **CRS** define completamente cómo interpretar una coordenada: **datum**, **sistema de coordenadas**, **unidades** y, si corresponde, **proyección**.
-    - Un **CRS geográfico** usa coordenadas **angulares** (grados); un **CRS proyectado** usa coordenadas **métricas** (metros). Todo CRS proyectado se basa en uno geográfico.
+    - Un **SRC** define completamente cómo interpretar una coordenada: **datum**, **sistema de coordenadas**, **unidades** y, si corresponde, **proyección**.
+    - Un **SRC geográfico** usa coordenadas **angulares** (grados); un **SRC proyectado** usa coordenadas **métricas** (metros). Todo SRC proyectado se basa en uno geográfico.
     - El **datum horizontal** es la referencia de la posición; el **datum vertical**, de las alturas.
     - Los sistemas pueden ser **locales**, **regionales** o **globales**. Las coordenadas de obra no están vinculadas a la Tierra.
     - **WGS 84** es el sistema global del GPS; **SIRGAS** es su equivalente regional para las Américas, y en Bolivia se materializa mediante **MARGEN-SIRGAS**.
-    - Un **código EPSG** resume todos los parámetros de un CRS en un número.
-    - Identificar un CRS requiere revisar metadatos, analizar rangos de coordenadas y **verificar superponiendo con una referencia confiable**.
+    - Un **código EPSG** resume todos los parámetros de un SRC en un número.
+    - Identificar un SRC requiere revisar metadatos, analizar rangos de coordenadas y **verificar superponiendo con una referencia confiable**.
 
 ---
 
-## Autoevaluación
+## Hazlo conmigo
+
+**¿En qué SRC está cada coordenada?** Todas corresponden al **mismo lugar**: la plaza principal de Cochabamba.
+
+| Coordenada (X, Y) | Pista | SRC probable |
+|---|---|---|
+| −66,157 ; −17,394 | Valores entre −180 y 180, y entre −90 y 90 | **EPSG:4326** · WGS 84 geográficas |
+| 802 110 ; 8 075 114 | Este ≈ 800 000, Norte ≈ 8 millones | **EPSG:32719** · WGS 84 / UTM 19 S |
+| 164 541 ; 8 074 592 | Este muy bajo (< 166 000) | **EPSG:32720** · WGS 84 / UTM 20 S (fuera de su zona) |
+| −7 364 600 ; −1 961 300 | Millones negativos en X e Y | **EPSG:3857** · Pseudo-Mercator (mapas web) |
+
+Los números son **pistas**: la confirmación siempre viene de los **metadatos** o de la fuente.
+
+---
+
+## Inténtalo tú
+
+!!! example "Ejercicio"
+
+    Identifica el SRC probable de cada coordenada y explica tu razonamiento:
+
+    1. 17,394 ; −66,157
+    2. 801 990 ; 8 075 480 (fuente: un plano municipal de 1990)
+    3. −66° 09′ 25″ ; −17° 23′ 37″
+    4. 7 364 600 ; 1 961 300
+
+---
+
+## ¿Lo hiciste bien?
+
+??? success "Respuestas"
+
+    1. Grados con **orden invertido** (latitud primero) y signo de latitud perdido: hay que revisar la fuente. 2. Parece UTM 19 S, pero un plano de 1990 probablemente usa **PSAD56 / UTM 19 S (EPSG:24879)**: ¡los números difieren poco y el lugar ~400 m! 3. Grados en GMS, WGS 84 probablemente: conviértelos a decimales. 4. Pseudo-Mercator con los **signos perdidos**: el punto aparecería en el hemisferio norte oriental.
+
+---
+
+## Comprueba lo aprendido
 
 ??? question "1. ¿Por qué el par de valores `592468, 8176022` no es suficiente para ubicar un punto?"
 
@@ -580,14 +620,14 @@ flowchart TB
 
 ??? question "2. ¿Cuál es la diferencia entre EPSG:4326 y EPSG:32719?"
 
-    - **EPSG:4326** es el CRS **geográfico** WGS 84: coordenadas angulares (latitud y longitud) en grados.
-    - **EPSG:32719** es el CRS **proyectado** WGS 84 / UTM zona 19S: coordenadas métricas (Este y Norte) en metros.
+    - **EPSG:4326** es el SRC **geográfico** WGS 84: coordenadas angulares (latitud y longitud) en grados.
+    - **EPSG:32719** es el SRC **proyectado** WGS 84 / UTM zona 19S: coordenadas métricas (Este y Norte) en metros.
 
     Ambos comparten el mismo datum (WGS 84). El segundo se construye a partir del primero aplicando la proyección UTM.
 
 ??? question "3. Un compañero calcula el área de un terreno en EPSG:4326 y obtiene 0,000085. ¿Qué error cometió?"
 
-    Calculó el área con geometría plana en un **CRS geográfico**, por lo que el resultado está en **grados cuadrados**, una unidad sin significado práctico. Debía usar un **CRS proyectado** adecuado (por ejemplo, UTM de la zona correspondiente) o un cálculo sobre el elipsoide.
+    Calculó el área con geometría plana en un **SRC geográfico**, por lo que el resultado está en **grados cuadrados**, una unidad sin significado práctico. Debía usar un **SRC proyectado** adecuado (por ejemplo, UTM de la zona correspondiente) o un cálculo sobre el elipsoide.
 
 ??? question "4. ¿Por qué SIRGAS y WGS 84 pueden considerarse equivalentes en un SIG, pero no en un trabajo geodésico?"
 
@@ -595,34 +635,38 @@ flowchart TB
 
 ??? question "5. Recibes una capa de predios en formato DXF con coordenadas como `1250.35, 980.12`. ¿Qué puedes concluir?"
 
-    Que probablemente está en **coordenadas locales o de obra**, sin vínculo con un sistema de referencia terrestre. No basta con asignarle un CRS: es necesario **georreferenciarla** usando puntos de control con coordenadas conocidas.
+    Que probablemente está en **coordenadas locales o de obra**, sin vínculo con un sistema de referencia terrestre. No basta con asignarle un SRC: es necesario **georreferenciarla** usando puntos de control con coordenadas conocidas.
 
 ??? question "6. Una capa que debería estar en Cochabamba aparece unos 400 m desplazada respecto a una imagen satelital. ¿Cuál es la causa más probable?"
 
     Un problema de **datum**: por ejemplo, datos en **PSAD56** interpretados como si estuvieran en **WGS 84**. Los desplazamientos de cientos de metros son característicos de ese error. Un error de zona UTM produciría desplazamientos de cientos de **kilómetros**.
 
-??? question "7. ¿Qué diferencia hay entre asignar un CRS y reproyectar una capa?"
+??? question "7. ¿Qué diferencia hay entre asignar un SRC y reproyectar una capa?"
 
-    **Asignar** un CRS solo cambia la forma en que el software **interpreta** las coordenadas; los valores no cambian. **Reproyectar** calcula **nuevas coordenadas** en otro CRS; los valores cambian, pero el lugar representado es el mismo.
+    **Asignar** un SRC solo cambia la forma en que el software **interpreta** las coordenadas; los valores no cambian. **Reproyectar** calcula **nuevas coordenadas** en otro SRC; los valores cambian, pero el lugar representado es el mismo.
 
 ---
 
-## Actividad propuesta
+## Tu proyecto
 
 !!! example "Actividad 1.4 — Inventario de sistemas de referencia del proyecto integrador (sin software)"
 
     Retoma los datos que identificaste en las actividades anteriores y elabora una tabla con las siguientes columnas:
 
-    | Dato | Fuente | Formato | CRS declarado | Código EPSG | ¿Geográfico o proyectado? | Datum vertical (si tiene alturas) |
+    | Dato | Fuente | Formato | SRC declarado | Código EPSG | ¿Geográfico o proyectado? | Datum vertical (si tiene alturas) |
     |---|---|---|---|---|---|---|
 
     Luego responde:
 
-    1. ¿Todos tus datos están en el **mismo CRS**? Si no, ¿cuáles habría que transformar?
-    2. ¿Algún dato **no declara su CRS**? Propón un CRS candidato a partir del rango de sus coordenadas.
+    1. ¿Todos tus datos están en el **mismo SRC**? Si no, ¿cuáles habría que transformar?
+    2. ¿Algún dato **no declara su SRC**? Propón un SRC candidato a partir del rango de sus coordenadas.
     3. ¿Hay datos antiguos que podrían estar en **PSAD56**?
     4. ¿Hay planos con **coordenadas locales**?
-    5. Propón el **CRS de trabajo** para tu proyecto y justifica tu elección.
+    5. Propón el **SRC de trabajo** para tu proyecto y justifica tu elección.
+
+!!! tip "En el caso conductor"
+
+    Para el caso conductor, el SRC de trabajo es **EPSG:32719** (WGS 84 / UTM 19 S). Haz una tabla con cada dato que piensas usar, su SRC de origen y si deberá reproyectarse.
 
 ---
 

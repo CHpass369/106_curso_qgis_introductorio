@@ -5,7 +5,7 @@ description: Proyección Universal Transversa de Mercator, zonas UTM, meridiano 
 
 # 1.6 Sistema UTM
 
-!!! abstract "Objetivos de aprendizaje"
+!!! abstract "En esta lección"
 
     Al finalizar este tema, el estudiante será capaz de:
 
@@ -16,9 +16,13 @@ description: Proyección Universal Transversa de Mercator, zonas UTM, meridiano 
     - Identificar las zonas UTM que cubren Bolivia y sus códigos EPSG.
     - Seleccionar la zona UTM adecuada para un proyecto, incluso cuando el área abarca más de una zona.
 
+    **Tiempo:** 45 min · **Materiales:** calculadora y cuaderno · **Producto:** Zona UTM, meridiano central y códigos EPSG del área de estudio (actividad 1.6).
+
 ---
 
-## ¿Qué es UTM?
+## Idea central
+
+### ¿Qué es UTM?
 
 En el tema 1.5 llegamos a una descripción muy precisa: UTM es una proyección **cilíndrica, transversa, secante y conforme**. Ahora veremos cómo esa proyección se convierte en un **sistema de coordenadas** usado en todo el mundo.
 
@@ -38,7 +42,7 @@ El sistema fue desarrollado por el Ejército de los Estados Unidos a fines de la
 
 ---
 
-## La proyección Transversa de Mercator
+### La proyección Transversa de Mercator
 
 Recordemos cómo funciona la proyección de Mercator **normal**: un cilindro tangente al **ecuador**, con deformación mínima cerca del ecuador y creciente hacia los polos.
 
@@ -60,16 +64,16 @@ Esto tiene una consecuencia clave: la deformación es muy pequeña **cerca del m
 
 ---
 
-## Zonas UTM
+### Zonas UTM
 
-### Las 60 zonas
+#### Las 60 zonas
 
 - La Tierra se divide en **60 zonas** (también llamadas **husos**) de **6° de longitud** cada una.
 - Se numeran del **1 al 60**, de oeste a este, empezando en el meridiano **180°**.
 - La zona 1 va de 180° O a 174° O; la zona 60, de 174° E a 180° E.
 - En sentido norte-sur, cubren desde los **80° S** hasta los **84° N**. Las regiones polares usan otro sistema, llamado **UPS** (*Universal Polar Stereographic*).
 
-### Cómo calcular la zona
+#### Cómo calcular la zona
 
 Para cualquier longitud λ (negativa al oeste de Greenwich):
 
@@ -101,7 +105,7 @@ Meridiano central = 6 × Zona − 183
 
     La Paz está en la **zona 19**, cuyo meridiano central es **69° O**.
 
-### Zonas de Sudamérica
+#### Zonas de Sudamérica
 
 | Zona | Desde | Hasta | Meridiano central |
 |---|---|---|---|
@@ -127,7 +131,7 @@ En negrita, las zonas que cubren el territorio de Bolivia.
 
 ---
 
-## Meridiano central y factor de escala
+### Meridiano central y factor de escala
 
 Cada zona tiene su propio **meridiano central (MC)**, ubicado exactamente en el centro de la franja, 3° al este y 3° al oeste de sus límites.
 
@@ -171,7 +175,7 @@ Cada zona tiene su propio **meridiano central (MC)**, ubicado exactamente en el 
 <figcaption>Esquema de una zona UTM del hemisferio sur. Los valores de Este y del factor de escala son aproximados sobre el ecuador.</figcaption>
 </figure>
 
-### ¿Por qué 0,9996?
+#### ¿Por qué 0,9996?
 
 Si el cilindro fuera **tangente** al meridiano central, la escala sería exacta allí y crecería hasta cerca de 1,0014 en los bordes de la zona. Para repartir mejor la deformación, UTM usa un cilindro **secante**:
 
@@ -191,11 +195,11 @@ Así, en toda la zona el error de escala se mantiene por debajo de **1 parte en 
 
 ---
 
-## Falso Este y Falso Norte
+### Falso Este y Falso Norte
 
 Si el origen de coordenadas estuviera en el cruce del meridiano central con el ecuador, la mitad de los puntos tendría coordenadas **Este negativas**, y todo el hemisferio sur tendría coordenadas **Norte negativas**. Para evitarlo, se suman valores constantes llamados **falsos**.
 
-### Falso Este
+#### Falso Este
 
 Al meridiano central se le asigna el valor **E = 500 000 m**.
 
@@ -212,7 +216,7 @@ Al meridiano central se le asigna el valor **E = 500 000 m**.
 
     La Paz tiene **E = 592 468 m** en la zona 19. Como es mayor que 500 000, está **al este** del meridiano central (69° O), a unos **92 km** de él.
 
-### Falso Norte
+#### Falso Norte
 
 El valor asignado al ecuador depende del hemisferio:
 
@@ -233,7 +237,7 @@ El valor asignado al ecuador depende del hemisferio:
 
 ---
 
-## Hemisferio norte y hemisferio sur
+### Hemisferio norte y hemisferio sur
 
 Como el falso Norte cambia según el hemisferio, **la misma zona tiene dos versiones**, y cada una tiene su propio código EPSG:
 
@@ -258,9 +262,9 @@ Como el falso Norte cambia según el hemisferio, **la misma zona tiene dos versi
 
 ---
 
-## Coordenadas Este/Norte
+### Coordenadas Este/Norte
 
-### Cómo expresar una coordenada UTM completa
+#### Cómo expresar una coordenada UTM completa
 
 Una coordenada UTM solo está completa si incluye **cinco elementos**:
 
@@ -287,7 +291,7 @@ Datum      Zona  Hemisferio   Este          Norte
 
     Ante la duda, verifica siempre qué convención usa el equipo o el documento.
 
-### Medir distancias con coordenadas UTM
+#### Medir distancias con coordenadas UTM
 
 Como las coordenadas UTM están en metros sobre un plano, la distancia entre dos puntos de la **misma zona** se calcula con el **teorema de Pitágoras**:
 
@@ -330,7 +334,7 @@ distancia = √( (E₂ − E₁)² + (N₂ − N₁)² )
 
 ---
 
-## Uso de UTM en Bolivia
+### Uso de UTM en Bolivia
 
 El territorio boliviano abarca **tres zonas UTM**, todas en el hemisferio sur.
 
@@ -408,7 +412,7 @@ El territorio boliviano abarca **tres zonas UTM**, todas en el hemisferio sur.
 | **20S** | 66° O a 60° O | 63° O | EPSG:32720 | EPSG:31980 | Centro y oriente: Chuquisaca, Tarija, la mayor parte de Beni y Santa Cruz |
 | **21S** | 60° O a 54° O | 57° O | EPSG:32721 | EPSG:31981 | Extremo oriental de Santa Cruz |
 
-### Capitales y ciudades de referencia
+#### Capitales y ciudades de referencia
 
 | Ciudad | Longitud | Zona | Este (m) | Norte (m) |
 |---|---|---|---|---|
@@ -433,9 +437,9 @@ El territorio boliviano abarca **tres zonas UTM**, todas en el hemisferio sur.
 
 ---
 
-## Selección correcta de la zona UTM
+### Selección correcta de la zona UTM
 
-### El procedimiento básico
+#### El procedimiento básico
 
 ```mermaid
 flowchart TB
@@ -448,7 +452,7 @@ flowchart TB
     A --> B --> C --> D --> E --> F
 ```
 
-### ¿Qué hacer si el área abarca más de una zona?
+#### ¿Qué hacer si el área abarca más de una zona?
 
 | Situación | Recomendación |
 |---|---|
@@ -461,7 +465,7 @@ flowchart TB
 
     El centro de Cochabamba, expresado en dos zonas distintas:
 
-    | CRS | Este (m) | Norte (m) |
+    | SRC | Este (m) | Norte (m) |
     |---|---|---|
     | WGS 84 / UTM zona **19S** (EPSG:32719) | 802 110 | 8 075 114 |
     | WGS 84 / UTM zona **20S** (EPSG:32720) | 164 541 | 8 074 592 |
@@ -472,11 +476,11 @@ flowchart TB
 
 !!! danger "Nunca mezcles zonas en una misma capa"
 
-    Las coordenadas de distintas zonas **no son compatibles entre sí**: cada zona es un plano distinto con su propio origen. Si en una misma tabla hay puntos en 19S y en 20S, las distancias, áreas y superposiciones calculadas serán **completamente erróneas**. Antes de combinarlos, hay que **reproyectar** todos los datos a un mismo CRS.
+    Las coordenadas de distintas zonas **no son compatibles entre sí**: cada zona es un plano distinto con su propio origen. Si en una misma tabla hay puntos en 19S y en 20S, las distancias, áreas y superposiciones calculadas serán **completamente erróneas**. Antes de combinarlos, hay que **reproyectar** todos los datos a un mismo SRC.
 
 ---
 
-## Ventajas y limitaciones de UTM
+### Ventajas y limitaciones de UTM
 
 | Ventajas | Limitaciones |
 |---|---|
@@ -489,7 +493,7 @@ flowchart TB
 
 ---
 
-## Ideas clave
+### Ideas clave
 
 !!! success "Para recordar"
 
@@ -503,7 +507,39 @@ flowchart TB
 
 ---
 
-## Autoevaluación
+## Hazlo conmigo
+
+**Calcular la zona UTM a partir de la longitud:**
+
+> zona = parte entera de ((longitud + 180) / 6) + 1  ·  meridiano central = 6 × zona − 183
+
+| Lugar | Longitud | Cálculo | Zona | Meridiano central |
+|---|---|---|---|---|
+| Cochabamba | −66,157° | (113,843 / 6) = 18,97 → 18 + 1 | **19 S** | 69° O |
+| Sacaba | −66,04° | (113,96 / 6) = 18,99 → 18 + 1 | **19 S** | 69° O |
+| Santa Cruz | −63,18° | (116,82 / 6) = 19,47 → 19 + 1 | **20 S** | 63° O |
+
+Cochabamba está a **2,84°** del meridiano central (≈ 300 km): cerca del borde de la zona, con un factor de escala ≈ **1,0007** (7 cm por cada 100 m).
+
+---
+
+## Inténtalo tú
+
+!!! example "Ejercicio"
+
+    Calcula la zona UTM y el meridiano central de: La Paz (−68,13°), Sucre (−65,26°), Trinidad (−64,90°), Cobija (−68,77°) y Puerto Suárez (−57,80°). ¿Qué código EPSG (WGS 84) usarías en cada caso?
+
+---
+
+## ¿Lo hiciste bien?
+
+??? success "Respuestas"
+
+    La Paz: **19 S**, 69° O, EPSG:32719 · Sucre: **20 S**, 63° O, EPSG:32720 · Trinidad: **20 S**, EPSG:32720 · Cobija: **19 S**, EPSG:32719 · Puerto Suárez: **21 S**, 57° O, EPSG:32721.
+
+---
+
+## Comprueba lo aprendido
 
 ??? question "1. ¿En qué zona UTM está Santa Cruz de la Sierra (longitud −63,18°) y cuál es su meridiano central?"
 
@@ -534,7 +570,7 @@ flowchart TB
 
 ??? question "5. Una capa de predios de Sacaba, cargada con EPSG:32720, aparece unos 640 km al este de donde debería estar. ¿Qué pasó?"
 
-    La capa estaba realmente en la **zona 19S** (EPSG:32719), pero se le asignó la **zona 20S**. Hay que **asignarle el CRS correcto** (no reproyectarla), porque sus coordenadas originales ya estaban en 19S.
+    La capa estaba realmente en la **zona 19S** (EPSG:32719), pero se le asignó la **zona 20S**. Hay que **asignarle el SRC correcto** (no reproyectarla), porque sus coordenadas originales ya estaban en 19S.
 
 ??? question "6. Necesitas calcular la superficie de las áreas protegidas de todo Bolivia. ¿Es adecuado usar UTM?"
 
@@ -546,7 +582,7 @@ flowchart TB
 
 ---
 
-## Actividad propuesta
+## Tu proyecto
 
 !!! example "Actividad 1.6 — Definir la zona UTM del proyecto integrador (sin software)"
 
@@ -558,6 +594,10 @@ flowchart TB
     4. Escribe el **código EPSG** que usarías en WGS 84 y en SIRGAS 2000.
     5. Toma un punto representativo de tu área e interpreta su coordenada Este: ¿está al este o al oeste del meridiano central? ¿A qué distancia?
     6. Revisa el inventario de la **Actividad 1.4**: ¿algún dato está en una zona UTM distinta a la que elegiste?
+
+!!! tip "En el caso conductor"
+
+    El caso conductor usa **UTM 19 S (EPSG:32719)**. Calcula la zona de los extremos este y oeste del municipio y comprueba que todo cae en la zona 19.
 
 ---
 

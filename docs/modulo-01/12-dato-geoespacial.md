@@ -5,7 +5,7 @@ description: Componentes del dato geoespacial. Geometría y validez, atributos y
 
 # 1.12 El dato geoespacial
 
-!!! abstract "Objetivos de aprendizaje"
+!!! abstract "En esta lección"
 
     Al finalizar este tema, el estudiante será capaz de:
 
@@ -16,9 +16,13 @@ description: Componentes del dato geoespacial. Geometría y validez, atributos y
     - Comprender la topología y detectar errores topológicos frecuentes.
     - Elaborar metadatos básicos y un diccionario de datos.
 
+    **Tiempo:** 45 min · **Materiales:** calculadora y cuaderno · **Producto:** Diccionario de datos, reglas topológicas y metadatos de una capa (actividad 1.12).
+
 ---
 
-## ¿Qué es un dato geoespacial?
+## Idea central
+
+### ¿Qué es un dato geoespacial?
 
 A lo largo del módulo hemos visto, por separado, las piezas que forman un dato geográfico: su **ubicación** y su **sistema de referencia** (temas 1.3 a 1.6), su **escala** y su **exactitud** (temas 1.8 y 1.9), su **generalización** (tema 1.10) y su **modelo** (tema 1.11). En este tema las reunimos.
 
@@ -116,11 +120,11 @@ A lo largo del módulo hemos visto, por separado, las piezas que forman un dato 
 
 ---
 
-## Geometría
+### Geometría
 
 La geometría describe la **ubicación y la forma** del elemento. En el tema 1.11 vimos sus tipos: puntos, líneas, polígonos y geometrías múltiples. Aquí nos interesa otro aspecto: que la geometría sea **válida**.
 
-### Geometrías válidas e inválidas
+#### Geometrías válidas e inválidas
 
 Las normas de *Simple Features* del OGC definen reglas que una geometría debe cumplir para que los algoritmos funcionen correctamente. Una geometría que no las cumple es **inválida**.
 
@@ -161,7 +165,7 @@ Las normas de *Simple Features* del OGC definen reglas que una geometría debe c
 
 ---
 
-## Atributos
+### Atributos
 
 Los atributos describen **las características no espaciales** de cada elemento. Se organizan en una **tabla de atributos**:
 
@@ -169,7 +173,7 @@ Los atributos describen **las características no espaciales** de cada elemento.
 - Cada **columna** (o campo) corresponde a una **característica**.
 - Cada **celda** contiene el **valor** de esa característica para esa entidad.
 
-### Tipos de campo
+#### Tipos de campo
 
 Cada campo tiene un **tipo de dato** que define qué valores admite y qué operaciones permite.
 
@@ -188,7 +192,7 @@ Cada campo tiene un **tipo de dato** que define qué valores admite y qué opera
 
     **Regla:** los códigos se guardan como **texto**, aunque estén formados solo por números. Un código no se suma ni se promedia.
 
-### Escalas de medición
+#### Escalas de medición
 
 Además del tipo de campo, importa **qué tipo de información** representa el valor. El psicólogo Stanley Stevens propuso en 1946 cuatro escalas de medición, que determinan qué operaciones tienen sentido:
 
@@ -207,7 +211,7 @@ Además del tipo de campo, importa **qué tipo de información** representa el v
 
     Recuerda que la escala de medición también determina qué **variable visual** usar en un mapa (tema 1.7).
 
-### Buenas prácticas en el diseño de atributos
+#### Buenas prácticas en el diseño de atributos
 
 !!! tip "Recomendaciones"
 
@@ -218,7 +222,7 @@ Además del tipo de campo, importa **qué tipo de información** representa el v
     - **Distinguir vacío, cero y "no aplica":** un campo vacío (nulo) significa "sin información", no "cero".
     - **No guardar valores que se pueden calcular:** si la superficie se calcula desde la geometría, conviene recalcularla cuando la geometría cambia, o documentar cuándo se calculó.
 
-### Unir atributos
+#### Unir atributos
 
 Con frecuencia, los atributos que necesitamos están en **otra tabla**. Existen dos formas de unirlos:
 
@@ -240,7 +244,7 @@ Con frecuencia, los atributos que necesitamos están en **otra tabla**. Existen 
 
 ---
 
-## Identificador
+### Identificador
 
 Cada entidad debe poder distinguirse de todas las demás de forma **inequívoca**. Para eso existe el **identificador**.
 
@@ -248,7 +252,7 @@ Cada entidad debe poder distinguirse de todas las demás de forma **inequívoca*
 
     Un **identificador** es un valor que distingue **de forma única** a cada entidad dentro de un conjunto de datos, y que permite referirse a ella, relacionarla con otras tablas y seguir sus cambios en el tiempo.
 
-### Características de un buen identificador
+#### Características de un buen identificador
 
 | Característica | Significado |
 |---|---|
@@ -257,7 +261,7 @@ Cada entidad debe poder distinguirse de todas las demás de forma **inequívoca*
 | **No reutilizable** | Si una entidad se elimina, su identificador no se asigna a otra |
 | **Obligatorio** | Ninguna entidad puede quedar sin identificador |
 
-### Tipos de identificador
+#### Tipos de identificador
 
 | Tipo | Descripción | Ejemplo | Limitación |
 |---|---|---|---|
@@ -273,7 +277,7 @@ Cada entidad debe poder distinguirse de todas las demás de forma **inequívoca*
 
     Cuando varias personas capturan datos **sin conexión**, por ejemplo con QField en distintos dispositivos, los identificadores numéricos consecutivos pueden **repetirse** al sincronizar. Por eso se recomienda usar **identificadores universales (UUID)**, que se generan de forma independiente en cada dispositivo sin riesgo de duplicarse.
 
-### Relaciones entre tablas
+#### Relaciones entre tablas
 
 Los identificadores permiten **relacionar** tablas:
 
@@ -293,7 +297,7 @@ Así se evita repetir información y se mantiene la coherencia entre tablas. QGI
 
 ---
 
-## Topología
+### Topología
 
 !!! info "Definición"
 
@@ -301,7 +305,7 @@ Así se evita repetir información y se mantiene la coherencia entre tablas. QGI
 
 Si se estira un mapa, las distancias y las formas cambian, pero dos predios vecinos **siguen siendo vecinos** y una calle conectada a otra **sigue conectada**. Esas son relaciones topológicas.
 
-### Topología almacenada y topología calculada
+#### Topología almacenada y topología calculada
 
 | Enfoque | Cómo funciona | Ejemplos |
 |---|---|---|
@@ -310,7 +314,7 @@ Si se estira un mapa, las distancias y las formas cambian, pero dos predios veci
 
 La mayoría de los formatos actuales usan geometrías independientes. Eso los hace simples y flexibles, pero también permite que se produzcan **errores topológicos**: nada impide, por ejemplo, que dos polígonos vecinos se superpongan.
 
-### Errores topológicos frecuentes
+#### Errores topológicos frecuentes
 
 <figure class="figura">
 <svg viewBox="0 0 720 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Errores topológicos frecuentes: huecos, superposiciones y líneas mal conectadas">
@@ -372,7 +376,7 @@ La mayoría de los formatos actuales usan geometrías independientes. Eso los ha
 
 ---
 
-## Relaciones espaciales
+### Relaciones espaciales
 
 En el tema 1.2 estudiamos los tipos de relaciones espaciales: **topológicas** (contiene, interseca, toca), **de distancia**, **direccionales** y **de conectividad**. En un dato geoespacial, esas relaciones **no se guardan en la tabla de atributos**: se **calculan** a partir de las geometrías cuando se necesitan.
 
@@ -398,7 +402,7 @@ Esto permite responder preguntas como:
 
 ---
 
-## Sistema de referencia
+### Sistema de referencia
 
 El sistema de referencia es lo que convierte las coordenadas en **ubicaciones reales**. Lo estudiamos en detalle en el tema 1.4. Recordemos lo esencial:
 
@@ -409,7 +413,7 @@ El sistema de referencia es lo que convierte las coordenadas en **ubicaciones re
 
 ---
 
-## Metadatos
+### Metadatos
 
 !!! info "Definición"
 
@@ -417,7 +421,7 @@ El sistema de referencia es lo que convierte las coordenadas en **ubicaciones re
 
 Una analogía útil es la **etiqueta de un alimento**: no es el alimento, pero dice qué contiene, quién lo produjo, cuándo vence y cómo debe conservarse. Sin etiqueta, uno no sabe si puede consumirlo con seguridad. Sin metadatos, no se sabe si un dato **puede usarse** para un propósito determinado.
 
-### ¿Qué preguntas responden?
+#### ¿Qué preguntas responden?
 
 | Pregunta | Información |
 |---|---|
@@ -430,7 +434,7 @@ Una analogía útil es la **etiqueta de un alimento**: no es el alimento, pero d
 | **¿Qué contiene?** | Descripción de campos, unidades y valores permitidos (diccionario de datos) |
 | **¿Cómo se puede usar?** | Licencia, restricciones de uso y de acceso |
 
-### Estándares de metadatos
+#### Estándares de metadatos
 
 Para que los metadatos puedan compartirse e interpretarse entre instituciones, existen **normas**:
 
@@ -440,7 +444,7 @@ Para que los metadatos puedan compartirse e interpretarse entre instituciones, e
 
 Las **infraestructuras de datos espaciales**, como **GeoBolivia**, publican catálogos de metadatos basados en estas normas, que permiten buscar datos y evaluar su utilidad antes de descargarlos.
 
-### Metadatos mínimos recomendados
+#### Metadatos mínimos recomendados
 
 Aunque las normas incluyen cientos de elementos, en la práctica institucional conviene asegurar al menos los siguientes:
 
@@ -458,7 +462,7 @@ Aunque las normas incluyen cientos de elementos, en la práctica institucional c
 | **Diccionario de datos** | Descripción de cada campo (ver ejemplo abajo) |
 | **Restricciones de uso** | Uso institucional; los datos de propietarios son confidenciales |
 
-### Diccionario de datos
+#### Diccionario de datos
 
 El **diccionario de datos** describe cada campo de la tabla de atributos. Es, probablemente, el metadato **más útil en el trabajo diario**.
 
@@ -483,7 +487,7 @@ El **diccionario de datos** describe cada campo de la tabla de atributos. Es, pr
 
 ---
 
-## Calidad de los datos
+### Calidad de los datos
 
 Los componentes anteriores permiten evaluar la **calidad** de un dato geoespacial. La calidad no es una propiedad absoluta, sino la **aptitud del dato para un uso determinado**, y se describe a partir de varios elementos:
 
@@ -500,7 +504,7 @@ Estudiaremos cada uno de ellos en el tema **1.13**.
 
 ---
 
-## Lista de verificación antes de usar un dato
+### Lista de verificación antes de usar un dato
 
 !!! success "Antes de usar un dato geoespacial, verifica que:"
 
@@ -516,7 +520,7 @@ Estudiaremos cada uno de ellos en el tema **1.13**.
 
 ---
 
-## Ideas clave
+### Ideas clave
 
 !!! success "Para recordar"
 
@@ -530,7 +534,39 @@ Estudiaremos cada uno de ellos en el tema **1.13**.
 
 ---
 
-## Autoevaluación
+## Hazlo conmigo
+
+**Diccionario de datos de la capa de establecimientos** del caso conductor:
+
+| Campo | Tipo | Descripción | Dominio / formato | ¿Obligatorio? |
+|---|---|---|---|---|
+| `id_equip` | Texto (10) | Identificador único | `EQ-` + 4 dígitos | Sí |
+| `nombre` | Texto (200) | Nombre oficial | Libre | Sí (si se conoce) |
+| `tipo` | Texto (20) | Sector | `salud`, `educacion` | Sí |
+| `subtipo` | Texto (20) | Tipo de establecimiento | `hospital`, `clinica`, `consultorio`, `escuela`, `kinder`, `instituto`, `universidad` | Sí |
+| geometría | Punto | Ubicación del acceso principal | EPSG:32719 | Sí |
+
+**Reglas:** `id_equip` único; ningún punto fuera del municipio; dos establecimientos no comparten código.
+
+---
+
+## Inténtalo tú
+
+!!! example "Ejercicio"
+
+    Escribe el diccionario de datos y tres reglas topológicas para la capa `comunas` (polígonos), y los **metadatos mínimos** de la capa de vías: título, resumen, fecha, fuente, SRC, escala o resolución, licencia y contacto.
+
+---
+
+## ¿Lo hiciste bien?
+
+??? success "Respuestas"
+
+    Comunas: `cod_comuna` (texto, `C01`…, único), `nombre` (texto), `area_km2` (decimal, calculado). Reglas: **sin superposiciones**, **sin huecos** dentro del municipio, **cubren** todo el municipio. Vías: título «Red vial de Cochabamba», fuente OpenStreetMap (ODbL), fecha de extracción 08-10-2026, SRC EPSG:32719, escala de uso ≈ 1:10 000, licencia ODbL, contacto: responsable del proyecto.
+
+---
+
+## Comprueba lo aprendido
 
 ??? question "1. Recibes una tabla de Excel con nombres y direcciones de comercios, sin coordenadas. ¿Es un dato geoespacial?"
 
@@ -566,7 +602,7 @@ Estudiaremos cada uno de ellos en el tema **1.13**.
 
 ---
 
-## Actividad propuesta
+## Tu proyecto
 
 !!! example "Actividad 1.12 — Documentar un dato del proyecto integrador (sin software)"
 
@@ -578,6 +614,10 @@ Estudiaremos cada uno de ellos en el tema **1.13**.
     4. Enumera las **reglas topológicas** que debería cumplir la capa.
     5. Redacta sus **metadatos mínimos**: título, resumen, fecha, responsable, fuente y método, escala o resolución, exactitud, sistema de referencia, extensión y restricciones de uso.
     6. Aplica la **lista de verificación** de este tema a una de las capas que descargaste o recibiste. ¿Qué información falta?
+
+!!! tip "En el caso conductor"
+
+    Elabora el diccionario de datos de **dos** capas de tu proyecto. Será la base de los formularios que diseñarás en [3.3](../modulo-03/03-disenar-formularios-captura.md).
 
 ---
 

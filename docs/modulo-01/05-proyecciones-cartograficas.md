@@ -5,7 +5,7 @@ description: Por qué proyectar, superficies desarrollables, propiedades de las 
 
 # 1.5 Proyecciones cartográficas
 
-!!! abstract "Objetivos de aprendizaje"
+!!! abstract "En esta lección"
 
     Al finalizar este tema, el estudiante será capaz de:
 
@@ -15,11 +15,15 @@ description: Por qué proyectar, superficies desarrollables, propiedades de las 
     - Reconocer las deformaciones de área, distancia, forma y dirección, e interpretar el factor de escala.
     - Elegir una proyección adecuada según el propósito y la extensión del área de trabajo.
 
+    **Tiempo:** 40 min · **Materiales:** calculadora y cuaderno · **Producto:** Proyección elegida para análisis, mapas y web (actividad 1.5).
+
 ---
 
-## ¿Por qué necesitamos proyectar?
+## Idea central
 
-En el tema 1.4 vimos que los CRS geográficos ubican puntos con **ángulos sobre un elipsoide**. Es la forma más fiel de describir posiciones, pero tiene dos problemas prácticos:
+### ¿Por qué necesitamos proyectar?
+
+En el tema 1.4 vimos que los SRC geográficos ubican puntos con **ángulos sobre un elipsoide**. Es la forma más fiel de describir posiciones, pero tiene dos problemas prácticos:
 
 - **Los mapas son planos.** El papel, las pantallas y los planos de ingeniería no son curvos.
 - **Medir sobre el elipsoide es complejo.** Calcular distancias, áreas y ángulos con geometría plana es mucho más simple y es lo que usan la mayoría de las herramientas de análisis.
@@ -44,7 +48,7 @@ y = R · ln( tan(45° + φ/2) )
 
 No necesitamos memorizar fórmulas. Lo importante es entender que **cada fórmula decide qué se conserva y qué se deforma**.
 
-### La imposibilidad de aplanar una esfera
+#### La imposibilidad de aplanar una esfera
 
 !!! example "El experimento de la cáscara de naranja"
 
@@ -62,7 +66,7 @@ Este problema no es una limitación técnica que algún día se resolverá: es u
 
 ---
 
-## Superficies desarrollables
+### Superficies desarrollables
 
 Para entender las proyecciones de forma intuitiva, se usa la idea de una **superficie desarrollable**: una figura que puede envolver al globo y luego **desenrollarse** sobre un plano sin estirarse ni romperse.
 
@@ -128,7 +132,7 @@ Existen tres superficies desarrollables básicas:
 
     En la práctica, las proyecciones se calculan con fórmulas matemáticas y no proyectando literalmente sobre un cilindro o un cono. Muchas proyecciones modernas, como Robinson o Mollweide, **ni siquiera corresponden** a una superficie desarrollable. Aun así, la analogía es muy útil para entender dónde está la zona de menor deformación.
 
-### Tipo de contacto: tangente o secante
+#### Tipo de contacto: tangente o secante
 
 La superficie desarrollable puede **tocar** el globo o **atravesarlo**.
 
@@ -168,7 +172,7 @@ La superficie desarrollable puede **tocar** el globo o **atravesarlo**.
 
 Las líneas donde la escala es exacta se llaman **líneas estándar** (paralelos estándar o meridianos estándar, según el caso).
 
-### El factor de escala
+#### El factor de escala
 
 Para medir la deformación se usa el **factor de escala (k)**:
 
@@ -197,7 +201,7 @@ k = distancia en la proyección / distancia real sobre el elipsoide
 
     A 60° de latitud, las superficies aparecen **cuatro veces más grandes** de lo que son. A 75°, casi **quince veces**.
 
-### Aspecto
+#### Aspecto
 
 El **aspecto** es la orientación de la superficie desarrollable respecto al eje de rotación de la Tierra.
 
@@ -213,7 +217,7 @@ El **aspecto** es la orientación de la superficie desarrollable respecto al eje
 
 ---
 
-## Deformaciones
+### Deformaciones
 
 Toda proyección deforma, en mayor o menor medida, cuatro propiedades geométricas.
 
@@ -255,7 +259,7 @@ Toda proyección deforma, en mayor o menor medida, cuatro propiedades geométric
 
     Herramientas web como *The True Size Of* permiten arrastrar países sobre un mapa Mercator y ver cómo cambia su tamaño aparente con la latitud. Es una excelente actividad para la clase.
 
-### La indicatriz de Tissot
+#### La indicatriz de Tissot
 
 En 1859, el matemático francés Nicolas Auguste Tissot propuso una forma elegante de **visualizar las deformaciones**: dibujar sobre el globo pequeños **círculos del mismo tamaño** y observar en qué se convierten al proyectarlos.
 
@@ -389,7 +393,7 @@ En 1859, el matemático francés Nicolas Auguste Tissot propuso una forma elegan
 
 ---
 
-## Propiedades de las proyecciones
+### Propiedades de las proyecciones
 
 Como ninguna proyección puede conservarlo todo, se diseñan para **conservar una propiedad** a costa de las demás.
 
@@ -433,7 +437,7 @@ Como ninguna proyección puede conservarlo todo, se diseñan para **conservar un
 
     Una proyección **no puede ser conforme y equivalente al mismo tiempo**. Si conserva las formas, deforma las áreas, y viceversa. Esta es la decisión más importante al elegir una proyección.
 
-### Resumen de propiedades
+#### Resumen de propiedades
 
 | Propiedad | Conserva | Deforma | Usar cuando se necesita... |
 |---|---|---|---|
@@ -445,7 +449,7 @@ Como ninguna proyección puede conservarlo todo, se diseñan para **conservar un
 
 ---
 
-## Proyecciones más utilizadas
+### Proyecciones más utilizadas
 
 | Proyección | Superficie | Propiedad | Uso habitual | Código |
 |---|---|---|---|---|
@@ -465,7 +469,7 @@ Como ninguna proyección puede conservarlo todo, se diseñan para **conservar un
 
 !!! note "Proyecciones con y sin código"
 
-    Algunas proyecciones, como la Lambert cónica conforme, **no tienen un código universal** porque sus parámetros (paralelos estándar, meridiano central) se ajustan a cada región. Existen códigos para versiones concretas, o se pueden definir CRS personalizados en QGIS.
+    Algunas proyecciones, como la Lambert cónica conforme, **no tienen un código universal** porque sus parámetros (paralelos estándar, meridiano central) se ajustan a cada región. Existen códigos para versiones concretas, o se pueden definir SRC personalizados en QGIS.
 
 ??? info "Para saber más: breve historia de algunas proyecciones"
 
@@ -483,11 +487,11 @@ Como ninguna proyección puede conservarlo todo, se diseñan para **conservar un
 
 ---
 
-## ¿Cómo elegir una proyección?
+### ¿Cómo elegir una proyección?
 
 No hay una respuesta única, pero sí **criterios** claros. Conviene responder tres preguntas.
 
-### 1. ¿Qué propiedad necesito conservar?
+#### 1. ¿Qué propiedad necesito conservar?
 
 ```mermaid
 flowchart TB
@@ -502,7 +506,7 @@ flowchart TB
     A -- "Mostrar el mundo en general" --> E
 ```
 
-### 2. ¿Qué tan grande es el área?
+#### 2. ¿Qué tan grande es el área?
 
 | Extensión | Recomendación |
 |---|---|
@@ -510,7 +514,7 @@ flowchart TB
 | **Regional** (un departamento, un país) | La elección importa. Conviene una proyección ajustada a la región. |
 | **Continental o mundial** | Las deformaciones son inevitables y grandes. La propiedad a conservar es la decisión principal. |
 
-### 3. ¿Dónde está y qué forma tiene?
+#### 3. ¿Dónde está y qué forma tiene?
 
 | Ubicación y forma del área | Superficie más adecuada |
 |---|---|
@@ -526,13 +530,13 @@ flowchart TB
     - **Mapas temáticos nacionales de densidad o distribución:** también una proyección **equivalente**.
     - **Visores web:** Pseudo-Mercator (EPSG:3857), **solo para visualizar**, nunca para medir.
 
-!!! note "Almacenar en un CRS y trabajar en otro"
+!!! note "Almacenar en un SRC y trabajar en otro"
 
-    Es habitual **almacenar e intercambiar** los datos en un CRS geográfico (por ejemplo, EPSG:4326) y **proyectarlos** al CRS más adecuado para cada análisis o mapa. QGIS permite incluso mostrar capas en distintos CRS en un mismo proyecto, reproyectándolas al vuelo. Lo practicaremos en la lección [2.6 Resolver problemas de coordenadas](../modulo-02/06-problemas-coordenadas.md).
+    Es habitual **almacenar e intercambiar** los datos en un SRC geográfico (por ejemplo, EPSG:4326) y **proyectarlos** al SRC más adecuado para cada análisis o mapa. QGIS permite incluso mostrar capas en distintos SRC en un mismo proyecto, reproyectándolas al vuelo. Lo practicaremos en la lección [2.6 Resolver problemas de coordenadas](../modulo-02/06-problemas-coordenadas.md).
 
 ---
 
-## Ideas clave
+### Ideas clave
 
 !!! success "Para recordar"
 
@@ -545,7 +549,43 @@ flowchart TB
 
 ---
 
-## Autoevaluación
+## Hazlo conmigo
+
+**¿Cuánto deforma Mercator?** El factor de escala lineal de la proyección de Mercator es *k* = 1 / cos(latitud), y el de área, *k*².
+
+| Lugar | Latitud | *k* (distancias) | *k*² (áreas) |
+|---|---|---|---|
+| Ecuador | 0° | 1,00 | 1,00 |
+| Cochabamba | 17,4° | 1,05 | 1,10 |
+| Buenos Aires | 34,6° | 1,22 | 1,48 |
+| Groenlandia (centro) | 72° | 3,24 | 10,5 |
+
+Por eso en un mapa web Groenlandia parece del tamaño de África (que es 14 veces mayor). En Cochabamba la deformación es moderada (10 % en áreas), pero **suficiente para no medir superficies en EPSG:3857**.
+
+---
+
+## Inténtalo tú
+
+!!! example "Ejercicio"
+
+    Elige la familia de proyección (conforme, equivalente o equidistante) y una proyección concreta para cada uso, justificando:
+
+    1. Calcular la superficie de cada departamento de Bolivia y compararlas.
+    2. Medir distancias y áreas dentro del municipio de Cochabamba.
+    3. Un mapa base web de toda Sudamérica.
+    4. Un mapa de rutas aéreas desde Cochabamba.
+
+---
+
+## ¿Lo hiciste bien?
+
+??? success "Respuestas"
+
+    1. **Equivalente** que cubra todo el país (por ejemplo, una cónica equivalente de Albers ajustada a Bolivia). 2. **UTM 19 S** (conforme, deformación mínima en una zona pequeña). 3. **Pseudo-Mercator** (estándar web, aunque deforme). 4. **Equidistante** centrada en Cochabamba (acimutal equidistante): las distancias desde el centro son correctas.
+
+---
+
+## Comprueba lo aprendido
 
 ??? question "1. ¿Por qué no se puede crear una proyección sin deformaciones?"
 
@@ -573,7 +613,7 @@ flowchart TB
 
 ---
 
-## Actividad propuesta
+## Tu proyecto
 
 !!! example "Actividad 1.5 — Elegir la proyección del proyecto integrador (sin software)"
 
@@ -587,7 +627,11 @@ flowchart TB
         - El **análisis**.
         - Los **mapas finales**.
         - La **publicación web**, si la hubiera.
-    6. Compara tu elección con el CRS de trabajo que propusiste en la **Actividad 1.4**. ¿Se mantiene o cambia?
+    6. Compara tu elección con el SRC de trabajo que propusiste en la **Actividad 1.4**. ¿Se mantiene o cambia?
+
+!!! tip "En el caso conductor"
+
+    Decide y justifica la proyección para tres usos del caso conductor: **análisis** (UTM 19 S), **mapas impresos** y **visualización web**.
 
 ---
 

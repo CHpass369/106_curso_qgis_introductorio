@@ -5,7 +5,7 @@ description: Qué representa un SIG. Espacio geográfico, objetos, fenómenos y 
 
 # 1.2 El espacio geográfico y la representación del territorio
 
-!!! abstract "Objetivos de aprendizaje"
+!!! abstract "En esta lección"
 
     Al finalizar este tema, el estudiante será capaz de:
 
@@ -16,9 +16,13 @@ description: Qué representa un SIG. Espacio geográfico, objetos, fenómenos y 
     - Diferenciar una representación discreta de una continua.
     - Describir el proceso de abstracción que lleva del mundo real a un modelo en el SIG.
 
+    **Tiempo:** 40 min · **Materiales:** calculadora y cuaderno · **Producto:** Modelo conceptual del problema territorial (actividad 1.2).
+
 ---
 
-## ¿Por qué empezar por aquí?
+## Idea central
+
+### ¿Por qué empezar por aquí?
 
 En el tema anterior vimos que un SIG trabaja con información localizada. Pero antes de hablar de coordenadas, capas o software, hay una pregunta más básica:
 
@@ -28,7 +32,7 @@ Un SIG no guarda "el mundo". Guarda una **versión simplificada** del mundo, con
 
 ---
 
-## Concepto de espacio geográfico
+### Concepto de espacio geográfico
 
 !!! info "Definición"
 
@@ -45,7 +49,7 @@ El geógrafo brasileño Milton Santos propuso entender el espacio como la combin
 
 Un SIG captura muy bien el **sistema de objetos**. El **sistema de acciones** aparece de forma indirecta, a través de atributos (uso de suelo, tipo de actividad) y de los cambios que observamos en el tiempo.
 
-### Conceptos cercanos que conviene diferenciar
+#### Conceptos cercanos que conviene diferenciar
 
 | Concepto | Qué enfatiza | Ejemplo |
 |---|---|---|
@@ -61,7 +65,7 @@ Un SIG captura muy bien el **sistema de objetos**. El **sistema de acciones** ap
 
 ---
 
-## Objetos, fenómenos y procesos territoriales
+### Objetos, fenómenos y procesos territoriales
 
 Todo lo que queremos representar en un SIG puede clasificarse, de forma general, en tres categorías.
 
@@ -115,11 +119,11 @@ Todo lo que queremos representar en un SIG puede clasificarse, de forma general,
 
 ---
 
-## Localización
+### Localización
 
 Localizar es responder a la pregunta **¿dónde?** Existen distintas formas de hacerlo, y un SIG trabaja con todas ellas.
 
-### Localización absoluta
+#### Localización absoluta
 
 Ubica un elemento mediante **coordenadas** en un sistema de referencia definido. Es única, precisa y no depende de otros objetos.
 
@@ -131,7 +135,7 @@ Longitud: -68.1336°
 
 Es la forma de localización que necesita un SIG para medir, calcular y cruzar información. Cómo se definen esas coordenadas lo veremos en los temas **1.3 a 1.6**.
 
-### Localización relativa
+#### Localización relativa
 
 Ubica un elemento **en relación con otros**: distancia, dirección o posición respecto a referencias conocidas.
 
@@ -141,7 +145,7 @@ Ubica un elemento **en relación con otros**: distancia, dirección o posición 
 
 Es la forma en que las personas se orientan en la vida cotidiana, y es fundamental en el análisis espacial: **distancia, proximidad y accesibilidad son formas de localización relativa**.
 
-### Localización indirecta
+#### Localización indirecta
 
 Ubica un elemento mediante un **identificador asociado** a un lugar, sin coordenadas explícitas.
 
@@ -162,7 +166,7 @@ Ubica un elemento mediante un **identificador asociado** a un lugar, sin coorden
 
 ---
 
-## Relaciones espaciales
+### Relaciones espaciales
 
 La verdadera potencia de un SIG no está en saber dónde está cada cosa, sino en **cómo se relacionan las cosas entre sí en el espacio**.
 
@@ -172,7 +176,7 @@ La verdadera potencia de un SIG no está en saber dónde está cada cosa, sino e
 
 Esta idea, aparentemente simple, sustenta buena parte del análisis espacial: la interpolación, la autocorrelación espacial y los análisis de vecindad parten de ella.
 
-### Tipos de relaciones espaciales
+#### Tipos de relaciones espaciales
 
 <div class="grid cards" markdown>
 
@@ -210,7 +214,7 @@ Esta idea, aparentemente simple, sustenta buena parte del análisis espacial: la
 
 </div>
 
-### Relaciones topológicas más usadas
+#### Relaciones topológicas más usadas
 
 Estas relaciones son las que usaremos más adelante en QGIS, por ejemplo con la herramienta **Seleccionar por localización**.
 
@@ -235,7 +239,7 @@ Estas relaciones son las que usaremos más adelante en QGIS, por ejemplo con la 
 
 ---
 
-## Representación discreta y continua
+### Representación discreta y continua
 
 Al representar el territorio, existen dos formas fundamentales de concebir la realidad.
 
@@ -282,7 +286,7 @@ flowchart LR
 
 ---
 
-## Abstracción y modelización del mundo real
+### Abstracción y modelización del mundo real
 
 La realidad es infinitamente compleja. Para llevarla a un SIG es necesario **abstraerla**: seleccionar lo relevante, simplificarlo y describirlo de forma estructurada.
 
@@ -290,7 +294,7 @@ La realidad es infinitamente compleja. Para llevarla a un SIG es necesario **abs
 
     La expresión, atribuida a Alfred Korzybski, recuerda que toda representación es necesariamente incompleta. Un modelo útil no es el que lo incluye todo, sino el que incluye **lo necesario para un propósito**.
 
-### Niveles de modelización
+#### Niveles de modelización
 
 <div style="display: flex; justify-content: center;" markdown>
 
@@ -312,7 +316,7 @@ flowchart TB
 | **Modelo lógico** | ¿Cómo lo estructuro? | Tanques y válvulas como puntos; tuberías como líneas con diámetro y material |
 | **Modelo físico** | ¿Cómo lo almaceno? | Tablas en PostGIS o capas en un GeoPackage |
 
-### Decisiones que implica abstraer
+#### Decisiones que implica abstraer
 
 Toda abstracción implica decisiones que afectan directamente al resultado del análisis:
 
@@ -337,7 +341,7 @@ Toda abstracción implica decisiones que afectan directamente al resultado del a
 
 ---
 
-## Ideas clave
+### Ideas clave
 
 !!! success "Para recordar"
 
@@ -350,7 +354,39 @@ Toda abstracción implica decisiones que afectan directamente al resultado del a
 
 ---
 
-## Autoevaluación
+## Hazlo conmigo
+
+Descompón el problema del caso conductor en sus componentes territoriales:
+
+| Componente | En el caso «acceso a salud en Cochabamba» | Cómo se representará |
+|---|---|---|
+| **Objetos** | Establecimientos de salud, vías, comunas | Puntos, líneas, polígonos |
+| **Fenómenos** | Distribución de la población, relieve | Superficies continuas (ráster) |
+| **Procesos** | Crecimiento urbano hacia el sur y las laderas | Comparación entre fechas |
+| **Relaciones** | Proximidad entre viviendas y servicios; pertenencia a una comuna | Distancias, inclusión |
+| **Escala de análisis** | Municipio, comunas, zonas de 1 km² | Unidades espaciales |
+
+La clave del modelo es la **relación de proximidad**: sin ella, solo tendríamos un inventario de establecimientos.
+
+---
+
+## Inténtalo tú
+
+!!! example "Ejercicio"
+
+    Haz la misma descomposición para el problema **«riesgo de inundación por las torrenteras del Parque Tunari»**: identifica al menos dos objetos, un fenómeno continuo, un proceso y dos relaciones espaciales.
+
+---
+
+## ¿Lo hiciste bien?
+
+??? success "Respuestas"
+
+    Una respuesta posible: **objetos**: torrenteras (líneas), viviendas o manzanas (polígonos), puentes (puntos); **fenómeno**: relieve y pendiente (continuo), lluvia; **proceso**: urbanización de las laderas, crecida; **relaciones**: distancia de las viviendas al cauce, posición aguas abajo, intersección con el área inundable.
+
+---
+
+## Comprueba lo aprendido
 
 ??? question "1. ¿En qué se diferencia el espacio geográfico del territorio?"
 
@@ -380,7 +416,7 @@ Toda abstracción implica decisiones que afectan directamente al resultado del a
 
 ---
 
-## Actividad propuesta
+## Tu proyecto
 
 !!! example "Actividad 1.2 — Modelar el problema del proyecto integrador (sin software)"
 
@@ -391,6 +427,10 @@ Toda abstracción implica decisiones que afectan directamente al resultado del a
     3. Para cada objeto, indica qué **tipo de localización** tienen hoy los datos disponibles (absoluta, relativa o indirecta).
     4. Menciona dos **relaciones espaciales** que necesitarías analizar.
     5. Elabora un **modelo conceptual** sencillo: qué elementos incluirías, cuáles dejarías fuera y por qué.
+
+!!! tip "En el caso conductor"
+
+    Dibuja el **modelo conceptual** del caso conductor como un diagrama de cajas y flechas: objetos, fenómenos, procesos y relaciones. Lo usarás para decidir qué datos necesitas en el Módulo 2.
 
 ---
 

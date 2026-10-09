@@ -5,7 +5,7 @@ description: Qué es la generalización, por qué es necesaria, operaciones de s
 
 # 1.10 Generalización cartográfica
 
-!!! abstract "Objetivos de aprendizaje"
+!!! abstract "En esta lección"
 
     Al finalizar este tema, el estudiante será capaz de:
 
@@ -16,9 +16,13 @@ description: Qué es la generalización, por qué es necesaria, operaciones de s
     - Reconocer las consecuencias de usar datos generalizados en análisis espaciales.
     - Explicar por qué los datos no deben usarse indiscriminadamente a cualquier escala.
 
+    **Tiempo:** 40 min · **Materiales:** calculadora y cuaderno · **Producto:** Operaciones y tolerancias de generalización (actividad 1.10).
+
 ---
 
-## ¿Qué es la generalización?
+## Idea central
+
+### ¿Qué es la generalización?
 
 En el tema 1.9 vimos que una ciudad puede representarse como edificios individuales, como manzanos, como una mancha urbana o como un simple punto, según la escala. El proceso que transforma una representación en otra se llama **generalización**.
 
@@ -28,7 +32,7 @@ En el tema 1.9 vimos que una ciudad puede representarse como edificios individua
 
 La generalización **no es un defecto** ni un error: es una operación **necesaria e intencional**. Un mapa sin generalizar sería ilegible.
 
-### ¿Por qué es necesaria?
+#### ¿Por qué es necesaria?
 
 Hay dos razones principales:
 
@@ -51,7 +55,7 @@ Todo lo que había en 400 cm² a escala 1:5 000 tiene que caber en **1 mm²** a 
 
     Si al lado hay un río y una hilera de viviendas, sus símbolos **no caben** en su posición real: se superponen. Hay que decidir qué mostrar, qué eliminar y qué mover.
 
-### La ley de selección de Töpfer
+#### La ley de selección de Töpfer
 
 En 1966, los cartógrafos Friedrich Töpfer y Wolfgang Pillewizer propusieron una regla empírica para estimar **cuántos elementos** conviene conservar al reducir la escala, conocida como **ley radical** o **ley de selección**:
 
@@ -76,7 +80,7 @@ donde **n₁** es el número de elementos en el mapa original (escala 1:D₁) y 
 
 ---
 
-## Generalización cartográfica y generalización de datos
+### Generalización cartográfica y generalización de datos
 
 En un SIG conviene distinguir dos tipos de generalización:
 
@@ -93,7 +97,7 @@ En un SIG conviene distinguir dos tipos de generalización:
 
 ---
 
-## Operaciones de generalización
+### Operaciones de generalización
 
 La generalización se descompone en un conjunto de **operaciones**. Los autores las clasifican de diversas formas; aquí veremos las seis más importantes.
 
@@ -208,7 +212,7 @@ La generalización se descompone en un conjunto de **operaciones**. Los autores 
 </svg><figcaption>Las seis operaciones principales de generalización. Cada par muestra el antes y el después.</figcaption>
 </figure>
 
-### Selección
+#### Selección
 
 Consiste en **decidir qué elementos se representan** y cuáles se omiten.
 
@@ -220,7 +224,7 @@ Consiste en **decidir qué elementos se representan** y cuáles se omiten.
 
     Omitir un elemento debe ser una **decisión consciente y justificada**. Un mapa de acceso a servicios de salud que omite los caminos vecinales, por ser "secundarios", puede ocultar precisamente la información que el mapa necesitaba mostrar.
 
-### Simplificación
+#### Simplificación
 
 Consiste en **reducir la cantidad de vértices** de líneas y contornos, eliminando los detalles que no se perciben a la escala de destino, pero **conservando la forma esencial**.
 
@@ -230,7 +234,7 @@ Consiste en **reducir la cantidad de vértices** de líneas y contornos, elimina
 
 La veremos en detalle más adelante.
 
-### Agregación
+#### Agregación
 
 Consiste en **unir varios elementos cercanos** en uno solo, generalmente de mayor tamaño o de otra categoría.
 
@@ -241,7 +245,7 @@ Consiste en **unir varios elementos cercanos** en uno solo, generalmente de mayo
 
 Una variante es el **colapso**: un elemento cambia a una geometría de menor dimensión. Por ejemplo, una ciudad que pasa de **polígono a punto**, o un río que pasa de **polígono a línea**.
 
-### Desplazamiento
+#### Desplazamiento
 
 Consiste en **mover ligeramente** los símbolos que se superponen o están demasiado cerca, para que se puedan distinguir.
 
@@ -252,7 +256,7 @@ Consiste en **mover ligeramente** los símbolos que se superponen o están demas
 
     Un elemento desplazado **ya no está en su posición real**. Es aceptable en un mapa, porque mejora la legibilidad, pero **no se deben medir distancias** ni hacer análisis de proximidad sobre elementos desplazados.
 
-### Exageración
+#### Exageración
 
 Consiste en **ampliar** o **realzar** elementos que, por su tamaño real, desaparecerían a la escala del mapa, pero que son **importantes** para el propósito.
 
@@ -262,7 +266,7 @@ Consiste en **ampliar** o **realzar** elementos que, por su tamaño real, desapa
 
 La exageración, como el desplazamiento, **distorsiona intencionalmente** la geometría en favor de la comunicación.
 
-### Clasificación
+#### Clasificación
 
 Consiste en **agrupar elementos con características similares** en una misma categoría, reduciendo el detalle **temático**.
 
@@ -272,7 +276,7 @@ Consiste en **agrupar elementos con características similares** en una misma ca
 
 Es la generalización del **nivel de detalle temático** que vimos en el tema 1.9.
 
-### Resumen de operaciones
+#### Resumen de operaciones
 
 | Operación | Qué modifica | Afecta la exactitud posicional | Herramientas en QGIS |
 |---|---|---|---|
@@ -285,11 +289,11 @@ Es la generalización del **nivel de detalle temático** que vimos en el tema 1.
 
 ---
 
-## La simplificación de líneas
+### La simplificación de líneas
 
 La simplificación es la operación de generalización que más se automatiza en los SIG. Entender cómo funciona ayuda a usarla correctamente.
 
-### El algoritmo de Douglas-Peucker
+#### El algoritmo de Douglas-Peucker
 
 Publicado en 1973 por David Douglas y Thomas Peucker, es el algoritmo de simplificación más conocido. Funciona así:
 
@@ -531,7 +535,7 @@ El resultado depende casi por completo de la **tolerancia**: cuanto mayor es, m�
     - **Suavizado de Chaikin:** no simplifica, sino que **redondea** los ángulos cortando las esquinas de forma iterativa. QGIS lo usa en su herramienta *Suavizar*.
     - **Algoritmos con desplazamiento:** además de simplificar, desplazan elementos para evitar conflictos. GRASS GIS ofrece varios de ellos en `v.generalize`.
 
-### El problema de la topología
+#### El problema de la topología
 
 !!! danger "Simplificar polígonos vecinos por separado"
 
@@ -541,7 +545,7 @@ El resultado depende casi por completo de la **tolerancia**: cuanto mayor es, m�
 
 ---
 
-## Generalización y escala
+### Generalización y escala
 
 La generalización es la respuesta directa al cambio de escala. Retomando el ejemplo del temario:
 
@@ -757,7 +761,7 @@ La generalización es la respuesta directa al cambio de escala. Retomando el eje
 
 Del paso de edificios individuales a área urbana participan **casi todas las operaciones**: se **seleccionan** las vías principales, se **agregan** los edificios en manzanos y los manzanos en una mancha urbana, se **simplifica** su contorno y se **exagera** el grosor de las vías para que sigan siendo visibles.
 
-### Cómo cambia la representación de cada elemento
+#### Cómo cambia la representación de cada elemento
 
 | Elemento | 1:5 000 | 1:25 000 | 1:100 000 | 1:1 000 000 |
 |---|---|---|---|---|
@@ -769,11 +773,11 @@ Del paso de edificios individuales a área urbana participan **casi todas las op
 
 ---
 
-## Consecuencias al usar datos generalizados
+### Consecuencias al usar datos generalizados
 
 Esta es la parte más importante del tema para quien trabaja con un SIG. **Los datos generalizados llevan consigo todas las decisiones de generalización**, y eso afecta cualquier análisis que se haga con ellos.
 
-### Las longitudes y los perímetros cambian
+#### Las longitudes y los perímetros cambian
 
 Una línea simplificada es **más corta** que la original, porque pierde sus curvas. En el ejemplo de Douglas-Peucker de este tema, la línea conservó el **94 %** de su longitud con una tolerancia de 5 m, y solo el **88 %** con una tolerancia de 25 m.
 
@@ -785,11 +789,11 @@ Una línea simplificada es **más corta** que la original, porque pierde sus cur
 
     Por eso, al informar la longitud de un río o el perímetro de un área, es necesario indicar **a partir de qué datos y a qué escala** se midió.
 
-### Las posiciones pueden estar desplazadas
+#### Las posiciones pueden estar desplazadas
 
 Los elementos **desplazados** o **exagerados** ya no ocupan su posición real. Medir distancias entre ellos, o cruzarlos con datos de mayor detalle, produce errores.
 
-### Mezclar datos de distinta generalización produce incoherencias
+#### Mezclar datos de distinta generalización produce incoherencias
 
 Cuando se superponen capas generalizadas para escalas muy distintas, aparecen situaciones imposibles:
 
@@ -802,7 +806,7 @@ Cuando se superponen capas generalizadas para escalas muy distintas, aparecen si
 
     **Los datos no deben utilizarse indiscriminadamente a cualquier escala.** Una capa generalizada para 1:100 000 no se vuelve apta para 1:5 000 por más que el SIG permita acercarse. Antes de usar un dato, hay que preguntarse **para qué escala fue elaborado** y **qué generalización se le aplicó**.
 
-### Generalización en la visualización
+#### Generalización en la visualización
 
 Los SIG y los mapas web aplican generalización **de forma automática** para mostrar los datos con fluidez:
 
@@ -812,7 +816,7 @@ Los SIG y los mapas web aplican generalización **de forma automática** para mo
 
 ---
 
-## Buenas prácticas
+### Buenas prácticas
 
 !!! tip "Recomendaciones para trabajar con generalización"
 
@@ -826,7 +830,7 @@ Los SIG y los mapas web aplican generalización **de forma automática** para mo
 
 ---
 
-## Ideas clave
+### Ideas clave
 
 !!! success "Para recordar"
 
@@ -840,7 +844,37 @@ Los SIG y los mapas web aplican generalización **de forma automática** para mo
 
 ---
 
-## Autoevaluación
+## Hazlo conmigo
+
+**Calcular tolerancias de generalización** para pasar de 1:10 000 a 1:50 000.
+
+| Parámetro | Regla | A 1:50 000 |
+|---|---|---|
+| Tolerancia de simplificación | ≈ 0,2 mm en el mapa | 0,2 mm × 50 000 = **10 m** |
+| Unidad mínima cartografiable | ≈ 1 × 1 mm en el mapa | 50 m × 50 m = 2 500 m² = **0,25 ha** |
+| Separación mínima entre líneas | ≈ 0,25 mm | **12,5 m** |
+
+Consecuencias: las plazas de menos de 0,25 ha se **eliminan** o se **agregan**; las calles separadas menos de 12,5 m se **desplazan** o se **seleccionan**; los bordes se **simplifican** con 10 m de tolerancia.
+
+---
+
+## Inténtalo tú
+
+!!! example "Ejercicio"
+
+    Calcula las tres tolerancias para 1:100 000 y para 1:250 000. Luego decide: ¿la Laguna Alalay (≈ 2 km²) se mantiene como polígono a 1:250 000? ¿Y una plaza de 1 ha?
+
+---
+
+## ¿Lo hiciste bien?
+
+??? success "Respuestas"
+
+    1:100 000 → 20 m · 1 ha · 25 m. 1:250 000 → 50 m · 6,25 ha · 62,5 m. La Laguna Alalay (200 ha) **se mantiene**; la plaza de 1 ha **se elimina o se representa como punto** a 1:250 000.
+
+---
+
+## Comprueba lo aprendido
 
 ??? question "1. ¿Por qué la generalización es inevitable al reducir la escala de un mapa?"
 
@@ -885,7 +919,7 @@ Los SIG y los mapas web aplican generalización **de forma automática** para mo
 
 ---
 
-## Actividad propuesta
+## Tu proyecto
 
 !!! example "Actividad 1.10 — Generalizar el proyecto integrador (sin software)"
 
@@ -897,6 +931,10 @@ Los SIG y los mapas web aplican generalización **de forma automática** para mo
     4. Calcula la **tolerancia de simplificación** adecuada para la escala del segundo mapa.
     5. Revisa las fuentes de la **Actividad 1.4**: ¿alguna capa ya viene **generalizada** para una escala menor que la de tu proyecto? ¿Qué problemas podría causar en tu análisis?
     6. Define qué análisis harás con los **datos originales** y qué productos se elaborarán con **datos generalizados**.
+
+!!! tip "En el caso conductor"
+
+    Si tu proyecto produce un mapa municipal a 1:100 000, lista qué elementos del caso conductor se seleccionan, simplifican o eliminan (vías locales, establecimientos, torrenteras).
 
 ---
 

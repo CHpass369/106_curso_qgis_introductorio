@@ -5,7 +5,7 @@ description: Panorama actual de las geotecnologías. SIG de escritorio, móvil y
 
 # 1.15 Ecosistema de geotecnologías
 
-!!! abstract "Objetivos de aprendizaje"
+!!! abstract "En esta lección"
 
     Al finalizar este tema, el estudiante será capaz de:
 
@@ -16,9 +16,13 @@ description: Panorama actual de las geotecnologías. SIG de escritorio, móvil y
     - Comprender el papel de la automatización, la ciencia de datos geoespaciales y la GeoAI.
     - Integrar los conceptos del Módulo 1 en una visión de conjunto.
 
+    **Tiempo:** 45 min · **Materiales:** calculadora y cuaderno · **Producto:** Ecosistema tecnológico y síntesis del proyecto integrador (actividad final del módulo).
+
 ---
 
-## Del programa al ecosistema
+## Idea central
+
+### Del programa al ecosistema
 
 Durante sus primeras décadas, un SIG era **un programa instalado en una computadora**, manejado por especialistas, con datos guardados en archivos locales. Hoy el panorama es muy distinto: la información geográfica se **captura** con celulares, drones y satélites, se **almacena** en bases de datos y en la nube, se **analiza** con programas de escritorio, código e inteligencia artificial, y se **publica** en visores web que cualquier persona puede consultar.
 
@@ -48,7 +52,7 @@ flowchart TB
     CD --> AI
 ```
 
-### Una evolución en cuatro etapas
+#### Una evolución en cuatro etapas
 
 | Etapa | Características | Hitos |
 |---|---|---|
@@ -57,7 +61,7 @@ flowchart TB
 | **2000–2015: la web y lo abierto** | Mapas en internet, software libre, datos colaborativos, estándares abiertos | Google Earth, OpenStreetMap, QGIS, PostGIS, servicios OGC |
 | **2015–hoy: nube, móvil e IA** | Procesamiento en la nube, captura con celulares y drones, imágenes gratuitas, inteligencia artificial | Sentinel, plataformas en la nube, formatos nativos de nube, modelos fundacionales de observación de la Tierra |
 
-### Una forma de organizar el ecosistema
+#### Una forma de organizar el ecosistema
 
 <figure class="figura">
 <svg viewBox="0 0 720 454" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ecosistema de geotecnologías organizado en captura, almacenamiento, procesamiento y publicación">
@@ -124,7 +128,7 @@ flowchart TB
 
 ---
 
-## SIG de escritorio
+### SIG de escritorio
 
 El **SIG de escritorio** sigue siendo el **centro de trabajo** del profesional: el entorno donde se editan datos, se ejecutan análisis complejos, se controla la calidad y se produce cartografía de alta calidad.
 
@@ -141,11 +145,11 @@ El **SIG de escritorio** sigue siendo el **centro de trabajo** del profesional: 
 
 ---
 
-## SIG móvil
+### SIG móvil
 
 El **SIG móvil** lleva los datos y los formularios **al terreno**: permite capturar, verificar y actualizar información directamente en campo, con un celular o una tableta.
 
-### Características
+#### Características
 
 - **Trabajo sin conexión:** los datos se descargan antes de salir y se sincronizan al volver.
 - **Formularios con validación:** listas de valores, campos obligatorios, restricciones (tema 1.12).
@@ -160,7 +164,7 @@ El **SIG móvil** lleva los datos y los formularios **al terreno**: permite capt
 | **ODK / KoboToolbox** | Centradas en **encuestas** con localización; muy usadas en proyectos sociales y humanitarios |
 | **ArcGIS Field Maps / Survey123** | Comerciales, integradas al ecosistema de Esri |
 
-### Flujo de trabajo típico
+#### Flujo de trabajo típico
 
 ```mermaid
 flowchart LR
@@ -178,11 +182,11 @@ flowchart LR
 
 ---
 
-## Web GIS
+### Web GIS
 
 El **Web GIS** permite **publicar, consultar y compartir** información geográfica a través de internet, sin que el usuario necesite instalar un SIG.
 
-### Arquitectura básica
+#### Arquitectura básica
 
 ```mermaid
 flowchart LR
@@ -200,7 +204,7 @@ flowchart LR
 | **Plataformas de publicación** | Publican proyectos de QGIS como visores web con poca programación | Lizmap, QWC2 |
 | **Teselas** | Mapas divididos en pequeñas piezas por nivel de acercamiento, para una carga rápida | Teselas ráster, teselas vectoriales, PMTiles |
 
-### Servicios estandarizados
+#### Servicios estandarizados
 
 Para que cualquier cliente pueda consumir los datos de cualquier servidor, el **Open Geospatial Consortium (OGC)** define estándares de servicios:
 
@@ -221,7 +225,7 @@ Para que cualquier cliente pueda consumir los datos de cualquier servidor, el **
 
 ---
 
-## Infraestructuras de datos espaciales
+### Infraestructuras de datos espaciales
 
 !!! info "Definición"
 
@@ -229,7 +233,7 @@ Para que cualquier cliente pueda consumir los datos de cualquier servidor, el **
 
 Una IDE no es solo un geoportal: es un **acuerdo** para que las instituciones dejen de producir datos de forma aislada y duplicada.
 
-### Componentes de una IDE
+#### Componentes de una IDE
 
 | Componente | Descripción |
 |---|---|
@@ -253,7 +257,7 @@ Una IDE no es solo un geoportal: es un **acuerdo** para que las instituciones de
 
 ---
 
-## Sensores remotos, drones y GNSS
+### Sensores remotos, drones y GNSS
 
 En el tema 1.14 estudiamos los fundamentos de estas tecnologías. Aquí nos interesan sus **tendencias actuales**.
 
@@ -286,9 +290,9 @@ En el tema 1.14 estudiamos los fundamentos de estas tecnologías. Aquí nos inte
 
 ---
 
-## Bases de datos, nube y formatos abiertos
+### Bases de datos, nube y formatos abiertos
 
-### Los datos se mueven a la nube
+#### Los datos se mueven a la nube
 
 El crecimiento del volumen de datos, sobre todo de imágenes satelitales, ha impulsado un cambio de paradigma: **en lugar de llevar los datos al análisis, se lleva el análisis a los datos**.
 
@@ -298,7 +302,7 @@ El crecimiento del volumen de datos, sobre todo de imágenes satelitales, ha imp
 | **Copernicus Data Space Ecosystem** | Acceso y procesamiento de los datos del programa europeo Copernicus |
 | **Catálogos de datos abiertos en la nube** | Grandes colecciones de datos públicos listos para usar, alojadas por distintos proveedores |
 
-### Formatos nativos de nube
+#### Formatos nativos de nube
 
 Estos formatos permiten **leer solo la parte que se necesita** de un archivo alojado en internet, sin descargarlo completo:
 
@@ -314,7 +318,7 @@ Estos formatos permiten **leer solo la parte que se necesita** de un archivo alo
 
     El estándar **STAC** (*SpatioTemporal Asset Catalog*) define una forma común de **describir y buscar** colecciones de imágenes y datos geoespaciales. Muchos proveedores de imágenes satelitales publican sus catálogos con STAC, lo que permite buscar escenas por lugar, fecha y cobertura de nubes con las mismas herramientas.
 
-### Datos abiertos y colaborativos
+#### Datos abiertos y colaborativos
 
 - **OpenStreetMap:** el mapa colaborativo del mundo, construido por millones de voluntarios.
 - **Overture Maps:** iniciativa de varias empresas tecnológicas que publica datos abiertos de edificios, lugares, vías y límites, combinando diversas fuentes.
@@ -326,11 +330,11 @@ Estos formatos permiten **leer solo la parte que se necesita** de un archivo alo
 
 ---
 
-## Automatización
+### Automatización
 
 Muchas tareas SIG se **repiten**: reproyectar decenas de capas, recortar datos para cada distrito, generar el mismo mapa cada mes, actualizar indicadores. Hacerlas a mano consume tiempo y **multiplica los errores**. La automatización permite que un proceso se ejecute siempre **de la misma forma**.
 
-### Niveles de automatización
+#### Niveles de automatización
 
 | Nivel | Herramienta | Requiere programar |
 |---|---|---|
@@ -368,11 +372,11 @@ Muchas tareas SIG se **repiten**: reproyectar decenas de capas, recortar datos p
 
 ---
 
-## Ciencia de datos geoespaciales
+### Ciencia de datos geoespaciales
 
 La **ciencia de datos geoespaciales** combina los fundamentos del SIG con la **programación**, la **estadística** y el **análisis de grandes volúmenes de datos** para extraer conocimiento del territorio.
 
-### Herramientas
+#### Herramientas
 
 | Lenguaje | Bibliotecas principales |
 |---|---|
@@ -397,7 +401,7 @@ A menudo se trabaja en **cuadernos interactivos** (como Jupyter), que combinan c
 
     Es el mismo análisis que la consulta SQL del tema 1.14, ahora en Python. Observa que el código **verifica el sistema de referencia** antes de unir las capas (tema 1.4).
 
-### Estadística espacial
+#### Estadística espacial
 
 La ciencia de datos geoespaciales incorpora métodos que tienen en cuenta la **ubicación**, basados en la primera ley de la Geografía de Tobler (tema 1.2):
 
@@ -407,13 +411,13 @@ La ciencia de datos geoespaciales incorpora métodos que tienen en cuenta la **u
 
 ---
 
-## GeoAI
+### GeoAI
 
 !!! info "Definición"
 
     La **GeoAI** (*inteligencia artificial geoespacial*) es la aplicación de técnicas de **inteligencia artificial**, en particular el **aprendizaje automático** y el **aprendizaje profundo**, a problemas y datos geográficos.
 
-### Aplicaciones
+#### Aplicaciones
 
 | Aplicación | Qué hace | Ejemplo |
 |---|---|---|
@@ -423,7 +427,7 @@ La ciencia de datos geoespaciales incorpora métodos que tienen en cuenta la **u
 | **Detección de cambios** | Identifica diferencias entre fechas | Deforestación, nuevas construcciones |
 | **Predicción** | Estima valores futuros o en lugares sin datos | Riesgo de incendio, crecimiento urbano |
 
-### Modelos fundacionales
+#### Modelos fundacionales
 
 Una tendencia reciente son los **modelos fundacionales de observación de la Tierra**: modelos de inteligencia artificial entrenados con enormes volúmenes de datos satelitales, que pueden adaptarse después a muchas tareas distintas con pocos ejemplos.
 
@@ -433,7 +437,7 @@ Una tendencia reciente son los **modelos fundacionales de observación de la Tie
     - **Prithvi** (NASA e IBM, 2023): modelo fundacional abierto entrenado con imágenes satelitales.
     - **AlphaEarth Foundations** (Google DeepMind, 2025): modelo que combina imágenes ópticas, radar, elevación, clima y otras fuentes. Sus resultados se publican como un conjunto de datos global y **anual**, con píxeles de **10 m**, en el que cada píxel se describe con **64 valores** que resumen las características del lugar a lo largo del año, y que puede usarse para clasificar, detectar cambios o buscar lugares similares.
 
-### Asistentes de inteligencia artificial
+#### Asistentes de inteligencia artificial
 
 Los **modelos de lenguaje** también están cambiando el trabajo diario: pueden **explicar conceptos**, **generar código** PyQGIS, consultas SQL o expresiones de QGIS, y ayudar a **depurar errores**.
 
@@ -450,13 +454,13 @@ Los **modelos de lenguaje** también están cambiando el trabajo diario: pueden 
 
 ---
 
-## Gemelos digitales, 3D y ética
+### Gemelos digitales, 3D y ética
 
-### Gemelos digitales
+#### Gemelos digitales
 
 Un **gemelo digital** es una réplica digital de una ciudad, una infraestructura o un territorio que se **actualiza con datos reales**, a menudo en tiempo real, y permite **simular** escenarios: el efecto de una nueva vía en el tráfico, el comportamiento de una inundación o el consumo de energía de un barrio. Integra casi todas las geotecnologías del ecosistema: modelos 3D, SIG, sensores, bases de datos y análisis.
 
-### Ética y privacidad
+#### Ética y privacidad
 
 La información geográfica puede revelar mucho sobre las personas: dónde viven, por dónde se mueven, qué propiedades tienen. Todo profesional de las geotecnologías debe considerar:
 
@@ -467,7 +471,7 @@ La información geográfica puede revelar mucho sobre las personas: dónde viven
 
 ---
 
-## Perfiles profesionales
+### Perfiles profesionales
 
 El ecosistema de geotecnologías ha dado lugar a diversos perfiles profesionales:
 
@@ -484,7 +488,7 @@ Todos estos perfiles comparten una misma base: los **fundamentos** que estudiamo
 
 ---
 
-## Cierre del Módulo 1
+### Cierre del Módulo 1
 
 A lo largo de este módulo recorrimos una secuencia conceptual que va del territorio al análisis:
 
@@ -509,7 +513,7 @@ En el **Módulo 2** comenzaremos a trabajar con **QGIS**.
 
 ---
 
-## Ideas clave
+### Ideas clave
 
 !!! success "Para recordar"
 
@@ -523,7 +527,39 @@ En el **Módulo 2** comenzaremos a trabajar con **QGIS**.
 
 ---
 
-## Autoevaluación
+## Hazlo conmigo
+
+**El ecosistema del caso conductor**, componente por componente:
+
+| Componente | Herramienta en el curso | Lección |
+|---|---|---|
+| SIG de escritorio | QGIS 4.x | Módulos 2–4 |
+| SIG móvil | QField | [3.3](../modulo-03/03-disenar-formularios-captura.md) |
+| Datos abiertos | OpenStreetMap, Copernicus, WorldPop | [Descargas](../descargas/index.md) |
+| IDE institucional | GeoBolivia | [2.11](../modulo-02/11-servicios-web.md) |
+| Formatos abiertos | GeoPackage, GeoTIFF | [2.4](../modulo-02/04-incorporar-datos.md) |
+| Automatización | Procesos, Modelador, PyQGIS | [3.11](../modulo-03/11-procedimientos-reproducibles.md) |
+| Publicación | PDF, atlas, web | Módulo 4 |
+
+---
+
+## Inténtalo tú
+
+!!! example "Ejercicio"
+
+    Para tu institución (o una que conozcas), identifica qué componentes del ecosistema **ya existen**, cuáles **faltan** y cuál sería el **primer paso** para incorporar uno de los que faltan.
+
+---
+
+## ¿Lo hiciste bien?
+
+??? success "Respuestas"
+
+    No hay una única respuesta. Una buena respuesta es **concreta** (nombra herramientas y datos reales), **realista** (el primer paso es pequeño: por ejemplo, adoptar GeoPackage como formato común o publicar un WMS) y considera **personas y métodos**, no solo software ([1.1](01-sistemas-informacion-geografica.md)).
+
+---
+
+## Comprueba lo aprendido
 
 ??? question "1. ¿Qué componente del ecosistema usarías en cada caso?"
 
@@ -555,7 +591,7 @@ En el **Módulo 2** comenzaremos a trabajar con **QGIS**.
 
 ---
 
-## Actividad final del módulo
+## Tu proyecto
 
 !!! example "Actividad 1.15 — El ecosistema del proyecto integrador (sin software)"
 
@@ -567,6 +603,10 @@ En el **Módulo 2** comenzaremos a trabajar con **QGIS**.
     4. Evalúa si alguna tarea de tu proyecto podría beneficiarse de la **GeoAI** y describe cómo **validarías** sus resultados.
     5. Identifica los **riesgos éticos o de privacidad** de tus datos y cómo los gestionarías.
     6. Redacta una **síntesis final** de tu proyecto integrador (una página) que incluya: el problema territorial, el modelo conceptual y lógico, el sistema de referencia, la escala de trabajo, los datos y su calidad, el flujo de trabajo y los productos esperados.
+
+!!! tip "En el caso conductor"
+
+    Redacta la **síntesis del proyecto integrador** (una página): problema, modelo, SRC, escala, datos y su calidad, y el ecosistema tecnológico. Es tu punto de partida para el Módulo 2.
 
 ---
 

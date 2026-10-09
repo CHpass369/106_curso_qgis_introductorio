@@ -5,7 +5,7 @@ description: Qué es la calidad de los datos geográficos, sus elementos según 
 
 # 1.13 Calidad de la información geográfica
 
-!!! abstract "Objetivos de aprendizaje"
+!!! abstract "En esta lección"
 
     Al finalizar este tema, el estudiante será capaz de:
 
@@ -16,9 +16,13 @@ description: Qué es la calidad de los datos geográficos, sus elementos según 
     - Comprender cómo se propagan los errores al combinar datos en un análisis.
     - Comunicar adecuadamente la incertidumbre de los resultados.
 
+    **Tiempo:** 45 min · **Materiales:** calculadora y cuaderno · **Producto:** Plan de calidad: requisitos, evaluación, propagación y linaje (actividad 1.13).
+
 ---
 
-## La regla que hay que recordar siempre
+## Idea central
+
+### La regla que hay que recordar siempre
 
 !!! danger "La idea central del tema"
 
@@ -30,7 +34,7 @@ A lo largo del módulo hemos visto muchas fuentes de error: sistemas de referenc
 
 ---
 
-## ¿Qué es la calidad?
+### ¿Qué es la calidad?
 
 !!! info "Definición"
 
@@ -47,7 +51,7 @@ Esta definición tiene una consecuencia importante: **la calidad no es absoluta*
 
     El dato es el mismo. Lo que cambia son los **requisitos** del uso.
 
-### Dos perspectivas
+#### Dos perspectivas
 
 | Perspectiva | Pregunta | Quién la aplica |
 |---|---|---|
@@ -58,7 +62,7 @@ Un dato puede tener una calidad interna excelente (cumple todo lo que su product
 
 ---
 
-## Elementos de calidad
+### Elementos de calidad
 
 La norma internacional **ISO 19157** establece un marco común para describir y evaluar la calidad de los datos geográficos. Sus principales elementos son:
 
@@ -92,13 +96,13 @@ A estos elementos se suman tres aspectos que **no son errores en sí mismos**, p
 
 ---
 
-## Exactitud posicional
+### Exactitud posicional
 
 !!! info "Definición"
 
     La **exactitud posicional** es la cercanía entre la **posición registrada** de los elementos y su **posición real** (o aceptada como real).
 
-### Exactitud absoluta y relativa
+#### Exactitud absoluta y relativa
 
 <figure class="figura">
 <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Exactitud posicional absoluta y relativa">
@@ -166,7 +170,7 @@ A estos elementos se suman tres aspectos que **no son errores en sí mismos**, p
 
     Un plano topográfico en coordenadas locales (tema 1.4) puede tener una exactitud relativa excelente y ninguna exactitud absoluta.
 
-### Cómo se evalúa
+#### Cómo se evalúa
 
 Como vimos en el tema 1.9, la exactitud posicional se evalúa comparando el dato con **puntos de control** y calculando el **RMSE**. Para que la evaluación sea confiable:
 
@@ -178,7 +182,7 @@ Como vimos en el tema 1.9, la exactitud posicional se evalúa comparando el dato
 
 ---
 
-## Exactitud temática
+### Exactitud temática
 
 !!! info "Definición"
 
@@ -192,7 +196,7 @@ Tiene tres componentes:
 | **Corrección de atributos cualitativos** | Si los valores de texto o categoría son correctos | Nombre de calle equivocado | Porcentaje de valores correctos |
 | **Exactitud de atributos cuantitativos** | Si los valores numéricos son correctos | Elevación de un modelo digital frente a la medida con GNSS | RMSE de los valores |
 
-### La matriz de confusión
+#### La matriz de confusión
 
 La **matriz de confusión** es la herramienta estándar para evaluar la exactitud de una clasificación, por ejemplo, un mapa de uso de suelo obtenido de imágenes satelitales. Compara, para una muestra de puntos, la **clase asignada** en el mapa con la **clase real** verificada en campo o en imágenes de mayor detalle.
 
@@ -240,7 +244,7 @@ La **matriz de confusión** es la herramienta estándar para evaluar la exactitu
 
 ---
 
-## Calidad temporal
+### Calidad temporal
 
 !!! info "Definición"
 
@@ -252,7 +256,7 @@ La **matriz de confusión** es la herramienta estándar para evaluar la exactitu
 | **Consistencia temporal** | Si los eventos siguen un orden lógico | Fecha de demolición anterior a la de construcción |
 | **Validez temporal** | Si las fechas están dentro de un rango posible | Fecha `31/02/2025` o año `2205` |
 
-### Vigencia
+#### Vigencia
 
 Un aspecto práctico fundamental es la **vigencia** o **actualidad**: si el dato **sigue representando la realidad** en el momento en que se usa.
 
@@ -270,7 +274,7 @@ El territorio cambia continuamente: las ciudades crecen, se abren vías, los rí
 
 ---
 
-## Completitud
+### Completitud
 
 !!! info "Definición"
 
@@ -347,7 +351,7 @@ Hay dos tipos de error de completitud:
 
 ---
 
-## Consistencia lógica
+### Consistencia lógica
 
 !!! info "Definición"
 
@@ -368,9 +372,9 @@ Es el elemento que **más fácilmente se puede verificar de forma automática**,
 
 ---
 
-## Resolución, escala de captura y linaje
+### Resolución, escala de captura y linaje
 
-### Resolución
+#### Resolución
 
 Como vimos en el tema 1.9, la **resolución** determina el **detalle mínimo** que un dato puede representar: el tamaño de píxel en un ráster, la unidad mínima cartografiable o la distancia entre vértices en un vectorial.
 
@@ -379,7 +383,7 @@ La resolución **no es un error**, pero define para qué usos es apto un dato. A
 - **Resolución temática:** cuántas clases o categorías distingue el dato.
 - **Resolución temporal:** cada cuánto tiempo se actualiza.
 
-### Escala de captura
+#### Escala de captura
 
 La **escala de captura** (o de origen) es la escala para la que el dato fue elaborado (temas 1.8 y 1.10). Condiciona directamente la **exactitud posicional** esperada, el **nivel de detalle** y la **generalización** aplicada.
 
@@ -387,7 +391,7 @@ La **escala de captura** (o de origen) es la escala para la que el dato fue elab
 
     Usar un dato **fuera del rango de escalas** para el que fue elaborado. Un SIG permite acercarse indefinidamente a una capa derivada de cartografía 1:250 000, pero eso **no la hace apta** para trabajar a escala 1:5 000.
 
-### Linaje
+#### Linaje
 
 !!! info "Definición"
 
@@ -414,9 +418,9 @@ El linaje permite **reconstruir cómo se obtuvo** un dato, evaluar su calidad de
 
 ---
 
-## ¿Cómo se evalúa la calidad?
+### ¿Cómo se evalúa la calidad?
 
-### Métodos de evaluación
+#### Métodos de evaluación
 
 | Método | En qué consiste | Ejemplos |
 |---|---|---|
@@ -424,7 +428,7 @@ El linaje permite **reconstruir cómo se obtuvo** un dato, evaluar su calidad de
 | **Directo externo** | Se compara el dato con una **referencia externa** más confiable | Puntos de control GNSS, verificación en campo, imágenes de mayor detalle |
 | **Indirecto** | Se **estima** la calidad a partir del linaje, los metadatos o la experiencia | "Digitalizado sobre cartas 1:50 000, por lo tanto su exactitud es del orden de 10 a 25 m" |
 
-### Proceso de evaluación
+#### Proceso de evaluación
 
 ```mermaid
 flowchart TB
@@ -454,11 +458,11 @@ flowchart TB
 
 ---
 
-## La propagación del error
+### La propagación del error
 
 Cuando se combinan varias capas en un análisis, **los errores de cada una se suman** en el resultado. Este fenómeno se conoce como **propagación del error**.
 
-### Errores posicionales
+#### Errores posicionales
 
 Si se superponen dos capas con errores posicionales independientes, el error de su posición **relativa** se estima así:
 
@@ -477,7 +481,7 @@ error combinado = √(error₁² + error₂²)
 
     Un predio que, según el análisis, queda **a 10 m** del borde de una zona de riesgo podría en realidad estar **dentro** de ella. El error combinado (13 m) es **mayor** que la distancia calculada.
 
-### Errores temáticos
+#### Errores temáticos
 
 Cuando se combinan varias capas clasificadas, la exactitud del resultado puede ser **mucho menor** que la de cada capa.
 
@@ -497,7 +501,7 @@ Cuando se combinan varias capas clasificadas, la exactitud del resultado puede s
 
 ---
 
-## Comunicar la incertidumbre
+### Comunicar la incertidumbre
 
 Todo dato y todo análisis tienen **incertidumbre**. Ocultarla no la elimina: solo hace que quien usa los resultados tome decisiones con una **falsa sensación de certeza**.
 
@@ -516,7 +520,7 @@ Todo dato y todo análisis tienen **incertidumbre**. Ocultarla no la elimina: so
 
 ---
 
-## Calidad de fuentes de uso frecuente
+### Calidad de fuentes de uso frecuente
 
 Antes de usar un dato de una fuente externa, conviene revisar ciertos aspectos según su tipo:
 
@@ -533,7 +537,7 @@ Antes de usar un dato de una fuente externa, conviene revisar ciertos aspectos s
 
 ---
 
-## Ideas clave
+### Ideas clave
 
 !!! success "Para recordar"
 
@@ -549,7 +553,37 @@ Antes de usar un dato de una fuente externa, conviene revisar ciertos aspectos s
 
 ---
 
-## Autoevaluación
+## Hazlo conmigo
+
+**Propagación del error temático.** Un análisis de aptitud combina tres capas, cada una con 90 % de exactitud temática. Si los errores son independientes, la probabilidad de que las tres sean correctas en un lugar es:
+
+0,90 × 0,90 × 0,90 = **0,729 → 72,9 %**
+
+Combinar capas **reduce** la exactitud del resultado.
+
+**Completitud.** Supón que una lista oficial registra 210 establecimientos de salud en el municipio y OpenStreetMap tiene 173 (dato del curso). La completitud de OSM sería 173 / 210 ≈ **82 %** (el número 210 es un supuesto didáctico: averigua el real con el SEDES).
+
+---
+
+## Inténtalo tú
+
+!!! example "Ejercicio"
+
+    1. Un modelo de riesgo combina cuatro capas con 95 % de exactitud cada una. ¿Qué exactitud cabe esperar?
+    2. Si la capa de población (WorldPop) sobrestima un 10 % y el número de establecimientos es exacto, ¿cuánto se sobrestima el indicador «habitantes por establecimiento»?
+    3. Nombra un elemento de calidad (ISO 19157) que **no** puedas evaluar con los datos del curso y explica por qué.
+
+---
+
+## ¿Lo hiciste bien?
+
+??? success "Respuestas"
+
+    1. 0,95⁴ ≈ **81,5 %**. 2. También un **10 %**: el error del numerador pasa directo al cociente. 3. Por ejemplo, la **exactitud posicional absoluta** de OSM: no tenemos puntos de control medidos con GNSS de precisión.
+
+---
+
+## Comprueba lo aprendido
 
 ??? question "1. ¿Por qué se dice que la calidad de un dato no es absoluta?"
 
@@ -596,7 +630,7 @@ Antes de usar un dato de una fuente externa, conviene revisar ciertos aspectos s
 
 ---
 
-## Actividad propuesta
+## Tu proyecto
 
 !!! example "Actividad 1.13 — Plan de calidad del proyecto integrador (sin software)"
 
@@ -608,6 +642,10 @@ Antes de usar un dato de una fuente externa, conviene revisar ciertos aspectos s
     4. **Propagación:** identifica qué capas se combinarán en tu análisis y estima el **error combinado** o la **exactitud esperada** del resultado.
     5. **Eslabón más débil:** identifica la capa de menor calidad y propón cómo mejorarla o cómo comunicar esa limitación.
     6. **Linaje:** diseña la tabla de linaje que usarás para documentar los procesos de tu proyecto.
+
+!!! tip "En el caso conductor"
+
+    Escribe el **plan de calidad** del caso conductor: qué requisitos debe cumplir cada dato, cómo los evaluarás y cómo comunicarás la incertidumbre en los mapas finales.
 
 ---
 

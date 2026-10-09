@@ -5,7 +5,7 @@ description: Qué es un SIG, qué problemas resuelve, cuáles son sus componente
 
 # 1.1 Introducción a los Sistemas de Información Geográfica
 
-!!! abstract "Objetivos de aprendizaje"
+!!! abstract "En esta lección"
 
     Al finalizar este tema, el estudiante será capaz de:
 
@@ -15,9 +15,13 @@ description: Qué es un SIG, qué problemas resuelve, cuáles son sus componente
     - Diferenciar entre dato, información y conocimiento geográfico.
     - Relacionar los SIG con aplicaciones reales en su contexto profesional.
 
+    **Tiempo:** 40 min · **Materiales:** calculadora y cuaderno · **Producto:** Problema territorial y preguntas espaciales del proyecto (actividad 1.1).
+
 ---
 
-## ¿Qué es un SIG?
+## Idea central
+
+### ¿Qué es un SIG?
 
 Casi todas las decisiones que tomamos sobre el territorio tienen una pregunta de fondo: **¿dónde?** Dónde construir una escuela, dónde se concentran los accidentes de tránsito, dónde hay riesgo de inundación, dónde vive la población que no tiene acceso a agua potable.
 
@@ -27,7 +31,7 @@ Un Sistema de Información Geográfica existe precisamente para trabajar con ese
 
     Un **Sistema de Información Geográfica (SIG)** —en inglés *Geographic Information System, GIS*— es un sistema integrado por **personas, métodos, datos, software y hardware**, que permite **capturar, almacenar, gestionar, analizar y representar** información vinculada a una localización sobre la superficie terrestre, con el propósito de apoyar la comprensión del territorio y la toma de decisiones.
 
-### La "G" es lo que marca la diferencia
+#### La "G" es lo que marca la diferencia
 
 Existen muchos sistemas de información: contables, académicos, de recursos humanos. Lo que distingue a un SIG es que **cada elemento que gestiona tiene una localización explícita**, y esa localización se puede usar para relacionar, medir y analizar.
 
@@ -41,7 +45,7 @@ Veamos la diferencia con un ejemplo:
 
 La segunda pregunta es imposible de responder con una tabla convencional, aunque tenga la dirección escrita. Para responderla hace falta **geometría, un sistema de referencia y operaciones espaciales**. Eso es un SIG.
 
-### Distintas formas de entender un SIG
+#### Distintas formas de entender un SIG
 
 A lo largo de la historia, el concepto se ha definido desde diferentes enfoques. Ninguno es incorrecto; cada uno pone el acento en algo distinto.
 
@@ -63,7 +67,7 @@ A lo largo de la historia, el concepto se ha definido desde diferentes enfoques.
 
     Es la visión más completa y la que adoptaremos en este curso: **el SIG no es el programa, es todo el sistema**.
 
-### El ciclo funcional de un SIG
+#### El ciclo funcional de un SIG
 
 Independientemente del enfoque, todo SIG sigue un flujo general de trabajo:
 
@@ -120,7 +124,7 @@ El ciclo no termina en el mapa: termina en una **decisión**, que casi siempre g
 
 ---
 
-## ¿Qué problemas resuelve un SIG?
+### ¿Qué problemas resuelve un SIG?
 
 Un SIG resuelve **problemas espaciales**, es decir, problemas en los que la ubicación importa.
 
@@ -131,7 +135,7 @@ Un SIG resuelve **problemas espaciales**, es decir, problemas en los que la ubic
     - *¿Cuál es el presupuesto anual de salud del municipio?* → No es espacial.
     - *¿Qué distritos tienen menor cobertura de salud por habitante?* → **Es espacial.**
 
-### Las cinco preguntas clásicas
+#### Las cinco preguntas clásicas
 
 Una clasificación muy difundida en la literatura SIG, atribuida a David Rhind, agrupa las preguntas que un SIG puede responder en cinco tipos, de menor a mayor complejidad:
 
@@ -159,7 +163,7 @@ Las dos primeras son **consultas**; las tres últimas ya son **análisis**. Gran
 
 ---
 
-## Componentes de un SIG
+### Componentes de un SIG
 
 Un SIG funciona gracias a la interacción de cinco componentes. Si falta cualquiera de ellos, el sistema no funciona, aunque el software esté instalado.
 
@@ -207,7 +211,7 @@ flowchart TB
 
 </div>
 
-### Detalle de cada componente
+#### Detalle de cada componente
 
 ??? note "Hardware"
 
@@ -268,7 +272,7 @@ flowchart TB
 
 ---
 
-## Dato, información y conocimiento geográfico
+### Dato, información y conocimiento geográfico
 
 Estos tres términos se usan como sinónimos en el lenguaje cotidiano, pero representan niveles distintos de valor.
 
@@ -288,7 +292,7 @@ flowchart BT
 | **Conocimiento** | Información analizada, relacionada con otras variables e interpretada. | Los puntos ubicados por debajo de cierta cota en la zona sur se inundan de forma recurrente en época de lluvias, debido a la obstrucción de una torrentera. |
 | **Decisión** | Acción basada en el conocimiento. | Priorizar la limpieza de la torrentera y restringir nuevas construcciones en esa franja. |
 
-### ¿Qué papel juega el SIG?
+#### ¿Qué papel juega el SIG?
 
 - El SIG **transforma datos en información** al estructurarlos, georreferenciarlos y relacionarlos con atributos.
 - El SIG **facilita la generación de conocimiento** mediante el análisis espacial y la visualización.
@@ -300,7 +304,7 @@ flowchart BT
 
 ---
 
-## El SIG como sistema y no solo como software
+### El SIG como sistema y no solo como software
 
 Uno de los errores más comunes al aprender SIG es pensar que **saber SIG es saber usar QGIS** (o cualquier otro programa).
 
@@ -316,7 +320,7 @@ Uno de los errores más comunes al aprender SIG es pensar que **saber SIG es sab
 | Si cambia el software, hay que aprender todo de nuevo | Los conceptos se mantienen, solo cambia la herramienta |
 | El resultado es un mapa | El resultado es una decisión mejor fundamentada |
 
-### La ciencia detrás del sistema
+#### La ciencia detrás del sistema
 
 En 1992, Michael Goodchild propuso diferenciar entre los **sistemas** de información geográfica (la tecnología) y la **ciencia** de la información geográfica (*GIScience*): el conjunto de preguntas teóricas que surgen al usar esa tecnología. Por ejemplo:
 
@@ -328,7 +332,7 @@ Estas preguntas son las que trabajaremos a lo largo del **Módulo 1**, antes de 
 
 ---
 
-## Aplicaciones de los SIG
+### Aplicaciones de los SIG
 
 Los SIG se utilizan prácticamente en cualquier disciplina que trabaje con el territorio.
 
@@ -399,7 +403,7 @@ Los SIG se utilizan prácticamente en cualquier disciplina que trabaje con el te
 
 ---
 
-## Ideas clave
+### Ideas clave
 
 !!! success "Para recordar"
 
@@ -412,7 +416,46 @@ Los SIG se utilizan prácticamente en cualquier disciplina que trabaje con el te
 
 ---
 
-## Autoevaluación
+## Hazlo conmigo
+
+Clasifica preguntas reales del caso conductor según los cinco tipos de pregunta de un SIG.
+
+| Pregunta sobre Cochabamba | Tipo | Por qué |
+|---|---|---|
+| ¿Qué hay en la esquina de las calles Jordán y San Martín? | **Localización** | Pregunta por un lugar concreto |
+| ¿Dónde viven personas a más de 1 km de un establecimiento de salud? | **Condición** | Busca lugares que cumplan un criterio |
+| ¿Cómo creció la mancha urbana hacia el sur entre 2000 y 2025? | **Tendencia** | Compara en el tiempo |
+| ¿Los establecimientos de salud se concentran en el centro? | **Patrón** | Busca una regularidad espacial |
+| ¿Cuánta población quedaría cubierta si se construye un centro en la zona sur? | **Modelado** | Simula un escenario |
+
+Observa que la segunda pregunta es la del **caso conductor** del curso: es una pregunta de **condición** que, en el Módulo 3, se convierte en **modelado** al evaluar candidatas.
+
+---
+
+## Inténtalo tú
+
+!!! example "Ejercicio"
+
+    Clasifica estas seis preguntas y di cuál **no** es espacial:
+
+    1. ¿Cuántos estudiantes tiene la Universidad Mayor de San Simón?
+    2. ¿Qué escuelas están a menos de 200 m de una avenida troncal?
+    3. ¿La Laguna Alalay ha reducido su superficie en los últimos 20 años?
+    4. ¿Existen agrupamientos de accidentes de tránsito en la avenida Blanco Galindo?
+    5. ¿Qué barrios se inundarían si se desborda la torrentera Taquiña?
+    6. ¿A qué comuna pertenece el Hospital Viedma?
+
+---
+
+## ¿Lo hiciste bien?
+
+??? success "Respuestas"
+
+    1. **No espacial**: la respuesta no cambia con la ubicación. 2. **Condición**. 3. **Tendencia**. 4. **Patrón**. 5. **Modelado**. 6. **Localización**.
+
+---
+
+## Comprueba lo aprendido
 
 ??? question "1. ¿Por qué una tabla de centros de salud con la dirección escrita no es suficiente para un análisis espacial?"
 
@@ -434,7 +477,7 @@ Los SIG se utilizan prácticamente en cualquier disciplina que trabaje con el te
 
 ---
 
-## Actividad propuesta
+## Tu proyecto
 
 !!! example "Actividad 1.1 — Identificar un problema espacial (sin software)"
 
@@ -447,6 +490,10 @@ Los SIG se utilizan prácticamente en cualquier disciplina que trabaje con el te
     5. Describe qué **personas** y qué **métodos** serían necesarios para resolverlo.
 
     Esta actividad se retomará a lo largo del curso como proyecto integrador.
+
+!!! tip "En el caso conductor"
+
+    En el caso conductor, el problema es **el acceso desigual a los servicios de salud en Cochabamba**. Escribe su pregunta principal y clasifícala, junto con tres preguntas secundarias de distinto tipo.
 
 ---
 

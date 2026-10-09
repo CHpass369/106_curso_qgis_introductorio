@@ -5,7 +5,7 @@ description: Del mundo real a la base de datos geoespacial. Modelo vectorial (pu
 
 # 1.11 Modelos de representación espacial
 
-!!! abstract "Objetivos de aprendizaje"
+!!! abstract "En esta lección"
 
     Al finalizar este tema, el estudiante será capaz de:
 
@@ -16,9 +16,13 @@ description: Del mundo real a la base de datos geoespacial. Modelo vectorial (pu
     - Comparar ambos modelos y elegir el más adecuado según el fenómeno y el análisis.
     - Reconocer otros modelos de representación, como las redes de triángulos y las nubes de puntos.
 
+    **Tiempo:** 45 min · **Materiales:** calculadora y cuaderno · **Producto:** Modelo lógico: vectorial o ráster, geometrías y formatos (actividad 1.11).
+
 ---
 
-## Del mundo real al modelo
+## Idea central
+
+### Del mundo real al modelo
 
 Con este tema pasamos de la cartografía al **SIG propiamente dicho**. Ya sabemos cómo ubicar el territorio (geodesia, sistemas de referencia, proyecciones) y cómo representarlo en un mapa (cartografía, escala, generalización). Ahora nos preguntamos: **¿cómo se almacena el territorio dentro de una computadora?**
 
@@ -109,7 +113,7 @@ Existen dos grandes modelos lógicos:
 
 ---
 
-## Modelo vectorial
+### Modelo vectorial
 
 !!! info "Definición"
 
@@ -117,7 +121,7 @@ Existen dos grandes modelos lógicos:
 
 La lógica del modelo vectorial es la de los **objetos**: cada escuela, cada vía y cada predio es un elemento individual, con límites definidos y una fila en una tabla de atributos.
 
-### Geometrías básicas
+#### Geometrías básicas
 
 <figure class="figura">
 <svg viewBox="0 0 720 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Geometrías del modelo vectorial: punto, línea, polígono y multipolígono con hueco">
@@ -241,7 +245,7 @@ La lógica del modelo vectorial es la de los **objetos**: cada escuela, cada ví
     - **Z:** la **altura** del vértice. Se usa en redes de alcantarillado, levantamientos topográficos o modelos 3D. Por ejemplo, `POINT Z (802110 8075114 2558)`.
     - **M:** una **medida** asociada al vértice, como el kilometraje a lo largo de una carretera. Se usa en sistemas de referencia lineal.
 
-### La geometría depende de la escala
+#### La geometría depende de la escala
 
 Como vimos en los temas 1.2 y 1.10, **el tipo de geometría no es una propiedad del objeto real**, sino una **decisión de modelado**:
 
@@ -252,7 +256,7 @@ Como vimos en los temas 1.2 y 1.10, **el tipo de geometría no es una propiedad 
 | Ciudad | Polígonos (manzanos, predios) | Punto |
 | Vía | Polígono (calzada) | Línea |
 
-### Atributos
+#### Atributos
 
 Cada entidad vectorial tiene asociada una **fila** en una **tabla de atributos**, que describe sus características no espaciales:
 
@@ -264,7 +268,7 @@ Cada entidad vectorial tiene asociada una **fila** en una **tabla de atributos**
 
 La combinación de **geometría + atributos** es lo que hace tan poderoso al modelo vectorial: permite preguntar tanto *¿dónde está?* como *¿qué características tiene?* Profundizaremos en el tema **1.12**.
 
-### Formatos vectoriales habituales
+#### Formatos vectoriales habituales
 
 | Formato | Extensión | Características |
 |---|---|---|
@@ -277,7 +281,7 @@ La combinación de **geometría + atributos** es lo que hace tan poderoso al mod
 
 ---
 
-## Modelo ráster
+### Modelo ráster
 
 !!! info "Definición"
 
@@ -285,7 +289,7 @@ La combinación de **geometría + atributos** es lo que hace tan poderoso al mod
 
 La lógica del modelo ráster es la de los **campos**: el espacio se recorre de forma sistemática y en cada lugar hay un valor, aunque sea "sin dato".
 
-### Celda, píxel y matriz
+#### Celda, píxel y matriz
 
 <figure class="figura">
 <svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Estructura de un ráster: matriz de celdas con filas, columnas, origen, tamaño de celda y valores de elevación">
@@ -412,7 +416,7 @@ La lógica del modelo ráster es la de los **campos**: el espacio se recorre de 
 
     En un ráster, la numeración de filas y columnas comienza en la **esquina superior izquierda**. Las filas **aumentan hacia abajo**, mientras que la coordenada Norte **disminuye**. Es una fuente frecuente de confusión al programar o al leer valores de celdas.
 
-### ¿Cómo se ubica un ráster en el territorio?
+#### ¿Cómo se ubica un ráster en el territorio?
 
 Una matriz de números, por sí sola, no está en ningún lugar. Para **georreferenciarla** se necesitan:
 
@@ -433,7 +437,7 @@ Con esos datos, el software calcula la posición de cualquier celda.
 
     Se suma 0,5 para llegar al **centro** de la celda, y la coordenada Y se **resta** porque las filas avanzan hacia el sur.
 
-### Resolución y volumen de datos
+#### Resolución y volumen de datos
 
 La resolución espacial determina **cuántas celdas** tiene un ráster, y el número de celdas crece con el **cuadrado** de la resolución.
 
@@ -448,7 +452,7 @@ La resolución espacial determina **cuántas celdas** tiene un ráster, y el nú
 
     Pasar de celdas de 10 m a celdas de 5 m **multiplica por cuatro** la cantidad de celdas, el tamaño del archivo y, en general, el tiempo de procesamiento. Antes de elegir la máxima resolución disponible, conviene preguntarse qué resolución **necesita realmente** el análisis (tema 1.9).
 
-### Valores de las celdas
+#### Valores de las celdas
 
 Cada celda almacena un número. Según el fenómeno, ese número puede significar cosas muy distintas:
 
@@ -467,7 +471,7 @@ Además, conviene conocer dos conceptos:
 
     En un ráster de precipitación, **0** significa "no llovió", mientras que **NoData** significa "no hay información". Si el valor NoData no está bien definido, las celdas sin información se interpretarán como ceros y **alterarán** promedios, sumas y cualquier análisis.
 
-### Bandas
+#### Bandas
 
 Un ráster puede tener **una o varias bandas**: capas de valores que comparten la misma malla.
 
@@ -475,7 +479,7 @@ Un ráster puede tener **una o varias bandas**: capas de valores que comparten l
 - **Tres bandas:** una fotografía aérea en color, con bandas roja, verde y azul.
 - **Muchas bandas:** una imagen satelital multiespectral. Sentinel-2, por ejemplo, registra 13 bandas.
 
-### Formatos ráster habituales
+#### Formatos ráster habituales
 
 | Formato | Extensión | Características |
 |---|---|---|
@@ -488,7 +492,7 @@ Un ráster puede tener **una o varias bandas**: capas de valores que comparten l
 
 ---
 
-## Comparación entre ambos modelos
+### Comparación entre ambos modelos
 
 | Aspecto | Modelo vectorial | Modelo ráster |
 |---|---|---|
@@ -509,7 +513,7 @@ Un ráster puede tener **una o varias bandas**: capas de valores que comparten l
 
     Como toda simplificación, no siempre es cierta, pero resume bien la tendencia general de cada modelo.
 
-### ¿Qué modelo elegir?
+#### ¿Qué modelo elegir?
 
 La elección depende del **fenómeno** y, sobre todo, del **análisis** que se quiere realizar:
 
@@ -528,7 +532,7 @@ La elección depende del **fenómeno** y, sobre todo, del **análisis** que se q
 
     La visión **discreta** suele coincidir con el modelo **vectorial**, y la **continua**, con el **ráster**, pero no es una regla. La elevación, que es continua, también se representa con **curvas de nivel** (vectorial); y el uso de suelo, que es discreto, se representa muy a menudo como **ráster clasificado**.
 
-### Conversión entre modelos
+#### Conversión entre modelos
 
 Es habitual transformar datos de un modelo a otro:
 
@@ -558,7 +562,7 @@ Es habitual transformar datos de un modelo a otro:
 
 ---
 
-## Otros modelos de representación
+### Otros modelos de representación
 
 Además de los dos modelos clásicos, existen otros que encontrarás con frecuencia:
 
@@ -571,7 +575,7 @@ Además de los dos modelos clásicos, existen otros que encontrarás con frecuen
 
 ---
 
-## Hacia la base de datos geoespacial
+### Hacia la base de datos geoespacial
 
 Los modelos vectorial y ráster definen **cómo se estructuran** los datos. El último paso de la cadena es **almacenarlos** en un formato o una base de datos que, además de la geometría o las celdas, guarde toda la información necesaria para usarlos correctamente:
 
@@ -583,7 +587,7 @@ Ese conjunto es lo que llamamos **dato geoespacial**, y es el tema de la secció
 
 ---
 
-## Ideas clave
+### Ideas clave
 
 !!! success "Para recordar"
 
@@ -597,7 +601,40 @@ Ese conjunto es lo que llamamos **dato geoespacial**, y es el tema de la secció
 
 ---
 
-## Autoevaluación
+## Hazlo conmigo
+
+**¿Cuánto pesa un ráster?** Tamaño = columnas × filas × bandas × bytes por celda.
+
+El municipio cubre un rectángulo de unos 20 × 25 km:
+
+| Resolución | Celdas | Tipo | Bandas | Tamaño sin comprimir |
+|---|---|---|---|---|
+| 30 m (DEM) | 667 × 833 ≈ 0,56 millones | Float32 (4 bytes) | 1 | ≈ 2,2 MB |
+| 10 m (Sentinel-2) | 2 000 × 2 500 = 5 millones | UInt16 (2 bytes) | 4 | ≈ 40 MB |
+| 1 m (ortofoto de dron) | 20 000 × 25 000 = 500 millones | Byte (1 byte) | 3 | ≈ 1,5 GB |
+
+Dividir el tamaño de celda por 10 multiplica el volumen por **100**.
+
+---
+
+## Inténtalo tú
+
+!!! example "Ejercicio"
+
+    1. ¿Qué modelo (vectorial o ráster) y qué geometría usarías para: establecimientos de salud, población por km², red vial, uso del suelo, límites de comunas, pendiente?
+    2. Calcula el tamaño sin comprimir de la imagen Sentinel-2 del curso: 1 237 × 923 celdas, 4 bandas, UInt16.
+
+---
+
+## ¿Lo hiciste bien?
+
+??? success "Respuestas"
+
+    1. Establecimientos: **vector, puntos**. Población por km²: **ráster** (o polígonos de zonas). Red vial: **vector, líneas**. Uso del suelo: **ráster** categórico (o polígonos). Comunas: **vector, polígonos**. Pendiente: **ráster** continuo. 2. 1 237 × 923 × 4 × 2 bytes ≈ **9,1 MB**.
+
+---
+
+## Comprueba lo aprendido
 
 ??? question "1. ¿Qué geometría usarías para representar cada elemento a escala municipal (1:10 000)?"
 
@@ -641,7 +678,7 @@ Ese conjunto es lo que llamamos **dato geoespacial**, y es el tema de la secció
 
 ---
 
-## Actividad propuesta
+## Tu proyecto
 
 !!! example "Actividad 1.11 — Definir el modelo lógico del proyecto integrador (sin software)"
 
@@ -652,6 +689,10 @@ Ese conjunto es lo que llamamos **dato geoespacial**, y es el tema de la secció
     3. Para los datos ráster, indica la **resolución** necesaria, el **tipo de valor** (continuo, temático o imagen), el número de **bandas** y cómo se definirá el valor **NoData**.
     4. Identifica si alguna capa requerirá **rasterización** o **vectorización** durante el análisis.
     5. Elige el **formato** en el que almacenarás cada capa y justifica tu elección.
+
+!!! tip "En el caso conductor"
+
+    Para cada dato de tu modelo conceptual (1.2), decide el modelo (vectorial o ráster), la geometría y el formato (GeoPackage o GeoTIFF).
 
 ---
 

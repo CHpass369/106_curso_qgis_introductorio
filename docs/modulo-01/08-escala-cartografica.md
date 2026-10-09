@@ -5,7 +5,7 @@ description: Concepto de escala, escalas numérica, verbal y gráfica, cálculos
 
 # 1.8 Escala cartográfica
 
-!!! abstract "Objetivos de aprendizaje"
+!!! abstract "En esta lección"
 
     Al finalizar este tema, el estudiante será capaz de:
 
@@ -16,9 +16,13 @@ description: Concepto de escala, escalas numérica, verbal y gráfica, cálculos
     - Relacionar la escala con la extensión, el nivel de detalle y la precisión gráfica.
     - Comprender qué significa la escala en un entorno SIG digital.
 
+    **Tiempo:** 40 min · **Materiales:** calculadora y cuaderno · **Producto:** Escala de trabajo y precisión gráfica (actividad 1.8).
+
 ---
 
-## ¿Qué es la escala?
+## Idea central
+
+### ¿Qué es la escala?
 
 Todo mapa representa el territorio **reducido**. La escala indica **cuánto** se redujo.
 
@@ -54,7 +58,7 @@ donde **D** es el **denominador de la escala**: el número de veces que la reali
 
 ---
 
-## Formas de expresar la escala
+### Formas de expresar la escala
 
 <div class="grid cards" markdown>
 
@@ -82,13 +86,13 @@ donde **D** es el **denominador de la escala**: el número de veces que la reali
 
 </div>
 
-### Escala numérica
+#### Escala numérica
 
 Es la forma **más precisa y universal**. Permite hacer cálculos directamente y no depende de ningún idioma ni sistema de unidades.
 
 Su gran limitación es que **deja de ser válida si el mapa cambia de tamaño**.
 
-### Escala verbal
+#### Escala verbal
 
 Es la forma **más intuitiva** para el público general, porque traduce la escala a unidades cotidianas.
 
@@ -97,7 +101,7 @@ Es la forma **más intuitiva** para el público general, porque traduce la escal
 
 Tiene la misma limitación que la numérica: si el mapa se amplía o reduce, la frase deja de ser cierta.
 
-### Escala gráfica
+#### Escala gráfica
 
 Es una **barra graduada** dibujada en el mapa, en la que cada tramo representa una distancia real.
 
@@ -143,7 +147,7 @@ Es una **barra graduada** dibujada en el mapa, en la que cada tramo representa u
 
     Por eso, en mapas digitales o que pueden reproducirse en distintos tamaños, **la escala gráfica es imprescindible**.
 
-### Comparación
+#### Comparación
 
 | Forma | Ejemplo | Ventajas | Limitaciones |
 |---|---|---|---|
@@ -159,7 +163,7 @@ Es una **barra graduada** dibujada en el mapa, en la que cada tramo representa u
 
 ---
 
-## Cálculos con la escala
+### Cálculos con la escala
 
 Todos los cálculos con escala se basan en una misma relación, que puede despejarse de tres formas:
 
@@ -173,7 +177,7 @@ Todos los cálculos con escala se basan en una misma relación, que puede despej
 
     **Antes de calcular, convierte ambas distancias a la misma unidad.** La mayoría de los errores con escalas se deben a mezclar centímetros, metros y kilómetros.
 
-### Equivalencias útiles
+#### Equivalencias útiles
 
 | Unidad | Equivale a |
 |---|---|
@@ -193,7 +197,7 @@ Un atajo muy práctico: **en una escala 1:D, 1 cm del mapa representa D / 100 me
 | 1:250 000 | 250 m | 2,5 km |
 | 1:1 000 000 | 1 km | 10 km |
 
-### Calcular una distancia real
+#### Calcular una distancia real
 
 !!! example "Ejemplo 1"
 
@@ -206,7 +210,7 @@ Un atajo muy práctico: **en una escala 1:D, 1 cm del mapa representa D / 100 me
                    = 2,1 km
     ```
 
-### Calcular una distancia en el mapa
+#### Calcular una distancia en el mapa
 
 !!! example "Ejemplo 2"
 
@@ -219,7 +223,7 @@ Un atajo muy práctico: **en una escala 1:D, 1 cm del mapa representa D / 100 me
                          = 7 cm
     ```
 
-### Calcular la escala
+#### Calcular la escala
 
 !!! example "Ejemplo 3"
 
@@ -234,7 +238,7 @@ Un atajo muy práctico: **en una escala 1:D, 1 cm del mapa representa D / 100 me
 
     La escala es **1:50 000**.
 
-### Calcular superficies
+#### Calcular superficies
 
 Al trabajar con áreas hay que tener en cuenta que **la escala se aplica a cada dimensión**. Si las longitudes se reducen D veces, las superficies se reducen **D² veces**.
 
@@ -270,7 +274,7 @@ superficie real = superficie en el mapa × D²
 
 ---
 
-## Escala grande y escala pequeña
+### Escala grande y escala pequeña
 
 Esta es, probablemente, la confusión más común en cartografía.
 
@@ -516,7 +520,7 @@ Dicho de otra forma: **cuanto más grande es el denominador, más pequeña es la
 
     Piensa en el **tamaño con el que se ven los objetos**. En un plano a escala 1:1 000, una casa se ve **grande**; en un mapa a escala 1:1 000 000, ni siquiera se ve la ciudad completa como algo más que un punto. **Escala grande: objetos grandes. Escala pequeña: objetos pequeños.**
 
-### ¿Cuánto territorio cabe en una hoja?
+#### ¿Cuánto territorio cabe en una hoja?
 
 Una forma muy concreta de entender la escala es calcular qué extensión cubre una hoja **A4 (29,7 × 21 cm)**:
 
@@ -532,7 +536,7 @@ Una forma muy concreta de entender la escala es calcular qué extensión cubre u
 | 1:1 000 000 | 297 km × 210 km | Varias provincias de un departamento |
 | 1:7 000 000 | 2 079 km × 1 470 km | Bolivia completa |
 
-### Clasificación de escalas
+#### Clasificación de escalas
 
 No existe una clasificación única: los límites varían según la disciplina y el país. Una clasificación orientativa es:
 
@@ -553,7 +557,7 @@ No existe una clasificación única: los límites varían según la disciplina y
 
 ---
 
-## Escala, extensión y detalle
+### Escala, extensión y detalle
 
 La escala condiciona tres aspectos del mapa que están **estrechamente relacionados**:
 
@@ -568,7 +572,7 @@ flowchart LR
 
 A escala grande se **pueden** mostrar más elementos y con más exactitud geométrica, pero eso también **exige** datos más precisos: un error de 10 m pasa inadvertido en un mapa a escala 1:250 000, pero es enorme en un plano a escala 1:1 000.
 
-### La precisión gráfica
+#### La precisión gráfica
 
 El ojo humano, en condiciones normales, no distingue detalles menores a unos **0,2 mm** en un mapa impreso. Ese valor se conoce como **límite de percepción visual** y permite calcular la **precisión gráfica** de una escala: la distancia real más pequeña que se puede representar de forma distinguible.
 
@@ -596,11 +600,11 @@ precisión gráfica = 0,2 mm × D
 
 ---
 
-## La escala en un SIG
+### La escala en un SIG
 
 En la cartografía impresa, la escala es un valor fijo. En un SIG, en cambio, podemos **acercarnos y alejarnos** libremente. Esto cambia el significado de la escala.
 
-### Los datos digitales no tienen una escala fija
+#### Los datos digitales no tienen una escala fija
 
 Un archivo vectorial o ráster **no tiene escala** en el sentido tradicional: las coordenadas están en metros o grados, y el software puede mostrarlas a cualquier tamaño. Sin embargo, los datos **sí tienen una escala de origen** (o de captura): la escala a la que fueron digitalizados, levantados o para la que fueron diseñados.
 
@@ -616,7 +620,7 @@ Un archivo vectorial o ráster **no tiene escala** en el sentido tradicional: la
 
     Un SIG permite combinar capas de escalas muy distintas en un mismo mapa, y eso es tan útil como peligroso: **conocer la escala de origen de cada dato es fundamental**.
 
-### La escala en pantalla
+#### La escala en pantalla
 
 El software calcula la escala de visualización a partir del tamaño del mapa en la pantalla y de la **resolución del monitor**. Como cada pantalla es distinta, esa escala es **aproximada**: un mapa que se ve a "1:10 000" en una computadora puede verse a otra escala real en un monitor o un proyector diferente.
 
@@ -629,7 +633,7 @@ El software calcula la escala de visualización a partir del tamaño del mapa en
 
 ---
 
-## Ideas clave
+### Ideas clave
 
 !!! success "Para recordar"
 
@@ -643,7 +647,38 @@ El software calcula la escala de visualización a partir del tamaño del mapa en
 
 ---
 
-## Autoevaluación
+## Hazlo conmigo
+
+**Tres cálculos de escala con el caso conductor.**
+
+1. **Distancia en el terreno.** En un mapa 1:50 000 mides 4 cm entre la plaza principal y la Laguna Alalay:
+   4 cm × 50 000 = 200 000 cm = **2 km**.
+2. **Superficie.** Una manzana mide 2 cm² en un plano 1:25 000:
+   2 cm² × 25 000² = 1 250 000 000 cm² = 125 000 m² = **12,5 ha**.
+3. **Escala necesaria.** Quieres que el municipio (≈ 19 km de ancho) entre en 19 cm de una hoja A4:
+   19 km / 19 cm = 1 900 000 cm / 19 cm → **1:100 000**.
+
+---
+
+## Inténtalo tú
+
+!!! example "Ejercicio"
+
+    1. En un mapa 1:20 000, ¿cuántos centímetros ocupa una avenida de 3,2 km?
+    2. Una comuna de 18,8 km² (Adela Zamudio), ¿cuántos cm² ocupa en un mapa 1:50 000?
+    3. Una lámina A3 tiene 40 cm útiles de ancho. ¿Qué escala necesitas para mostrar los 19 km del municipio?
+
+---
+
+## ¿Lo hiciste bien?
+
+??? success "Respuestas"
+
+    1. 320 000 cm / 20 000 = **16 cm**. 2. 18,8 km² = 1,88 × 10¹¹ cm² / (50 000²) = **75,2 cm²** (≈ 8,7 × 8,7 cm). 3. 1 900 000 / 40 ≈ 47 500 → redondea a **1:50 000**.
+
+---
+
+## Comprueba lo aprendido
 
 ??? question "1. ¿Cuál es la escala mayor: 1:10 000 o 1:250 000? ¿Por qué?"
 
@@ -691,7 +726,7 @@ El software calcula la escala de visualización a partir del tamaño del mapa en
 
 ---
 
-## Actividad propuesta
+## Tu proyecto
 
 !!! example "Actividad 1.8 — Trabajar con escalas en el proyecto integrador (sin software)"
 
@@ -703,6 +738,10 @@ El software calcula la escala de visualización a partir del tamaño del mapa en
     4. Calcula la **precisión gráfica** de la escala elegida.
     5. Revisa las fuentes de datos de la **Actividad 1.4** e identifica, si es posible, su **escala de origen**. ¿Son adecuadas para la escala de tu mapa?
     6. Si tienes acceso a una **carta topográfica** impresa, mide la distancia entre dos puntos y calcula la distancia real usando la escala numérica y la escala gráfica. Compara los resultados.
+
+!!! tip "En el caso conductor"
+
+    Define la **escala de trabajo** y la **escala de salida** de tu proyecto. Calcula el error gráfico (0,2 mm × escala) de cada una: ese es el límite de precisión que tendrá sentido en tus mapas.
 
 ---
 

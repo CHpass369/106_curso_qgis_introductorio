@@ -5,7 +5,7 @@ description: Diferencias y relaciones entre SIG, CAD, cartografía, GNSS, telede
 
 # 1.14 SIG y otras geotecnologías
 
-!!! abstract "Objetivos de aprendizaje"
+!!! abstract "En esta lección"
 
     Al finalizar este tema, el estudiante será capaz de:
 
@@ -15,9 +15,13 @@ description: Diferencias y relaciones entre SIG, CAD, cartografía, GNSS, telede
     - Identificar los problemas habituales al integrar datos de distintas fuentes.
     - Comprender por qué las geotecnologías convergen en los proyectos actuales.
 
+    **Tiempo:** 45 min · **Materiales:** calculadora y cuaderno · **Producto:** Mapa de geotecnologías y flujo de datos del proyecto (actividad 1.14).
+
 ---
 
-## Muchas tecnologías, un mismo territorio
+## Idea central
+
+### Muchas tecnologías, un mismo territorio
 
 En el trabajo real, un proyecto territorial casi nunca se resuelve con una sola herramienta. Un plan de actualización catastral, por ejemplo, puede requerir un **dron** para obtener imágenes, un **receptor GNSS** para medir puntos de control, **planos en CAD** de urbanizaciones aprobadas, una **base de datos** para almacenar los predios, un **SIG** para integrar y analizar todo, y **cartografía** para comunicar los resultados.
 
@@ -84,7 +88,7 @@ Cada una de esas tecnologías tiene una **función principal** distinta. Conocer
 
 ---
 
-## SIG
+### SIG
 
 Como vimos en el tema 1.1, un **Sistema de Información Geográfica** integra personas, métodos, datos, software y hardware para **capturar, almacenar, gestionar, analizar y representar** información geográfica.
 
@@ -101,7 +105,7 @@ Lo que lo distingue de las demás geotecnologías es su capacidad para:
 
 ---
 
-## CAD
+### CAD
 
 !!! info "Definición"
 
@@ -109,7 +113,7 @@ Lo que lo distingue de las demás geotecnologías es su capacidad para:
 
 Se usa ampliamente en **arquitectura**, **ingeniería civil**, **topografía** y **urbanismo**: planos de edificios, diseño de vías y puentes, redes de agua, loteamientos y levantamientos topográficos.
 
-### CAD frente a SIG
+#### CAD frente a SIG
 
 | Aspecto | CAD | SIG |
 |---|---|---|
@@ -144,11 +148,11 @@ Se usa ampliamente en **arquitectura**, **ingeniería civil**, **topografía** y
 
 ---
 
-## Cartografía
+### Cartografía
 
 Como vimos en el tema 1.7, la **cartografía** es la disciplina que se ocupa del **arte, la ciencia y la técnica** de elaborar y utilizar mapas.
 
-### Cartografía frente a SIG
+#### Cartografía frente a SIG
 
 | Aspecto | Cartografía | SIG |
 |---|---|---|
@@ -165,7 +169,7 @@ La relación entre ambos es muy estrecha: el SIG ha transformado la forma de **p
 
 ---
 
-## GNSS
+### GNSS
 
 !!! info "Definición"
 
@@ -182,7 +186,7 @@ Es común llamar "GPS" a cualquier receptor de posicionamiento, pero **GPS es so
 
 Además, existen sistemas **regionales**, como QZSS (Japón) y NavIC (India). Los receptores modernos, incluidos los de los teléfonos celulares, combinan **varias constelaciones** para mejorar la disponibilidad y la exactitud.
 
-### ¿Cómo funciona?
+#### ¿Cómo funciona?
 
 <figure class="figura">
 <svg viewBox="0 0 720 365" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Principio de posicionamiento GNSS por distancias a varios satélites">
@@ -221,7 +225,7 @@ Además, existen sistemas **regionales**, como QZSS (Japón) y NavIC (India). Lo
 
 Se necesitan como mínimo **cuatro satélites**: tres para las tres coordenadas de la posición y uno más para corregir el **error del reloj** del receptor, que es mucho menos preciso que los relojes atómicos de los satélites.
 
-### Fuentes de error
+#### Fuentes de error
 
 | Fuente | Descripción |
 |---|---|
@@ -231,7 +235,7 @@ Se necesitan como mínimo **cuatro satélites**: tres para las tres coordenadas 
 | **Obstrucciones** | Edificios altos, vegetación densa, quebradas profundas |
 | **Órbitas y relojes** | Pequeños errores en la posición y el tiempo de los satélites |
 
-### Métodos de posicionamiento
+#### Métodos de posicionamiento
 
 | Método | Cómo funciona | Exactitud orientativa | Uso típico |
 |---|---|---|---|
@@ -253,7 +257,7 @@ Se necesitan como mínimo **cuatro satélites**: tres para las tres coordenadas 
 
 ---
 
-## Teledetección
+### Teledetección
 
 !!! info "Definición"
 
@@ -261,7 +265,7 @@ Se necesitan como mínimo **cuatro satélites**: tres para las tres coordenadas 
 
 Cada material de la superficie (agua, vegetación, suelo, construcciones) **refleja la energía de forma distinta** en cada longitud de onda. Esa "firma espectral" permite identificarlos, incluso en longitudes de onda que el ojo humano no percibe, como el **infrarrojo**.
 
-### Sensores pasivos y activos
+#### Sensores pasivos y activos
 
 === "Pasivos"
 
@@ -278,7 +282,7 @@ Cada material de la superficie (agua, vegetación, suelo, construcciones) **refl
     - **Radar (SAR):** funciona de día y de noche, y **atraviesa las nubes**. Muy útil en regiones con nubosidad frecuente, como la Amazonía durante la época de lluvias. Ejemplo: Sentinel-1.
     - **LiDAR:** emite pulsos láser y mide con gran detalle la forma del terreno, la vegetación y las construcciones. Puede registrar el suelo a través de los huecos de la vegetación.
 
-### Productos y aplicaciones
+#### Productos y aplicaciones
 
 | Producto | Descripción | Aplicación |
 |---|---|---|
@@ -292,7 +296,7 @@ Cada material de la superficie (agua, vegetación, suelo, construcciones) **refl
 
     Bolivia ha sufrido temporadas de incendios de gran magnitud, especialmente en la Chiquitanía, la Amazonía y el Pantanal. Sistemas como **FIRMS** de la NASA publican, casi en tiempo real, los **focos de calor** detectados por sensores satelitales, y las imágenes de Sentinel-2 y Landsat permiten delimitar después las **áreas quemadas**. En un SIG, esa información se cruza con áreas protegidas, comunidades y uso de suelo para priorizar la respuesta y evaluar los daños.
 
-### Programas satelitales de acceso libre
+#### Programas satelitales de acceso libre
 
 | Programa | Tipo | Resolución espacial | Desde |
 |---|---|---|---|
@@ -303,7 +307,7 @@ Cada material de la superficie (agua, vegetación, suelo, construcciones) **refl
 
 ---
 
-## Fotogrametría
+### Fotogrametría
 
 !!! info "Definición"
 
@@ -311,11 +315,11 @@ Cada material de la superficie (agua, vegetación, suelo, construcciones) **refl
 
 Su principio es el mismo que usa la visión humana: al observar un mismo objeto **desde dos posiciones distintas**, es posible reconstruir su **forma tridimensional**. Por eso las fotografías deben tomarse con un **gran solapamiento** entre ellas.
 
-### De la fotografía aérea al dron
+#### De la fotografía aérea al dron
 
 Durante gran parte del siglo XX, la fotogrametría se basó en **fotografías aéreas** tomadas desde aviones y procesadas con instrumentos ópticos de gran precisión. Hoy, la combinación de **drones**, **cámaras digitales** y algoritmos de **reconstrucción automática** (conocidos como *Structure from Motion*) ha hecho la fotogrametría accesible a instituciones de todo tamaño, incluidos los gobiernos municipales.
 
-### Productos
+#### Productos
 
 | Producto | Descripción | Uso en SIG |
 |---|---|---|
@@ -333,7 +337,7 @@ Durante gran parte del siglo XX, la fotogrametría se basó en **fotografías a�
 
     La exactitud absoluta de una ortofoto de dron depende, en gran medida, de los **puntos de control terrestre**: marcas en el terreno medidas con **GNSS de precisión** (tema 1.9). Los drones con **RTK o PPK** reducen la cantidad de puntos necesarios, pero siempre conviene medir **puntos de verificación** independientes para evaluar la calidad (tema 1.13).
 
-### Fotogrametría frente a teledetección
+#### Fotogrametría frente a teledetección
 
 | Aspecto | Fotogrametría | Teledetección |
 |---|---|---|
@@ -345,13 +349,13 @@ En la práctica, ambas **se superponen cada vez más**: los satélites de muy al
 
 ---
 
-## Bases de datos espaciales
+### Bases de datos espaciales
 
 !!! info "Definición"
 
     Una **base de datos espacial** es un sistema de gestión de bases de datos que incorpora **tipos de datos geométricos**, **índices espaciales** y **funciones espaciales**, lo que permite almacenar y consultar información geográfica con las mismas garantías que cualquier otra información institucional.
 
-### ¿Por qué no basta con archivos?
+#### ¿Por qué no basta con archivos?
 
 Trabajar con archivos es práctico para proyectos individuales, pero en una institución aparecen necesidades que los archivos no resuelven bien:
 
@@ -365,7 +369,7 @@ Trabajar con archivos es práctico para proyectos individuales, pero en una inst
 | **Integración** | Difícil de conectar con otros sistemas | Conexión con aplicaciones web, sistemas de trámites o de recaudación |
 | **Respaldos** | Manuales y dispersos | Centralizados y programables |
 
-### Principales opciones
+#### Principales opciones
 
 | Sistema | Tipo | Uso típico |
 |---|---|---|
@@ -374,7 +378,7 @@ Trabajar con archivos es práctico para proyectos individuales, pero en una inst
 | **Oracle Spatial, SQL Server** | Servidor, comerciales | Grandes organizaciones con esas plataformas |
 | **DuckDB Spatial** | Motor analítico en archivo | Análisis rápido de grandes conjuntos de datos |
 
-### Consultas espaciales con SQL
+#### Consultas espaciales con SQL
 
 Las bases de datos espaciales permiten hacer análisis directamente con **SQL**, el lenguaje estándar de consulta de bases de datos.
 
@@ -398,7 +402,7 @@ Las bases de datos espaciales permiten hacer análisis directamente con **SQL**,
 
 ---
 
-## Formatos y datos de cada geotecnología
+### Formatos y datos de cada geotecnología
 
 | Geotecnología | Datos que produce o gestiona | Formatos habituales |
 |---|---|---|
@@ -412,7 +416,7 @@ Las bases de datos espaciales permiten hacer análisis directamente con **SQL**,
 
 ---
 
-## Las geotecnologías convergen
+### Las geotecnologías convergen
 
 Hace algunas décadas, cada geotecnología era un **mundo separado**: con sus propios profesionales, equipos, programas y formatos. Hoy, los límites entre ellas son **cada vez más difusos**.
 
@@ -422,7 +426,7 @@ Hace algunas décadas, cada geotecnología era un **mundo separado**: con sus pr
 - Las **imágenes satelitales** se procesan en la **nube**, sin descargarlas, y sus resultados llegan directamente al SIG.
 - Las **bases de datos espaciales** almacenan tanto datos vectoriales como ráster, y alimentan visores web y aplicaciones.
 
-### Un proyecto integrado
+#### Un proyecto integrado
 
 ```mermaid
 flowchart LR
@@ -449,7 +453,7 @@ flowchart LR
 
 ---
 
-## Ideas clave
+### Ideas clave
 
 !!! success "Para recordar"
 
@@ -464,7 +468,41 @@ flowchart LR
 
 ---
 
-## Autoevaluación
+## Hazlo conmigo
+
+**¿Qué geotecnología aporta cada dato del caso conductor?**
+
+```mermaid
+flowchart LR
+    A["Teledetección<br/>Sentinel-2, Copernicus DEM"] --> E["SIG<br/>QGIS"]
+    B["Cartografía colaborativa<br/>OpenStreetMap"] --> E
+    C["Modelos de población<br/>WorldPop (satélite + censo)"] --> E
+    D["GNSS<br/>verificación en terreno (QField)"] --> E
+    E --> F["Base de datos<br/>GeoPackage"]
+    E --> G["Mapas y atlas"]
+```
+
+Ninguna tecnología sola resuelve el problema: el **SIG** integra lo que cada una aporta.
+
+---
+
+## Inténtalo tú
+
+!!! example "Ejercicio"
+
+    Diseña el flujo de geotecnologías para otro problema: **actualizar el catastro de un barrio nuevo** de la zona sur. ¿Qué aportan el dron (fotogrametría), el GNSS, el CAD de los planos de loteo y el SIG?
+
+---
+
+## ¿Lo hiciste bien?
+
+??? success "Respuestas"
+
+    Dron → **ortofoto** y modelo de superficie; GNSS → **puntos de control** para la ortofoto y verificación de vértices; CAD → **planos de loteo** aprobados (a georreferenciar y convertir); SIG → **integración**, control de calidad, topología de predios y vínculo con la base catastral.
+
+---
+
+## Comprueba lo aprendido
 
 ??? question "1. ¿Qué geotecnología es la más adecuada para cada tarea?"
 
@@ -498,7 +536,7 @@ flowchart LR
 
 ---
 
-## Actividad propuesta
+## Tu proyecto
 
 !!! example "Actividad 1.14 — Mapa de geotecnologías del proyecto integrador (sin software)"
 
@@ -509,6 +547,10 @@ flowchart LR
     3. Identifica los **problemas de integración** que podrían surgir: sistemas de referencia, unidades, formatos, escalas, fechas.
     4. Elabora un **diagrama de flujo** de tu proyecto que muestre cómo circulan los datos entre las distintas geotecnologías, similar al del ejemplo de este tema.
     5. Decide si tu proyecto necesita una **base de datos espacial** o si basta con archivos, y justifica tu respuesta.
+
+!!! tip "En el caso conductor"
+
+    Dibuja el flujo de datos de tu proyecto, desde la captura hasta el mapa final, indicando qué tecnología interviene en cada etapa.
 
 ---
 

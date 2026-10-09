@@ -86,7 +86,7 @@ Los temas del módulo no son independientes: cada uno se apoya en los anteriores
 <div class="concept-snake">
 
   <div class="concept-node n1" data-step="01">
-    Territorio
+    SIG y territorio
   </div>
 
   <div class="concept-arrow a1">→</div>
@@ -98,13 +98,13 @@ Los temas del módulo no son independientes: cada uno se apoya en los anteriores
   <div class="concept-arrow a2">→</div>
 
   <div class="concept-node n3" data-step="03">
-    Geodesia
+    Datum y SRC
   </div>
 
   <div class="concept-arrow a3">→</div>
 
   <div class="concept-node n4" data-step="04">
-    Datum
+    Proyección
   </div>
 
 
@@ -112,25 +112,25 @@ Los temas del módulo no son independientes: cada uno se apoya en los anteriores
 
 
   <div class="concept-node n5" data-step="05">
-    Sistema de referencia
+    UTM
   </div>
 
   <div class="concept-arrow a4">←</div>
 
   <div class="concept-node n6" data-step="06">
-    Proyección
+    Cartografía
   </div>
 
   <div class="concept-arrow a5">←</div>
 
   <div class="concept-node n7" data-step="07">
-    Coordenadas
+    Escala
   </div>
 
   <div class="concept-arrow a6">←</div>
 
   <div class="concept-node n8" data-step="08">
-    Cartografía
+    Precisión y resolución
   </div>
 
 
@@ -138,7 +138,7 @@ Los temas del módulo no son independientes: cada uno se apoya en los anteriores
 
 
   <div class="concept-node n9" data-step="09">
-    Escala
+    Generalización
   </div>
 
   <div class="concept-arrow a7">→</div>
@@ -156,7 +156,7 @@ Los temas del módulo no son independientes: cada uno se apoya en los anteriores
   <div class="concept-arrow a9">→</div>
 
   <div class="concept-node n12" data-step="12">
-    SIG
+    Calidad
   </div>
 
 
@@ -164,7 +164,7 @@ Los temas del módulo no son independientes: cada uno se apoya en los anteriores
 
 
   <div class="concept-node n13 concept-final" data-step="13">
-    Análisis espacial
+    Ecosistema geotecnológico
   </div>
 
 </div>
@@ -217,7 +217,7 @@ El módulo se organiza en **cinco bloques temáticos**.
 
     ---
 
-    CRS geográficos y proyectados, WGS 84, SIRGAS, MARGEN-SIRGAS, códigos EPSG e identificación de un CRS.
+    SRC geográficos y proyectados, WGS 84, SIRGAS, MARGEN-SIRGAS, códigos EPSG e identificación de un SRC.
 
     [:octicons-arrow-right-24: Ir al tema](04-sistemas-referencia.md)
 
@@ -343,11 +343,13 @@ Todos los temas siguen una estructura común, pensada para facilitar el estudio:
 
 | Sección | Para qué sirve |
 |---|---|
-| **Objetivos de aprendizaje** | Indican qué deberías poder hacer al terminar el tema |
-| **Desarrollo** | Explica los conceptos con definiciones, figuras, tablas y ejemplos |
-| **Ideas clave** | Resumen los conceptos que no debes olvidar |
-| **Autoevaluación** | Preguntas con respuesta desplegable para comprobar lo aprendido |
-| **Actividad propuesta** | Aplica el tema al proyecto integrador |
+| **En esta lección** | Objetivos, tiempo estimado, materiales y producto |
+| **Idea central** | Los conceptos, con definiciones, figuras, tablas y ejemplos; cierra con las **ideas clave** |
+| **Hazlo conmigo** | Un ejercicio resuelto paso a paso con datos de Cochabamba |
+| **Inténtalo tú** | Un ejercicio equivalente para resolver por tu cuenta |
+| **¿Lo hiciste bien?** | Las respuestas del ejercicio, desplegables |
+| **Comprueba lo aprendido** | Autoevaluación con respuesta desplegable |
+| **Tu proyecto** | La actividad del proyecto integrador y su aplicación al caso conductor |
 | **Referencias** | Fuentes para profundizar |
 
 ### Convenciones de esta documentación
@@ -386,6 +388,11 @@ A lo largo del material encontrarás recuadros de distintos colores. Cada uno ti
 
 ## El proyecto integrador
 
+!!! info "¿No tienes un problema propio? Usa el caso conductor"
+
+    Todo el curso trabaja un mismo caso: **el acceso a los servicios de salud y educación en el municipio de Cochabamba**. Cada tema del Módulo 1 incluye en **Tu proyecto** cómo aplicarlo a ese caso, y los Módulos 2 a 4 usan sus datos ([Descargas](../descargas/index.md)). Puedes seguirlo tal cual o reemplazarlo por un problema de tu municipio.
+
+
 !!! example "Aprender aplicando desde el primer tema"
 
     Cada tema termina con una **actividad sin software** que aplica los conceptos a un **problema territorial real** elegido por el estudiante: en su municipio, su institución o su área de trabajo.
@@ -397,7 +404,7 @@ A lo largo del material encontrarás recuadros de distintos colores. Cada uno ti
 | 1.1 | Identificar un problema espacial | Problema territorial y preguntas espaciales |
 | 1.2 | Modelar el problema | Territorio, objetos, fenómenos, procesos y modelo conceptual |
 | 1.3 | Revisar las referencias geodésicas | Coordenadas de referencia y datum de las fuentes |
-| 1.4 | Inventario de sistemas de referencia | Tabla de datos con su CRS y CRS de trabajo propuesto |
+| 1.4 | Inventario de sistemas de referencia | Tabla de datos con su SRC y SRC de trabajo propuesto |
 | 1.5 | Elegir la proyección | Proyección para análisis, mapas y web |
 | 1.6 | Definir la zona UTM | Zona, meridiano central y códigos EPSG |
 | 1.7 | Diseñar el mapa | Propósito, simbología, jerarquía y boceto del mapa |
@@ -447,7 +454,7 @@ A lo largo del material encontrarás recuadros de distintos colores. Cada uno ti
 !!! success "Estarás preparado para el Módulo 2 si puedes:"
 
     - Explicar por qué una coordenada sin sistema de referencia no es una ubicación.
-    - Diferenciar un CRS geográfico de uno proyectado y elegir la zona UTM correcta para un lugar de Bolivia.
+    - Diferenciar un SRC geográfico de uno proyectado y elegir la zona UTM correcta para un lugar de Bolivia.
     - Calcular distancias y superficies a partir de una escala.
     - Explicar la diferencia entre precisión y exactitud.
     - Decidir si un dato es adecuado para una escala y un propósito determinados.

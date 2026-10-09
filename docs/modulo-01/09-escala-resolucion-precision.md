@@ -5,7 +5,7 @@ description: Diferencias entre escala, resolución, precisión, exactitud y nive
 
 # 1.9 Escala, resolución y precisión
 
-!!! abstract "Objetivos de aprendizaje"
+!!! abstract "En esta lección"
 
     Al finalizar este tema, el estudiante será capaz de:
 
@@ -16,9 +16,13 @@ description: Diferencias entre escala, resolución, precisión, exactitud y nive
     - Identificar la falsa precisión en coordenadas, áreas y distancias.
     - Evaluar si un conjunto de datos es adecuado para una escala y un propósito determinados.
 
+    **Tiempo:** 45 min · **Materiales:** calculadora y cuaderno · **Producto:** Tabla de resolución, exactitud y aptitud de cada dato (actividad 1.9).
+
 ---
 
-## Cinco conceptos que suelen confundirse
+## Idea central
+
+### Cinco conceptos que suelen confundirse
 
 Observa esta afirmación:
 
@@ -38,7 +42,7 @@ En el lenguaje cotidiano, **escala**, **resolución**, **precisión**, **exactit
 
 ---
 
-## Escala
+### Escala
 
 Como vimos en el tema 1.8, la **escala** es la relación entre las distancias del mapa y las distancias reales.
 
@@ -49,7 +53,7 @@ Hay que recordar dos ideas:
 
 ---
 
-## Resolución
+### Resolución
 
 !!! info "Definición"
 
@@ -57,7 +61,7 @@ Hay que recordar dos ideas:
 
 Cuanto **menor** es ese tamaño, **mayor** es la resolución. Una imagen con píxeles de 10 m tiene **mayor resolución** que una con píxeles de 30 m.
 
-### Resolución espacial en datos ráster
+#### Resolución espacial en datos ráster
 
 En un ráster, la resolución espacial es el **tamaño de la celda o píxel** sobre el terreno. Nada más pequeño que un píxel puede representarse de forma individual.
 
@@ -107,7 +111,7 @@ En un ráster, la resolución espacial es el **tamaño de la celda o píxel** so
 | Landsat 8 y 9 | 30 m (15 m en la banda pancromática) | Cambios de cobertura a lo largo de décadas |
 | Modelos de elevación globales (SRTM, Copernicus DEM) | Unos 30 m | Relieve, cuencas, pendientes a escala regional |
 
-### Otros tipos de resolución
+#### Otros tipos de resolución
 
 En teledetección se consideran, además, otras tres resoluciones:
 
@@ -120,7 +124,7 @@ En teledetección se consideran, además, otras tres resoluciones:
 
 Estas resoluciones las estudiaremos con más detalle al trabajar con imágenes satelitales.
 
-### Resolución en datos vectoriales
+#### Resolución en datos vectoriales
 
 Los datos vectoriales no tienen píxeles, pero **también tienen resolución**, que se manifiesta de otras formas:
 
@@ -134,7 +138,7 @@ Los datos vectoriales no tienen píxeles, pero **también tienen resolución**, 
 
     El proyecto europeo **CORINE Land Cover**, elaborado a escala 1:100 000, usa una unidad mínima cartografiable de **25 ha**.
 
-### Relación entre escala y resolución
+#### Relación entre escala y resolución
 
 El geógrafo Waldo Tobler propuso una regla práctica para relacionar la escala de un mapa con la resolución de un ráster:
 
@@ -155,7 +159,7 @@ Es una regla **orientativa**, útil para evitar dos errores opuestos: usar imág
 
 ---
 
-## Precisión y exactitud
+### Precisión y exactitud
 
 Son los dos conceptos más confundidos, incluso en documentos técnicos.
 
@@ -220,7 +224,7 @@ Son los dos conceptos más confundidos, incluso en documentos técnicos.
 </svg><figcaption>El centro de la diana representa el valor real; los puntos azules, mediciones repetidas.</figcaption>
 </figure>
 
-### Exactitud
+#### Exactitud
 
 !!! info "Definición"
 
@@ -229,7 +233,7 @@ Son los dos conceptos más confundidos, incluso en documentos técnicos.
 - Una medición es **exacta** si, en promedio, coincide con el valor real.
 - Se evalúa comparando los datos con una **referencia más confiable**: puntos de control levantados con mayor precisión, límites oficiales, mediciones de campo.
 
-### Precisión
+#### Precisión
 
 !!! info "Definición"
 
@@ -244,7 +248,7 @@ Son los dos conceptos más confundidos, incluso en documentos técnicos.
 
     En este curso usaremos las definiciones de la metrología, porque son las que permiten evaluar correctamente la calidad de los datos. Al grado de detalle numérico lo llamaremos **resolución numérica**.
 
-### Un ejemplo con el datum
+#### Un ejemplo con el datum
 
 Recuerda el caso del tema 1.4: un levantamiento **en PSAD56** tratado como si estuviera **en WGS 84**.
 
@@ -253,7 +257,7 @@ Recuerda el caso del tema 1.4: un levantamiento **en PSAD56** tratado como si es
 
 Es exactamente la segunda diana: **preciso, pero no exacto**. El error no se reduce repitiendo la medición, porque su causa es sistemática.
 
-### Tipos de error
+#### Tipos de error
 
 | Tipo de error | Características | Ejemplos | ¿Cómo se trata? |
 |---|---|---|---|
@@ -263,7 +267,7 @@ Es exactamente la segunda diana: **preciso, pero no exacto**. El error no se red
 
 ---
 
-## Cómo se mide la exactitud posicional
+### Cómo se mide la exactitud posicional
 
 La forma más habitual de expresar la exactitud posicional de un conjunto de datos es el **error cuadrático medio** (**RMSE**, por sus siglas en inglés).
 
@@ -311,7 +315,7 @@ RMSE = √( suma de los errores² / número de puntos )
 
     En el ejemplo anterior, la exactitud sería de unos **2,3 m al 95 % de confianza**. Veremos más sobre la evaluación de calidad en el tema **1.13**.
 
-### Exactitud típica según el método de captura
+#### Exactitud típica según el método de captura
 
 | Método de captura | Exactitud horizontal orientativa |
 |---|---|
@@ -327,7 +331,7 @@ RMSE = √( suma de los errores² / número de puntos )
 
 ---
 
-## La falsa precisión
+### La falsa precisión
 
 Un SIG calcula con muchos decimales, pero **los decimales que muestra no reflejan la calidad del dato**.
 
@@ -348,7 +352,7 @@ Un SIG calcula con muchos decimales, pero **los decimales que muestra no refleja
 
 ---
 
-## Nivel de detalle
+### Nivel de detalle
 
 !!! info "Definición"
 
@@ -391,7 +395,7 @@ El nivel de detalle está condicionado por la **escala**, la **resolución** de 
 
 ---
 
-## Cómo se relacionan
+### Cómo se relacionan
 
 Los cinco conceptos son distintos, pero están **encadenados**:
 
@@ -414,7 +418,7 @@ flowchart LR
 
     Que los conceptos estén relacionados **no significa que se cumplan solos**. Es perfectamente posible hacer un mapa a escala 1:1 000 con datos de muy baja exactitud, o mostrar una imagen de 30 m a escala 1:2 000. El software no lo impide. **Es responsabilidad del profesional** verificar que la escala, la resolución y la exactitud de los datos sean coherentes con el propósito.
 
-### Datos adecuados para cada escala
+#### Datos adecuados para cada escala
 
 Combinando lo visto en este tema y en el anterior, se puede construir una guía orientativa:
 
@@ -435,7 +439,7 @@ Combinando lo visto en este tema y en el anterior, se puede construir una guía 
 
 ---
 
-## Ideas clave
+### Ideas clave
 
 !!! success "Para recordar"
 
@@ -449,7 +453,46 @@ Combinando lo visto en este tema y en el anterior, se puede construir una guía 
 
 ---
 
-## Autoevaluación
+## Hazlo conmigo
+
+**Calcular el RMSE** de una capa a partir de 5 puntos de control medidos con GNSS de precisión. Los residuos (dato − referencia) en metros son:
+
+| Punto | ΔX | ΔY | ΔX² + ΔY² |
+|---|---|---|---|
+| 1 | 1,2 | −0,8 | 2,08 |
+| 2 | −0,5 | 0,9 | 1,06 |
+| 3 | 0,7 | 0,4 | 0,65 |
+| 4 | −1,1 | −0,6 | 1,57 |
+| 5 | 0,3 | 1,0 | 1,09 |
+| **Suma** | | | **6,45** |
+
+RMSE = √(6,45 / 5) = √1,29 ≈ **1,14 m**.
+
+**¿Es apta para 1:5 000?** El error gráfico a 1:5 000 es 0,2 mm × 5 000 = 1 m. Con un RMSE de 1,14 m, la capa está **en el límite**: apta para 1:10 000, dudosa para 1:5 000.
+
+---
+
+## Inténtalo tú
+
+!!! example "Ejercicio"
+
+    Otra capa tiene estos residuos (m) en 4 puntos: (2; 1), (−1; −2), (0; 2), (1; −1).
+
+    1. Calcula su RMSE.
+    2. ¿Para qué escala mínima es apta, según el criterio del error gráfico?
+    3. Sus coordenadas tienen 6 decimales en metros. ¿Qué dice eso de su exactitud?
+
+---
+
+## ¿Lo hiciste bien?
+
+??? success "Respuestas"
+
+    1. (5 + 5 + 4 + 2) / 4 = 4 → RMSE = **2,0 m**. 2. 2,0 m / 0,2 mm = 10 000 → apta para **1:10 000** o menores. 3. Nada: 6 decimales son **precisión numérica** (micrómetros), no exactitud. Es falsa precisión.
+
+---
+
+## Comprueba lo aprendido
 
 ??? question "1. Un GNSS registra diez veces el mismo punto y todas las mediciones quedan dentro de un círculo de 5 cm, pero a 3 m del punto real. ¿Las mediciones son precisas, exactas, ambas o ninguna?"
 
@@ -489,7 +532,7 @@ Combinando lo visto en este tema y en el anterior, se puede construir una guía 
 
 ---
 
-## Actividad propuesta
+## Tu proyecto
 
 !!! example "Actividad 1.9 — Evaluar la aptitud de los datos del proyecto integrador (sin software)"
 
@@ -505,6 +548,10 @@ Combinando lo visto en este tema y en el anterior, se puede construir una guía 
     3. ¿Algún dato tiene **resolución o exactitud insuficiente**? ¿Qué alternativa podrías conseguir?
     4. Si tu proyecto incluye trabajo de campo, ¿qué **método de captura** necesitarías para lograr la exactitud requerida?
     5. Define con **cuántos decimales** o cifras informarás coordenadas, distancias y superficies en tus resultados.
+
+!!! tip "En el caso conductor"
+
+    Para cada dato del caso conductor (OSM, WorldPop, DEM de 30 m, Sentinel-2 de 10 m), anota su resolución, la escala para la que es apto y una duda sobre su exactitud.
 
 ---
 
