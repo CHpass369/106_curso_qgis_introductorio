@@ -287,6 +287,29 @@ def leer_equipamientos(osm, muni):
     return filas
 
 
+def escribir_tablas_comunas():
+    """Tabla sin geometría para la lección 3.5 (uniones) y su versión con problemas de claves."""
+    ds = ogr.Open(os.path.join(ORIG, "limites.gpkg"))
+    nombres = {f.GetField("cod_comuna"): f.GetField("nombre") for f in ds.GetLayerByName("comunas")}
+    pob = {}
+    for f in ds.GetLayerByName("zonas_analisis"):
+        pob[f.GetField("cod_comuna")] = pob.get(f.GetField("cod_comuna"), 0) + f.GetField("pob_2020")
+    ds = None
+    with open(os.path.join(ORIG, "poblacion_comunas.csv"), "w", newline="", encoding="utf-8") as fh:
+        w = csv.writer(fh, delimiter=";")
+        w.writerow(["cod_comuna", "comuna", "pob_2020", "fuente"])
+        for cod in sorted(nombres):
+            w.writerow([cod, nombres[cod], pob.get(cod, 0), "WorldPop 2020 agregado por zonas de análisis"])
+    claves = {"C01": "C1", "C02": " C02", "C03": "c03", "C04": "C04", "C05": "C05", "C06": "C06"}
+    with open(os.path.join(EJER, "poblacion_comunas_claves.csv"), "w", newline="", encoding="utf-8") as fh:
+        w = csv.writer(fh, delimiter=";")
+        w.writerow(["codigo", "comuna", "pob_2020"])
+        for cod in sorted(nombres):
+            w.writerow([claves[cod], nombres[cod].upper(), pob.get(cod, 0)])
+        w.writerow(["C07", "SIN COMUNA", 1250])
+        w.writerow(["C05", "TUNARI", pob.get("C05", 0)])
+
+
 def escribir_mercados(osm, muni):
     """Mercados en GeoJSON (RFC 7946, WGS 84) para practicar ese formato."""
     ds = ogr.Open(osm)
@@ -506,6 +529,7 @@ def main():
     muni, muni_utm, comunas = construir_limites(osm)
     pob_utm = construir_raster(muni)
     n_zonas = malla_hexagonal(muni_utm, comunas, pob_utm)
+    escribir_tablas_comunas()
     filas = leer_equipamientos(osm, muni)
     escribir_csv_equipamientos(filas, fecha)
     escribir_mercados(osm, muni)
