@@ -159,7 +159,7 @@ En `poblacion_worldpop_2020`: **Propiedades ▸ Transparencia** ▸ verifica que
 
     Para **cinco lugares** dentro de la imagen (plaza principal, Laguna Alalay, aeropuerto Jorge Wilstermann, la ribera arbolada del río Rocha y una parcela agrícola del oeste) anota: elevación, valores de las bandas 3 y 4, y qué ves en cada composición.
 
-    **Pregunta:** calcula a mano `(B4 − B3) / (B4 + B3)` para la laguna y para un parque. ¿Qué signo tiene cada uno? (Es el **NDVI**, que calcularás con la calculadora ráster en [3.8](../modulo-03/08-preparar-combinar-raster.md)).
+    **Pregunta:** calcula a mano `(B4 − B3) / (B4 + B3)` en el **agua abierta** de la Laguna Alalay y en la ribera arbolada del río Rocha. ¿Qué signo tiene cada uno? Prueba también en varios puntos de la laguna: ¿por qué muchos dan valores positivos? (Es el **NDVI**, que calcularás con la calculadora ráster en [3.8](../modulo-03/08-preparar-combinar-raster.md)).
 
 ---
 
@@ -171,7 +171,7 @@ En `poblacion_worldpop_2020`: **Propiedades ▸ Transparencia** ▸ verifica que
 | Representación | DEM en gris y pseudocolor; imagen en 3-2-1 y 4-3-2 |
 | Interpretación | Explicas por qué el falso color resalta la vegetación |
 | NoData | El ráster de población muestra transparencia donde no hay dato |
-| NDVI | El agua da valores negativos; la vegetación, positivos |
+| NDVI | El agua abierta da valores negativos; la vegetación, positivos. Gran parte de la laguna da valores positivos (≈ 0,6) por los totorales y la vegetación acuática: el NDVI «ve» vegetación, no «agua» |
 
 ### Errores frecuentes
 

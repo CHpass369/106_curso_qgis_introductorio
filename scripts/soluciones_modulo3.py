@@ -116,6 +116,29 @@ cifras["3.7"] = {
     "poblacion_total_zonas": pob_total,
 }
 
+por_comuna = defaultdict(int)
+for z in sin:
+    por_comuna[z["cod_comuna"]] += z["pob_2020"]
+cifras["3.7"]["sin_cobertura_por_comuna"] = {c: {"pob": v, "pct": round(100 * v / pob_comuna[c], 1)}
+                                             for c, v in sorted(por_comuna.items())}
+
+
+def escenario(filtro, distancia):
+    sub = run("native:extractbyexpression", {"INPUT": eq, "EXPRESSION": filtro, "OUTPUT": "memory:"})["OUTPUT"]
+    b = run("native:buffer", {"INPUT": sub, "DISTANCE": distancia, "SEGMENTS": 16, "DISSOLVE": True,
+                              "OUTPUT": "memory:"})["OUTPUT"]
+    u = next(b.getFeatures()).geometry()
+    p = sum(z["pob_2020"] for z in zonas.getFeatures()
+            if z["pob_2020"] > 0 and not u.contains(z.geometry().pointOnSurface()))
+    return {"establecimientos": sub.featureCount(), "pob_sin_cobertura": p, "pct": round(100 * p / pob_total, 1)}
+
+
+cifras["3.7"]["escenarios"] = {
+    "B_hosp_clin_1000": escenario("\"subtipo\" IN ('hospital','clinica')", 1000),
+    "C_todos_500": escenario("\"tipo\" = 'salud'", 500),
+    "D_hosp_2000": escenario("\"subtipo\" = 'hospital'", 2000),
+}
+
 # ------------------------------------------------------------ 3.8 y 3.9 relieve
 dem_utm = os.path.join(SOL, "dem_utm_30m.tif")
 gdal.Warp(dem_utm, os.path.join(ORIG, "dem_copernicus_30m.tif"), dstSRS="EPSG:32719", xRes=30, yRes=30,
@@ -136,6 +159,10 @@ zz = run("native:zonalstatisticsfb", {"INPUT": zonas, "INPUT_RASTER": pend, "RAS
                                       "COLUMN_PREFIX": "p_", "STATISTICS": [2], "OUTPUT": "memory:"})["OUTPUT"]
 pend_zona = {f["cod_zona"]: f["p_mean"] for f in zz.getFeatures()}
 
+planas = sorted([(z["cod_zona"], z["cod_comuna"], z["pob_2020"], round(pend_zona[z["cod_zona"]], 1))
+                 for z in sin if (pend_zona.get(z["cod_zona"]) or 99) < 15], key=lambda t: -t[2])
+cifras["3.9"]["reto_sin_cobertura_planas"] = {"n": len(planas), "top5": planas[:5]}
+
 # ------------------------------------------------------------ 3.12 decisión territorial
 vias = capa(os.path.join(ORIG, "vias.gpkg") + "|layername=vias")
 princ = run("native:extractbyexpression", {"INPUT": vias, "EXPRESSION": "\"jerarquia\" IN ('troncal','principal')",
@@ -148,6 +175,17 @@ for z in sin:
     if dens >= 3000 and (pend_zona.get(z["cod_zona"]) or 99) < 15 and vgeom.intersects(z.geometry()):
         cand.append((z["cod_zona"], z["cod_comuna"], z["pob_2020"], round(pend_zona[z["cod_zona"]], 1)))
 cand.sort(key=lambda t: -t[2])
+# Criterios de cada candidata: distancia al establecimiento de salud más cercano y a vía principal
+salud_geoms = [f.geometry() for f in salud.getFeatures()]
+princ_geom = next(run("native:dissolve", {"INPUT": princ, "OUTPUT": "memory:"})["OUTPUT"].getFeatures()).geometry()
+zgeom = {z["cod_zona"]: z.geometry() for z in zonas.getFeatures()}
+detalle = []
+for cod, com, pob, pe in cand:
+    c = zgeom[cod].pointOnSurface()
+    detalle.append({"zona": cod, "comuna": com, "pob": pob, "pendiente": pe,
+                    "dist_salud_m": round(min(c.distance(g) for g in salud_geoms)),
+                    "dist_via_m": round(c.distance(princ_geom))})
+cifras["3.12_detalle"] = detalle
 cifras["3.12"] = {"criterios": "sin cobertura 1 km, densidad >= 3000 hab/km2, pendiente media < 15 %, a <= 500 m de vía principal",
                   "zonas_candidatas": len(cand), "top5": cand[:5]}
 
