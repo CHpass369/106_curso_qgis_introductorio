@@ -1,0 +1,43 @@
+name: Verificar contenido
+
+on:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 12 1 * *"   # el día 1 de cada mes: enlaces externos
+
+permissions:
+  contents: read
+
+jobs:
+  construir:
+    name: Construcción estricta y métricas de estilo
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Construir el sitio (falla con cualquier advertencia)
+        run: python -m mkdocs build --strict
+      - name: Métricas de estilo de las lecciones
+        run: python scripts/revisar_contenido.py --estricto
+
+  enlaces:
+    name: Enlaces externos
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Revisar enlaces con lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress --max-retries 2 --timeout 30
+            --exclude "docs.qgis.org/latest/.*#"
+            "docs/**/*.md"
+          fail: false

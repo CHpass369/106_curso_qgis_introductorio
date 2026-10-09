@@ -25,10 +25,12 @@ Contiene la carpeta `curso-qgis/` lista para usar: datos originales, datos de ej
 | | `sentinel2_2025-07-16.tif` | Imagen Sentinel-2, 4 bandas, 10 m | EPSG:32719 |
 | | `poblacion_worldpop_2020.tif` | Población estimada, 100 m | EPSG:4326 |
 | | `mercados.geojson` | Mercados y ferias (GeoJSON) | EPSG:4326 |
+| | `poblacion_comunas.csv` | Población estimada por comuna (tabla sin geometría) | — |
 | | `plano_historico_1985.tif` | Plano escaneado **simulado**, sin georreferenciar | — |
 | `datos/ejercicios/` | `equipamientos_errores.csv` | Codificación, coordenadas intercambiadas, duplicados | EPSG:4326 |
 | | `comunas_sin_prj.shp` | Shapefile sin `.prj` | desconocido |
 | | `vias_principales_src_erroneo.gpkg` | SRC declarado incorrecto | erróneo |
+| | `poblacion_comunas_claves.csv` | Claves con formatos distintos, huérfanos y duplicados | — |
 | | `equipamientos_auditoria.gpkg` | Problemas de calidad para auditar | EPSG:32719 |
 | `proyectos/` | `curso_qgis_base.qgz` | Proyecto con las capas base organizadas | EPSG:32719 |
 | `estilos/` | `*.qml` | Estilos de comunas, vías, ríos, equipamientos, DEM y Sentinel-2 | — |
@@ -60,6 +62,8 @@ Contiene la carpeta `curso-qgis/` lista para usar: datos originales, datos de ej
         ```bash
         python-qgis scripts/construir_paquete_datos.py FUENTES SALIDA/curso-qgis
         python-qgis scripts/generar_figuras_y_proyecto.py SALIDA/curso-qgis
+    python-qgis scripts/generar_figuras_modulo4.py SALIDA/curso-qgis
+    python scripts/empaquetar_paquete.py SALIDA/curso-qgis
         ```
 
     El segundo script también genera las figuras de mapas que ves en este sitio.

@@ -9,9 +9,9 @@ Desde el satélite Sentinel-2, la ciudad de Cochabamba se ve gris y parda en jul
 
 <div class="grid" markdown>
 
-![Sentinel-2 en color natural](../assets/images/mapas/2-10-sentinel-color-natural.png){ loading=lazy }
+![Sentinel-2 en color natural](../assets/images/mapas/2-10-sentinel-color-natural.jpg){ loading=lazy }
 
-![Sentinel-2 en falso color infrarrojo](../assets/images/mapas/2-10-sentinel-falso-color.png){ loading=lazy }
+![Sentinel-2 en falso color infrarrojo](../assets/images/mapas/2-10-sentinel-falso-color.jpg){ loading=lazy }
 
 </div>
 

@@ -411,12 +411,12 @@ guardar(img, "2-10-dem-pseudocolor.png")
 img = render([s2], s2.extent(), None, 1236, 922)
 rotulo(img, "Sentinel-2 · color natural (4-3-2)", "16 de julio de 2025 · 10 m de resolución")
 atribucion(img, "Contiene datos modificados de Copernicus Sentinel (2025)")
-guardar(img, "2-10-sentinel-color-natural.png")
+guardar(img, "2-10-sentinel-color-natural.jpg")
 estilo_rgb(s2, (4, 3, 2), (4000, 1600, 1500))
 img = render([s2], s2.extent(), None, 1236, 922)
 rotulo(img, "Sentinel-2 · falso color infrarrojo (8-4-3)", "La vegetación sana aparece en rojo intenso")
 atribucion(img, "Contiene datos modificados de Copernicus Sentinel (2025)")
-guardar(img, "2-10-sentinel-falso-color.png")
+guardar(img, "2-10-sentinel-falso-color.jpg")
 s2.saveNamedStyle(os.path.join(ESTILOS, "sentinel2_falso_color.qml"))
 
 # 6. Pendiente (3.9)
@@ -576,15 +576,5 @@ for i in range(3):
 out = None
 vista = QImage(os.path.join(TMP, "plano.png")).scaledToWidth(1200, Qt.TransformationMode.SmoothTransformation)
 guardar(vista, "3-10-plano-historico-simulado.png")
-
-# ------------------------------------------------------------------ zip final
-
-import shutil
-for nombre in os.listdir(os.path.join(ORIG)):
-    if nombre.endswith(".aux.xml"):
-        os.remove(os.path.join(ORIG, nombre))
-zip_base = os.path.join(os.path.dirname(PAQ), "curso-qgis-cochabamba")
-shutil.make_archive(zip_base, "zip", os.path.dirname(PAQ), os.path.basename(PAQ))
-print("paquete", zip_base + ".zip", round(os.path.getsize(zip_base + ".zip") / 1e6, 1), "MB")
 
 app.exitQgis()

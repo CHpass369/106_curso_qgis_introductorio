@@ -46,7 +46,20 @@ theme:
     - content.action.view
 
 plugins:
-  - search
+  - search:
+      lang: es
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      skip_classes:
+        - no-lightbox
+  - git-revision-date-localized:
+      type: date
+      locale: es
+      fallback_to_build_date: true
+      exclude:
+        - index.md
 
 # Un solo bloque de extensiones (antes había dos y YAML descartaba uno)
 markdown_extensions:

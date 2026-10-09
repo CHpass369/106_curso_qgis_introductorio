@@ -121,10 +121,10 @@ Todo el curso gira alrededor de una misma pregunta territorial, para que cada m�
 
 | Módulo | Qué haces con el caso |
 |---|---|
-| 1 | Formulas la pregunta, eliges el SRC (UTM 19 S / SIRGAS) y la escala, y evalúas la calidad de las fuentes |
+| 1 | Formulas la pregunta, eliges el SRC (WGS 84 / UTM 19 S, EPSG:32719) y la escala, y evalúas la calidad de las fuentes |
 | 2 | Cargas límites, equipamientos y relieve en un proyecto QGIS portable |
 | 3 | Corriges datos, calculas indicadores y analizas cobertura y relieve |
-| 4 | Publicas un atlas por distrito con mapas claros y honestos |
+| 4 | Publicas una lámina para el Concejo y un atlas por comuna con mapas claros y honestos |
 
 Si prefieres trabajar con **tu propio municipio o problema**, puedes hacerlo: las actividades están pensadas para adaptarse.
 

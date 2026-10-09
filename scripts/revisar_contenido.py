@@ -30,14 +30,23 @@ def separar_codigo(texto):
     return fuera, bloques
 
 
+def es_prosa(lineas):
+    """Un bloque ```text es «prosa» si casi ninguna línea parece cálculo, código, ruta o árbol."""
+    utiles = [l for l in lineas if l.strip()]
+    if not utiles:
+        return False
+    tecnicas = sum(1 for l in utiles if re.search(r"[0-9=/×÷+*<>├└│_.:;\[\]{}()@\"']", l))
+    return tecnicas / len(utiles) < 0.3
+
+
 def metricas(texto):
     fuera, bloques = separar_codigo(texto)
     prosa = "\n".join(fuera)
     return {
         "h2": len(re.findall(r"^## ", prosa, re.M)),
         "h2_num": len(re.findall(r"^## \d+\.", prosa, re.M)),
-        "text": sum(1 for lang, _ in bloques if lang == "text"),
-        "img": len(re.findall(r"!\[[^\]]*\]\(", prosa)),
+        "text": sum(1 for lang, lineas in bloques if lang == "text" and es_prosa(lineas)),
+        "img": len(re.findall(r"!\[[^\]]*\]\(", prosa)) + prosa.count("<svg"),
         "capt": len(re.findall(r"^\s*!!! captura", prosa, re.M)),
         "refs": int(bool(re.search(r"^## Referencias", prosa, re.M))),
         "crs": len(re.findall(r"\bCRS\b", prosa)),
