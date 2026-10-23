@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block scripts %}
+  {# Mermaid 11.17.2, MIT: cargar antes de Material evita depender de un CDN. #}
+  {% if page and 'class="mermaid"' in page.content %}
+    <script src="{{ 'assets/vendor/mermaid.min.js' | url }}"></script>
+  {% endif %}
+  {{ super() }}
+{% endblock %}

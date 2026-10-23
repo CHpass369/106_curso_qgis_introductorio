@@ -9,6 +9,7 @@ edit_uri: edit/main/docs/
 
 theme:
   name: material
+  custom_dir: overrides
   language: es
   logo: assets/images/logo.png
   favicon: assets/images/logo.png
@@ -73,6 +74,7 @@ markdown_extensions:
 
   - toc:
       permalink: true
+      toc_depth: 2
 
   - pymdownx.details
 
@@ -112,10 +114,12 @@ extra:
 extra_css:
   - assets/css/extra.css
   - assets/css/latlon.css
+  - assets/css/lectura.css
 
 extra_javascript:
   - assets/vendor/d3.v7.min.js
   - assets/js/latlon.js
+  - assets/js/lectura.js
 
 nav:
   - Inicio: index.md
@@ -130,7 +134,7 @@ nav:
       - Acerca del curso: acerca.md
       - Agradecimientos: agradecimientos.md
 
-  - "Mod1 · Fundamentos SIG":
+  - "M1 · Fundamentos SIG":
       - Introducción: modulo-01/index.md
       - SIG y territorio:
           - 1.1 Sistemas de Información Geográfica: modulo-01/01-sistemas-informacion-geografica.md
@@ -154,7 +158,7 @@ nav:
           - 1.15 Ecosistema de geotecnologías: modulo-01/15-ecosistema-geotecnologias.md
       - Práctica integradora: modulo-01/practica.md
 
-  - "Mod2 · Introducción a QGIS":
+  - "M2 · QGIS":
       - Introducción: modulo-02/index.md
       - Entorno y proyectos:
           - 2.1 Preparar un entorno de trabajo: modulo-02/01-entorno-trabajo.md
@@ -174,7 +178,7 @@ nav:
       - Taller:
           - 2.12 Construir y entregar un proyecto funcional: modulo-02/12-taller-proyecto.md
 
-  - "Mod3 · Edición, integración y análisis espacial":
+  - "M3 · Análisis espacial":
       - Introducción: modulo-03/index.md
       - Preparar, digitalizar y editar:
         - 3.1 Preparar datos confiables: modulo-03/01-preparar-datos-confiables.md
@@ -194,7 +198,7 @@ nav:
       - Taller:
         - 3.12 Laboratorio · Justificar una decisión territorial: modulo-03/12-laboratorio-decision-territorial.md
 
-  - "Mod4 · Diseño cartográfico, composición y publicación":
+  - "M4 · Cartografía y publicación":
       - Introducción: modulo-04/index.md
 
       - Encargo y escala:

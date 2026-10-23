@@ -5,6 +5,22 @@
 
 ---
 
+## Estado al retomar el trabajo · 8 de octubre de 2026
+
+El diagnóstico que sigue describe el punto de partida, anterior a las mejoras. La rama ya contiene las fases implementadas hasta `2ead375`; este estado distingue lo verificado de lo que todavía necesita trabajo.
+
+| Área | Estado comprobado |
+|---|---|
+| Plantilla y estilo | Las 51 lecciones numeradas actuales pasan `python scripts/revisar_contenido.py --estricto`: encabezados dentro del límite, sin encabezados numerados ni bloques `text` de prosa detectados, y sección de referencias presente. Esto no sustituye la revisión de cada referencia. |
+| Sitio | `python -m mkdocs build --strict` termina con código 0. |
+| Datos | El ZIP de estudiantes contiene 42 entradas, pasa la comprobación CRC y contiene los datos principales y el proyecto base. Falta comprobar todas las prácticas desde QGIS con el ZIP descomprimido. |
+| Reproducción | Corregidos el nombre esperado del DEM, la indentación de los comandos y los pasos para generar soluciones y actualizar la descarga. La reconstrucción completa requiere QGIS y las fuentes descargadas; no se volvió a ejecutar en esta continuación. |
+| Inventario manual | 138 capturas/GIF y 5 tareas manuales en `PENDIENTES.md`. El generador ahora respeta los límites de cada captura y conserva su descripción completa; cuenta con pruebas de regresión. |
+
+**Siguiente trabajo:** producir las capturas y GIF reales de la interfaz en español, priorizando 2.1–2.3; recorrer los laboratorios con el paquete descargado; completar los recursos interactivos de la fase 2 que aún no estén implementados. La foto, los agradecimientos, los videos y la modalidad de distribución de soluciones requieren material o decisiones del instructor. La revisión técnica por especialistas y la validación con estudiantes siguen pendientes.
+
+---
+
 ## 1. Resumen ejecutivo
 
 El curso tiene una **base conceptual sólida y ambiciosa**: buena secuencia (fundamentos → QGIS → análisis → cartografía), enfoque en problemas territoriales reales de Bolivia, proyecto integrador, autoevaluaciones, retos y criterios de evaluación. El sitio compila sin errores (`mkdocs build --strict`).

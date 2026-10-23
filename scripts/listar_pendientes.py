@@ -10,6 +10,25 @@ import re
 RAIZ = pathlib.Path(__file__).resolve().parent.parent
 DOCS = RAIZ / "docs"
 
+
+def campos_captura(lineas, inicio, sangria):
+    """Lee solo el cuerpo indentado de la admonición, sin límite de líneas."""
+    campos, actual = {}, None
+    for linea in lineas[inicio:]:
+        if not linea.strip():
+            continue
+        ancho = len(linea) - len(linea.lstrip())
+        if ancho <= sangria:
+            break
+        campo = re.match(r"\s*-\s*\*\*([^*]+):\*\*\s*(.*)", linea)
+        if campo:
+            actual = campo.group(1)
+            campos[actual] = campo.group(2).strip()
+        elif actual:
+            campos[actual] += " " + linea.strip()
+    return campos
+
+
 def main():
     capturas, otros = [], []
     for p in sorted(DOCS.rglob("*.md")):
@@ -18,11 +37,10 @@ def main():
         for i, linea in enumerate(lineas, 1):
             m = re.match(r'\s*!!! captura "(.*)"', linea)
             if m:
-                bloque = " ".join(l.strip() for l in lineas[i:i + 6])
-                tipo = re.search(r"\*\*Tipo:\*\*\s*([^-*]+)", bloque)
-                que = re.search(r"\*\*Qué mostrar:\*\*\s*(.+?)(?: - \*\*|$)", bloque)
-                capturas.append((rel, i, m.group(1), tipo.group(1).strip(" .") if tipo else "",
-                                 que.group(1).strip()[:140] if que else ""))
+                sangria = len(linea) - len(linea.lstrip())
+                campos = campos_captura(lineas, i, sangria)
+                capturas.append((rel, i, m.group(1), campos.get("Tipo", "").strip(" ."),
+                                 campos.get("Qué mostrar", "")))
             for t in re.finditer(r"TODO-MANUAL\[([^\]]+)\]:\s*(.*?)\s*-->", linea):
                 otros.append((rel, i, t.group(1), t.group(2)))
     out = ["# Tareas manuales pendientes", "",

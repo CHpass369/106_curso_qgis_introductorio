@@ -1,0 +1,160 @@
+/* Lectura y exploración: conserva la paleta del curso. */
+.md-content__inner {
+  max-width: 48rem;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 0.8rem;
+  padding-left: 0.8rem;
+}
+
+.md-typeset {
+  line-height: 1.65;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset a,
+.md-typeset code {
+  overflow-wrap: anywhere;
+}
+
+.md-typeset h1 {
+  line-height: 1.25;
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+.md-typeset .md-typeset__table {
+  display: block;
+  padding: 0 0 0.4rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--md-default-fg-color--lighter) transparent;
+}
+
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
+  min-width: 5rem;
+  padding: 0.65rem 0.8rem;
+  overflow-wrap: anywhere;
+}
+
+.figure-scroll,
+.mermaid-scroll {
+  max-width: 100%;
+  overflow: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-color: var(--md-default-fg-color--lighter) transparent;
+}
+
+.md-typeset pre:has(> code.mermaid) {
+  max-width: 100%;
+  overflow: auto;
+}
+
+.md-typeset div.mermaid {
+  min-width: 36rem;
+}
+
+.md-typeset .mermaid svg {
+  min-width: 28rem;
+}
+
+.md-typeset figure.figura {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.md-typeset .figure-expand {
+  display: block;
+  margin: 0.5rem auto;
+  padding: 0.4rem 0.75rem;
+  color: var(--md-typeset-a-color);
+  border: 1px solid currentColor;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.7rem;
+}
+
+.figure-dialog {
+  width: min(70rem, 94vw);
+  max-width: 94vw;
+  max-height: 90dvh;
+  padding: 1rem;
+  color: var(--md-default-fg-color);
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 0.4rem;
+  overflow: hidden;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.figure-dialog .figure-scroll {
+  max-height: calc(90dvh - 6rem);
+}
+
+.figure-hint {
+  display: block;
+  margin: 0.35rem 0;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.figure-hint[hidden] { display: none; }
+
+.figure-dialog::backdrop {
+  background: rgb(0 0 0 / 70%);
+}
+
+.figure-dialog__close {
+  display: block;
+  margin-left: auto;
+  margin-bottom: 0.75rem;
+  padding: 0.45rem 0.8rem;
+  color: inherit;
+  background: var(--md-code-bg-color);
+  cursor: pointer;
+  font: inherit;
+  min-height: 44px;
+}
+
+.figure-dialog svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+:where(a, button, summary, input, [tabindex="0"]):focus-visible {
+  outline: 2px solid var(--md-typeset-a-color);
+  outline-offset: 3px;
+}
+
+/* El campo de búsqueda mantiene fondo oscuro también al abrirse. */
+[data-md-color-scheme="default"] .md-search__icon {
+  color: #f8fafc;
+}
+
+@media screen and (max-width: 40em) {
+  .md-typeset h1 { font-size: 1.65em; }
+  .md-typeset .md-button { white-space: normal; }
+  .md-typeset .admonition,
+  .md-typeset details { font-size: 0.8rem; }
+  .md-typeset .figure-expand { min-height: 44px; }
+  .md-typeset .md-content__button { margin-left: 0.35rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .md-typeset .grid.cards > ul > li,
+  .concept-node,
+  .md-nav__link {
+    transition: none;
+  }
+  .md-typeset .grid.cards > ul > li:hover { transform: none; }
+}

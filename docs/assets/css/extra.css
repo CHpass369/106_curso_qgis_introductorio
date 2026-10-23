@@ -280,7 +280,7 @@
    * Espacio real entre las tres zonas principales.
    */
   .md-main__inner {
-    gap: 2rem;
+    gap: 0.75rem;
   }
 
 
@@ -289,7 +289,7 @@
      ---------------------------------------------------------- */
 
   .md-sidebar--primary {
-    width: 17rem;
+    width: 12rem;
     flex-shrink: 0;
   }
 
@@ -299,7 +299,7 @@
      ---------------------------------------------------------- */
 
   .md-sidebar--secondary {
-    width: 17rem;
+    width: 10rem;
     flex-shrink: 0;
   }
 
@@ -314,8 +314,8 @@
   .md-content {
     min-width: 0;
 
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
@@ -594,7 +594,7 @@
    ------------------------------------------------------------ */
 
 .md-typeset table:not([class]) th {
-  text-align: center;
+  text-align: left;
   vertical-align: middle;
 }
 
@@ -604,7 +604,7 @@
    ------------------------------------------------------------ */
 
 .md-typeset table:not([class]) td {
-  text-align: center;
+  text-align: left;
   vertical-align: middle;
 }
 
@@ -2438,8 +2438,7 @@ tbody tr:hover {
 .md-typeset__scrollwrap {
   width: 100%;
   max-width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: visible;
   -webkit-overflow-scrolling: touch;
   margin: 1.2rem 0;
 }
@@ -2455,7 +2454,7 @@ tbody tr:hover {
 /* La tabla puede crecer según la cantidad de columnas */
 .md-typeset table:not([class]) {
   display: table;
-  width: max-content;
+  width: 100%;
   min-width: 100%;
   max-width: none;
   margin: 0;
@@ -2464,13 +2463,13 @@ tbody tr:hover {
 
 /* Evita que encabezados cortos se deformen demasiado */
 .md-typeset table:not([class]) th {
-  white-space: nowrap;
+  white-space: normal;
 }
 
 /* Las celdas pueden envolver texto largo */
 .md-typeset table:not([class]) td {
   white-space: normal;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
   word-break: normal;
 }
 
@@ -2485,11 +2484,11 @@ tbody tr:hover {
   border-radius: 4px;
 }
 
-/* En pantallas pequeñas evitamos que las tablas
-   intenten comprimirse dentro de la página */
-@media screen and (max-width: 76.234375em) {
-  .md-typeset table:not([class]) {
-    min-width: max-content;
+/* Las tablas se ajustan al texto; solo las que tienen muchas
+   columnas necesitan desplazamiento en pantallas pequeñas. */
+@media screen and (max-width: 40em) {
+  .md-typeset table:not([class]):has(th:nth-child(3)) {
+    min-width: 28rem;
   }
 }
 

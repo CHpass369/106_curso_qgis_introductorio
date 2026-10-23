@@ -13,9 +13,12 @@ Este documento define **cómo se escribe y se estructura** el material del Curso
     mkdocs serve          # vista previa en http://127.0.0.1:8000
     mkdocs build --strict # debe terminar sin advertencias
     python scripts/revisar_contenido.py   # métricas de estilo
+    python -m unittest discover -s scripts -p "test_*.py"
     ```
 
 4. Abre un *pull request*. La integración continua ejecuta `mkdocs build --strict`.
+
+Cuando cambies un marcador `!!! captura` o `TODO-MANUAL`, regenera el inventario con `python scripts/listar_pendientes.py`. Revisa y guarda también el cambio en `PENDIENTES.md`; ese archivo se genera, no se edita a mano.
 
 ## 2. Plantilla de lección
 

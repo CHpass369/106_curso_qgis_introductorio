@@ -51,19 +51,26 @@ Contiene la carpeta `curso-qgis/` lista para usar: datos originales, datos de ej
 
 ??? info "Cómo se construyó el paquete (reproducible)"
 
-    El paquete se genera con dos scripts del [repositorio](https://github.com/chpass369/106_curso_qgis_introductorio/tree/main/scripts), ejecutados con el Python de QGIS 4.x:
+    Ejecuta los scripts desde la raíz del [repositorio](https://github.com/chpass369/106_curso_qgis_introductorio/tree/main/scripts). Los scripts de datos, figuras y soluciones requieren el Python de QGIS 4.x; el empaquetador usa Python estándar. En los comandos siguientes, `python-qgis` representa el lanzador de Python de tu instalación de QGIS (en Windows, `python-qgis.bat` dentro de su carpeta `bin`).
 
     1. Descarga las fuentes:
         - `bolivia-AAMMDD.osm.pbf` de <https://download.geofabrik.de/south-america/bolivia.html>
-        - Tesela `Copernicus_DSM_COG_10_S18_00_W067_00_DEM.tif` del bucket público `copernicus-dem-30m` de AWS
+        - Tesela `Copernicus_DSM_COG_10_S18_00_W067_00_DEM.tif` del bucket público `copernicus-dem-30m` de AWS; guárdala en `FUENTES/` con el nombre `cop30_S18_W067.tif`, que espera el script
         - `bol_ppp_2020_constrained.tif` de <https://www.worldpop.org>
-    2. Ejecuta:
+    2. Construye los datos, el proyecto base, las figuras y las soluciones. `FUENTES` es la carpeta de descargas y `SALIDA` una carpeta de trabajo:
+
+        !!! warning "Usa una carpeta de salida dedicada"
+
+            El constructor elimina y vuelve a crear `SALIDA/curso-qgis`. No uses una carpeta con proyectos o datos personales.
 
         ```bash
         python-qgis scripts/construir_paquete_datos.py FUENTES SALIDA/curso-qgis
         python-qgis scripts/generar_figuras_y_proyecto.py SALIDA/curso-qgis
-    python-qgis scripts/generar_figuras_modulo4.py SALIDA/curso-qgis
-    python scripts/empaquetar_paquete.py SALIDA/curso-qgis
+        python-qgis scripts/soluciones_modulo3.py SALIDA/curso-qgis
+        python-qgis scripts/generar_figuras_modulo4.py SALIDA/curso-qgis
+        python scripts/empaquetar_paquete.py SALIDA/curso-qgis
         ```
 
-    El segundo script también genera las figuras de mapas que ves en este sitio.
+    Sentinel-2 se descarga directamente desde el catálogo abierto de AWS durante la construcción. Los generadores de figuras actualizan `docs/assets/images/mapas/`; las soluciones se guardan en `SALIDA/soluciones/`, fuera del paquete para estudiantes.
+
+    3. Copia `SALIDA/curso-qgis-cochabamba.zip` a `docs/descargas/curso-qgis-cochabamba.zip` para actualizar la descarga del sitio. Comprueba la compilación con `python -m mkdocs build --strict`.
